@@ -1,4 +1,4 @@
-package Model.Dao;
+package model.Dao;
 
 import Model.Beans.Student;
 

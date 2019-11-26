@@ -1,4 +1,4 @@
-package Model.Beans;
+package model.Beans;
 
 public class Student
 {
