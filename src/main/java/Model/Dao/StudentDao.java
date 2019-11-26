@@ -1,14 +1,15 @@
 package model.Dao;
 
 import model.Beans.Student;
+import model.DataModel;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class StudentDao
+public class StudentDao extends DataModel
 {
   // Create a variable for the connection string.
-  private String connectionUrl = "jdbc:sqlserver://planner.database.windows.net:1433;database=ExaminationPlanner;user=databaseadmin@planner;password=Pass-2019;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
+
 
   /**
    * Get All Students
