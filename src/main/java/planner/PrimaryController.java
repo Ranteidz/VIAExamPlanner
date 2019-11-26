@@ -2,11 +2,14 @@ package planner;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import model.DataModel;
 
 public class PrimaryController {
 
-    @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+private DataModel model;
+
+    public void setModel(DataModel model)
+    {
+        this.model = model;
     }
 }
