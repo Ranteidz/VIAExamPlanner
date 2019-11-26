@@ -25,7 +25,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.PrimaryController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.PrimaryController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -95,6 +95,7 @@
                                     <ListView layoutX="26.0" layoutY="87.0" prefHeight="402.0" prefWidth="567.0" />
                                     <Button layoutX="555.0" layoutY="493.0" mnemonicParsing="false" text="Add" />
                                     <Button layoutX="441.0" layoutY="46.0" mnemonicParsing="false" text="Set date" />
+                                    <Button fx:id="ButtonTest" layoutX="251.0" layoutY="493.0" mnemonicParsing="false" onAction="#MethodTesting" text="METHOD TESTING BUTTON" />
                           </children>
                         </AnchorPane>
                       </content>
