@@ -1,4 +1,4 @@
-package model.Beans;
+package model.beans;
 
 public class ClassRoom
 {

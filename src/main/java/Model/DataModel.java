@@ -1,7 +1,7 @@
 package model;
 
-import model.Beans.Student;
-import model.Dao.StudentDao;
+import model.beans.Student;
+import model.dao.StudentDao;
 import java.util.ArrayList;
 
 public class DataModel

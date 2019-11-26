@@ -1,12 +1,10 @@
 package planner;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import model.Beans.Student;
-import model.Dao.StudentDao;
+import model.beans.Student;
+import model.dao.StudentDao;
 import model.DataModel;
 
 public class PrimaryController {

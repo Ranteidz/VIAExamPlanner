@@ -1,6 +1,6 @@
-package model.Dao;
+package model.dao;
 
-import model.Beans.Student;
+import model.beans.Student;
 import model.DataModel;
 
 import java.sql.*;
