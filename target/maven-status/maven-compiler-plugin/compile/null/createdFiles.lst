@@ -1,8 +1,8 @@
 planner\SecondaryController.class
-model\Dao\StudentDao.class
 model\DataModel.class
-model\Beans\ClassRoom.class
+model\dao\StudentDao.class
 module-info.class
 planner\PrimaryController.class
-model\Beans\Student.class
+model\beans\ClassRoom.class
+model\beans\Student.class
 planner\App.class

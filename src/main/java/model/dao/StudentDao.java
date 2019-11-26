@@ -17,7 +17,7 @@ public class StudentDao extends DataModel
    */
   public ArrayList<Student> getStudents() {
     ArrayList<Student> Students = new ArrayList<>();
-    try (Connection con = DriverManager.getConnection(connectionUrl); Statement stmt = con.createStatement()) {
+    try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString()); Statement stmt = con.createStatement()) {
       String SQL = "SELECT * FROM dbo.Students";
       ResultSet rs = stmt.executeQuery(SQL);
 
@@ -44,7 +44,8 @@ public class StudentDao extends DataModel
 
     ArrayList<Student> Students = new ArrayList<>();
 
-    try (Connection con = DriverManager.getConnection(connectionUrl)) {
+
+    try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString())) {
       String SQL = "SELECT * FROM dbo.Students WHERE Name=? ";
       PreparedStatement preparedStatement
           = con.prepareStatement(SQL);
@@ -76,7 +77,7 @@ public class StudentDao extends DataModel
 
     ArrayList<Student> Students = new ArrayList<>();
 
-    try (Connection con = DriverManager.getConnection(connectionUrl)) {
+    try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString())) {
       String SQL = "SELECT * FROM dbo.Students WHERE Surname=? ";
       PreparedStatement preparedStatement
           = con.prepareStatement(SQL);
