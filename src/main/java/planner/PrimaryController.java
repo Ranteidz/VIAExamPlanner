@@ -54,7 +54,7 @@ public class PrimaryController {
         ArrayList<Student> students = DataModel.getStudentAll();
 
         for (Student member : students) {
-            System.out.println(member);
+            studentTable.getItems().add(member);
         }
     }
 
