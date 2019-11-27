@@ -19,8 +19,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
@@ -196,6 +199,21 @@
                                        </columnResizePolicy>
                                     </TableView>
                                     <Button layoutX="557.0" layoutY="499.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <GridPane layoutX="12.0" layoutY="488.0" prefHeight="30.0" prefWidth="536.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="55.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <TextField fx:id="studentIDinput" promptText="Student ID" />
+                                          <TextField fx:id="studentFirstNameInput" promptText="First Name" GridPane.columnIndex="1" />
+                                          <TextField fx:id="studentLastNameInput" promptText="Last Name" GridPane.columnIndex="2" />
+                                       </children>
+                                    </GridPane>
                                  </children>
                               </AnchorPane>
                            </content>

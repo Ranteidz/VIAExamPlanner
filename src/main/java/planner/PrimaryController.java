@@ -28,7 +28,10 @@ public class PrimaryController {
         this.model = model;
     }
 
-    public void MethodTesting(ActionEvent actionEvent) {
+
+    public void MethodTesting(ActionEvent actionEvent)
+    {
+        System.out.println("test");
         StudentDao dao = new StudentDao();
         ArrayList<Student> students = DataModel.getStudentAll();
 
