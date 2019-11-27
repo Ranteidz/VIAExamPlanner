@@ -2,6 +2,10 @@ package planner;
 
 import java.util.ArrayList;
 
+import javafx.beans.Observable;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import model.beans.Student;
 import model.dao.StudentDao;
@@ -10,6 +14,7 @@ import model.DataModel;
 public class PrimaryController {
 
 private DataModel model;
+private ArrayList<Student> studentsTest = DataModel.getStudentAll();
 
     public void setModel(DataModel model)
     {
@@ -26,4 +31,14 @@ private DataModel model;
             System.out.println(member);
         }
     }
+
+    final ObservableList<Student> dataStudents = FXCollections.observableArrayList(studentsTest);
+
+    public void addClassroom()
+    {
+        System.out.println("Classroom added");
+    }
+
+
+
 }
