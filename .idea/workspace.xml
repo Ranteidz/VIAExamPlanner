@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Beans/ClassRoom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Beans/Student.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Dao/StudentDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/SecondaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/primary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/secondary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" />
-    </list>
+    <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +51,7 @@
   <component name="ProjectId" id="1U7SuFynv3L6iDpQ7JCnKsTl4CS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
