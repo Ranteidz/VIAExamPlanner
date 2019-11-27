@@ -24,7 +24,7 @@ public class PrimaryController {
     @FXML
     private TextField inputClassroomCapacity;
     @FXML
-    private TableView<ClassRoom> tableClassroom = new TableView<>();
+    private TableView<ClassRoom> tableClassroom;
     @FXML
     private TextField studentIDinput;
     @FXML
@@ -39,6 +39,15 @@ public class PrimaryController {
     public TableColumn<Student, String> studentFirstName;
     @FXML
     public TableColumn<Student, String> studentLastName;
+    @FXML
+    public TableColumn<ClassRoom, String> columnClassroom;
+    @FXML
+    public TableColumn<ClassRoom, Integer> columnCapacity;
+    @FXML
+    public TableColumn<ClassRoom, Boolean> columnHDMI;
+    @FXML
+    public TableColumn<ClassRoom, Boolean> columnVGA;
+
 
     public void setModel(DataModel model) {
         this.model = model;
@@ -56,6 +65,10 @@ public class PrimaryController {
         studentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
         studentFirstName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentFirstName"));
         studentLastName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentLastName"));
+        columnClassroom.setCellValueFactory(new PropertyValueFactory<ClassRoom,String>("name"));
+        columnCapacity.setCellValueFactory(new PropertyValueFactory<ClassRoom,Integer>("capacity"));
+        columnHDMI.setCellValueFactory(new PropertyValueFactory<ClassRoom,Boolean>("hasHDMI"));
+        columnVGA.setCellValueFactory(new PropertyValueFactory<ClassRoom,Boolean>("hasVGA"));
 
 /*        studentTable.setItems(data);
         System.out.println(data);*/
@@ -73,12 +86,12 @@ public class PrimaryController {
 
 
 
-    public void addClassroom() throws NullPointerException {
-        ClassRoom classRoom = new ClassRoom();
-        classRoom.setName(inputClassroomName.getText());
+    public void addClassroom() {
+        ClassRoom classRoom = new ClassRoom(inputClassroomName.getText(), Integer.parseInt(inputClassroomCapacity.getText()), true, false);
+        /*classRoom.setName(inputClassroomName.getText());
         classRoom.setCapacity(Integer.parseInt(inputClassroomCapacity.getText()));
         classRoom.setHasHDMI(true);
-        classRoom.setHasHDMI(false);
+        classRoom.setHasHDMI(false);*/
         System.out.println("Classroom added");
         tableClassroom.getItems().add(classRoom);
         inputClassroomName.clear();
