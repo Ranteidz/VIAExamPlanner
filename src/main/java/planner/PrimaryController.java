@@ -45,20 +45,9 @@ public class PrimaryController {
     }
 
     public void initialize(){
-
-/*        final ObservableList<Student> data = FXCollections.observableArrayList(
-                new Student(1, "A", "A"),
-                new Student(2, "B", "A"),
-                new Student(3, "C", "A"),
-                new Student(4, "D", "A"),
-                new Student(5, "F", "A"));*/
-
         studentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
         studentFirstName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentFirstName"));
         studentLastName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentLastName"));
-
-/*        studentTable.setItems(data);
-        System.out.println(data);*/
     }
 
     public void MethodTesting(ActionEvent actionEvent) {
