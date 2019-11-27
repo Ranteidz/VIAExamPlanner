@@ -22,7 +22,7 @@ public class App extends Application {
         controller.setModel(model);
 
         primaryStage.setTitle("VIA EXAM PLANNER");
-        primaryStage.setScene(new Scene(root, 600, 600));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 

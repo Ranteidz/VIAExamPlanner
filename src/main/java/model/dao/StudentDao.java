@@ -107,9 +107,9 @@ public class StudentDao extends DataModel
    */
   private void process(ResultSet rs, Student student) throws SQLException {
     // Student
-    student.setId(rs.getInt("ID"));
-    student.setName(rs.getString("Name"));
-    student.setSurname(rs.getString("Surname"));
+    student.setStudentID(rs.getInt("ID"));
+    student.setStudentFirstName(rs.getString("Name"));
+    student.setStudentLastName(rs.getString("Surname"));
   }
 }
 
