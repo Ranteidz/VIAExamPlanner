@@ -2,8 +2,6 @@ package planner;
 
 import java.util.ArrayList;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -34,20 +32,20 @@ public class PrimaryController {
     @FXML
     private TableView<Student> studentTable;
     @FXML
-    public TableColumn<Student, Integer> studentId;
+    public TableColumn<Student, Integer> studentIdColumn;
     @FXML
-    public TableColumn<Student, String> studentFirstName;
+    public TableColumn<Student, String> studentFirstNameColumn;
     @FXML
-    public TableColumn<Student, String> studentLastName;
+    public TableColumn<Student, String> studentLastNameColumn;
 
     public void setModel(DataModel model) {
         this.model = model;
     }
 
     public void initialize(){
-        studentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
-        studentFirstName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentFirstName"));
-        studentLastName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentLastName"));
+        studentIdColumn.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
+        studentFirstNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("studentFirstName"));
+        studentLastNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("studentLastName"));
     }
 
     public void MethodTesting(ActionEvent actionEvent) {
