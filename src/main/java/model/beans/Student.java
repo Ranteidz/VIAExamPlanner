@@ -1,54 +1,51 @@
 package model.beans;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Student
 {
-  private int id;
-  private String name;
-  private String surname;
+  private IntegerProperty studentId = new SimpleIntegerProperty();
+  private StringProperty studentFirstName = new SimpleStringProperty();
+  private StringProperty studentLastName = new SimpleStringProperty();
 
   public Student()
-  {
+  { }
+
+  public Student(int studentId, String studentFirstName, String studentLastName) {
+    this.studentId.set(studentId);
+    this.studentFirstName.set(studentFirstName);
+    this.studentLastName.set(studentLastName);
   }
 
-  public Student(int id, String name, String surname)
-  {
-    this.id=id;
-    this.name=name;
-    this.surname=surname;
+  public IntegerProperty studentIdProperty() {
+    return studentId;
   }
 
-  public int getId()
-  {
-    return id;
+  public void setStudentID(int studentId) {
+    this.studentId.setValue(studentId);
   }
 
-  public void setId(int id)
-  {
-    this.id = id;
+  public StringProperty studentFirstNameProperty() {
+    return studentFirstName;
   }
 
-  public String getName()
-  {
-    return name;
+  public void setStudentFirstName(String studentFirstName) {
+    this.studentFirstName.set(studentFirstName);
   }
 
-  public void setName(String name)
-  {
-    this.name = name;
+  public StringProperty studentLastNameProperty() {
+    return studentLastName;
   }
 
-  public String getSurname()
-  {
-    return surname;
-  }
-
-  public void setSurname(String surname)
-  {
-    this.surname = surname;
+  public void setStudentLastName(String studentLastName) {
+    this.studentLastName.set(studentLastName);
   }
 
   @Override public String toString()
   {
-    return id + " " + name +" "+ surname ;
+    return studentId + " " + studentFirstName +" "+ studentLastName ;
   }
 }

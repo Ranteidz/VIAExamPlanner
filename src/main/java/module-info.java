@@ -4,5 +4,6 @@ module planner {
     requires java.sql;
 
     opens planner to javafx.fxml;
+    opens model.beans;
     exports planner;
 }
