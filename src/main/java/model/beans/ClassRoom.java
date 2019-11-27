@@ -1,49 +1,56 @@
 package model.beans;
 
-public class ClassRoom
-{
-  private String name;
-  private int capacity;
-  private boolean hasHDMI;
-  private boolean isAvailable;
+public class ClassRoom {
+    private String name;
+    private int capacity;
+    private boolean hasHDMI;
+    private boolean hasVGA;
+    private boolean isAvailable;
 
-  public ClassRoom(String name,int capacity){
-    this.name = name;
-    this.capacity = capacity;
-    hasHDMI = false;
-  }
+    public ClassRoom()
+    {
+        this.name = "";
+        this.capacity = 0;
+        hasHDMI = false;
+        hasVGA = false;
+    }
 
-  public String getName()
-  {
-    return name;
-  }
+    public ClassRoom(String name, int capacity) {
+        this.name = name;
+        this.capacity = capacity;
+        hasHDMI = false;
+    }
 
-  public void setName(String name)
-  {
-    this.name = name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public int getCapacity()
-  {
-    return capacity;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public void setCapacity(int capacity)
-  {
-    this.capacity = capacity;
-  }
+    public int getCapacity() {
+        return capacity;
+    }
 
-  public boolean isHasHDMI()
-  {
-    return hasHDMI;
-  }
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public boolean isHasHDMI() {
+        return hasHDMI;
+    }
 
 
-  public void setHasHDMI(boolean hasHDMI)
-  {
-    this.hasHDMI = hasHDMI;
-  }
-  public String toString(){
-    return this.name +" "+this.capacity+ " "+this.hasHDMI;
-  }
+    public void setHasHDMI(boolean hasHDMI) {
+        this.hasHDMI = hasHDMI;
+    }
+
+    public void setHasVGA(boolean hasVGA) {
+        this.hasVGA = hasVGA;
+    }
+
+    public String toString() {
+        return this.name + " " + this.capacity + " " + this.hasHDMI;
+    }
 }

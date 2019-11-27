@@ -68,7 +68,7 @@
     </MenuBar>
       <TabPane VBox.vgrow="ALWAYS">
          <tabs>
-            <Tab closable="false" text="Schedule">
+            <Tab text="Schedule">
                <content>
                 <SplitPane dividerPositions="0.6937639198218263" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
                   <items>
@@ -111,20 +111,19 @@
                               <Label layoutX="14.0" layoutY="142.0" text="Students: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="140.0" />
                               <ListView layoutX="14.0" layoutY="161.0" prefHeight="330.0" prefWidth="246.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="160.0" />
                               <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Cancel Exam" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                              <Button layoutX="111.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="100.0" />
                       </children>
                     </AnchorPane>
                   </items>
                 </SplitPane>
                </content>
             </Tab>
-             <Tab closable="false" text="Classrooms">
+             <Tab text="Classrooms">
                  <content>
                      <SplitPane dividerPositions="0.6937639198218263" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
                          <items>
                              <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
                                  <content>
-                                     <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="523.0" prefWidth="606.0">
+                                     <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="526.0" prefWidth="606.0">
                                          <children>
                                              <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                                                  <font>
@@ -139,16 +138,18 @@
                                              <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
                                              <TableView fx:id="tableClassroom" layoutX="14.0" layoutY="86.0" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                                  <columns>
-                                                     <TableColumn prefWidth="104.00003242492676" text="ID" />
-                                                     <TableColumn prefWidth="476.80001068115234" text="Name" />
+                                                     <TableColumn prefWidth="138.0" text="Classroom" />
+                                                     <TableColumn prefWidth="272.0" text="Capacity" />
+                                          <TableColumn prefWidth="272.0" text="HDMI" />
+                                          <TableColumn prefWidth="272.0" text="VGA" />
                                                  </columns>
                                                  <columnResizePolicy>
                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                                  </columnResizePolicy>
                                              </TableView>
                                              <Button layoutX="557.0" layoutY="499.0" mnemonicParsing="false" onAction="#addClassroom" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                    <TextField layoutX="102.0" layoutY="491.0" promptText="ID" />
-                                    <TextField layoutX="312.0" layoutY="491.0" promptText="Name" />
+                                    <TextField fx:id="inputClassroomName" layoutX="10.0" layoutY="491.0" prefHeight="25.0" prefWidth="141.0" promptText="Classroom" />
+                                    <TextField fx:id="inputClassroomCapacity" layoutX="163.0" layoutY="491.0" prefHeight="25.0" prefWidth="98.0" promptText="Capacity" />
                                          </children>
                                      </AnchorPane>
                                  </content>
@@ -156,19 +157,17 @@
                              <AnchorPane>
                                  <children>
                                      <Label alignment="CENTER" font="$x111" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x211" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                                     <Label layoutX="14.0" layoutY="52.0" text="Classroom ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                     <Label layoutX="14.0" layoutY="70.0" text="Capacity:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                     <Label layoutX="14.0" layoutY="88.0" text="HDMI:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
-                              <Label layoutX="24.0" layoutY="98.0" text="VGA:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
-                              <Button layoutX="95.0" layoutY="495.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+                                     <Label layoutX="14.0" layoutY="52.0" text="Name: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                                     <Label layoutX="14.0" layoutY="70.0" text="ID: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
+                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Cancel Exam" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                     <Label layoutX="14.0" layoutY="88.0" text="Co-examiner:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
                                  </children>
                              </AnchorPane>
                          </items>
                      </SplitPane>
                  </content>
              </Tab>
-            <Tab closable="false" text="Students">
+            <Tab text="Students">
                <content>
                   <SplitPane dividerPositions="0.6937639198218263" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
                      <items>
@@ -204,18 +203,16 @@
                         <AnchorPane>
                            <children>
                               <Label alignment="CENTER" font="$x11" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x21" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                              <Label layoutX="14.0" layoutY="52.0" text="Student ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                              <Label layoutX="14.0" layoutY="70.0" text="First Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                              <Button layoutX="164.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                              <Button layoutX="151.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
-                              <Label layoutX="10.0" layoutY="78.0" text="Last Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
+                              <Label layoutX="14.0" layoutY="52.0" text="Name: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                              <Label layoutX="14.0" layoutY="70.0" text="ID: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
+                              <Button layoutX="164.0" layoutY="495.0" mnemonicParsing="false" text="Delete Student" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                            </children>
                         </AnchorPane>
                      </items>
                   </SplitPane>
                </content>
             </Tab>
-            <Tab closable="false" text="Examiners">
+            <Tab text="Examiners">
                <content>
                   <SplitPane dividerPositions="0.6937639198218263" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
                      <items>
@@ -251,24 +248,17 @@
                         <AnchorPane>
                            <children>
                               <Label alignment="CENTER" font="$x111" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x211" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                              <Label layoutX="14.0" layoutY="52.0" text="Examiner ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                              <Label layoutX="14.0" layoutY="70.0" text="First Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                              <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                              <Label layoutX="14.0" layoutY="88.0" text="Last Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
-                              <Button layoutX="137.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
-                              <Label layoutX="14.0" layoutY="107.0" text="Unavailable on:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
-                              <TableView layoutX="14.0" layoutY="118.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="120.0">
-                                <columns>
-                                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="250.0" prefWidth="250.0" resizable="false" text="Date" />
-                                </columns>
-                              </TableView>
+                              <Label layoutX="14.0" layoutY="52.0" text="Name: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                              <Label layoutX="14.0" layoutY="70.0" text="ID: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
+                              <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Cancel Exam" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                              <Label layoutX="14.0" layoutY="88.0" text="Co-examiner:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
                            </children>
                         </AnchorPane>
                      </items>
                   </SplitPane>
                </content>
             </Tab>
-             <Tab closable="false" text="Courses">
+             <Tab text="Courses">
                  <content>
                      <SplitPane dividerPositions="0.6937639198218263" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
                          <items>
@@ -304,20 +294,10 @@
                              <AnchorPane>
                                  <children>
                                      <Label alignment="CENTER" font="$x111" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x211" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                                     <Label layoutX="14.0" layoutY="52.0" text="Course ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                     <Label layoutX="14.0" layoutY="70.0" text="Exam type:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                     <Label layoutX="14.0" layoutY="88.0" text="Students:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
-                              <Button layoutX="128.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
-                              <TableView layoutX="10.0" layoutY="98.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
-                                <columns>
-                                  <TableColumn prefWidth="91.99993705749512" text="ID" />
-                                  <TableColumn prefWidth="160.00012969970703" text="Name" />
-                                </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
+                                     <Label layoutX="14.0" layoutY="52.0" text="Name: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                                     <Label layoutX="14.0" layoutY="70.0" text="ID: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
+                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Cancel Exam" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                     <Label layoutX="14.0" layoutY="88.0" text="Co-examiner:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
                                  </children>
                              </AnchorPane>
                          </items>
