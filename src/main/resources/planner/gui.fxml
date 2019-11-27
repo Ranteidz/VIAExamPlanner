@@ -192,9 +192,9 @@
                                     <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
                                     <TableView fx:id="studentTable" layoutX="14.0" layoutY="86.0" prefHeight="407.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                       <columns>
-                                        <TableColumn fx:id="studentIdColumn" prefWidth="104.00003242492676" text="ID" />
-                                        <TableColumn fx:id="studentFirstNameColumn" prefWidth="476.80001068115234" text="First Name" />
-                                          <TableColumn fx:id="studentLastNameColumn" prefWidth="75.0" text="Last Name" />
+                                        <TableColumn fx:id="studentId" prefWidth="104.00003242492676" text="ID" />
+                                        <TableColumn fx:id="studentFirstName" prefWidth="476.80001068115234" text="First Name" />
+                                          <TableColumn fx:id="studentLastName" prefWidth="75.0" text="Last Name" />
                                       </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
