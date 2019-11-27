@@ -2,8 +2,6 @@ package planner;
 
 import java.util.ArrayList;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -34,9 +32,9 @@ public class PrimaryController {
     @FXML
     private TableView<Student> studentTable;
     @FXML
-    public TableColumn<Student, Integer> studentId;
+    public TableColumn<Student, Integer> studentIdColumn;
     @FXML
-    public TableColumn<Student, String> studentFirstName;
+    public TableColumn<Student, String> studentFirstNameColumn;
     @FXML
     public TableColumn<Student, String> studentLastName;
     @FXML
@@ -69,9 +67,6 @@ public class PrimaryController {
         columnCapacity.setCellValueFactory(new PropertyValueFactory<ClassRoom,Integer>("capacity"));
         columnHDMI.setCellValueFactory(new PropertyValueFactory<ClassRoom,Boolean>("hasHDMI"));
         columnVGA.setCellValueFactory(new PropertyValueFactory<ClassRoom,Boolean>("hasVGA"));
-
-/*        studentTable.setItems(data);
-        System.out.println(data);*/
     }
 
     public void MethodTesting(ActionEvent actionEvent) {
@@ -80,7 +75,7 @@ public class PrimaryController {
         ArrayList<Student> students = DataModel.getStudentAll();
 
         for (Student member : students) {
-            System.out.println(member);
+            studentTable.getItems().add(member);
         }
     }
 

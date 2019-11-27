@@ -185,7 +185,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574859009632</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add students to table from user input&#10;6h of work * 3 people">
+      <created>1574872588559</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1574872588559</updated>
+    </task>
+    <task id="LOCAL-00010" summary="remove uneccesary code">
+      <created>1574872647666</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1574872647666</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -285,7 +299,9 @@
     <MESSAGE value="Change Folder Name" />
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI" />
+    <MESSAGE value="Add students to table from user input&#10;6h of work * 3 people" />
+    <MESSAGE value="remove uneccesary code" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove uneccesary code" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>
