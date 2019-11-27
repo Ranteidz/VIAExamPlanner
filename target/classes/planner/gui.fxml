@@ -98,6 +98,52 @@
                 </SplitPane>
                </content>
             </Tab>
+             <Tab text="Classrooms">
+                 <content>
+                     <SplitPane dividerPositions="0.6937639198218263" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
+                         <items>
+                             <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                                 <content>
+                                     <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="526.0" prefWidth="606.0">
+                                         <children>
+                                             <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                 <font>
+                                                     <Font size="18.0" fx:id="x111" />
+                                                 </font>
+                                                 <textFill>
+                                                     <Color red="0.624" green="0.624" blue="0.624" fx:id="x211" />
+                                                 </textFill>
+                                             </Label>
+                                             <Label layoutX="14.0" layoutY="52.0" text="Search: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                                             <TextField layoutX="63.0" layoutY="48.0" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
+                                             <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
+                                             <TableView layoutX="14.0" layoutY="86.0" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                                 <columns>
+                                                     <TableColumn prefWidth="104.00003242492676" text="ID" />
+                                                     <TableColumn prefWidth="476.80001068115234" text="Name" />
+                                                 </columns>
+                                                 <columnResizePolicy>
+                                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                 </columnResizePolicy>
+                                             </TableView>
+                                             <Button layoutX="557.0" layoutY="499.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                         </children>
+                                     </AnchorPane>
+                                 </content>
+                             </ScrollPane>
+                             <AnchorPane>
+                                 <children>
+                                     <Label alignment="CENTER" font="$x111" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x211" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                     <Label layoutX="14.0" layoutY="52.0" text="Name: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                                     <Label layoutX="14.0" layoutY="70.0" text="ID: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
+                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Cancel Exam" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                     <Label layoutX="14.0" layoutY="88.0" text="Co-examiner:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
+                                 </children>
+                             </AnchorPane>
+                         </items>
+                     </SplitPane>
+                 </content>
+             </Tab>
             <Tab text="Students">
                <content>
                   <SplitPane dividerPositions="0.6937639198218263" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
@@ -189,7 +235,7 @@
                   </SplitPane>
                </content>
             </Tab>
-             <Tab text="Classrooms">
+             <Tab text="Courses">
                  <content>
                      <SplitPane dividerPositions="0.6937639198218263" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
                          <items>
