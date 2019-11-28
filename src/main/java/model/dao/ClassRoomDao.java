@@ -35,10 +35,11 @@ public class ClassRoomDao
 
   private void process(ResultSet rs, ClassRoom classRoom) throws SQLException
   {
-    // Examiner
+    // Classroom
     classRoom.setName(rs.getString("ID"));
-    classRoom.setExaminerFirstName(rs.getString("Name"));
-    classRoom.setExaminerLastName(rs.getString("Surname"));
+    classRoom.setCapacity(rs.getInt("Capacity"));
+    classRoom.setHdmi(rs.getBoolean("HasHDMI"));
+    classRoom.setVga(rs.getBoolean("HasVGA"));
   }
 
 
