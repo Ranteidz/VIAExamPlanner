@@ -1,19 +1,13 @@
-E:\Java Projects\VIAExamPlanner\src\main\java\model\dao\StudentDao.java
-E:\Java Projects\VIAExamPlanner\src\main\java\module-info.java
-E:\Java Projects\VIAExamPlanner\src\main\java\model\dao\ExaminerDao.java
-E:\Java Projects\VIAExamPlanner\src\main\java\planner\PrimaryController.java
-E:\Java Projects\VIAExamPlanner\src\main\java\model\beans\ClassRoom.java
-E:\Java Projects\VIAExamPlanner\src\main\java\model\DataModel.java
-E:\Java Projects\VIAExamPlanner\src\main\java\planner\App.java
-E:\Java Projects\VIAExamPlanner\src\main\java\model\beans\Student.java
-E:\Java Projects\VIAExamPlanner\src\main\java\planner\SecondaryController.java
-C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\module-info.java
-C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\planner\PrimaryController.java
-C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\DataModel.java
-C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\dao\TeacherDAO.java
-C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\beans\Student.java
-C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\planner\App.java
-C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\beans\ClassRoom.java
-C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\planner\SecondaryController.java
-C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\dao\StudentDao.java
-
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\model\beans\Student.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\model\DataModel.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\model\dao\ClassRoomDao.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\model\beans\Examiner.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\model\beans\ClassRoom.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\model\beans\Date.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\model\dao\StudentDao.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\model\dao\ExaminerDao.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\planner\App.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\module-info.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\planner\AddExaminerController.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\model\beans\Course.java
+C:\Users\Ranteidz\Documents\GitHub\VIAExamPlanner\src\main\java\planner\PrimaryController.java

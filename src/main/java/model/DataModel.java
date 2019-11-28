@@ -1,7 +1,9 @@
 package model;
 
 import javafx.scene.control.TableView;
+import model.beans.Examiner;
 import model.beans.Student;
+import model.dao.ExaminerDao;
 import model.dao.StudentDao;
 
 import java.sql.*;
@@ -55,6 +57,11 @@ public static void createCourseTable() throws Exception
     StudentDao studentsDAO = new StudentDao();
     return studentsDAO.getStudents();
   }
+  static public ArrayList<Examiner> getExaminersALL()
+  {
+    ExaminerDao examinerDao = new ExaminerDao();
+    return examinerDao.getExaminers();
+  }
 
   static public ArrayList<Student> getStudentByName(String studentName)
   {
@@ -94,10 +101,7 @@ public static void createCourseTable() throws Exception
     }
     return studentList;
   }
-public void showStudents(){
-    ArrayList<Student> studentTable = studentTable();
-  TableView tableView = new TableView();
-}
+
 
 
 
