@@ -7,41 +7,41 @@ import javafx.beans.property.StringProperty;
 
 public class Examiner
 {
-  private IntegerProperty examinerId = new SimpleIntegerProperty();
+  private StringProperty examinerId = new SimpleStringProperty();
   private StringProperty examinerFirstName = new SimpleStringProperty();
   private StringProperty examinerLastName = new SimpleStringProperty();
 
   public Examiner()
   { }
 
-  public Examiner(int examinerId, String examinerFirstName, String examinerLastName) {
+  public Examiner(String examinerId, String examinerFirstName, String examinerLastName) {
     this.examinerId.set(examinerId);
     this.examinerFirstName.set(examinerFirstName);
     this.examinerLastName.set(examinerLastName);
   }
 
-  public IntegerProperty studentIdProperty() {
+  public void setExaminerId(String examinerId) {
+    this.examinerId.set(examinerId);
+  }
+
+  public void setExaminerFirstName(String examinerFirstName) {
+    this.examinerFirstName.set(examinerFirstName);
+  }
+
+  public void setExaminerLastName(String examinerLastName) {
+    this.examinerLastName.set(examinerLastName);
+  }
+
+  public StringProperty examinerIdProperty () {
     return examinerId;
   }
 
-  public void setStudentID(int studentId) {
-    this.examinerId.setValue(studentId);
-  }
-
-  public StringProperty studentFirstNameProperty() {
+  public StringProperty examinerFirstNameProperty() {
     return examinerFirstName;
   }
 
-  public void setStudentFirstName(String studentFirstName) {
-    this.examinerFirstName.set(studentFirstName);
-  }
-
-  public StringProperty studentLastNameProperty() {
+  public StringProperty examinerLastNameProperty() {
     return examinerLastName;
-  }
-
-  public void setStudentLastName(String studentLastName) {
-    this.examinerLastName.set(studentLastName);
   }
 
   @Override public String toString()
