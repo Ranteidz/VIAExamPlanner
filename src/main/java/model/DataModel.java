@@ -15,6 +15,40 @@ public class DataModel
   {
     return "jdbc:sqlserver://planner.database.windows.net:1433;database=ExaminationPlanner;user=databaseadmin@planner;password=Pass-2019;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
   }
+//This will probably be  unnecessary in the future, but just in case.
+public static void createCourseTable() throws Exception
+{
+  try
+  {
+    Connection con = DriverManager.getConnection(getDatabaseConnectionString());
+    PreparedStatement create = con.prepareStatement(
+        "CREATE TABLE IF NOT EXISTS tablename(id int NOT NULL,PRIMARY KEY(id))");
+    create.executeUpdate();
+  }
+  catch (Exception e)
+  {
+    System.out.println(e);
+  }
+  finally
+  {
+    System.out.println("Worked");
+  }
+}
+//var1,2,3 need to be changed to GUI Student add variables
+    public static void post() throws Exception{
+      final int var1 = 12;
+      final String var2 = "Testinski";
+      final String var3 = "Testovic";
+      try{
+        Connection con = DriverManager.getConnection(getDatabaseConnectionString());
+        PreparedStatement posted = con.prepareStatement("INSERT INTO Students (ID, Name, Surname) VALUES ('"+var1+"', '"+var2+"', '"+var3+"')");
+        posted.executeUpdate();
+      }
+      catch (Exception e){
+        System.out.println(e);
+      }
+
+  }
 
   static public ArrayList<Student> getStudentAll()
   {
@@ -64,4 +98,7 @@ public void showStudents(){
     ArrayList<Student> studentTable = studentTable();
   TableView tableView = new TableView();
 }
+
+
+
 }

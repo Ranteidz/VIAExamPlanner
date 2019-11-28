@@ -61,14 +61,17 @@ public class PrimaryController {
         System.out.println(data);*/
     }
 
-    public void MethodTesting(ActionEvent actionEvent) {
+    public void MethodTesting(ActionEvent actionEvent) throws Exception
+    {
         System.out.println("test");
         StudentDao dao = new StudentDao();
         ArrayList<Student> students = DataModel.getStudentAll();
-
+        DataModel.post();
         for (Student member : students) {
             System.out.println(member);
+            studentTable.getItems().add(member);
         }
+
     }
 
 
