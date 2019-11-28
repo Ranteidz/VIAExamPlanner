@@ -2,8 +2,6 @@ package planner;
 
 import java.util.ArrayList;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +12,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.beans.ClassRoom;
 import model.beans.Examiner;
 import model.beans.Student;
@@ -119,7 +119,8 @@ public class PrimaryController {
     }
 
     public void openAddExaminerWindow() throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("addexaminer.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("addexaminer.fxml"));
         Parent root = (Parent) loader.load();
         Stage stage = new Stage();
         stage.setTitle("Add Examiner");
