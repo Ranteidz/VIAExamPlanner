@@ -53,7 +53,6 @@ public class PrimaryController
         capacity.setCellValueFactory(new PropertyValueFactory<ClassRoom, Integer>("capacity"));
         hdmi.setCellValueFactory(new PropertyValueFactory<ClassRoom, Boolean>("hdmi"));
         vga.setCellValueFactory(new PropertyValueFactory<ClassRoom, Boolean>("vga"));
-
     }
 
     public void MethodTesting(ActionEvent actionEvent) throws Exception
