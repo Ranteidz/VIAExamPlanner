@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ExaminerDao
 {
-  public ArrayList<Examiner> getStudents()
+  public ArrayList<Examiner> getExaminers()
   {
     ArrayList<Examiner> Examiners = new ArrayList<>();
     try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
@@ -37,8 +37,8 @@ public class ExaminerDao
   private void process(ResultSet rs, Examiner examiner) throws SQLException
   {
     // Examiner
-    examiner.setStudentID(rs.getInt("ID"));
-    examiner.setStudentFirstName(rs.getString("Name"));
-    examiner.setStudentLastName(rs.getString("Surname"));
+    examiner.setExaminerId(rs.getString("ID"));
+    examiner.setExaminerFirstName(rs.getString("Name"));
+    examiner.setExaminerLastName(rs.getString("Surname"));
   }
 }
