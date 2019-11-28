@@ -121,7 +121,7 @@ public class PrimaryController {
     public void openAddExaminerWindow() throws Exception{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("addexaminer.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root =  loader.load();
         Stage stage = new Stage();
         stage.setTitle("Add Examiner");
         stage.setScene(new Scene(root));

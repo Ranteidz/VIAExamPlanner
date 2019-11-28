@@ -3,6 +3,7 @@ model\DataModel.class
 model\dao\ClassRoomDao.class
 model\dao\ExaminerDao.class
 model\dao\StudentDao.class
+model\beans\Course.class
 model\beans\Student.class
 planner\AddExaminerController.class
 planner\App.class
