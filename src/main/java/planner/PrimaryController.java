@@ -118,7 +118,7 @@ public class PrimaryController {
         studentLastNameInput.clear();
     }
 
-    public void openAddExaminerWindows() throws Exception{
+    public void openAddExaminerWindow() throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("addexaminer.fxml"));
         Parent root = (Parent) loader.load();
         Stage stage = new Stage();
