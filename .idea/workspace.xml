@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/beans/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Examiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Examiner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/SecondaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addclassroom.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addstudent.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addexaminer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addexaminer.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +64,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/model/beans" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -75,6 +72,9 @@
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bujor\OneDrive - ViaUC\Skrivebord\VIAExamPlanner\src\main\java\model\beans" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -193,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574939018462</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Examiner class changes">
+      <created>1574940339405</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1574940339405</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -294,7 +301,8 @@
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="GUI" />
     <MESSAGE value="small edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="small edit" />
+    <MESSAGE value="Examiner class changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Examiner class changes" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>
