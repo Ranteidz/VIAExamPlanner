@@ -37,8 +37,8 @@ public class ExaminerDao
   private void process(ResultSet rs, Examiner examiner) throws SQLException
   {
     // Examiner
-    examiner.setStudentID(rs.getString("ID"));
-    examiner.setStudentFirstName(rs.getString("Name"));
-    examiner.setStudentLastName(rs.getString("Surname"));
+    examiner.setExaminerId(rs.getString("ID"));
+    examiner.setExaminerFirstName(rs.getString("Name"));
+    examiner.setExaminerLastName(rs.getString("Surname"));
   }
 }

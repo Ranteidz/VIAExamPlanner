@@ -60,7 +60,7 @@ public static void createCourseTable() throws Exception
   static public ArrayList<Examiner> getExaminersALL()
   {
     ExaminerDao examinerDao = new ExaminerDao();
-    return examinerDao= new ExaminerDao();
+    return examinerDao.getExaminers();
   }
 
   static public ArrayList<Student> getStudentByName(String studentName)
