@@ -3,8 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Date.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Examiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Examiner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addexaminer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addexaminer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/beans/Examiner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/beans/Examiner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/addexaminer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/addexaminer.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574942089385</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="open add-examiner-window now working">
+      <created>1574942686988</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1574942686988</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -314,7 +330,8 @@
     <MESSAGE value="small edit" />
     <MESSAGE value="Examiner class changes" />
     <MESSAGE value="examiner class and controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="examiner class and controller" />
+    <MESSAGE value="open add-examiner-window now working" />
+    <option name="LAST_COMMIT_MESSAGE" value="open add-examiner-window now working" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

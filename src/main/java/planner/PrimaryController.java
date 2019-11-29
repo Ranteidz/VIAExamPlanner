@@ -60,11 +60,13 @@ public class PrimaryController {
     public TableColumn<Student, String> studentLastName;
 
     @FXML
-    private TableView<Examiner> examinerTable;
+    public TableView<Examiner> examinerTable;
     @FXML
     public TableColumn<Examiner, String> examinerId;
     @FXML
     public TableColumn<Examiner, String> examinerName;
+
+    public PrimaryController() {}
 
     public void setModel(DataModel model) {
         this.model = model;
@@ -80,6 +82,32 @@ public class PrimaryController {
         vga.setCellValueFactory(new PropertyValueFactory<ClassRoom, Boolean>("vga"));
         examinerId.setCellValueFactory(new PropertyValueFactory<Examiner, String>("examinerId"));
         examinerName.setCellValueFactory(new PropertyValueFactory<Examiner, String>("examinerName"));
+
+        try {
+            loadData();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateData() {
+        System.out.println("updating data");
+//        studentTable.setItems(null);
+        try {
+            loadData();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadData() throws Exception{
+//        StudentDao dao = new StudentDao();
+//        ArrayList<Student> students = DataModel.getStudentAll();
+//        DataModel.post();
+//        for (Student member : students) {
+//            System.out.println(member);
+//            studentTable.getItems().add(member);
+//        }
     }
 
     public void MethodTesting(ActionEvent actionEvent) throws Exception {
@@ -122,7 +150,10 @@ public class PrimaryController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("addexaminer.fxml"));
         Parent root = (Parent) loader.load();
+        AddExaminerController controller = loader.getController();
+        controller.initialize(this);
         Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Add Examiner");
         stage.setScene(new Scene(root));
         stage.show();
