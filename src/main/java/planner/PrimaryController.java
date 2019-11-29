@@ -16,6 +16,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.beans.ClassRoom;
+import model.beans.Course;
 import model.beans.Examiner;
 import model.beans.Student;
 import model.dao.StudentDao;
@@ -66,7 +67,15 @@ public class PrimaryController {
     @FXML
     public TableColumn<Examiner, String> examinerName;
 
-    public PrimaryController() {}
+    @FXML
+    public TableView<Course> courseTable;
+    @FXML
+    public TableColumn<Course, String> courseIdColumn;
+    @FXML
+    public TableColumn<Course, Integer> courseNumberOfStudents;
+
+    public PrimaryController() {
+    }
 
     public void setModel(DataModel model) {
         this.model = model;
@@ -100,7 +109,7 @@ public class PrimaryController {
         }
     }
 
-    private void loadData() throws Exception{
+    private void loadData() throws Exception {
 //        StudentDao dao = new StudentDao();
 //        ArrayList<Student> students = DataModel.getStudentAll();
 //        DataModel.post();
@@ -129,6 +138,7 @@ public class PrimaryController {
         if (inputClassroomVGA.isSelected())
             classRoom.setVga(true);
         System.out.println("Classroom added");
+        //TODO add classroom to database
         tableClassroom.getItems().add(classRoom);
         inputClassroomName.clear();
         inputClassroomCapacity.clear();
@@ -140,13 +150,14 @@ public class PrimaryController {
         Student student = new Student(Integer.parseInt(studentIDinput.getText()),
                 studentFirstNameInput.getText(), studentFirstNameInput.getText());
         System.out.println("Student added");
+        //TODO add student to database
         studentTable.getItems().add(student);
         studentIDinput.clear();
         studentFirstNameInput.clear();
         studentLastNameInput.clear();
     }
 
-    public void openAddExaminerWindow() throws Exception{
+    public void openAddExaminerWindow() throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("addexaminer.fxml"));
         Parent root = (Parent) loader.load();
@@ -159,7 +170,16 @@ public class PrimaryController {
         stage.show();
     }
 
-    public void addExaminer() {
-
+    public void openAddCourseWindow() throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("addcourse.fxml"));
+        Parent root = (Parent) loader.load();
+        AddCourseController controller = loader.getController();
+        controller.initialize(this);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Add Examiner");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

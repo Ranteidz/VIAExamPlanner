@@ -38,6 +38,7 @@ public class AddExaminerController {
     }
 
     public void addExaminer() {
+        //TODO add examiner to database
         examiner.setExaminerId(examinerIdInput.getText());
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
