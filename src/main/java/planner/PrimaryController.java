@@ -3,6 +3,7 @@ package planner;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
+import javafx.beans.property.BooleanProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,6 +40,14 @@ public class PrimaryController {
     public TableColumn<ClassRoom, Boolean> hdmi;
     @FXML
     public TableColumn<ClassRoom, Boolean> vga;
+    @FXML
+    private Label classroomIdLabel;
+    @FXML
+    private Label capacityLabel;
+    @FXML
+    private Label hdmiLabel;
+    @FXML
+    private Label vgaLabel;
 
     @FXML
     private TextField studentIDinput;
@@ -80,8 +89,6 @@ public class PrimaryController {
     public TableColumn<Course, String> courseTypeColumn;
     @FXML
     public TableColumn<Course, Integer> courseNumberOfStudentsColumn;
-
-
 
     public PrimaryController() {
     }
@@ -143,6 +150,21 @@ public class PrimaryController {
         examinerLastNameLabel.setText(examiner.examinerLastNameProperty().get());
         ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.getUnavailableDates());
         examinerDateTable.getItems().addAll(dates);
+    }
+
+    public void deleteExaminer() {
+        ObservableList<Examiner> allExaminers, selectedExaminer;
+        allExaminers = examinerTable.getItems();
+        selectedExaminer = examinerTable.getSelectionModel().getSelectedItems();
+        selectedExaminer.forEach(allExaminers::remove);
+        examinerIdLabel.setText("");
+        examinerLastNameLabel.setText("");
+        examinerFirstNameLabel.setText("");
+        examinerDateTable.getItems().clear();
+    }
+
+    public void selectCoruseItem() {
+
     }
 
     public void MethodTesting(ActionEvent actionEvent) throws Exception {
@@ -207,5 +229,24 @@ public class PrimaryController {
         stage.setTitle("Add Examiner");
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public void selectClassroomItem() {
+        ClassRoom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
+        classroomIdLabel.setText(classRoom.nameProperty().get());
+        capacityLabel.setText(Integer.toString(classRoom.capacityProperty().get()));
+        hdmiLabel.setText(Boolean.toString(classRoom.hdmiProperty().get()));
+        vgaLabel.setText(Boolean.toString(classRoom.vgaProperty().get()));
+    }
+
+    public void deleteClassroom() {
+        ObservableList<ClassRoom> allClassrooms, selectedClassroom;
+        allClassrooms = tableClassroom.getItems();
+        selectedClassroom = tableClassroom.getSelectionModel().getSelectedItems();
+        selectedClassroom.forEach(allClassrooms::remove);
+        classroomIdLabel.setText("");
+        capacityLabel.setText("");
+        hdmiLabel.setText("");
+        vgaLabel.setText("");
     }
 }

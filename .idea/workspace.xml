@@ -7,7 +7,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -251,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575203748353</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="select examiner from table">
+      <created>1575206910292</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1575206910292</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -358,7 +364,8 @@
     <MESSAGE value="add examiner to table" />
     <MESSAGE value="target" />
     <MESSAGE value="work on add course functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on add course functionality" />
+    <MESSAGE value="select examiner from table" />
+    <option name="LAST_COMMIT_MESSAGE" value="select examiner from table" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>
