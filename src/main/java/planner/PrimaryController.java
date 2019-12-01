@@ -2,15 +2,14 @@ package planner;
 
 import java.util.ArrayList;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -44,6 +43,14 @@ public class PrimaryController {
     public TableColumn<ClassRoom, Boolean> hdmi;
     @FXML
     public TableColumn<ClassRoom, Boolean> vga;
+    @FXML
+    private Label classroomIdLabel;
+    @FXML
+    private Label capacityLabel;
+    @FXML
+    private Label hdmiLabel;
+    @FXML
+    private Label vgaLabel;
 
     @FXML
     private TextField studentIDinput;
@@ -75,6 +82,7 @@ public class PrimaryController {
     public TableColumn<Course, String> courseTypeColumn;
     @FXML
     public TableColumn<Course, Integer> courseNumberOfStudentsColumn;
+
 
     public PrimaryController() {
     }
@@ -186,5 +194,24 @@ public class PrimaryController {
         stage.setTitle("Add Examiner");
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public void selectClassroomItem() {
+        ClassRoom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
+        classroomIdLabel.setText(classRoom.nameProperty().get());
+        capacityLabel.setText(Integer.toString(classRoom.capacityProperty().get()));
+        hdmiLabel.setText(Boolean.toString(classRoom.hdmiProperty().get()));
+        vgaLabel.setText(Boolean.toString(classRoom.vgaProperty().get()));
+    }
+
+    public void deleteClassroom() {
+        ObservableList<ClassRoom> allClassrooms, selectedClassroom;
+        allClassrooms = tableClassroom.getItems();
+        selectedClassroom = tableClassroom.getSelectionModel().getSelectedItems();
+        selectedClassroom.forEach(allClassrooms::remove);
+        classroomIdLabel.setText("");
+        capacityLabel.setText("");
+        hdmiLabel.setText("");
+        vgaLabel.setText("");
     }
 }

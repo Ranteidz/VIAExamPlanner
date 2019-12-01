@@ -3,19 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addcourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addcourse.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addexaminer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addexaminer.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/beans/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/beans/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/addcourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/addcourse.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/addexaminer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/addexaminer.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +69,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
