@@ -208,7 +208,7 @@
                                      <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteClassroom" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                      <Label layoutX="14.0" layoutY="88.0" text="HDMI:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
                               <Label layoutX="24.0" layoutY="98.0" text="VGA:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
-                              <Button layoutX="95.0" layoutY="495.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+                              <Button layoutX="95.0" layoutY="495.0" mnemonicParsing="false" onAction="#classroomEdit" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
                               <Label fx:id="classroomIdLabel" layoutX="100.0" layoutY="40.0" />
                               <Label fx:id="capacityLabel" layoutX="100.0" layoutY="60.0" />
                               <Label fx:id="hdmiLabel" layoutX="100.0" layoutY="80.0" />
