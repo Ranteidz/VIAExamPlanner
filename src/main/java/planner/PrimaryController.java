@@ -50,6 +50,13 @@ public class PrimaryController {
     private Label vgaLabel;
     @FXML
     private TextField classroomIdTextField;
+    @FXML
+    private TextField capacityTextField;
+    @FXML
+    private TextField hdmiTextField;
+    @FXML
+    private TextField vgaTextField;
+
 
     @FXML
     private TextField studentIDinput;
@@ -152,6 +159,7 @@ public class PrimaryController {
 //            studentTable.getItems().add(member);
 //        }
     }
+
 
     public void MethodTesting(ActionEvent actionEvent) throws Exception {
         System.out.println("test");
@@ -295,6 +303,14 @@ public class PrimaryController {
     }
 
     public void classroomEdit() {
-//        classroomIdTextField.setStyle("-fx-focus-color: transparent;");
+        classroomIdTextField.setStyle(null);
+        capacityTextField.setStyle(null);
+        hdmiTextField.setStyle(null);
+        vgaTextField.setStyle(null);
+        
+        classroomIdTextField.setEditable(true);
+        capacityTextField.setEditable(true);
+        hdmiTextField.setEditable(true);
+        vgaTextField.setEditable(true);
     }
 }
