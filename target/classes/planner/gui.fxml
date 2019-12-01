@@ -216,7 +216,7 @@
                               <TextField fx:id="classroomIdTextField" editable="false" layoutX="92.0" layoutY="36.0" prefHeight="10.0" prefWidth="171.0" style="-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background; -fx-control-inner-background: f4f4f4;" text="gfhdf" />
                               <TextField fx:id="capacityTextField" editable="false" layoutX="92.0" layoutY="56.0" prefHeight="10.0" prefWidth="171.0" style="-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background; -fx-control-inner-background: f4f4f4;" text="gfhdf" />
                               <TextField fx:id="hdmiTextField" editable="false" layoutX="92.0" layoutY="76.0" prefHeight="10.0" prefWidth="171.0" style="-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background; -fx-control-inner-background: f4f4f4;" text="gfhdf" />
-                              <TextField fx:id="vgaTextField" editable="false" layoutX="92.0" layoutY="96.0" prefHeight="10.0" prefWidth="171.0" style="-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background;
+                              <TextField fx:id="vgaTextField" editable="false" layoutX="92.0" layoutY="96.0" prefHeight="10.0" prefWidth="171.0" style="-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background; -fx-control-inner-background: f4f4f4;" text="gfhdf" />
                                  </children>
                              </AnchorPane>
                          </items>
