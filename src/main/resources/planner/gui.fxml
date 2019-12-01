@@ -322,7 +322,7 @@
                               <Label layoutX="14.0" layoutY="70.0" text="First Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
                               <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteExaminer" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                               <Label layoutX="14.0" layoutY="88.0" text="Last Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
-                              <Button layoutX="137.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+                              <Button layoutX="137.0" layoutY="487.0" mnemonicParsing="false" onAction="#openEditExaminerWindow" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
                               <Label layoutX="14.0" layoutY="107.0" text="Unavailable on:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
                               <TableView fx:id="examinerDateTable" layoutX="14.0" layoutY="118.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="120.0">
                                 <columns>

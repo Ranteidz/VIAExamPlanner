@@ -221,6 +221,19 @@ public class PrimaryController {
         stage.show();
     }
 
+    public void openEditExaminerWindow() throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("editexaminer.fxml"));
+        Parent root = (Parent) loader.load();
+        EditExaminerController controller = loader.getController();
+        controller.initialize(this);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Edit Examiner");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
     public void selectExaminerItem(){
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
@@ -253,7 +266,7 @@ public class PrimaryController {
         controller.initialize(this);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Add Examiner");
+        stage.setTitle("Add Course");
         stage.setScene(new Scene(root));
         stage.show();
     }
