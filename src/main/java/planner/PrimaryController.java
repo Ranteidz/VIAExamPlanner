@@ -48,6 +48,8 @@ public class PrimaryController {
     private Label hdmiLabel;
     @FXML
     private Label vgaLabel;
+    @FXML
+    private TextField classroomIdTextField;
 
     @FXML
     private TextField studentIDinput;
@@ -110,7 +112,7 @@ public class PrimaryController {
         courseIdColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseId"));
         courseTypeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseType"));
         courseNumberOfStudentsColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("numberOfStudents"));
-        examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("date"));
+       /* examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("date"));*/
 
         try {
             loadData();
@@ -248,5 +250,9 @@ public class PrimaryController {
         capacityLabel.setText("");
         hdmiLabel.setText("");
         vgaLabel.setText("");
+    }
+
+    public void classroomEdit() {
+//        classroomIdTextField.setStyle("-fx-focus-color: transparent;");
     }
 }
