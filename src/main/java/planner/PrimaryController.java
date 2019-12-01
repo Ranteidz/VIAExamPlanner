@@ -104,6 +104,8 @@ public class PrimaryController {
         courseIdColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseId"));
         courseTypeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseType"));
         courseNumberOfStudentsColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("numberOfStudents"));
+        //Select multiple rows
+/*        tableClassroom.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);*/
 
         try {
             loadData();
@@ -208,7 +210,7 @@ public class PrimaryController {
         ObservableList<ClassRoom> allClassrooms, selectedClassroom;
         allClassrooms = tableClassroom.getItems();
         selectedClassroom = tableClassroom.getSelectionModel().getSelectedItems();
-        selectedClassroom.forEach(allClassrooms::remove);
+        allClassrooms.removeAll(selectedClassroom);
         classroomIdLabel.setText("");
         capacityLabel.setText("");
         hdmiLabel.setText("");
