@@ -208,12 +208,11 @@
                                      <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteClassroom" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                      <Label layoutX="14.0" layoutY="88.0" text="HDMI:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
                               <Label layoutX="24.0" layoutY="98.0" text="VGA:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
-                              <Button layoutX="95.0" layoutY="495.0" mnemonicParsing="false" onAction="#classroomEdit" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+                              <Button layoutX="95.0" layoutY="495.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
                               <Label fx:id="classroomIdLabel" layoutX="100.0" layoutY="40.0" />
                               <Label fx:id="capacityLabel" layoutX="100.0" layoutY="60.0" />
                               <Label fx:id="hdmiLabel" layoutX="100.0" layoutY="80.0" />
                               <Label fx:id="vgaLabel" layoutX="100.0" layoutY="100.0" />
-                              <TextField fx:id="classroomIdTextField" editable="false" layoutX="76.0" layoutY="151.0" text="gfhdf" />
                                  </children>
                              </AnchorPane>
                          </items>
@@ -406,9 +405,6 @@
           <font>
             <Font size="11.0" fx:id="x3" />
           </font>
-          <textFill>
-            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
-          </textFill>
         </Label>
         <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
         <Label fx:id="databaseStatus" font="$x3" maxWidth="-1.0" text="Database Unavailable" HBox.hgrow="NEVER" />
