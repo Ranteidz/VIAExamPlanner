@@ -89,6 +89,16 @@ public class PrimaryController {
     public TableColumn<Course, String> courseTypeColumn;
     @FXML
     public TableColumn<Course, Integer> courseNumberOfStudentsColumn;
+    @FXML
+    public Label courseIdLabel;
+    @FXML
+    public Label courseTypeLabel;
+    @FXML
+    public TableView<Student> courseStudentTable;
+    @FXML
+    public TableColumn<Student, Integer> courseStudentId;
+    @FXML
+    public TableColumn<Student, String> courseStudentName;
 
     public PrimaryController() {
     }
@@ -111,6 +121,8 @@ public class PrimaryController {
         courseTypeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseType"));
         courseNumberOfStudentsColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("numberOfStudents"));
         examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("date"));
+        courseStudentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
+        courseStudentName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
 
         try {
             loadData();
@@ -137,34 +149,6 @@ public class PrimaryController {
 //            System.out.println(member);
 //            studentTable.getItems().add(member);
 //        }
-    }
-
-    public void selectExaminerItem(){
-        examinerIdLabel.setText("");
-        examinerLastNameLabel.setText("");
-        examinerFirstNameLabel.setText("");
-        examinerDateTable.getItems().clear();
-        Examiner examiner = examinerTable.getSelectionModel().getSelectedItem();
-        examinerIdLabel.setText(examiner.examinerIdProperty().get());
-        examinerFirstNameLabel.setText(examiner.examinerFirstNameProperty().get());
-        examinerLastNameLabel.setText(examiner.examinerLastNameProperty().get());
-        ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.getUnavailableDates());
-        examinerDateTable.getItems().addAll(dates);
-    }
-
-    public void deleteExaminer() {
-        ObservableList<Examiner> allExaminers, selectedExaminer;
-        allExaminers = examinerTable.getItems();
-        selectedExaminer = examinerTable.getSelectionModel().getSelectedItems();
-        allExaminers.removeAll(selectedExaminer);
-        examinerIdLabel.setText("");
-        examinerLastNameLabel.setText("");
-        examinerFirstNameLabel.setText("");
-        examinerDateTable.getItems().clear();
-    }
-
-    public void selectCourseItem() {
-
     }
 
     public void MethodTesting(ActionEvent actionEvent) throws Exception {
@@ -194,6 +178,25 @@ public class PrimaryController {
         inputClassroomVGA.setSelected(false);
     }
 
+    public void selectClassroomItem() {
+        ClassRoom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
+        classroomIdLabel.setText(classRoom.nameProperty().get());
+        capacityLabel.setText(Integer.toString(classRoom.capacityProperty().get()));
+        hdmiLabel.setText(Boolean.toString(classRoom.hdmiProperty().get()));
+        vgaLabel.setText(Boolean.toString(classRoom.vgaProperty().get()));
+    }
+
+    public void deleteClassroom() {
+        ObservableList<ClassRoom> allClassrooms, selectedClassroom;
+        allClassrooms = tableClassroom.getItems();
+        selectedClassroom = tableClassroom.getSelectionModel().getSelectedItems();
+        allClassrooms.removeAll(selectedClassroom);
+        classroomIdLabel.setText("");
+        capacityLabel.setText("");
+        hdmiLabel.setText("");
+        vgaLabel.setText("");
+    }
+
     public void addStudent() {
         Student student = new Student(Integer.parseInt(studentIDinput.getText()),
                 studentFirstNameInput.getText(), studentFirstNameInput.getText());
@@ -218,6 +221,30 @@ public class PrimaryController {
         stage.show();
     }
 
+    public void selectExaminerItem(){
+        examinerIdLabel.setText("");
+        examinerLastNameLabel.setText("");
+        examinerFirstNameLabel.setText("");
+        examinerDateTable.getItems().clear();
+        Examiner examiner = examinerTable.getSelectionModel().getSelectedItem();
+        examinerIdLabel.setText(examiner.examinerIdProperty().get());
+        examinerFirstNameLabel.setText(examiner.examinerFirstNameProperty().get());
+        examinerLastNameLabel.setText(examiner.examinerLastNameProperty().get());
+        ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.getUnavailableDates());
+        examinerDateTable.getItems().addAll(dates);
+    }
+
+    public void deleteExaminer() {
+        ObservableList<Examiner> allExaminers, selectedExaminer;
+        allExaminers = examinerTable.getItems();
+        selectedExaminer = examinerTable.getSelectionModel().getSelectedItems();
+        allExaminers.removeAll(selectedExaminer);
+        examinerIdLabel.setText("");
+        examinerLastNameLabel.setText("");
+        examinerFirstNameLabel.setText("");
+        examinerDateTable.getItems().clear();
+    }
+
     public void openAddCourseWindow() throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("addcourse.fxml"));
@@ -231,22 +258,26 @@ public class PrimaryController {
         stage.show();
     }
 
-    public void selectClassroomItem() {
-        ClassRoom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
-        classroomIdLabel.setText(classRoom.nameProperty().get());
-        capacityLabel.setText(Integer.toString(classRoom.capacityProperty().get()));
-        hdmiLabel.setText(Boolean.toString(classRoom.hdmiProperty().get()));
-        vgaLabel.setText(Boolean.toString(classRoom.vgaProperty().get()));
+    public void selectCourseItem() {
+        courseIdLabel.setText("");
+        courseTypeLabel.setText("");
+        courseStudentTable.getItems().clear();
+        Course course = courseTable.getSelectionModel().getSelectedItem();
+        courseIdLabel.setText(course.courseIdProperty().get());
+        courseTypeLabel.setText(course.courseTypeProperty().get());
+        ObservableList<Student> students = FXCollections.<Student>observableArrayList(course.studentsProperty());
+        courseStudentTable.getItems().addAll(students);
     }
 
-    public void deleteClassroom() {
-        ObservableList<ClassRoom> allClassrooms, selectedClassroom;
-        allClassrooms = tableClassroom.getItems();
-        selectedClassroom = tableClassroom.getSelectionModel().getSelectedItems();
-        allClassrooms.removeAll(selectedClassroom);
-        classroomIdLabel.setText("");
-        capacityLabel.setText("");
-        hdmiLabel.setText("");
-        vgaLabel.setText("");
+    public void deleteCourse() {
+        ObservableList<Course> allCourses, selectedCourse;
+        allCourses = courseTable.getItems();
+        selectedCourse = courseTable.getSelectionModel().getSelectedItems();
+        allCourses.removeAll(selectedCourse);
+        courseIdLabel.setText("");
+        courseTypeLabel.setText("");
+        courseStudentTable.getItems().clear();
     }
+
+
 }
