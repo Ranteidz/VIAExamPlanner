@@ -44,6 +44,12 @@ public class Student
     this.studentLastName.set(studentLastName);
   }
 
+  public StringProperty studentNameProperty() {
+    StringProperty name = new SimpleStringProperty();
+    name.set(String.format("%s %s", studentFirstName, studentLastName));
+    return name;
+  }
+
   @Override public String toString()
   {
     return studentId + " " + studentFirstName +" "+ studentLastName ;
