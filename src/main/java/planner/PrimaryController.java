@@ -163,7 +163,7 @@ public class PrimaryController {
         examinerDateTable.getItems().clear();
     }
 
-    public void selectCoruseItem() {
+    public void selectCourseItem() {
 
     }
 
