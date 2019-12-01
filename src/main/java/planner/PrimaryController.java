@@ -281,6 +281,19 @@ public class PrimaryController {
         stage.show();
     }
 
+    public void openEditCourseWindow() throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("editcourse.fxml"));
+        Parent root = (Parent) loader.load();
+        EditCourseController controller = loader.getController();
+        controller.initialize(this);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Add Course");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
     public void selectCourseItem() {
         courseIdLabel.setText("");
         courseTypeLabel.setText("");

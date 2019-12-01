@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2860cb8c-974d-4582-b18e-47691dff3726" name="Default Changelist" comment="" />
+    <list default="true" id="2860cb8c-974d-4582-b18e-47691dff3726" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/planner/EditCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/editcourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/editcourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/editcourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/editcourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +78,9 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="src" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="planner" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bujor\OneDrive - ViaUC\Skrivebord\VIAExamPlanner\src\main\java\model\beans" />
     </key>
@@ -118,7 +132,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="" />
+      <changelist id="2860cb8c-974d-4582-b18e-47691dff3726" name="Default Changelist" comment="" />
       <created>1574706360880</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -250,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575218752001</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="merge fix">
+      <created>1575219049161</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1575219049161</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
