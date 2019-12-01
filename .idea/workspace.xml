@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="select and remove course from table, reorder methods in primary controller">
-      <change afterPath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/planner/editexaminer.fxml" afterDir="false" />
+    <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,7 +64,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/planner" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/model/beans" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -77,11 +74,7 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="src" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="planner" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\bujor\OneDrive - ViaUC\Skrivebord\VIAExamPlanner\src\main\resources\planner" />
       <recent name="C:\Users\bujor\OneDrive - ViaUC\Skrivebord\VIAExamPlanner\src\main\java\model\beans" />
     </key>
   </component>
@@ -257,21 +250,7 @@
       <option name="project" value="LOCAL" />
       <updated>1575210280098</updated>
     </task>
-    <task id="LOCAL-00018" summary="remove examiner fixed">
-      <created>1575210522191</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1575210522191</updated>
-    </task>
-    <task id="LOCAL-00019" summary="select and remove course from table, reorder methods in primary controller">
-      <created>1575212163290</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1575212163290</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -379,9 +358,7 @@
     <MESSAGE value="target" />
     <MESSAGE value="work on add course functionality" />
     <MESSAGE value="select and remove examiner item" />
-    <MESSAGE value="remove examiner fixed" />
-    <MESSAGE value="select and remove course from table, reorder methods in primary controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="select and remove course from table, reorder methods in primary controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="select and remove examiner item" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

@@ -48,6 +48,8 @@ public class PrimaryController {
     private Label hdmiLabel;
     @FXML
     private Label vgaLabel;
+    @FXML
+    private TextField classroomIdTextField;
 
     @FXML
     private TextField studentIDinput;
@@ -292,5 +294,7 @@ public class PrimaryController {
         courseStudentTable.getItems().clear();
     }
 
-
+    public void classroomEdit() {
+//        classroomIdTextField.setStyle("-fx-focus-color: transparent;");
+    }
 }
