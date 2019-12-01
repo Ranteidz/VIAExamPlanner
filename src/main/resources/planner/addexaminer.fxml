@@ -35,8 +35,8 @@
             <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="First Name:" GridPane.rowIndex="1" />
             <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Last Name:" GridPane.rowIndex="2" />
             <TextField fx:id="examinerIdInput" GridPane.columnIndex="1" />
-            <TextField fx:id="examinerLastNameInput" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="examinerFirstNameInput" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="examinerLastNameInput" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.59998321533203" minWidth="10.0" prefWidth="141.79999542236328" />

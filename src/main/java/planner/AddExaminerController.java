@@ -48,11 +48,11 @@ public class AddExaminerController {
     }
 
     public void addUnavailableDate() {
-            LocalDate localDate = datePicker.getValue();
-            Date date = new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
-            examiner.addUnavailableDate(date);
-            unavailableDatesTable.getItems().add(date);
-            datePicker.setValue(null);
+        LocalDate localDate = datePicker.getValue();
+        Date date = new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
+        examiner.addUnavailableDate(date);
+        unavailableDatesTable.getItems().add(date);
+        datePicker.setValue(null);
     }
 
     public void closeWindow() {

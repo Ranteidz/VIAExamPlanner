@@ -1,5 +1,7 @@
 package model.beans;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -35,6 +37,10 @@ public class Course
 
   public ArrayList<Student> studentsProperty() {
     return students;
+  }
+
+  public IntegerProperty numberOfStudentsProperty() {
+      return new SimpleIntegerProperty(students.size());
   }
 
   public void addStudent(Student student){

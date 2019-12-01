@@ -72,7 +72,9 @@ public class PrimaryController {
     @FXML
     public TableColumn<Course, String> courseIdColumn;
     @FXML
-    public TableColumn<Course, Integer> courseNumberOfStudents;
+    public TableColumn<Course, String> courseTypeColumn;
+    @FXML
+    public TableColumn<Course, Integer> courseNumberOfStudentsColumn;
 
     public PrimaryController() {
     }
@@ -91,6 +93,9 @@ public class PrimaryController {
         vga.setCellValueFactory(new PropertyValueFactory<ClassRoom, Boolean>("vga"));
         examinerId.setCellValueFactory(new PropertyValueFactory<Examiner, String>("examinerId"));
         examinerName.setCellValueFactory(new PropertyValueFactory<Examiner, String>("examinerName"));
+        courseIdColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseId"));
+        courseTypeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseType"));
+        courseNumberOfStudentsColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("numberOfStudents"));
 
         try {
             loadData();
