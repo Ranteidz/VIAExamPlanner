@@ -2,6 +2,7 @@ package planner;
 
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
 import javafx.beans.property.BooleanProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,11 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import model.beans.ClassRoom;
-import model.beans.Course;
-import model.beans.Examiner;
-import model.beans.Student;
+import model.beans.*;
 import model.dao.StudentDao;
 import model.DataModel;
 
@@ -73,6 +70,16 @@ public class PrimaryController {
     public TableColumn<Examiner, String> examinerId;
     @FXML
     public TableColumn<Examiner, String> examinerName;
+    @FXML
+    public Label examinerIdLabel;
+    @FXML
+    public Label examinerFirstNameLabel;
+    @FXML
+    public Label examinerLastNameLabel;
+    @FXML
+    public TableView<Date> examinerDateTable;
+    @FXML
+    public TableColumn<Date, String> examinerDateColumn;
 
     @FXML
     public TableView<Course> courseTable;
@@ -82,7 +89,6 @@ public class PrimaryController {
     public TableColumn<Course, String> courseTypeColumn;
     @FXML
     public TableColumn<Course, Integer> courseNumberOfStudentsColumn;
-
 
     public PrimaryController() {
     }
@@ -104,6 +110,7 @@ public class PrimaryController {
         courseIdColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseId"));
         courseTypeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseType"));
         courseNumberOfStudentsColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("numberOfStudents"));
+        examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("date"));
 
         try {
             loadData();
@@ -114,7 +121,7 @@ public class PrimaryController {
 
     public void updateData() {
         System.out.println("updating data");
-//        studentTable.setItems(null);
+//        studentTable.getItems().clear();
         try {
             loadData();
         } catch (Exception e) {
@@ -130,6 +137,34 @@ public class PrimaryController {
 //            System.out.println(member);
 //            studentTable.getItems().add(member);
 //        }
+    }
+
+    public void selectExaminerItem(){
+        examinerIdLabel.setText("");
+        examinerLastNameLabel.setText("");
+        examinerFirstNameLabel.setText("");
+        examinerDateTable.getItems().clear();
+        Examiner examiner = examinerTable.getSelectionModel().getSelectedItem();
+        examinerIdLabel.setText(examiner.examinerIdProperty().get());
+        examinerFirstNameLabel.setText(examiner.examinerFirstNameProperty().get());
+        examinerLastNameLabel.setText(examiner.examinerLastNameProperty().get());
+        ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.getUnavailableDates());
+        examinerDateTable.getItems().addAll(dates);
+    }
+
+    public void deleteExaminer() {
+        ObservableList<Examiner> allExaminers, selectedExaminer;
+        allExaminers = examinerTable.getItems();
+        selectedExaminer = examinerTable.getSelectionModel().getSelectedItems();
+        selectedExaminer.forEach(allExaminers::remove);
+        examinerIdLabel.setText("");
+        examinerLastNameLabel.setText("");
+        examinerFirstNameLabel.setText("");
+        examinerDateTable.getItems().clear();
+    }
+
+    public void selectCourseItem() {
+
     }
 
     public void MethodTesting(ActionEvent actionEvent) throws Exception {

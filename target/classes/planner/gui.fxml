@@ -389,6 +389,8 @@
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
                               </TableView>
+                              <Label fx:id="courseIdLabel" layoutX="68.0" layoutY="40.0" text="Label" />
+                              <Label fx:id="examTypeLabel" layoutX="71.0" layoutY="60.0" text="Label" />
                                  </children>
                              </AnchorPane>
                          </items>
