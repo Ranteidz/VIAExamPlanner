@@ -155,7 +155,7 @@
                                              <Label layoutX="14.0" layoutY="52.0" text="Search: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                                              <TextField layoutX="63.0" layoutY="48.0" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
                                              <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
-                                             <TableView fx:id="tableClassroom" layoutX="14.0" layoutY="86.0" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                             <TableView fx:id="tableClassroom" layoutX="14.0" layoutY="86.0" onMouseClicked="#selectClassroomItem" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                                  <columns>
                                                      <TableColumn fx:id="name" prefWidth="104.00003242492676" text="Classroom" />
                                                      <TableColumn fx:id="capacity" prefWidth="476.80001068115234" text="Capacity" />
@@ -205,10 +205,14 @@
                                      <Label alignment="CENTER" font="$x111" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x211" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                                      <Label layoutX="14.0" layoutY="52.0" text="Classroom ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                                      <Label layoutX="14.0" layoutY="70.0" text="Capacity:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteClassroom" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                      <Label layoutX="14.0" layoutY="88.0" text="HDMI:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
                               <Label layoutX="24.0" layoutY="98.0" text="VGA:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
                               <Button layoutX="95.0" layoutY="495.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+                              <Label fx:id="classroomIdLabel" layoutX="100.0" layoutY="40.0" />
+                              <Label fx:id="capacityLabel" layoutX="100.0" layoutY="60.0" />
+                              <Label fx:id="hdmiLabel" layoutX="100.0" layoutY="80.0" />
+                              <Label fx:id="vgaLabel" layoutX="100.0" layoutY="100.0" />
                                  </children>
                              </AnchorPane>
                          </items>
