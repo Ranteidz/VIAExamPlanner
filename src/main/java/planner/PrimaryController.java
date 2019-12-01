@@ -156,7 +156,7 @@ public class PrimaryController {
         ObservableList<Examiner> allExaminers, selectedExaminer;
         allExaminers = examinerTable.getItems();
         selectedExaminer = examinerTable.getSelectionModel().getSelectedItems();
-        selectedExaminer.forEach(allExaminers::remove);
+        allExaminers.removeAll(selectedExaminer);
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
         examinerFirstNameLabel.setText("");
@@ -243,7 +243,7 @@ public class PrimaryController {
         ObservableList<ClassRoom> allClassrooms, selectedClassroom;
         allClassrooms = tableClassroom.getItems();
         selectedClassroom = tableClassroom.getSelectionModel().getSelectedItems();
-        selectedClassroom.forEach(allClassrooms::remove);
+        allClassrooms.removeAll(selectedClassroom);
         classroomIdLabel.setText("");
         capacityLabel.setText("");
         hdmiLabel.setText("");
