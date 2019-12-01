@@ -50,6 +50,13 @@ public class PrimaryController {
     private Label vgaLabel;
     @FXML
     private TextField classroomIdTextField;
+    @FXML
+    private TextField capacityTextField;
+    @FXML
+    private TextField hdmiTextField;
+    @FXML
+    private TextField vgaTextField;
+
 
     @FXML
     private TextField studentIDinput;
@@ -112,7 +119,7 @@ public class PrimaryController {
         courseIdColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseId"));
         courseTypeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseType"));
         courseNumberOfStudentsColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("numberOfStudents"));
-       /* examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("date"));*/
+        /* examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("date"));*/
 
         try {
             loadData();
@@ -141,7 +148,7 @@ public class PrimaryController {
 //        }
     }
 
-    public void selectExaminerItem(){
+    public void selectExaminerItem() {
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
         examinerFirstNameLabel.setText("");
@@ -253,6 +260,14 @@ public class PrimaryController {
     }
 
     public void classroomEdit() {
-//        classroomIdTextField.setStyle("-fx-focus-color: transparent;");
+        classroomIdTextField.setStyle(null);
+        capacityTextField.setStyle(null);
+        hdmiTextField.setStyle(null);
+        vgaTextField.setStyle(null);
+        
+        classroomIdTextField.setEditable(true);
+        capacityTextField.setEditable(true);
+        hdmiTextField.setEditable(true);
+        vgaTextField.setEditable(true);
     }
 }
