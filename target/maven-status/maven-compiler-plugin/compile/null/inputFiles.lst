@@ -1,16 +1,16 @@
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\planner\EditCourseController.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\model\dao\ClassRoomDao.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\model\dao\StudentDao.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\model\beans\ClassRoom.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\model\beans\Course.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\planner\EditExaminerController.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\planner\AddExaminerController.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\model\beans\Examiner.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\planner\AddCourseController.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\planner\PrimaryController.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\model\beans\Student.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\planner\App.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\model\DataModel.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\model\dao\ExaminerDao.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\module-info.java
-C:\Users\bujor\OneDrive - ViaUC\Skrivebord\SEP\VIAExamPlanner\src\main\java\model\beans\Date.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\beans\Date.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\beans\Student.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\planner\EditCourseController.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\dao\ExaminerDao.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\beans\Course.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\dao\ClassRoomDao.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\module-info.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\planner\PrimaryController.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\DataModel.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\planner\App.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\planner\AddCourseController.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\beans\ClassRoom.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\beans\Examiner.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\model\dao\StudentDao.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\planner\AddExaminerController.java
+C:\Users\T\Documents\GitHub_ExamPlanner\VIAExamPlanner\src\main\java\planner\EditExaminerController.java

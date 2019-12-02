@@ -56,6 +56,8 @@ public class PrimaryController {
     private TextField hdmiTextField;
     @FXML
     private TextField vgaTextField;
+    @FXML
+    private Button editSaveClassroom;
 
 
     @FXML
@@ -190,10 +192,10 @@ public class PrimaryController {
 
     public void selectClassroomItem() {
         ClassRoom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
-        classroomIdLabel.setText(classRoom.nameProperty().get());
-        capacityLabel.setText(Integer.toString(classRoom.capacityProperty().get()));
-        hdmiLabel.setText(Boolean.toString(classRoom.hdmiProperty().get()));
-        vgaLabel.setText(Boolean.toString(classRoom.vgaProperty().get()));
+        classroomIdTextField.setText(classRoom.nameProperty().get());
+        capacityTextField.setText(Integer.toString(classRoom.capacityProperty().get()));
+        hdmiTextField.setText(Boolean.toString(classRoom.hdmiProperty().get()));
+        vgaTextField.setText(Boolean.toString(classRoom.vgaProperty().get()));
     }
 
     public void deleteClassroom() {
@@ -201,10 +203,10 @@ public class PrimaryController {
         allClassrooms = tableClassroom.getItems();
         selectedClassroom = tableClassroom.getSelectionModel().getSelectedItems();
         allClassrooms.removeAll(selectedClassroom);
-        classroomIdLabel.setText("");
-        capacityLabel.setText("");
-        hdmiLabel.setText("");
-        vgaLabel.setText("");
+        classroomIdTextField.setText("");
+        capacityTextField.setText("");
+        hdmiTextField.setText("");
+        vgaTextField.setText("");
     }
 
     public void addStudent() {
@@ -244,7 +246,7 @@ public class PrimaryController {
         stage.show();
     }
 
-    public void selectExaminerItem(){
+    public void selectExaminerItem() {
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
         examinerFirstNameLabel.setText("");
@@ -281,7 +283,7 @@ public class PrimaryController {
         stage.show();
     }
 
-    public void openEditCourseWindow() throws Exception{
+    public void openEditCourseWindow() throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("editcourse.fxml"));
         Parent root = (Parent) loader.load();
@@ -316,14 +318,38 @@ public class PrimaryController {
     }
 
     public void classroomEdit() {
-        classroomIdTextField.setStyle(null);
-        capacityTextField.setStyle(null);
-        hdmiTextField.setStyle(null);
-        vgaTextField.setStyle(null);
-        
-        classroomIdTextField.setEditable(true);
-        capacityTextField.setEditable(true);
-        hdmiTextField.setEditable(true);
-        vgaTextField.setEditable(true);
+        if (editSaveClassroom.getText().equals("Edit")) {
+            selectClassroomItem();
+            classroomIdTextField.setStyle(null);
+            capacityTextField.setStyle(null);
+            hdmiTextField.setStyle(null);
+            vgaTextField.setStyle(null);
+            classroomIdTextField.setEditable(true);
+            capacityTextField.setEditable(true);
+            hdmiTextField.setEditable(true);
+            vgaTextField.setEditable(true);
+            editSaveClassroom.setText("Save");
+        } else {
+            classroomIdTextField.setEditable(false);
+            capacityTextField.setEditable(false);
+            hdmiTextField.setEditable(false);
+            vgaTextField.setEditable(false);
+            classroomIdTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
+            capacityTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
+            hdmiTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
+            vgaTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
+
+            deleteClassroom();
+            ClassRoom classRoom = new ClassRoom(classroomIdTextField.getText(),
+                    Integer.parseInt(capacityTextField.getText()), Boolean.parseBoolean(hdmiTextField.getText()), Boolean.parseBoolean(vgaTextField.getText()));
+            tableClassroom.getItems().add(classRoom);
+            tableClassroom.getSelectionModel().clearSelection();
+            classroomIdTextField.setText("");
+            capacityTextField.setText("");
+            hdmiTextField.setText("");
+            vgaTextField.setText("");
+            editSaveClassroom.setText("Edit");
+        }
+
     }
 }
