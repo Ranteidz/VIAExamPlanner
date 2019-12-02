@@ -68,6 +68,8 @@ public static void createCourseTable() throws Exception
    */
   static public void addStudent(Student newStudent){
     StudentDao studentsDAO = new StudentDao();
+
+    System.out.println("Gavau Studenta: " + newStudent );
     studentsDAO.insertStudent(newStudent);
   }
 

@@ -230,19 +230,23 @@ public class PrimaryController {
     public void addStudent() {
         Student student = new Student(Integer.parseInt(studentIDinput.getText()),
                 studentFirstNameInput.getText(), studentLastNameInput.getText());
-        System.out.println("Student added");
-        try{
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-            PreparedStatement posted = con.prepareStatement("INSERT INTO Students (ID, Name, Surname) VALUES ('"+studentIDinput.getText()+"', '"+studentFirstNameInput.getText()+"', '"+studentLastNameInput.getText()+"')");
-            posted.executeUpdate();
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
-        studentTable.getItems().add(student);
-        studentIDinput.clear();
-        studentFirstNameInput.clear();
-        studentLastNameInput.clear();
+
+
+        DataModel.addStudent(student);
+
+
+//        try{
+//            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+//            PreparedStatement posted = con.prepareStatement("INSERT INTO Students (ID, Name, Surname) VALUES ('"+studentIDinput.getText()+"', '"+studentFirstNameInput.getText()+"', '"+studentLastNameInput.getText()+"')");
+//            posted.executeUpdate();
+//        }
+//        catch (Exception e){
+//            System.out.println(e);
+//        }
+//        studentTable.getItems().add(student);
+//        studentIDinput.clear();
+//        studentFirstNameInput.clear();
+//        studentLastNameInput.clear();
     }
 
     public void selectStudentItem() {
