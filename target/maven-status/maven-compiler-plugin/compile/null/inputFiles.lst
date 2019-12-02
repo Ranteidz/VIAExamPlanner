@@ -1,13 +1,16 @@
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\model\beans\Date.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\model\beans\Student.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\planner\App.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\model\beans\Course.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\module-info.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\model\DataModel.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\planner\AddExaminerController.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\model\dao\StudentDao.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\model\dao\ExaminerDao.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\model\dao\ClassRoomDao.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\planner\PrimaryController.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\model\beans\Examiner.java
-C:\Users\Gintaras\IdeaProjects\VIAExamPlanner\src\main\java\model\beans\ClassRoom.java
+E:\Java Projects\VIAExamPlanner\src\main\java\model\dao\StudentDao.java
+E:\Java Projects\VIAExamPlanner\src\main\java\planner\AddExaminerController.java
+E:\Java Projects\VIAExamPlanner\src\main\java\planner\EditCourseController.java
+E:\Java Projects\VIAExamPlanner\src\main\java\model\DataModel.java
+E:\Java Projects\VIAExamPlanner\src\main\java\model\beans\Course.java
+E:\Java Projects\VIAExamPlanner\src\main\java\planner\App.java
+E:\Java Projects\VIAExamPlanner\src\main\java\planner\EditExaminerController.java
+E:\Java Projects\VIAExamPlanner\src\main\java\module-info.java
+E:\Java Projects\VIAExamPlanner\src\main\java\planner\AddCourseController.java
+E:\Java Projects\VIAExamPlanner\src\main\java\model\dao\ExaminerDao.java
+E:\Java Projects\VIAExamPlanner\src\main\java\planner\PrimaryController.java
+E:\Java Projects\VIAExamPlanner\src\main\java\model\beans\ClassRoom.java
+E:\Java Projects\VIAExamPlanner\src\main\java\model\beans\Date.java
+E:\Java Projects\VIAExamPlanner\src\main\java\model\dao\ClassRoomDao.java
+E:\Java Projects\VIAExamPlanner\src\main\java\model\beans\Examiner.java
+E:\Java Projects\VIAExamPlanner\src\main\java\model\beans\Student.java

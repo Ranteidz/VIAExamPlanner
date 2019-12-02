@@ -5,7 +5,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -29,7 +28,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.PrimaryController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.PrimaryController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -96,10 +95,20 @@
                                     <Label layoutX="14.0" layoutY="50.0" text="Show schedule:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                                     <RadioButton layoutX="155.0" layoutY="50.0" mnemonicParsing="false" text="Specific Date: " toggleGroup="$periodPicker" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="40.0" />
                                     <DatePicker layoutX="259.0" layoutY="46.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="36.0" />
-                                    <ListView layoutX="26.0" layoutY="87.0" prefHeight="402.0" prefWidth="567.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0" />
                                     <Button layoutX="555.0" layoutY="493.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                     <Button layoutX="441.0" layoutY="46.0" mnemonicParsing="false" text="Set date" AnchorPane.leftAnchor="435.0" AnchorPane.topAnchor="36.0" />
                                     <Button fx:id="ButtonTest" layoutX="251.0" layoutY="493.0" mnemonicParsing="false" onAction="#MethodTesting" text="METHOD TESTING BUTTON" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
+                                    <TableView layoutX="18.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" text="Exam" />
+                                        <TableColumn prefWidth="75.0" text="Date" />
+                                          <TableColumn prefWidth="75.0" text="Classroom" />
+                                          <TableColumn prefWidth="75.0" text="Examiner" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
                           </children>
                         </AnchorPane>
                       </content>
@@ -113,9 +122,14 @@
                               <Label layoutX="14.0" layoutY="124.0" text="Classroom: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="120.0" />
                               <Label layoutX="14.0" layoutY="70.0" text="Type: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
                               <Label layoutX="14.0" layoutY="142.0" text="Students: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="140.0" />
-                              <ListView layoutX="14.0" layoutY="161.0" prefHeight="330.0" prefWidth="246.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="160.0" />
                               <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Cancel Exam" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                               <Button layoutX="111.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="100.0" />
+                              <TableView layoutX="14.0" layoutY="161.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="160.0">
+                                <columns>
+                                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" resizable="false" text="ID" />
+                                    <TableColumn maxWidth="1.7976931348623157E308" minWidth="160.0" prefWidth="-1.0" text="Name" />
+                                </columns>
+                              </TableView>
                       </children>
                     </AnchorPane>
                   </items>
@@ -141,7 +155,7 @@
                                              <Label layoutX="14.0" layoutY="52.0" text="Search: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                                              <TextField layoutX="63.0" layoutY="48.0" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
                                              <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
-                                             <TableView fx:id="tableClassroom" layoutX="14.0" layoutY="86.0" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                             <TableView fx:id="tableClassroom" layoutX="14.0" layoutY="86.0" onMouseClicked="#selectClassroomItem" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                                  <columns>
                                                      <TableColumn fx:id="name" prefWidth="104.00003242492676" text="Classroom" />
                                                      <TableColumn fx:id="capacity" prefWidth="476.80001068115234" text="Capacity" />
@@ -191,10 +205,30 @@
                                      <Label alignment="CENTER" font="$x111" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x211" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                                      <Label layoutX="14.0" layoutY="52.0" text="Classroom ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                                      <Label layoutX="14.0" layoutY="70.0" text="Capacity:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteClassroom" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                      <Label layoutX="14.0" layoutY="88.0" text="HDMI:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
                               <Label layoutX="24.0" layoutY="98.0" text="VGA:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
-                              <Button layoutX="95.0" layoutY="495.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+                              <Button fx:id="editSaveClassroom" layoutX="95.0" layoutY="495.0" mnemonicParsing="false" onAction="#classroomEdit" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+                              <Label fx:id="classroomIdLabel" layoutX="100.0" layoutY="40.0" />
+                              <Label fx:id="capacityLabel" layoutX="100.0" layoutY="60.0" />
+                              <Label fx:id="hdmiLabel" layoutX="100.0" layoutY="80.0" />
+                              <Label fx:id="vgaLabel" layoutX="100.0" layoutY="100.0" />
+                              <TextField fx:id="classroomIdTextField" editable="false" layoutX="92.0" layoutY="39.0" prefHeight="10.0" prefWidth="171.0" style="-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background; -fx-control-inner-background: f4f4f4; -fx-cursor: none;">
+                                 <padding>
+                                    <Insets bottom="1.0" left="7.0" top="1.0" />
+                                 </padding></TextField>
+                              <TextField fx:id="capacityTextField" editable="false" layoutX="92.0" layoutY="59.0" prefHeight="10.0" prefWidth="171.0" style="-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background; -fx-control-inner-background: f4f4f4; -fx-cursor: none;">
+                                 <padding>
+                                    <Insets bottom="1.0" left="7.0" top="1.0" />
+                                 </padding></TextField>
+                              <TextField fx:id="hdmiTextField" editable="false" layoutX="92.0" layoutY="79.0" prefHeight="10.0" prefWidth="171.0" style="-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background; -fx-control-inner-background: f4f4f4; -fx-cursor: none;">
+                                 <padding>
+                                    <Insets bottom="1.0" left="7.0" top="1.0" />
+                                 </padding></TextField>
+                              <TextField fx:id="vgaTextField" editable="false" layoutX="92.0" layoutY="99.0" prefHeight="10.0" prefWidth="171.0" style="-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background; -fx-control-inner-background: f4f4f4; -fx-cursor: none;">
+                                 <padding>
+                                    <Insets bottom="1.0" left="7.0" top="1.0" />
+                                 </padding></TextField>
                                  </children>
                              </AnchorPane>
                          </items>
@@ -258,6 +292,9 @@
                               <Button layoutX="164.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                               <Button layoutX="151.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
                               <Label layoutX="10.0" layoutY="78.0" text="Last Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
+                              <Label fx:id="studentIdLable" layoutX="73.0" layoutY="40.0" text="Label" />
+                              <Label fx:id="studentFirstNameLabel" layoutX="74.0" layoutY="60.0" text="Label" />
+                              <Label fx:id="studentLastNameLabel" layoutX="73.0" layoutY="80.0" text="Label" />
                            </children>
                         </AnchorPane>
                      </items>
@@ -283,7 +320,7 @@
                                     <Label layoutX="14.0" layoutY="52.0" text="Search: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                                     <TextField layoutX="63.0" layoutY="48.0" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
                                     <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
-                                    <TableView fx:id="examinerTable" layoutX="14.0" layoutY="86.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                    <TableView fx:id="examinerTable" layoutX="14.0" layoutY="86.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#selectExaminerItem" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                        <columns>
                                           <TableColumn fx:id="examinerId" prefWidth="104.00003242492676" text="ID" />
                                           <TableColumn fx:id="examinerName" prefWidth="476.80001068115234" text="Name" />
@@ -302,15 +339,18 @@
                               <Label alignment="CENTER" font="$x111" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x211" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                               <Label layoutX="14.0" layoutY="52.0" text="Examiner ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                               <Label layoutX="14.0" layoutY="70.0" text="First Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                              <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                              <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteExaminer" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                               <Label layoutX="14.0" layoutY="88.0" text="Last Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
-                              <Button layoutX="137.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+                              <Button layoutX="137.0" layoutY="487.0" mnemonicParsing="false" onAction="#openEditExaminerWindow" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
                               <Label layoutX="14.0" layoutY="107.0" text="Unavailable on:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
-                              <TableView layoutX="14.0" layoutY="118.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="120.0">
+                              <TableView fx:id="examinerDateTable" layoutX="14.0" layoutY="118.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="120.0">
                                 <columns>
-                                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="250.0" prefWidth="250.0" resizable="false" text="Date" />
+                                  <TableColumn fx:id="examinerDateColumn" maxWidth="1.7976931348623157E308" minWidth="250.0" prefWidth="250.0" resizable="false" text="Date" />
                                 </columns>
                               </TableView>
+                              <Label fx:id="examinerIdLabel" layoutX="79.0" layoutY="40.0" text="Label" />
+                              <Label fx:id="examinerFirstNameLabel" layoutX="73.0" layoutY="60.0" text="Label" />
+                              <Label fx:id="examinerLastNameLabel" layoutX="73.0" layoutY="80.0" text="Label" />
                            </children>
                         </AnchorPane>
                      </items>
@@ -336,16 +376,17 @@
                                              <Label layoutX="14.0" layoutY="52.0" text="Search: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                                              <TextField layoutX="63.0" layoutY="48.0" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
                                              <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
-                                             <TableView layoutX="14.0" layoutY="86.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                             <TableView fx:id="courseTable" layoutX="14.0" layoutY="86.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#selectCourseItem" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                                  <columns>
-                                                     <TableColumn prefWidth="104.00003242492676" text="ID" />
-                                                     <TableColumn prefWidth="476.80001068115234" text="Name" />
+                                                     <TableColumn fx:id="courseIdColumn" prefWidth="104.00003242492676" text="ID" />
+                                          <TableColumn fx:id="courseTypeColumn" prefWidth="75.0" text="Type" />
+                                                     <TableColumn fx:id="courseNumberOfStudentsColumn" prefWidth="476.80001068115234" text="Number of students" />
                                                  </columns>
                                                  <columnResizePolicy>
                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                                  </columnResizePolicy>
                                              </TableView>
-                                             <Button layoutX="557.0" layoutY="499.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                             <Button layoutX="557.0" layoutY="499.0" mnemonicParsing="false" onAction="#openAddCourseWindow" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                          </children>
                                      </AnchorPane>
                                  </content>
@@ -355,18 +396,20 @@
                                      <Label alignment="CENTER" font="$x111" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x211" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                                      <Label layoutX="14.0" layoutY="52.0" text="Course ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                                      <Label layoutX="14.0" layoutY="70.0" text="Exam type:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                     <Button layoutX="177.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteCourse" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                      <Label layoutX="14.0" layoutY="88.0" text="Students:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
-                              <Button layoutX="128.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
-                              <TableView layoutX="10.0" layoutY="98.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+                              <Button layoutX="128.0" layoutY="487.0" mnemonicParsing="false" onAction="#openEditCourseWindow" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+                              <TableView fx:id="courseStudentTable" layoutX="10.0" layoutY="98.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
                                 <columns>
-                                  <TableColumn prefWidth="91.99993705749512" text="ID" />
-                                  <TableColumn prefWidth="160.00012969970703" text="Name" />
+                                  <TableColumn fx:id="courseStudentId" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" text="ID" />
+                                  <TableColumn fx:id="courseStudentName" maxWidth="1.7976931348623157E308" minWidth="160.0" prefWidth="160.00012969970703" text="Name" />
                                 </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
                               </TableView>
+                              <Label fx:id="courseIdLabel" layoutX="68.0" layoutY="40.0" text="Label" />
+                              <Label fx:id="courseTypeLabel" layoutX="71.0" layoutY="60.0" text="Label" />
                                  </children>
                              </AnchorPane>
                          </items>
@@ -377,16 +420,13 @@
       </TabPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
       <children>
-        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+        <Label fx:id="Error" maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" textFill="RED" HBox.hgrow="ALWAYS">
           <font>
             <Font size="11.0" fx:id="x3" />
           </font>
-          <textFill>
-            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
-          </textFill>
         </Label>
         <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+        <Label fx:id="databaseStatus" font="$x3" maxWidth="-1.0" text="Database Unavailable" HBox.hgrow="NEVER" />
       </children>
       <padding>
         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />

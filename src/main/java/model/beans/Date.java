@@ -1,5 +1,8 @@
 package model.beans;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Date {
     private int day;
     private int month;
@@ -73,6 +76,12 @@ public class Date {
         Date otherDate = (Date) obj;
         return otherDate.day == this.day && otherDate.month == this.month
                 && otherDate.year == this.year;
+    }
+
+    public StringProperty dateProperty() {
+        StringProperty date = new SimpleStringProperty();
+        date.set(toString());
+        return date;
     }
 
     public String toString()

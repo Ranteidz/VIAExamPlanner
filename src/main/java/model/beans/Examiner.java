@@ -61,6 +61,15 @@ public class Examiner
     return name;
   }
 
+  public ArrayList<Date> unavailableDatesProperty(){
+    return unavailableDates;
+  }
+
+  public void addUnavailableDate(Date date) {
+    if(!unavailableDates.contains(date));
+      unavailableDates.add(new Date(date.getDay(), date.getMonth(), date.getYear()));
+  }
+
   @Override public String toString()
   {
     return examinerId + " " + examinerFirstName +" "+ examinerLastName ;
