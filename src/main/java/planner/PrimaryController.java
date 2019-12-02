@@ -308,9 +308,19 @@ public class PrimaryController {
     }
 
     public void deleteExaminer() {
+        //TODO fix delete
         ObservableList<Examiner> allExaminers, selectedExaminer;
         allExaminers = examinerTable.getItems();
         selectedExaminer = examinerTable.getSelectionModel().getSelectedItems();
+        try{
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("DELETE FROM Examiners WHERE ID = '" + "" + "';");
+
+            posted.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
         allExaminers.removeAll(selectedExaminer);
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
