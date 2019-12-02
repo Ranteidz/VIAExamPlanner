@@ -211,7 +211,7 @@ public class PrimaryController {
 
     public void addStudent() {
         Student student = new Student(Integer.parseInt(studentIDinput.getText()),
-                studentFirstNameInput.getText(), studentFirstNameInput.getText());
+                studentFirstNameInput.getText(), studentLastNameInput.getText());
         System.out.println("Student added");
         //TODO add student to database
         studentTable.getItems().add(student);
@@ -334,19 +334,20 @@ public class PrimaryController {
             capacityTextField.setEditable(false);
             hdmiTextField.setEditable(false);
             vgaTextField.setEditable(false);
-            classroomIdTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
-            capacityTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
-            hdmiTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
-            vgaTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
+
+            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
+            classroomIdTextField.setStyle(styleTextField);
+            capacityTextField.setStyle(styleTextField);
+            hdmiTextField.setStyle(styleTextField);
+            vgaTextField.setStyle(styleTextField);
 
             ClassRoom classRoom = new ClassRoom(classroomIdTextField.getText(),
                     Integer.parseInt(capacityTextField.getText()), Boolean.parseBoolean(hdmiTextField.getText()), Boolean.parseBoolean(vgaTextField.getText()));
-
             deleteClassroom();
-
             tableClassroom.getItems().add(classRoom);
             tableClassroom.getSelectionModel().clearSelection();
             editSaveClassroom.setText("Edit");
+
         }
 
     }
