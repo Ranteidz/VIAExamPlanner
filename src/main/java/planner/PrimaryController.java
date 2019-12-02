@@ -232,7 +232,6 @@ public class PrimaryController {
         Student student = new Student(Integer.parseInt(studentIDinput.getText()),
                 studentFirstNameInput.getText(), studentLastNameInput.getText());
         System.out.println("Student added");
-        //TODO add student to database. Done.
         try{
             Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("INSERT INTO Students (ID, Name, Surname) VALUES ('"+studentIDinput.getText()+"', '"+studentFirstNameInput.getText()+"', '"+studentLastNameInput.getText()+"')");
