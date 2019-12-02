@@ -9,6 +9,7 @@ model\beans\Student.class
 planner\AddCourseController.class
 planner\AddExaminerController.class
 planner\App.class
+planner\EditCourseController.class
 module-info.class
 planner\PrimaryController.class
 model\beans\ClassRoom.class
