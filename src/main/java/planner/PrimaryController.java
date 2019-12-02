@@ -1,8 +1,6 @@
 package planner;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
@@ -18,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.beans.*;
+import model.beans.Date;
 import model.dao.StudentDao;
 import model.DataModel;
 
@@ -307,26 +306,28 @@ public class PrimaryController {
         examinerDateTable.getItems().addAll(dates);
     }
 
-    public void deleteExaminer() {
+    public void deleteExaminer()
+    {
         //TODO fix delete
         ObservableList<Examiner> allExaminers, selectedExaminer;
         allExaminers = examinerTable.getItems();
         selectedExaminer = examinerTable.getSelectionModel().getSelectedItems();
+
         try{
             Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-            PreparedStatement posted = con.prepareStatement("DELETE FROM Examiners WHERE ID = '" + "" + "';");
+            PreparedStatement posted = con.prepareStatement("DELETE FROM Examiners WHERE ID = '" + examinerTable.getSelectionModel().getSelectedCells().get(0) + "';");
 
-            posted.executeUpdate();
+            posted.executeQuery();
         }
         catch (Exception e){
             System.out.println(e);
         }
-        allExaminers.removeAll(selectedExaminer);
-        examinerIdLabel.setText("");
-        examinerLastNameLabel.setText("");
-        examinerFirstNameLabel.setText("");
-        examinerDateTable.getItems().clear();
-    }
+            allExaminers.removeAll(selectedExaminer);
+            examinerIdLabel.setText("");
+            examinerLastNameLabel.setText("");
+            examinerFirstNameLabel.setText("");
+            examinerDateTable.getItems().clear();
+        }
 
     public void openAddCourseWindow() throws Exception {
         FXMLLoader loader = new FXMLLoader();
