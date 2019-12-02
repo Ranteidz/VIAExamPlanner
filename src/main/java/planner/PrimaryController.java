@@ -172,12 +172,8 @@ public class PrimaryController {
         //TODO Load the rest of data
         ArrayList<Student> students = DataModel.getStudentAll();
         ArrayList<Examiner> examiners = DataModel.getExaminersALL();
-        for(Student member : students){
-            studentTable.getItems().add(member);
-        }
-        for(Examiner member: examiners){
-            examinerTable.getItems().add(member);
-        }
+        studentTable.getItems().addAll(students);
+        examinerTable.getItems().addAll(examiners);
     }
 
 
