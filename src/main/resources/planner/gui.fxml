@@ -28,7 +28,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.PrimaryController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.PrimaryController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -292,6 +292,9 @@
                               <Button layoutX="164.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                               <Button layoutX="151.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
                               <Label layoutX="10.0" layoutY="78.0" text="Last Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
+                              <Label fx:id="studentIdLable" layoutX="73.0" layoutY="40.0" text="Label" />
+                              <Label fx:id="studentFirstNameLabel" layoutX="74.0" layoutY="60.0" text="Label" />
+                              <Label fx:id="studentLastNameLabel" layoutX="73.0" layoutY="80.0" text="Label" />
                            </children>
                         </AnchorPane>
                      </items>

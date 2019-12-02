@@ -1,5 +1,8 @@
 package planner;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
@@ -82,6 +85,10 @@ public class PrimaryController {
     @FXML
     public TableColumn<Examiner, String> examinerName;
     @FXML
+    public Label studentIdLable;
+    @FXML Label studentFirstNameLabel;
+    @FXML Label studentLastNameLabel;
+    @FXML
     public Label examinerIdLabel;
     @FXML
     public Label examinerFirstNameLabel;
@@ -137,6 +144,7 @@ public class PrimaryController {
 
         try {
             loadData();
+            loadAllData();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -161,13 +169,24 @@ public class PrimaryController {
 //            studentTable.getItems().add(member);
 //        }
     }
+    private void loadAllData() throws Exception {
+        //TODO Load the rest of data
+        ArrayList<Student> students = DataModel.getStudentAll();
+        ArrayList<Examiner> examiners = DataModel.getExaminersALL();
+        for(Student member : students){
+            studentTable.getItems().add(member);
+        }
+        for(Examiner member: examiners){
+            examinerTable.getItems().add(member);
+        }
+    }
 
 
     public void MethodTesting(ActionEvent actionEvent) throws Exception {
         System.out.println("test");
         StudentDao dao = new StudentDao();
         ArrayList<Student> students = DataModel.getStudentAll();
-        DataModel.post();
+        DataModel.postStudent();
         for (Student member : students) {
             System.out.println(member);
             studentTable.getItems().add(member);
@@ -213,11 +232,41 @@ public class PrimaryController {
         Student student = new Student(Integer.parseInt(studentIDinput.getText()),
                 studentFirstNameInput.getText(), studentLastNameInput.getText());
         System.out.println("Student added");
-        //TODO add student to database
+        //TODO add student to database. Done.
+        try{
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("INSERT INTO Students (ID, Name, Surname) VALUES ('"+studentIDinput.getText()+"', '"+studentFirstNameInput.getText()+"', '"+studentLastNameInput.getText()+"')");
+            posted.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
         studentTable.getItems().add(student);
         studentIDinput.clear();
         studentFirstNameInput.clear();
         studentLastNameInput.clear();
+    }
+
+    public void selectStudentItem() {
+        studentIdLable.setText("");
+        studentFirstNameLabel.setText("");
+        studentLastNameLabel.setText("");
+     Student student = studentTable.getSelectionModel().getSelectedItem();
+       studentIdLable.setText(student.studentIdProperty().toString());
+        studentIdLable.setText(student.studentFirstNameProperty().get());
+        studentIdLable.setText(student.studentLastNameProperty().get());
+
+    }
+
+    public void deleteStudent() {
+        ObservableList<Student> allStudents, selectedStudent;
+        allStudents = studentTable.getItems();
+        selectedStudent = studentTable.getSelectionModel().getSelectedItems();
+        allStudents.removeAll(selectedStudent);
+        examinerIdLabel.setText("");
+        examinerLastNameLabel.setText("");
+        examinerFirstNameLabel.setText("");
+
     }
 
     public void openAddExaminerWindow() throws Exception {
