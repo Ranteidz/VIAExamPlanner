@@ -339,15 +339,13 @@ public class PrimaryController {
             hdmiTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
             vgaTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
 
-            deleteClassroom();
             ClassRoom classRoom = new ClassRoom(classroomIdTextField.getText(),
                     Integer.parseInt(capacityTextField.getText()), Boolean.parseBoolean(hdmiTextField.getText()), Boolean.parseBoolean(vgaTextField.getText()));
+
+            deleteClassroom();
+
             tableClassroom.getItems().add(classRoom);
             tableClassroom.getSelectionModel().clearSelection();
-            classroomIdTextField.setText("");
-            capacityTextField.setText("");
-            hdmiTextField.setText("");
-            vgaTextField.setText("");
             editSaveClassroom.setText("Edit");
         }
 
