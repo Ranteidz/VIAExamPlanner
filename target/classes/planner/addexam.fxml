@@ -41,7 +41,7 @@
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Course ID:" GridPane.rowIndex="1" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Classroom ID:" GridPane.rowIndex="2" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Examiner ID:" GridPane.rowIndex="3" />
-                  <TextField fx:id="courseIdField" onMouseClicked="#showCourses" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="courseIdField" onKeyPressed="#searchData" onMouseClicked="#showCourses" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="examinerIdField" onMouseClicked="#showExaminers" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <TextField fx:id="classroomIdField" onMouseClicked="#showClassrooms" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <DatePicker fx:id="examDatePicker" GridPane.columnIndex="1" />

@@ -14,6 +14,7 @@ public class AddExamController {
 
     public PrimaryController parentController;
     //private Exam exam;
+    private long keyTime;
 
     @FXML
     public DatePicker examDatePicker;
@@ -59,7 +60,7 @@ public class AddExamController {
         infoTable.getItems().addAll(data);
     }
 
-    public void showClassrooms(){
+    public void showClassrooms() {
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
@@ -75,14 +76,48 @@ public class AddExamController {
         infoTable.getItems().addAll(data);
     }
 
-    public void selectTableItem() {}
+    public void selectTableItem() {
+        switch (infoLabel.getText()) {
+            case "Courses":
+                Course course = (Course) infoTable.getSelectionModel().getSelectedItem();
+                courseIdField.setText(course.courseIdProperty().get());
+                //update students table
+                break;
+            case "Classrooms":
+                ClassRoom classroom = (ClassRoom) infoTable.getSelectionModel().getSelectedItem();
+                ;
+                classroomIdField.setText(classroom.nameProperty().get());
+                break;
+            case "Examiners":
+                Examiner examiner = (Examiner) infoTable.getSelectionModel().getSelectedItem();
+                examinerIdField.setText(examiner.examinerIdProperty().get());
+                break;
+        }
+    }
 
-    public void addExam() {}
+    public void addExam() {
+    }
 
-    public void getSelectedItem() {}
+    public void searchData() {
+            keyTime = System.currentTimeMillis();
+            this.notify();
+        synchronized (this) {
+            System.out.println(keyTime);
+            try {
+                this.wait(200);
+                if (System.currentTimeMillis() - keyTime > 600)
+                    System.out.println("Search");
+            } catch (InterruptedException e) {
+                System.out.println("search override");
+            }
+        }
+    }
+
+    public void getSelectedItem() {
+    }
 
     public void closeWindow() {
-       // exam = null;
+        // exam = null;
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
