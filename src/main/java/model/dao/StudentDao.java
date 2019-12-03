@@ -146,5 +146,10 @@ posted.setString(3,newStudent.studentLastNameProperty().get());
       System.out.println(e);
     }
   }
+
+  public void changeStudent(Student newStudent)
+  {
+    
+  }
 }
 
