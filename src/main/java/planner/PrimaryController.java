@@ -142,7 +142,6 @@ public class PrimaryController {
         courseStudentName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
 
         try {
-            loadData();
             loadAllData();
         } catch (Exception e) {
             e.printStackTrace();
@@ -153,21 +152,14 @@ public class PrimaryController {
         System.out.println("updating data");
 //        studentTable.getItems().clear();
         try {
-            loadData();
+            loadAllData();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void loadData() throws Exception {
-//        StudentDao dao = new StudentDao();
-//        ArrayList<Student> students = DataModel.getStudentAll();
-//        DataModel.post();
-//        for (Student member : students) {
-//            System.out.println(member);
-//            studentTable.getItems().add(member);
-//        }
-    }
+
+
     private void loadAllData() throws Exception {
         //TODO Load the rest of data
         ArrayList<Student> students = DataModel.getStudentAll();
@@ -231,18 +223,18 @@ public class PrimaryController {
         DataModel.addStudent(student);
 
 
-//        try{
-//            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-//            PreparedStatement posted = con.prepareStatement("INSERT INTO Students (ID, Name, Surname) VALUES ('"+studentIDinput.getText()+"', '"+studentFirstNameInput.getText()+"', '"+studentLastNameInput.getText()+"')");
-//            posted.executeUpdate();
-//        }
-//        catch (Exception e){
-//            System.out.println(e);
-//        }
-//        studentTable.getItems().add(student);
-//        studentIDinput.clear();
-//        studentFirstNameInput.clear();
-//        studentLastNameInput.clear();
+        try{
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("INSERT INTO Students (ID, Name, Surname) VALUES ('"+studentIDinput.getText()+"', '"+studentFirstNameInput.getText()+"', '"+studentLastNameInput.getText()+"')");
+            posted.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        studentTable.getItems().add(student);
+        studentIDinput.clear();
+        studentFirstNameInput.clear();
+        studentLastNameInput.clear();
     }
 
     public void selectStudentItem() {
@@ -250,9 +242,9 @@ public class PrimaryController {
         studentFirstNameLabel.setText("");
         studentLastNameLabel.setText("");
      Student student = studentTable.getSelectionModel().getSelectedItem();
-       studentIdLable.setText(student.studentIdProperty().toString());
-        studentIdLable.setText(student.studentFirstNameProperty().get());
-        studentIdLable.setText(student.studentLastNameProperty().get());
+       studentIdLable.setText(Integer.toString(student.studentIdProperty().get()));
+        studentFirstNameLabel.setText(student.studentFirstNameProperty().get());
+        studentLastNameLabel.setText(student.studentLastNameProperty().get());
 
     }
 
