@@ -58,6 +58,21 @@ public class CourseDao
       System.out.println(e);
     }
   }
+
+  public void removeCourse(Course newCourse)
+  {
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("DELETE FROM Courses WHERE ID= ?");
+      posted.setString(1,newCourse.courseIdProperty().get());
+
+      posted.executeUpdate();
+
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
+  }
 }
 
 

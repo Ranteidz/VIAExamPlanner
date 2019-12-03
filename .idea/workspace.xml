@@ -3,10 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addexam.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/addexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/addexam.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ClassRoomDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ClassRoomDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CourseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ExaminerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ExaminerDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/StudentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/StudentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/dao/ClassRoomDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/dao/ClassRoomDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/dao/CourseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/dao/CourseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/dao/ExaminerDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/dao/ExaminerDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/dao/StudentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/dao/StudentDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -263,21 +272,7 @@
       <option name="project" value="LOCAL" />
       <updated>1575361242878</updated>
     </task>
-    <task id="LOCAL-00022" summary="merge">
-      <created>1575366179306</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1575366179306</updated>
-    </task>
-    <task id="LOCAL-00023" summary="add exam information table update working">
-      <created>1575368157397</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1575368157397</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -388,10 +383,7 @@
     <MESSAGE value="merge fix" />
     <MESSAGE value="Add Student method created in DataModel Object" />
     <MESSAGE value="work on add exam window" />
-    <MESSAGE value="let me pull, git" />
-    <MESSAGE value="merge" />
-    <MESSAGE value="add exam information table update working" />
-    <option name="LAST_COMMIT_MESSAGE" value="add exam information table update working" />
+    <option name="LAST_COMMIT_MESSAGE" value="work on add exam window" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">

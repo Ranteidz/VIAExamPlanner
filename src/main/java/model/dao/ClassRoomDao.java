@@ -58,4 +58,19 @@ public class ClassRoomDao
       System.out.println(e);
     }
   }
+
+  public void removeClassRoom(ClassRoom newClassRoom)
+  {
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("DELETE FROM Classrooms WHERE ID= ?");
+      posted.setString(1,(newClassRoom.nameProperty().get()));
+
+      posted.executeUpdate();
+
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
+  }
 }

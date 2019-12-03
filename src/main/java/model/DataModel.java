@@ -68,20 +68,34 @@ public static void createCourseTable() throws Exception
 static public void addExaminer(Examiner newExaminer){
     ExaminerDao examinerDao = new ExaminerDao();
     examinerDao.insertExaminer(newExaminer);
-
+}
+static public void deleteExaminer(Examiner newExaminer){
+    ExaminerDao examinerDao = new ExaminerDao();
+    examinerDao.removeExaminer(newExaminer);
 }
 static public void addClassRoom(ClassRoom newClassRoom){
   ClassRoomDao classRoomDao= new ClassRoomDao();
   classRoomDao.insertClassRoom(newClassRoom);
-
+}
+static public void deleteClassRoom(ClassRoom newClassRoom){
+    ClassRoomDao classRoomDao = new ClassRoomDao();
+    classRoomDao.removeClassRoom(newClassRoom);
 }
   static public void addStudent(Student newStudent){
     StudentDao studentsDAO = new StudentDao();
        studentsDAO.insertStudent(newStudent);
   }
+  static public void deleteStudent(Student newStudent){
+    StudentDao studentDao = new StudentDao();
+    studentDao.removeStudent(newStudent);
+  }
 static public void addCourse(Course newCourse){
   CourseDao courseDao = new CourseDao();
   courseDao.insertCourse(newCourse);
+}
+static public void deleteCourse(Course newCourse){
+    CourseDao courseDao = new CourseDao();
+    courseDao.removeCourse(newCourse);
 }
 static public ArrayList<ClassRoom> getClassRoomsAll(){
     ClassRoomDao classRoomDao = new ClassRoomDao();
