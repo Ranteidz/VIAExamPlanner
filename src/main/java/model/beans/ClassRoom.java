@@ -57,15 +57,14 @@ public class ClassRoom {
         this.vga.set(vga);
     }
 
-
+    public StringProperty classroomInfoProperty() {
+        StringProperty info = new SimpleStringProperty();
+        info.set(toString());
+        return info;
+    }
 
     @Override
     public String toString() {
-        return "ClassRoom{" +
-                "name=" + name +
-                ", capacity=" + capacity +
-                ", hdmi=" + hdmi +
-                ", vga=" + vga +
-                '}';
+        return name + ", " + capacity + " seats, " + ((hdmi.get() && vga.get())?(hdmi.get()?"HDMI, ":""):"HDMI") + (vga.get()?"VGA":"");
     }
 }

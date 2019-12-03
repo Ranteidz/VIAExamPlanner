@@ -150,7 +150,8 @@ public class PrimaryController {
 
     public void updateData() {
         System.out.println("updating data");
-//        studentTable.getItems().clear();
+        studentTable.getItems().clear();
+        examinerTable.getItems().clear();
         try {
             loadAllData();
         } catch (Exception e) {
@@ -178,6 +179,19 @@ public class PrimaryController {
             System.out.println(member);
             studentTable.getItems().add(member);
         }
+    }
+
+    public void openAddExamWindow() throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("addexam.fxml"));
+        Parent root = (Parent) loader.load();
+        AddExaminerController controller = loader.getController();
+        controller.initialize(this);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Add Course");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void addClassroom() {

@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<SplitPane dividerPositions="0.5" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.5" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.AddExamController">
    <items>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="300.0">
          <children>
@@ -42,10 +41,10 @@
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Course ID:" GridPane.rowIndex="1" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Classroom ID:" GridPane.rowIndex="2" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Examiner ID:" GridPane.rowIndex="3" />
-                  <TextField onMouseClicked="#showCourses" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField onMouseClicked="#showExaminers" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField onMouseClicked="#showClassrooms" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <DatePicker GridPane.columnIndex="1" />
+                  <TextField fx:id="courseIdField" onMouseClicked="#showCourses" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="examinerIdField" onMouseClicked="#showExaminers" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="classroomIdField" onMouseClicked="#showClassrooms" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <DatePicker fx:id="examDatePicker" GridPane.columnIndex="1" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Date:" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Co-examiner:" GridPane.rowIndex="4" />
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -57,20 +56,20 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <RadioButton mnemonicParsing="false" text="Internal">
+                        <RadioButton fx:id="isInternal" mnemonicParsing="false" text="Internal">
                            <toggleGroup>
-                              <ToggleGroup fx:id="extExaminerType" />
+                              <ToggleGroup fx:id="coexaminerType" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="External" toggleGroup="$extExaminerType" GridPane.columnIndex="1" />
+                        <RadioButton fx:id="isExternal" mnemonicParsing="false" text="External" toggleGroup="$coexaminerType" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Co-examiner name:" GridPane.rowIndex="5" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="coexaminerNameField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
             </GridPane>
-            <Button layoutX="234.0" layoutY="131.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-            <Button layoutX="200.0" layoutY="140.0" mnemonicParsing="false" text="Cancel" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="57.0" />
+            <Button layoutX="234.0" layoutY="131.0" mnemonicParsing="false" onAction="#addExam" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <Button layoutX="200.0" layoutY="140.0" mnemonicParsing="false" onAction="#closeWindow" text="Cancel" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="57.0" />
             <TableView fx:id="examStudentsTable" layoutX="10.0" layoutY="241.0" prefHeight="175.0" prefWidth="280.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="230.0">
               <columns>
                 <TableColumn fx:id="examStudentsColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="280.0" text="Students" />
@@ -90,7 +89,7 @@
                 <TableColumn fx:id="infoColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="180.0" resizable="false" text="Information" />
               </columns>
             </TableView>
-            <Button layoutX="138.0" layoutY="417.0" mnemonicParsing="false" onMouseClicked="#getSelectedItem" text="Select" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <Button layoutX="138.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectTableItem" onMouseClicked="#getSelectedItem" text="Select" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
          </children>
       </AnchorPane>
    </items>

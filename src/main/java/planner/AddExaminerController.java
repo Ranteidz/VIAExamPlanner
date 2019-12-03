@@ -55,7 +55,7 @@ public class AddExaminerController {
             System.out.println(e);
         }
         parentController.examinerTable.getItems().add(examiner);
-        parentController.updateData();
+//        parentController.updateData();
         closeWindow();
     }
 
