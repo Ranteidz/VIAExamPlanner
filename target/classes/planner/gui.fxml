@@ -28,7 +28,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.PrimaryController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.PrimaryController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -95,7 +95,7 @@
                                     <Label layoutX="14.0" layoutY="50.0" text="Show schedule:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                                     <RadioButton layoutX="155.0" layoutY="50.0" mnemonicParsing="false" text="Specific Date: " toggleGroup="$periodPicker" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="40.0" />
                                     <DatePicker layoutX="259.0" layoutY="46.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="36.0" />
-                                    <Button layoutX="555.0" layoutY="493.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                    <Button layoutX="555.0" layoutY="493.0" mnemonicParsing="false" onAction="#openAddExamWindow" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                     <Button layoutX="441.0" layoutY="46.0" mnemonicParsing="false" text="Set date" AnchorPane.leftAnchor="435.0" AnchorPane.topAnchor="36.0" />
                                     <Button fx:id="ButtonTest" layoutX="251.0" layoutY="493.0" mnemonicParsing="false" onAction="#MethodTesting" text="METHOD TESTING BUTTON" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
                                     <TableView layoutX="18.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">

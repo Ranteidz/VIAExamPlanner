@@ -42,6 +42,22 @@ public class CourseDao
       courses.setCourseType(rs.getString("Type"));
 
     }
+
+  public void insertCourse(Course newCourse)
+  {
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("INSERT INTO Courses (ID, Type)"+ " values(?, ?)");
+      posted.setString(1,newCourse.courseIdProperty().get());
+      posted.setString(2,newCourse.courseTypeProperty().get());
+
+      posted.execute();
+
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
   }
+}
 
 

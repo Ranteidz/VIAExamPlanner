@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
@@ -123,8 +124,12 @@ public class PrimaryController
     //TODO Load the rest of data
     ArrayList<Student> students = DataModel.getStudentAll();
     ArrayList<Examiner> examiners = DataModel.getExaminersALL();
+    ArrayList<Course> courses = DataModel.getCoursesAll();
+    ArrayList<ClassRoom> classRooms = DataModel.getClassRoomsAll();
     studentTable.getItems().addAll(students);
     examinerTable.getItems().addAll(examiners);
+    courseTable.getItems().addAll(courses);
+    tableClassroom.getItems().addAll(classRooms);
   }
 
   public void MethodTesting(ActionEvent actionEvent) throws Exception
@@ -161,7 +166,7 @@ public class PrimaryController
         if (inputClassroomVGA.isSelected())
             classRoom.setVga(true);
         System.out.println("Classroom added");
-        //TODO add classroom to database
+        DataModel.addClassRoom(classRoom);
         tableClassroom.getItems().add(classRoom);
         inputClassroomName.clear();
         inputClassroomCapacity.clear();
