@@ -321,11 +321,13 @@ public class PrimaryController
         courseIdLabel.setText("");
         courseTypeLabel.setText("");
         courseStudentTable.getItems().clear();
-        Course course = courseTable.getSelectionModel().getSelectedItem();
-        courseIdLabel.setText(course.courseIdProperty().get());
-        courseTypeLabel.setText(course.courseTypeProperty().get());
-        ObservableList<Student> students = FXCollections.<Student>observableArrayList(course.studentsProperty());
-        courseStudentTable.getItems().addAll(students);
+        try {
+            Course course = courseTable.getSelectionModel().getSelectedItem();
+            courseIdLabel.setText(course.courseIdProperty().get());
+            courseTypeLabel.setText(course.courseTypeProperty().get());
+            ObservableList<Student> students = FXCollections.<Student>observableArrayList(course.studentsProperty());
+            courseStudentTable.getItems().addAll(students);
+        } catch (Exception e) {}
     }
 
     public void deleteCourse() {
@@ -368,8 +370,6 @@ public class PrimaryController
             tableClassroom.getItems().add(classRoom);
             tableClassroom.getSelectionModel().clearSelection();
             editSaveClassroom.setText("Edit");
-
         }
-
     }
 }

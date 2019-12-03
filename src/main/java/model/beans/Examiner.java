@@ -60,6 +60,12 @@ public class Examiner {
         return name;
     }
 
+    public StringProperty examinerInfoProperty() {
+        StringProperty name = new SimpleStringProperty();
+        name.set(String.format("%s, %s", examinerId.get(), examinerNameProperty().get()));
+        return name;
+    }
+
     public ArrayList<Date> unavailableDatesProperty() {
         return unavailableDates;
     }

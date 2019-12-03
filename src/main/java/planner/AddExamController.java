@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.beans.ClassRoom;
 import model.beans.Course;
+import model.beans.Examiner;
 import model.beans.Student;
 
 public class AddExamController {
@@ -66,7 +67,13 @@ public class AddExamController {
         infoTable.getItems().addAll(data);
     }
 
-    public void showExaminers() {}
+    public void showExaminers() {
+        infoTable.getItems().clear();
+        infoLabel.setText("Examiners");
+        infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("examinerInfo"));
+        ObservableList<Examiner> data = parentController.examinerTable.getItems();
+        infoTable.getItems().addAll(data);
+    }
 
     public void selectTableItem() {}
 
