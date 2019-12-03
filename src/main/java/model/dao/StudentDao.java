@@ -73,6 +73,18 @@ public class StudentDao extends DataModel
    */
   public void insertStudent(Student newStudent){
 
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("INSERT INTO Students (ID, Name, Surname)"+ " values(?, ?, ?)");
+      posted.setString(1,Integer.toString(newStudent.studentIdProperty().get()));
+      posted.setString(2,newStudent.studentFirstNameProperty().get());
+posted.setString(3,newStudent.studentLastNameProperty().get());
+      posted.execute();
+
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
   }
 
 
