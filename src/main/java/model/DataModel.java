@@ -3,8 +3,12 @@ package model;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import model.beans.ClassRoom;
+import model.beans.Course;
 import model.beans.Examiner;
 import model.beans.Student;
+import model.dao.ClassRoomDao;
+import model.dao.CourseDao;
 import model.dao.ExaminerDao;
 import model.dao.StudentDao;
 import planner.PrimaryController;
@@ -61,17 +65,36 @@ public static void createCourseTable() throws Exception
     StudentDao studentsDAO = new StudentDao();
     return studentsDAO.getStudents();
   }
+static public void addExaminer(Examiner newExaminer){
+    ExaminerDao examinerDao = new ExaminerDao();
+    examinerDao.insertExaminer(newExaminer);
 
+}
+static public void addClassRoom(ClassRoom newClassRoom){
+  ClassRoomDao classRoomDao= new ClassRoomDao();
+  classRoomDao.insertClassRoom(newClassRoom);
 
+}
   static public void addStudent(Student newStudent){
     StudentDao studentsDAO = new StudentDao();
        studentsDAO.insertStudent(newStudent);
   }
-
+static public void addCourse(Course newCourse){
+  CourseDao courseDao = new CourseDao();
+  courseDao.insertCourse(newCourse);
+}
+static public ArrayList<ClassRoom> getClassRoomsAll(){
+    ClassRoomDao classRoomDao = new ClassRoomDao();
+    return classRoomDao.getClassRooms();
+}
   static public ArrayList<Examiner> getExaminersALL()
   {
     ExaminerDao examinerDao = new ExaminerDao();
     return examinerDao.getExaminers();
+  }
+  static public ArrayList<Course> getCoursesAll(){
+    CourseDao courseDao = new CourseDao();
+    return courseDao.getCourses();
   }
 
   static public ArrayList<Student> getStudentByName(String studentName)

@@ -41,4 +41,20 @@ public class ExaminerDao
     examiner.setExaminerFirstName(rs.getString("Name"));
     examiner.setExaminerLastName(rs.getString("Surname"));
   }
-}
+
+  public void insertExaminer(Examiner newExaminer)
+  {
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("INSERT INTO Examiners (ID, Name, Surname)"+ " values(?, ?, ?)");
+      posted.setString(1,newExaminer.examinerIdProperty().get());
+      posted.setString(2,newExaminer.examinerFirstNameProperty().get());
+      posted.setString(3,newExaminer.examinerLastNameProperty().get());
+      posted.execute();
+
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
+  }
+  }

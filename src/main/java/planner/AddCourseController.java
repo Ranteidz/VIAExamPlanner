@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.DataModel;
 import model.beans.Course;
 import model.beans.Student;
 
@@ -38,6 +39,7 @@ public class AddCourseController {
         //TODO add examiner to database
         course.setCourseId(courseIdInput.getText());
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
+        DataModel.addCourse(course);
         parentController.courseTable.getItems().add(course);
         parentController.updateData();
         System.out.println("add");

@@ -46,14 +46,7 @@ public class AddExaminerController {
         examiner.setExaminerId(examinerIdInput.getText());
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
-        try{
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-            PreparedStatement posted = con.prepareStatement("INSERT INTO Examiners (ID, Name, Surname) VALUES ('"+examinerIdInput.getText()+"', '"+examinerFirstNameInput.getText()+"', '"+examinerFirstNameInput.getText()+"')");
-            posted.executeUpdate();
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
+    DataModel.addExaminer(examiner);
         parentController.examinerTable.getItems().add(examiner);
 //        parentController.updateData();
         closeWindow();

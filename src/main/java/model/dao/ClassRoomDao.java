@@ -42,5 +42,20 @@ public class ClassRoomDao
     classRoom.setVga(rs.getBoolean("HasVGA"));
   }
 
+  public void insertClassRoom(ClassRoom newClassRoom)
+  {
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("INSERT INTO Classrooms (ID, Capacity, HasHDMI, HasVGA)"+ " values(?, ?, ?, ?)");
+      posted.setString(1,newClassRoom.nameProperty().get());
+      posted.setString(2, String.valueOf(newClassRoom.capacityProperty().get()));
+      posted.setString(3, String.valueOf(newClassRoom.hdmiProperty().get()?1:0));
+      posted.setString(4,String.valueOf(newClassRoom.vgaProperty().get()?1:0));
+      posted.execute();
 
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
+  }
 }
