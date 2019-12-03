@@ -35,11 +35,26 @@ public class StudentDao extends DataModel
     return Students;
   }
 
-  /**
-   * Get Students By Name
-   * @param studentName String
-   * @return Array List with Students
-   */
+
+   public Student  getStudentByID(String studentID){
+Student student = null;
+    try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString()))
+    {
+      String SQL = "SELECT * FROM dbo.Students WHERE ID=? ";
+      PreparedStatement preparedStatement = con.prepareStatement(SQL);
+
+      preparedStatement.setString(1, studentID);
+      ResultSet rs = preparedStatement.executeQuery();
+      while(rs.next()){
+      student = new Student();
+        process(rs,student);
+      }
+    }
+    catch (SQLException e){
+
+    }
+return student;
+  }
   public ArrayList<Student> getStudentsByName(String studentName) {
 
     ArrayList<Student> Students = new ArrayList<>();

@@ -139,6 +139,7 @@ public class PrimaryController
       System.out.println(member);
       studentTable.getItems().add(member);
     }
+
   }
 
     public void openAddExamWindow() throws Exception{
