@@ -29,15 +29,11 @@ public class PrimaryController
   //    private ArrayList<Student> studentsTest = DataModel.getStudentAll();
   @FXML private TextField inputClassroomName;
   @FXML private TextField inputClassroomCapacity;
-  @FXML private TableView<ClassRoom> tableClassroom;
+  @FXML public TableView<ClassRoom> tableClassroom;
   @FXML public TableColumn<ClassRoom, String> name;
   @FXML public TableColumn<ClassRoom, Integer> capacity;
   @FXML public TableColumn<ClassRoom, Boolean> hdmi;
   @FXML public TableColumn<ClassRoom, Boolean> vga;
-  @FXML private Label classroomIdLabel;
-  @FXML private Label capacityLabel;
-  @FXML private Label hdmiLabel;
-  @FXML private Label vgaLabel;
   @FXML private TextField classroomIdTextField;
   @FXML private TextField capacityTextField;
   @FXML private TextField hdmiTextField;
@@ -144,7 +140,7 @@ public class PrimaryController
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("addexam.fxml"));
         Parent root = (Parent) loader.load();
-        AddExaminerController controller = loader.getController();
+        AddExamController controller = loader.getController();
         controller.initialize(this);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

@@ -7,7 +7,7 @@ import javafx.beans.property.StringProperty;
 
 import java.util.ArrayList;
 
-public class Course {
+public class Course extends Object{
     private StringProperty courseId = new SimpleStringProperty();
     private StringProperty courseType = new SimpleStringProperty();
     private ArrayList<Student> students = new ArrayList<Student>();
@@ -45,7 +45,7 @@ public class Course {
 
     public StringProperty courseInfoProperty() {
         StringProperty info = new SimpleStringProperty();
-        info.set(String.format("%s, %s, %d", courseId, courseType, numberOfStudentsProperty()));
+        info.set(String.format("%s, %s, %d students", courseId.get(), courseType.get(), numberOfStudentsProperty().get()));
         return info;
     }
 

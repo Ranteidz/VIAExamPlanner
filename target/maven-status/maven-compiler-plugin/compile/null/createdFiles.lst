@@ -5,6 +5,7 @@ model\dao\ClassRoomDao.class
 model\dao\ExaminerDao.class
 model\dao\StudentDao.class
 model\beans\Course.class
+planner\AddExamController.class
 model\beans\Student.class
 planner\AddCourseController.class
 planner\AddExaminerController.class

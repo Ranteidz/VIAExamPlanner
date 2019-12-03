@@ -65,6 +65,6 @@ public class ClassRoom {
 
     @Override
     public String toString() {
-        return name + ", " + capacity + " seats, " + ((hdmi.get() && vga.get())?(hdmi.get()?"HDMI, ":""):"HDMI") + (vga.get()?"VGA":"");
+        return name.get() + ", " + capacity.get() + " seats, " + ((hdmi.get() && vga.get())?(hdmi.get()?"HDMI, ":""):"HDMI") + (vga.get()?"VGA":"");
     }
 }
