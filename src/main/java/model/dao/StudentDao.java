@@ -131,5 +131,20 @@ posted.setString(3,newStudent.studentLastNameProperty().get());
     student.setStudentFirstName(rs.getString("Name"));
     student.setStudentLastName(rs.getString("Surname"));
   }
+
+  public void removeStudent(Student newStudent)
+  {
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("DELETE FROM Students WHERE ID= ?");
+      posted.setString(1,Integer.toString(newStudent.studentIdProperty().get()));
+
+      posted.executeUpdate();
+
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
+  }
 }
 

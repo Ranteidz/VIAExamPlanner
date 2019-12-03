@@ -183,8 +183,10 @@ public class PrimaryController
   public void deleteClassroom()
   {
     ObservableList<ClassRoom> allClassrooms, selectedClassroom;
+    ClassRoom classRoom=tableClassroom.getSelectionModel().getSelectedItem();
     allClassrooms = tableClassroom.getItems();
     selectedClassroom = tableClassroom.getSelectionModel().getSelectedItems();
+    DataModel.deleteClassRoom(classRoom);
     allClassrooms.removeAll(selectedClassroom);
     classroomIdTextField.setText("");
     capacityTextField.setText("");
@@ -216,8 +218,10 @@ public class PrimaryController
 
     public void deleteStudent() {
         ObservableList<Student> allStudents, selectedStudent;
+        Student student= studentTable.getSelectionModel().getSelectedItem();
         allStudents = studentTable.getItems();
         selectedStudent = studentTable.getSelectionModel().getSelectedItems();
+        DataModel.deleteStudent(student);
         allStudents.removeAll(selectedStudent);
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
@@ -265,25 +269,12 @@ public class PrimaryController
 
   public void deleteExaminer()
   {
-    //TODO fix delete
+
     ObservableList<Examiner> allExaminers, selectedExaminer;
+    Examiner examiner = examinerTable.getSelectionModel().getSelectedItem();
     allExaminers = examinerTable.getItems();
     selectedExaminer = examinerTable.getSelectionModel().getSelectedItems();
-
-    try
-    {
-      Connection con = DriverManager
-          .getConnection(DataModel.getDatabaseConnectionString());
-      PreparedStatement posted = con.prepareStatement(
-          "DELETE FROM Examiners WHERE ID = '" + examinerTable
-              .getSelectionModel().getSelectedCells().get(0) + "';");
-
-      posted.executeQuery();
-    }
-    catch (Exception e)
-    {
-      System.out.println(e);
-    }
+    DataModel.deleteExaminer(examiner);
     allExaminers.removeAll(selectedExaminer);
     examinerIdLabel.setText("");
     examinerLastNameLabel.setText("");
@@ -330,8 +321,10 @@ public class PrimaryController
 
     public void deleteCourse() {
         ObservableList<Course> allCourses, selectedCourse;
+        Course course= courseTable.getSelectionModel().getSelectedItem();
         allCourses = courseTable.getItems();
         selectedCourse = courseTable.getSelectionModel().getSelectedItems();
+        DataModel.deleteCourse(course);
         allCourses.removeAll(selectedCourse);
         courseIdLabel.setText("");
         courseTypeLabel.setText("");

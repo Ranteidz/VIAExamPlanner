@@ -57,4 +57,19 @@ public class ExaminerDao
       System.out.println(e);
     }
   }
+
+  public void removeExaminer(Examiner newExaminer)
+  {
+    try{
+    Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+    PreparedStatement posted = con.prepareStatement("DELETE FROM Examiners WHERE ID= ?");
+    posted.setString(1,(newExaminer.examinerIdProperty().get()));
+
+    posted.executeUpdate();
+
   }
+  catch (Exception e){
+    System.out.println(e);
+  }
+  }
+}
