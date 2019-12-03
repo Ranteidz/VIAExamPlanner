@@ -62,15 +62,10 @@ public static void createCourseTable() throws Exception
     return studentsDAO.getStudents();
   }
 
-  /**
-   * Insert Student into The Database
-   * @param newStudent
-   */
+
   static public void addStudent(Student newStudent){
     StudentDao studentsDAO = new StudentDao();
-
-    System.out.println("Gavau Studenta: " + newStudent );
-    studentsDAO.insertStudent(newStudent);
+       studentsDAO.insertStudent(newStudent);
   }
 
   static public ArrayList<Examiner> getExaminersALL()
