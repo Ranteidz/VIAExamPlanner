@@ -1,11 +1,15 @@
 package planner;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.time.LocalDate;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.DataModel;
 import model.beans.Date;
 import model.beans.Examiner;
 
@@ -38,10 +42,18 @@ public class AddExaminerController {
     }
 
     public void addExaminer() {
-        //TODO add examiner to database
+        //TODO add examiner to database. Partially done// need to add data for the unavailability
         examiner.setExaminerId(examinerIdInput.getText());
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
+        try{
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("INSERT INTO Examiners (ID, Name, Surname) VALUES ('"+examinerIdInput.getText()+"', '"+examinerFirstNameInput.getText()+"', '"+examinerFirstNameInput.getText()+"')");
+            posted.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
         parentController.examinerTable.getItems().add(examiner);
         parentController.updateData();
         closeWindow();

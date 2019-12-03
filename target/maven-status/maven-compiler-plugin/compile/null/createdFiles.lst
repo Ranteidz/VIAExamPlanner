@@ -14,3 +14,4 @@ module-info.class
 planner\PrimaryController.class
 model\beans\ClassRoom.class
 model\beans\Date.class
+model\dao\CourseDao.class

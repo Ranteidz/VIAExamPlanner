@@ -1,5 +1,6 @@
 package planner;
 
+import java.sql.*;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
@@ -15,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.beans.*;
+import model.beans.Date;
 import model.dao.StudentDao;
 import model.DataModel;
 
@@ -82,6 +84,10 @@ public class PrimaryController {
     @FXML
     public TableColumn<Examiner, String> examinerName;
     @FXML
+    public Label studentIdLable;
+    @FXML Label studentFirstNameLabel;
+    @FXML Label studentLastNameLabel;
+    @FXML
     public Label examinerIdLabel;
     @FXML
     public Label examinerFirstNameLabel;
@@ -136,7 +142,7 @@ public class PrimaryController {
         courseStudentName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
 
         try {
-            loadData();
+            loadAllData();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -146,20 +152,20 @@ public class PrimaryController {
         System.out.println("updating data");
 //        studentTable.getItems().clear();
         try {
-            loadData();
+            loadAllData();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void loadData() throws Exception {
-//        StudentDao dao = new StudentDao();
-//        ArrayList<Student> students = DataModel.getStudentAll();
-//        DataModel.post();
-//        for (Student member : students) {
-//            System.out.println(member);
-//            studentTable.getItems().add(member);
-//        }
+
+
+    private void loadAllData() throws Exception {
+        //TODO Load the rest of data
+        ArrayList<Student> students = DataModel.getStudentAll();
+        ArrayList<Examiner> examiners = DataModel.getExaminersALL();
+        studentTable.getItems().addAll(students);
+        examinerTable.getItems().addAll(examiners);
     }
 
 
@@ -167,7 +173,7 @@ public class PrimaryController {
         System.out.println("test");
         StudentDao dao = new StudentDao();
         ArrayList<Student> students = DataModel.getStudentAll();
-        DataModel.post();
+        DataModel.postStudent();
         for (Student member : students) {
             System.out.println(member);
             studentTable.getItems().add(member);
@@ -211,13 +217,46 @@ public class PrimaryController {
 
     public void addStudent() {
         Student student = new Student(Integer.parseInt(studentIDinput.getText()),
-                studentFirstNameInput.getText(), studentFirstNameInput.getText());
-        System.out.println("Student added");
-        //TODO add student to database
+                studentFirstNameInput.getText(), studentLastNameInput.getText());
+
+
+        DataModel.addStudent(student);
+
+
+        try{
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("INSERT INTO Students (ID, Name, Surname) VALUES ('"+studentIDinput.getText()+"', '"+studentFirstNameInput.getText()+"', '"+studentLastNameInput.getText()+"')");
+            posted.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
         studentTable.getItems().add(student);
         studentIDinput.clear();
         studentFirstNameInput.clear();
         studentLastNameInput.clear();
+    }
+
+    public void selectStudentItem() {
+        studentIdLable.setText("");
+        studentFirstNameLabel.setText("");
+        studentLastNameLabel.setText("");
+     Student student = studentTable.getSelectionModel().getSelectedItem();
+       studentIdLable.setText(Integer.toString(student.studentIdProperty().get()));
+        studentFirstNameLabel.setText(student.studentFirstNameProperty().get());
+        studentLastNameLabel.setText(student.studentLastNameProperty().get());
+
+    }
+
+    public void deleteStudent() {
+        ObservableList<Student> allStudents, selectedStudent;
+        allStudents = studentTable.getItems();
+        selectedStudent = studentTable.getSelectionModel().getSelectedItems();
+        allStudents.removeAll(selectedStudent);
+        examinerIdLabel.setText("");
+        examinerLastNameLabel.setText("");
+        examinerFirstNameLabel.setText("");
+
     }
 
     public void openAddExaminerWindow() throws Exception {
@@ -259,16 +298,28 @@ public class PrimaryController {
         examinerDateTable.getItems().addAll(dates);
     }
 
-    public void deleteExaminer() {
+    public void deleteExaminer()
+    {
+        //TODO fix delete
         ObservableList<Examiner> allExaminers, selectedExaminer;
         allExaminers = examinerTable.getItems();
         selectedExaminer = examinerTable.getSelectionModel().getSelectedItems();
-        allExaminers.removeAll(selectedExaminer);
-        examinerIdLabel.setText("");
-        examinerLastNameLabel.setText("");
-        examinerFirstNameLabel.setText("");
-        examinerDateTable.getItems().clear();
-    }
+
+        try{
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("DELETE FROM Examiners WHERE ID = '" + examinerTable.getSelectionModel().getSelectedCells().get(0) + "';");
+
+            posted.executeQuery();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+            allExaminers.removeAll(selectedExaminer);
+            examinerIdLabel.setText("");
+            examinerLastNameLabel.setText("");
+            examinerFirstNameLabel.setText("");
+            examinerDateTable.getItems().clear();
+        }
 
     public void openAddCourseWindow() throws Exception {
         FXMLLoader loader = new FXMLLoader();
@@ -334,19 +385,20 @@ public class PrimaryController {
             capacityTextField.setEditable(false);
             hdmiTextField.setEditable(false);
             vgaTextField.setEditable(false);
-            classroomIdTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
-            capacityTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
-            hdmiTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
-            vgaTextField.setStyle("-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none");
+
+            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
+            classroomIdTextField.setStyle(styleTextField);
+            capacityTextField.setStyle(styleTextField);
+            hdmiTextField.setStyle(styleTextField);
+            vgaTextField.setStyle(styleTextField);
 
             ClassRoom classRoom = new ClassRoom(classroomIdTextField.getText(),
                     Integer.parseInt(capacityTextField.getText()), Boolean.parseBoolean(hdmiTextField.getText()), Boolean.parseBoolean(vgaTextField.getText()));
-
             deleteClassroom();
-
             tableClassroom.getItems().add(classRoom);
             tableClassroom.getSelectionModel().clearSelection();
             editSaveClassroom.setText("Edit");
+
         }
 
     }

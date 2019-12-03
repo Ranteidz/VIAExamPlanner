@@ -67,6 +67,14 @@ public class StudentDao extends DataModel
     return Students;
   }
 
+  /**
+   * Add New Student into the Database
+   * @param newStudent
+   */
+  public void insertStudent(Student newStudent){
+
+  }
+
 
   /**
    * Get Students By Name

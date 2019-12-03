@@ -28,7 +28,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.PrimaryController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planner.PrimaryController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -254,7 +254,7 @@
                                     <Label layoutX="14.0" layoutY="52.0" text="Search: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                                     <TextField layoutX="63.0" layoutY="48.0" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
                                     <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
-                                    <TableView fx:id="studentTable" layoutX="14.0" layoutY="86.0" prefHeight="407.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                    <TableView fx:id="studentTable" layoutX="14.0" layoutY="86.0" onMouseClicked="#selectStudentItem" prefHeight="407.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                       <columns>
                                         <TableColumn fx:id="studentId" prefWidth="104.00003242492676" text="ID" />
                                         <TableColumn fx:id="studentFirstName" prefWidth="476.80001068115234" text="First Name" />
@@ -289,9 +289,12 @@
                               <Label alignment="CENTER" font="$x11" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x21" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                               <Label layoutX="14.0" layoutY="52.0" text="Student ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                               <Label layoutX="14.0" layoutY="70.0" text="First Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                              <Button layoutX="164.0" layoutY="495.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                              <Button layoutX="164.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteStudent" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                               <Button layoutX="151.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
                               <Label layoutX="10.0" layoutY="78.0" text="Last Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
+                              <Label fx:id="studentIdLable" layoutX="73.0" layoutY="40.0" text="Label" />
+                              <Label fx:id="studentFirstNameLabel" layoutX="74.0" layoutY="60.0" text="Label" />
+                              <Label fx:id="studentLastNameLabel" layoutX="73.0" layoutY="80.0" text="Label" />
                            </children>
                         </AnchorPane>
                      </items>

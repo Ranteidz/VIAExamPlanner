@@ -1,16 +1,20 @@
 package model;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import model.beans.Examiner;
 import model.beans.Student;
 import model.dao.ExaminerDao;
 import model.dao.StudentDao;
+import planner.PrimaryController;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class DataModel
 {
+
   //public static  String connectionUrl = "jdbc:sqlserver://planner.database.windows.net:1433;database=ExaminationPlanner;user=databaseadmin@planner;password=Pass-2019;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
 
   static public String getDatabaseConnectionString()
@@ -37,8 +41,8 @@ public static void createCourseTable() throws Exception
   }
 }
 //var1,2,3 need to be changed to GUI Student add variables
-    public static void post() throws Exception{
-      final int var1 = 12;
+    public static void postStudent() throws Exception{
+      final int var1 =2 ;
       final String var2 = "Testinski";
       final String var3 = "Testovic";
       try{
@@ -57,6 +61,18 @@ public static void createCourseTable() throws Exception
     StudentDao studentsDAO = new StudentDao();
     return studentsDAO.getStudents();
   }
+
+  /**
+   * Insert Student into The Database
+   * @param newStudent
+   */
+  static public void addStudent(Student newStudent){
+    StudentDao studentsDAO = new StudentDao();
+
+    System.out.println("Gavau Studenta: " + newStudent );
+    studentsDAO.insertStudent(newStudent);
+  }
+
   static public ArrayList<Examiner> getExaminersALL()
   {
     ExaminerDao examinerDao = new ExaminerDao();
