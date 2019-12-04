@@ -94,9 +94,7 @@ public class Date {
         return date;
     }
 
-    public String toString()
-    {
+    public String toString() {
         return year+"-"+((month < 10) ? ("0" + month) : month)+"-"+day;
-
     }
 }

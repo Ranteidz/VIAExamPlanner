@@ -117,8 +117,6 @@ public class PrimaryController {
     @FXML
     public TableColumn<Course, String> courseTypeColumn;
     @FXML
-    public TableColumn<Course, Integer> courseNumberOfStudentsColumn; //TODO might have to remove
-    @FXML
     public Label courseIdLabel;
     @FXML
     public Label courseTypeLabel;
@@ -169,7 +167,6 @@ public class PrimaryController {
         examinerName.setCellValueFactory(new PropertyValueFactory<Examiner, String>("examinerName"));
         courseIdColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseId"));
         courseTypeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseType"));
-        courseNumberOfStudentsColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("numberOfStudents"));
         examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("formattedDate"));
         courseStudentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
         courseStudentName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
@@ -417,8 +414,7 @@ public class PrimaryController {
             Course course = courseTable.getSelectionModel().getSelectedItem();
             courseIdLabel.setText(course.courseIdProperty().get());
             courseTypeLabel.setText(course.courseTypeProperty().get());
-            ObservableList<Student> students = FXCollections.<Student>observableArrayList(course.studentsProperty());
-            courseStudentTable.getItems().addAll(students);
+            courseStudentTable.getItems().addAll(DataModel.getStudentsByCourse(course.courseIdProperty().get()));
         } catch (Exception e) {
         }
     }
