@@ -49,6 +49,9 @@ public class PrimaryController
   @FXML public TableColumn<Student, String> studentFirstName;
   @FXML public TableColumn<Student, String> studentLastName;
   @FXML private Button editSaveStudent;
+  @FXML private TextField studentIDTextField;
+  @FXML private TextField firstNameTextField;
+  @FXML private TextField lastNameTextField;
 
 
   @FXML public TableView<Examiner> examinerTable;
@@ -372,26 +375,26 @@ public class PrimaryController
   public void studentEdit() {
     if (editSaveStudent.getText().equals("Edit")) {
       selectStudentItem();
-      studentIDinput.setStyle(null);
-      studentFirstNameInput.setStyle(null);
-      studentLastNameInput.setStyle(null);
-      studentIDinput.setEditable(true);
-      studentFirstNameInput.setEditable(true);
-      studentLastNameInput.setEditable(true);
+      studentIDTextField.setStyle(null);
+      firstNameTextField.setStyle(null);
+      lastNameTextField.setStyle(null);
+      studentIDTextField.setEditable(true);
+      firstNameTextField.setEditable(true);
+      lastNameTextField.setEditable(true);
       editSaveStudent.setText("Save");
     } else {
-      studentIDinput.setEditable(false);
-      studentFirstNameInput.setEditable(false);
-      studentLastNameInput.setEditable(false);
+      studentIDTextField.setEditable(false);
+      firstNameTextField.setEditable(false);
+      lastNameTextField.setEditable(false);
 
       String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
-      studentIDinput.setStyle(styleTextField);
-      studentFirstNameInput.setStyle(styleTextField);
-      studentLastNameInput.setStyle(styleTextField);
+      studentIDTextField.setStyle(styleTextField);
+      firstNameTextField.setStyle(styleTextField);
+      lastNameTextField.setStyle(styleTextField);
 
 
-      Student student = new Student(Integer.parseInt(studentIDinput.getText()),
-         studentFirstNameInput.getText(),studentLastNameInput.getText());
+      Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
+          firstNameTextField.getText(),lastNameTextField.getText());
       deleteStudent();
       studentTable.getItems().add(student);
       studentTable.getSelectionModel().clearSelection();
