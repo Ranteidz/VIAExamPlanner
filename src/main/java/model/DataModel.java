@@ -102,6 +102,10 @@ static public void addCourse(Course newCourse){
   CourseDao courseDao = new CourseDao();
   courseDao.insertCourse(newCourse);
 }
+static public void addStudentToCourse(Course newCourse,Student newStudent){
+    CourseDao courseDao = new CourseDao();
+    courseDao.insertStudentToCourse(newCourse,newStudent);
+}
 static public void deleteCourse(Course newCourse){
     CourseDao courseDao = new CourseDao();
     courseDao.removeCourse(newCourse);
@@ -118,6 +122,11 @@ static public ArrayList<ClassRoom> getClassRoomsAll(){
   static public ArrayList<Course> getCoursesAll(){
     CourseDao courseDao = new CourseDao();
     return courseDao.getCourses();
+  }
+  static public void addStudentToArray(Student student){
+    ArrayList<Student> students = new ArrayList<>();
+    students.add(student);
+
   }
 
   static public ArrayList<Student> getStudentByName(String studentName)
