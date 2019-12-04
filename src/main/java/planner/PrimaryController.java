@@ -213,13 +213,10 @@ public class PrimaryController
 
   public void selectStudentItem()
   {
-    studentIdLable.setText("");
-    studentFirstNameLabel.setText("");
-    studentLastNameLabel.setText("");
     Student student = studentTable.getSelectionModel().getSelectedItem();
-    studentIdLable.setText(Integer.toString(student.studentIdProperty().get()));
-    studentFirstNameLabel.setText(student.studentFirstNameProperty().get());
-    studentLastNameLabel.setText(student.studentLastNameProperty().get());
+    studentIDTextField.setText(Integer.toString(student.studentIdProperty().get()));
+    firstNameTextField.setText(student.studentFirstNameProperty().get());
+    lastNameTextField.setText(student.studentLastNameProperty().get());
     }
 
     public void deleteStudent() {
