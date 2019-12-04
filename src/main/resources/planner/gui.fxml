@@ -98,7 +98,7 @@
                                     <Button layoutX="555.0" layoutY="493.0" mnemonicParsing="false" onAction="#openAddExamWindow" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                     <Button layoutX="441.0" layoutY="46.0" mnemonicParsing="false" text="Set date" AnchorPane.leftAnchor="435.0" AnchorPane.topAnchor="36.0" />
                                     <Button fx:id="ButtonTest" layoutX="251.0" layoutY="493.0" mnemonicParsing="false" onAction="#MethodTesting" text="METHOD TESTING BUTTON" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
-                                    <TableView fx:id="examTable" layoutX="18.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                    <TableView fx:id="examTable" layoutX="18.0" layoutY="70.0" onMouseClicked="#selectExamItem" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                       <columns>
                                         <TableColumn fx:id="examIdColumn" prefWidth="75.0" text="Exam" />
                                         <TableColumn fx:id="examDateColumn" prefWidth="75.0" text="Date" />
@@ -130,6 +130,11 @@
                                     <TableColumn maxWidth="1.7976931348623157E308" minWidth="160.0" prefWidth="-1.0" text="Name" />
                                 </columns>
                               </TableView>
+                              <Label fx:id="examIdLabel" layoutX="45.0" layoutY="40.0" text="Label" />
+                              <Label fx:id="examTypeLabel" layoutX="42.0" layoutY="60.0" text="Label" />
+                              <Label fx:id="examExaminerIdLabel" layoutX="65.0" layoutY="80.0" text="Label" />
+                              <Label fx:id="coexaminerLabel" layoutX="84.0" layoutY="100.0" text="Label" />
+                              <Label fx:id="examClassroomIdLabel" layoutX="70.0" layoutY="120.0" text="Label" />
                       </children>
                     </AnchorPane>
                   </items>
