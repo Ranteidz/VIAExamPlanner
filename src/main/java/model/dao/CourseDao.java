@@ -2,6 +2,7 @@ package model.dao;
 
 import model.DataModel;
 import model.beans.Course;
+import model.beans.Student;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -50,6 +51,20 @@ public class CourseDao
       PreparedStatement posted = con.prepareStatement("INSERT INTO Courses (ID, Type)"+ " values(?, ?)");
       posted.setString(1,newCourse.courseIdProperty().get());
       posted.setString(2,newCourse.courseTypeProperty().get());
+
+      posted.execute();
+
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
+  }
+  public void insertStudentToCourse(Course newCourse, Student newStudent){
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("INSERT INTO Students_Courses (StudentID, CourseID)"+ " values(?, ?)");
+      posted.setString(1, String.valueOf(newStudent.studentIdProperty().get()));
+      posted.setString(2,newCourse.courseIdProperty().get());
 
       posted.execute();
 

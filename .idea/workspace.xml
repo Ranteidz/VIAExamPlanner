@@ -4,10 +4,7 @@
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addexam.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -264,21 +261,7 @@
       <option name="project" value="LOCAL" />
       <updated>1575361242878</updated>
     </task>
-    <task id="LOCAL-00022" summary="show students in course tab">
-      <created>1575452530751</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1575452530752</updated>
-    </task>
-    <task id="LOCAL-00023" summary="add exam to schedule table">
-      <created>1575457046515</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1575457046516</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -389,9 +372,7 @@
     <MESSAGE value="merge fix" />
     <MESSAGE value="Add Student method created in DataModel Object" />
     <MESSAGE value="work on add exam window" />
-    <MESSAGE value="show students in course tab" />
-    <MESSAGE value="add exam to schedule table" />
-    <option name="LAST_COMMIT_MESSAGE" value="add exam to schedule table" />
+    <option name="LAST_COMMIT_MESSAGE" value="work on add exam window" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">

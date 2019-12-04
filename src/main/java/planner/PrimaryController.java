@@ -28,89 +28,59 @@ public class PrimaryController {
     @FXML
     public CheckBox inputClassroomHDMI;
 
-    private DataModel model;
-    //    private ArrayList<Student> studentsTest = DataModel.getStudentAll();
-    @FXML
-    private TextField inputClassroomName;
-    @FXML
-    private TextField inputClassroomCapacity;
-    @FXML
-    public TableView<ClassRoom> tableClassroom;
-    @FXML
-    public TableColumn<ClassRoom, String> name;
-    @FXML
-    public TableColumn<ClassRoom, Integer> capacity;
-    @FXML
-    public TableColumn<ClassRoom, Boolean> hdmi;
-    @FXML
-    public TableColumn<ClassRoom, Boolean> vga;
-    @FXML
-    private TextField classroomIdTextField;
-    @FXML
-    private TextField capacityTextField;
-    @FXML
-    private TextField hdmiTextField;
-    @FXML
-    private TextField vgaTextField;
-    @FXML
-    private Button editSaveClassroom;
+  private DataModel model;
+  //    private ArrayList<Student> studentsTest = DataModel.getStudentAll();
+  @FXML private TextField inputClassroomName;
+  @FXML private TextField inputClassroomCapacity;
+  @FXML public TableView<ClassRoom> tableClassroom;
+  @FXML public TableColumn<ClassRoom, String> name;
+  @FXML public TableColumn<ClassRoom, Integer> capacity;
+  @FXML public TableColumn<ClassRoom, Boolean> hdmi;
+  @FXML public TableColumn<ClassRoom, Boolean> vga;
+  @FXML private TextField classroomIdTextField;
+  @FXML private TextField capacityTextField;
+  @FXML private TextField hdmiTextField;
+  @FXML private TextField vgaTextField;
+  @FXML private CheckBox hdmiEditCheckBox;
+  @FXML private CheckBox vgaEditCheckBox;
+  @FXML private Button editSaveClassroom;
+  @FXML private Button deleteClassroomButton;
 
-    @FXML
-    private TextField studentIDinput;
-    @FXML
-    private TextField studentFirstNameInput;
-    @FXML
-    private TextField studentLastNameInput;
-    @FXML
-    private TableView<Student> studentTable;
-    @FXML
-    public TableColumn<Student, Integer> studentId;
-    @FXML
-    public TableColumn<Student, String> studentFirstName;
-    @FXML
-    public TableColumn<Student, String> studentLastName;
+  @FXML private TextField studentIDinput;
+  @FXML private TextField studentFirstNameInput;
+  @FXML private TextField studentLastNameInput;
+  @FXML private TableView<Student> studentTable;
+  @FXML public TableColumn<Student, Integer> studentId;
+  @FXML public TableColumn<Student, String> studentFirstName;
+  @FXML public TableColumn<Student, String> studentLastName;
+  @FXML private Button editSaveStudent;
+  @FXML private TextField studentIDTextField;
+  @FXML private TextField firstNameTextField;
+  @FXML private TextField lastNameTextField;
+  @FXML private Button deleteStudentButton;
 
-    @FXML
-    public TableView<Examiner> examinerTable;
-    @FXML
-    public TableColumn<Examiner, String> examinerId;
-    @FXML
-    public TableColumn<Examiner, String> examinerName;
-    @FXML
-    public Label studentIdLable;
-    @FXML
-    Label studentFirstNameLabel;
-    @FXML
-    Label studentLastNameLabel;
-    @FXML
-    public Label examinerIdLabel;
-    @FXML
-    public Label examinerFirstNameLabel;
-    @FXML
-    public Label examinerLastNameLabel;
-    @FXML
-    public TableView<Date> examinerDateTable;
-    @FXML
-    public TableColumn<Date, String> examinerDateColumn;
 
-    @FXML
-    public TableView<Course> courseTable;
-    @FXML
-    public TableColumn<Course, String> courseIdColumn;
-    @FXML
-    public TableColumn<Course, String> courseTypeColumn;
-    @FXML
-    public TableColumn<Course, Integer> courseNumberOfStudentsColumn;
-    @FXML
-    public Label courseIdLabel;
-    @FXML
-    public Label courseTypeLabel;
-    @FXML
-    public TableView<Student> courseStudentTable;
-    @FXML
-    public TableColumn<Student, Integer> courseStudentId;
-    @FXML
-    public TableColumn<Student, String> courseStudentName;
+  @FXML public TableView<Examiner> examinerTable;
+  @FXML public TableColumn<Examiner, String> examinerId;
+  @FXML public TableColumn<Examiner, String> examinerName;
+  @FXML public Label studentIdLable;
+  @FXML Label studentFirstNameLabel;
+  @FXML Label studentLastNameLabel;
+  @FXML public Label examinerIdLabel;
+  @FXML public Label examinerFirstNameLabel;
+  @FXML public Label examinerLastNameLabel;
+  @FXML public TableView<Date> examinerDateTable;
+  @FXML public TableColumn<Date, String> examinerDateColumn;
+
+  @FXML public TableView<Course> courseTable;
+  @FXML public TableColumn<Course, String> courseIdColumn;
+  @FXML public TableColumn<Course, String> courseTypeColumn;
+  @FXML public TableColumn<Course, Integer> courseNumberOfStudentsColumn;
+  @FXML public Label courseIdLabel;
+  @FXML public Label courseTypeLabel;
+  @FXML public TableView<Student> courseStudentTable;
+  @FXML public TableColumn<Student, Integer> courseStudentId;
+  @FXML public TableColumn<Student, String> courseStudentName;
 
     @FXML
     public TableView<Exam> examTable;
@@ -273,14 +243,12 @@ public class PrimaryController {
         studentLastNameInput.clear();
     }
 
-    public void selectStudentItem() {
-        studentIdLable.setText("");
-        studentFirstNameLabel.setText("");
-        studentLastNameLabel.setText("");
-        Student student = studentTable.getSelectionModel().getSelectedItem();
-        studentIdLable.setText(Integer.toString(student.studentIdProperty().get()));
-        studentFirstNameLabel.setText(student.studentFirstNameProperty().get());
-        studentLastNameLabel.setText(student.studentLastNameProperty().get());
+  public void selectStudentItem()
+  {
+    Student student = studentTable.getSelectionModel().getSelectedItem();
+    studentIDTextField.setText(Integer.toString(student.studentIdProperty().get()));
+    firstNameTextField.setText(student.studentFirstNameProperty().get());
+    lastNameTextField.setText(student.studentLastNameProperty().get());
     }
 
     public void deleteStudent() {
@@ -404,14 +372,31 @@ public class PrimaryController {
             selectClassroomItem();
             classroomIdTextField.setStyle(null);
             capacityTextField.setStyle(null);
-            hdmiTextField.setStyle(null);
-            vgaTextField.setStyle(null);
+            hdmiTextField.setVisible(false);
+            vgaTextField.setVisible(false);
+            hdmiEditCheckBox.setVisible(true);
+            vgaEditCheckBox.setVisible(true);
+
+            if (hdmiTextField.getText().equals("true")) {
+                hdmiEditCheckBox.setSelected(true);
+            }
+            else hdmiEditCheckBox.setSelected(false);
+            if (vgaTextField.getText().equals("true")) {
+                vgaEditCheckBox.setSelected(true);
+            }
+            else vgaEditCheckBox.setSelected(false);
+
             classroomIdTextField.setEditable(true);
             capacityTextField.setEditable(true);
-            hdmiTextField.setEditable(true);
-            vgaTextField.setEditable(true);
+
+            deleteClassroomButton.setDisable(true);
+
             editSaveClassroom.setText("Save");
         } else {
+            hdmiEditCheckBox.setVisible(false);
+            vgaEditCheckBox.setVisible(false);
+            hdmiTextField.setVisible(true);
+            vgaTextField.setVisible(true);
             classroomIdTextField.setEditable(false);
             capacityTextField.setEditable(false);
             hdmiTextField.setEditable(false);
@@ -424,11 +409,52 @@ public class PrimaryController {
             vgaTextField.setStyle(styleTextField);
 
             ClassRoom classRoom = new ClassRoom(classroomIdTextField.getText(),
-                    Integer.parseInt(capacityTextField.getText()), Boolean.parseBoolean(hdmiTextField.getText()), Boolean.parseBoolean(vgaTextField.getText()));
+                    Integer.parseInt(capacityTextField.getText()), hdmiEditCheckBox.isSelected(), vgaEditCheckBox.isSelected());
             deleteClassroom();
             tableClassroom.getItems().add(classRoom);
             tableClassroom.getSelectionModel().clearSelection();
+
+          deleteClassroomButton.setDisable(false);
+
             editSaveClassroom.setText("Edit");
+
         }
+
     }
+
+  public void studentEdit() {
+    if (editSaveStudent.getText().equals("Edit")) {
+      selectStudentItem();
+      studentIDTextField.setStyle(null);
+      firstNameTextField.setStyle(null);
+      lastNameTextField.setStyle(null);
+      studentIDTextField.setEditable(true);
+      firstNameTextField.setEditable(true);
+      lastNameTextField.setEditable(true);
+      deleteStudentButton.setDisable(true);
+      editSaveStudent.setText("Save");
+    } else {
+      studentIDTextField.setEditable(false);
+      firstNameTextField.setEditable(false);
+      lastNameTextField.setEditable(false);
+
+      String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
+      studentIDTextField.setStyle(styleTextField);
+      firstNameTextField.setStyle(styleTextField);
+      lastNameTextField.setStyle(styleTextField);
+
+
+      Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
+          firstNameTextField.getText(),lastNameTextField.getText());
+      deleteStudent();
+      studentTable.getItems().add(student);
+      studentTable.getSelectionModel().clearSelection();
+
+      deleteStudentButton.setDisable(false);
+      editSaveStudent.setText("Edit");
+
+
+
+    }
+  }
 }
