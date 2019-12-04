@@ -78,6 +78,10 @@ public class Date {
                 && otherDate.year == this.year;
     }
 
+    public Date getDate() {
+        return new Date(day, month, year);
+    }
+
     public StringProperty dateProperty() {
         StringProperty date = new SimpleStringProperty();
         date.set(toString());

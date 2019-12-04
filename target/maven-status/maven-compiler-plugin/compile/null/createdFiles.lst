@@ -5,6 +5,7 @@ model\beans\Student.class
 model\beans\Counter.class
 planner\AddCourseController.class
 planner\AddExaminerController.class
+planner\EditExamController.class
 module-info.class
 planner\PrimaryController.class
 model\beans\ClassRoom.class
