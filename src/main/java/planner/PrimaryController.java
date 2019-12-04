@@ -72,6 +72,12 @@ public class PrimaryController
   @FXML public TableColumn<Student, Integer> courseStudentId;
   @FXML public TableColumn<Student, String> courseStudentName;
 
+  @FXML public TableView<Exam> examTable;
+  @FXML public TableColumn<Exam, String> examIdColumn;
+  @FXML public TableColumn<Exam, String> examDateColumn;
+  @FXML public TableColumn<Exam, String> examClassroomColumn;
+  @FXML public TableColumn<Exam, String> examExaminerColumn;
+
   public PrimaryController()
   {
   }
@@ -97,6 +103,10 @@ public class PrimaryController
         examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("date"));
         courseStudentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
         courseStudentName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
+        examIdColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("courseId"));
+        examDateColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("examDate"));
+        examClassroomColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("classroomId"));
+        examExaminerColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("examinerId"));
 
         try {
             loadAllData();
@@ -140,8 +150,9 @@ public class PrimaryController
       System.out.println(member);
       studentTable.getItems().add(member);
     }
-
   }
+
+
 
     public void openAddExamWindow() throws Exception{
         FXMLLoader loader = new FXMLLoader();

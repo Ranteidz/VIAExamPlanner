@@ -55,7 +55,7 @@ public class AddCourseController {
         System.out.println("test");
         System.out.println(studentId.getText());
         System.out.println(DataModel.getStudent(studentId.getText()));
-        Student newStudent=  DataModel.getStudent(studentId.getText());
+        Student newStudent = DataModel.getStudent(studentId.getText());
         course.addStudent(newStudent);
         studentsTable.getItems().add(newStudent);
         studentId.clear();

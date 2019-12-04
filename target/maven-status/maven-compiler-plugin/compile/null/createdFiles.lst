@@ -17,4 +17,5 @@ model\dao\StudentDao.class
 model\beans\Course.class
 planner\App.class
 planner\EditCourseController.class
+model\beans\Exam.class
 planner\ExamController.class

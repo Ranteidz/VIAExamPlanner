@@ -7,12 +7,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.beans.*;
 
+import java.time.LocalDate;
+
 public class AddExamController extends ExamController{
 
     public PrimaryController parentController;
     //private Exam exam;
-    private long keyTime;
     private Counter counter;
+    private Exam exam;
 
     @FXML
     public DatePicker examDatePicker;
@@ -48,7 +50,7 @@ public class AddExamController extends ExamController{
 
     public void initialize(PrimaryController parentController) {
         this.parentController = parentController;
-        counter = new Counter(keyTime, this);
+        counter = new Counter(System.currentTimeMillis(), this);
         counter.start();
     }
 
@@ -85,7 +87,6 @@ public class AddExamController extends ExamController{
                 break;
             case "Classrooms":
                 ClassRoom classroom = (ClassRoom) infoTable.getSelectionModel().getSelectedItem();
-                ;
                 classroomIdField.setText(classroom.nameProperty().get());
                 break;
             case "Examiners":
@@ -96,12 +97,20 @@ public class AddExamController extends ExamController{
     }
 
     public void addExam() {
+        LocalDate selectedDate = examDatePicker.getValue();
+        Date date = new Date(selectedDate.getDayOfMonth(), selectedDate.getMonthValue(), selectedDate.getYear());
+        if (isInternal.isSelected())
+            exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
+        else
+            exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
+        parentController.examTable.getItems().add(exam);
+        closeWindow();
     }
 
     public void searchData() {
-        keyTime = System.currentTimeMillis();
-//        System.out.println(keyTime);
-        counter.updateKeyTime(keyTime);
+        counter.keyPressed();
+        counter = new Counter(System.currentTimeMillis(), this);
+        counter.start();
     }
 
     public void getSelectedItem() {

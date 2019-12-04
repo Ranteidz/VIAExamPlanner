@@ -98,12 +98,12 @@
                                     <Button layoutX="555.0" layoutY="493.0" mnemonicParsing="false" onAction="#openAddExamWindow" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                     <Button layoutX="441.0" layoutY="46.0" mnemonicParsing="false" text="Set date" AnchorPane.leftAnchor="435.0" AnchorPane.topAnchor="36.0" />
                                     <Button fx:id="ButtonTest" layoutX="251.0" layoutY="493.0" mnemonicParsing="false" onAction="#MethodTesting" text="METHOD TESTING BUTTON" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
-                                    <TableView layoutX="18.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+                                    <TableView fx:id="examTable" layoutX="18.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="Exam" />
-                                        <TableColumn prefWidth="75.0" text="Date" />
-                                          <TableColumn prefWidth="75.0" text="Classroom" />
-                                          <TableColumn prefWidth="75.0" text="Examiner" />
+                                        <TableColumn fx:id="examIdColumn" prefWidth="75.0" text="Exam" />
+                                        <TableColumn fx:id="examDateColumn" prefWidth="75.0" text="Date" />
+                                          <TableColumn fx:id="examClassroomColumn" prefWidth="75.0" text="Classroom" />
+                                          <TableColumn fx:id="examExaminerColumn" prefWidth="75.0" text="Examiner" />
                                       </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
