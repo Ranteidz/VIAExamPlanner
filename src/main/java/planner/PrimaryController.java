@@ -39,7 +39,10 @@ public class PrimaryController
   @FXML private TextField capacityTextField;
   @FXML private TextField hdmiTextField;
   @FXML private TextField vgaTextField;
+  @FXML private CheckBox hdmiEditCheckBox;
+  @FXML private CheckBox vgaEditCheckBox;
   @FXML private Button editSaveClassroom;
+  @FXML private Button deleteClassroomButton;
 
   @FXML private TextField studentIDinput;
   @FXML private TextField studentFirstNameInput;
@@ -339,19 +342,35 @@ public class PrimaryController
             selectClassroomItem();
             classroomIdTextField.setStyle(null);
             capacityTextField.setStyle(null);
-            hdmiTextField.setStyle(null);
-            vgaTextField.setStyle(null);
+            hdmiTextField.setVisible(false);
+            vgaTextField.setVisible(false);
+            hdmiEditCheckBox.setVisible(true);
+            vgaEditCheckBox.setVisible(true);
+
+            if (hdmiTextField.getText().equals("true")) {
+                hdmiEditCheckBox.setSelected(true);
+            }
+            else hdmiEditCheckBox.setSelected(false);
+            if (vgaTextField.getText().equals("true")) {
+                vgaEditCheckBox.setSelected(true);
+            }
+            else vgaEditCheckBox.setSelected(false);
+
             classroomIdTextField.setEditable(true);
             capacityTextField.setEditable(true);
-            hdmiTextField.setEditable(true);
-            vgaTextField.setEditable(true);
+
+            deleteClassroomButton.setDisable(true);
+
             editSaveClassroom.setText("Save");
         } else {
+            hdmiEditCheckBox.setVisible(false);
+            vgaEditCheckBox.setVisible(false);
+            hdmiTextField.setVisible(true);
+            vgaTextField.setVisible(true);
             classroomIdTextField.setEditable(false);
             capacityTextField.setEditable(false);
             hdmiTextField.setEditable(false);
             vgaTextField.setEditable(false);
-
             String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
             classroomIdTextField.setStyle(styleTextField);
             capacityTextField.setStyle(styleTextField);
@@ -359,10 +378,13 @@ public class PrimaryController
             vgaTextField.setStyle(styleTextField);
 
             ClassRoom classRoom = new ClassRoom(classroomIdTextField.getText(),
-                    Integer.parseInt(capacityTextField.getText()), Boolean.parseBoolean(hdmiTextField.getText()), Boolean.parseBoolean(vgaTextField.getText()));
+                    Integer.parseInt(capacityTextField.getText()), hdmiEditCheckBox.isSelected(), vgaEditCheckBox.isSelected());
             deleteClassroom();
             tableClassroom.getItems().add(classRoom);
             tableClassroom.getSelectionModel().clearSelection();
+
+            deleteClassroomButton.setDisable(false);
+
             editSaveClassroom.setText("Edit");
 
         }
