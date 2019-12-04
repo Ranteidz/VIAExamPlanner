@@ -36,7 +36,7 @@ public class EditExaminerController {
 
     public void initialize(PrimaryController parentController) {
         this.parentController = parentController;
-        datesColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("date"));
+        datesColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("formattedDate"));
         examiner = parentController.examinerTable.getSelectionModel().getSelectedItem();
         examinerIdInput.setText(examiner.examinerIdProperty().get());
         examinerFirstNameInput.setText(examiner.examinerFirstNameProperty().get());

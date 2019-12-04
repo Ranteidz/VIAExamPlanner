@@ -170,7 +170,7 @@ public class PrimaryController {
         courseIdColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseId"));
         courseTypeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseType"));
         courseNumberOfStudentsColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("numberOfStudents"));
-        examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("date"));
+        examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("formattedDate"));
         courseStudentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
         courseStudentName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
         examIdColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("courseId"));
