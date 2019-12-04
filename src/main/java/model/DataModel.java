@@ -11,6 +11,7 @@ import model.dao.ClassRoomDao;
 import model.dao.CourseDao;
 import model.dao.ExaminerDao;
 import model.dao.StudentDao;
+import model.beans.Date;
 import planner.PrimaryController;
 
 import java.sql.*;
@@ -105,6 +106,10 @@ static public void addCourse(Course newCourse){
 static public void addStudentToCourse(Course newCourse,Student newStudent){
     CourseDao courseDao = new CourseDao();
     courseDao.insertStudentToCourse(newCourse,newStudent);
+}
+static public void addUnavailabilityDateToExaminer(Examiner newExaminer,Date newDate){
+    ExaminerDao examinerDao= new ExaminerDao();
+    examinerDao.insertUnavailabilityToExaminer(newExaminer,newDate);
 }
 static public void deleteCourse(Course newCourse){
     CourseDao courseDao = new CourseDao();

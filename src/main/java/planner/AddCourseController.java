@@ -39,18 +39,12 @@ public class AddCourseController {
     }
 
     public void addCourse() {
-        //TODO add examiner to database
         course.setCourseId(courseIdInput.getText());
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
         DataModel.addCourse(course);
         ObservableList<Student> students = studentsTable.getItems();
         for (Student member: students)
-        {
             DataModel.addStudentToCourse(course,member);
-//            System.out.println(course +" "+member);
-        }
-
-
         parentController.courseTable.getItems().add(course);
         parentController.updateData();
         System.out.println("add");
