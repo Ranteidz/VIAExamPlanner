@@ -68,6 +68,8 @@ public class EditExaminerController {
         ObservableList<Date> allDates, selectedDate;
         allDates = unavailableDatesTable.getItems();
         selectedDate = unavailableDatesTable.getSelectionModel().getSelectedItems();
+        Date date= unavailableDatesTable.getSelectionModel().getSelectedItem();
+        DataModel.deleteUnavailabilityDateFromExaminer(examiner,date);
         examiner.unavailableDatesProperty().remove(selectedDate.get(0));
         allDates.removeAll(selectedDate);
     }

@@ -121,6 +121,10 @@ static public void addUnavailabilityDateToExaminer(Examiner newExaminer,Date new
     ExaminerDao examinerDao= new ExaminerDao();
     examinerDao.insertUnavailabilityToExaminer(newExaminer,newDate);
 }
+static public void deleteUnavailabilityDateFromExaminer(Examiner newExaminer, Date newDate){
+    ExaminerDao examinerDao= new ExaminerDao();
+    examinerDao.removeUnavailabilityFromExaminer(newExaminer,newDate);
+}
 static public void deleteCourse(Course newCourse){
     CourseDao courseDao = new CourseDao();
     courseDao.removeCourse(newCourse);
