@@ -88,4 +88,21 @@ public class ExaminerDao
       System.out.println(e);
     }
   }
+//TODO this
+  public void changeExaminer(Examiner newExaminer)
+  {
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("UPDATE Examiners SET Name = ?, Surname = ? WHERE id = ?");
+      posted.setString(1,(newExaminer.examinerFirstNameProperty().get()));
+      posted.setString(2,newExaminer.examinerLastNameProperty().get());
+      posted.setString(3,(newExaminer.examinerIdProperty().get()));
+
+      posted.executeUpdate();
+
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
+  }
 }

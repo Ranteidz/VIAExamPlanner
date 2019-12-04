@@ -96,6 +96,10 @@ static public void deleteClassRoom(ClassRoom newClassRoom){
     StudentDao studentDao = new StudentDao();
     studentDao.changeStudent(newStudent);
   }
+  static public void editExaminer(Examiner newExaminer){
+    ExaminerDao examinerDao = new ExaminerDao();
+    examinerDao.changeExaminer(newExaminer);
+  }
   static public Student getStudent(String studentID){
     StudentDao studentDao = new StudentDao();
 

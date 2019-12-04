@@ -191,7 +191,19 @@ posted.setString(3,newStudent.studentLastNameProperty().get());
 
   public void changeStudent(Student newStudent)
   {
-    
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("UPDATE Students SET Name = ?, Surname = ? WHERE id = ?");
+      posted.setString(1,(newStudent.studentFirstNameProperty().get()));
+      posted.setString(2,newStudent.studentLastNameProperty().get());
+      posted.setString(3, String.valueOf(newStudent.studentIdProperty().get()));
+
+      posted.executeUpdate();
+
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
   }
 }
 

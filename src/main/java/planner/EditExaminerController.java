@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.DataModel;
 import model.beans.Date;
 import model.beans.Examiner;
 
@@ -46,11 +47,10 @@ public class EditExaminerController {
     }
 
     public void saveExaminer() {
-        //TODO add examiner to database
         examiner.setExaminerId(examinerIdInput.getText());
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
-        parentController.deleteExaminer();
+        DataModel.editExaminer(examiner);
         parentController.examinerTable.getItems().add(examiner);
         parentController.updateData();
         closeWindow();

@@ -505,10 +505,11 @@ public class PrimaryController {
             firstNameTextField.setStyle(styleTextField);
             lastNameTextField.setStyle(styleTextField);
 
-
+//TODO either fix deleteStudent or load table after save.Edit works.
             Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
                     firstNameTextField.getText(), lastNameTextField.getText());
-            deleteStudent();
+            DataModel.editStudent(student);
+           /* deleteStudent();*/
             studentTable.getItems().add(student);
             studentTable.getSelectionModel().clearSelection();
 
