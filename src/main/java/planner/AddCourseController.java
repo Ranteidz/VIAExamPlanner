@@ -56,12 +56,11 @@ public class AddCourseController {
         System.out.println(studentId.getText());
         System.out.println(DataModel.getStudent(studentId.getText()));
         Student newStudent=  DataModel.getStudent(studentId.getText());
-        Student student = new Student(Integer.parseInt(studentId.getText()),newStudent.studentFirstNameProperty().get(),newStudent.studentLastNameProperty().get()); //TODO get student names from database -- SELECT name, surname FROM TABLE students WHERE studentID = Integer.parseInt(studentId.getText())
-        course.addStudent(student);
-        studentsTable.getItems().add(student);
+//        Student student = new Student(Integer.parseInt(studentId.getText()),newStudent.studentFirstNameProperty().get(),newStudent.studentLastNameProperty().get()); //TODO get student names from database -- SELECT name, surname FROM TABLE students WHERE studentID = Integer.parseInt(studentId.getText())
+        course.addStudent(newStudent);
+        studentsTable.getItems().add(newStudent);
         studentId.clear();
     }
-
 
     public void closeWindow() {
         course = null;

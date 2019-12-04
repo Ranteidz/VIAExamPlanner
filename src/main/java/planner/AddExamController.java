@@ -5,16 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.beans.ClassRoom;
-import model.beans.Course;
-import model.beans.Examiner;
-import model.beans.Student;
+import model.beans.*;
 
-public class AddExamController {
+public class AddExamController extends ExamController{
 
     public PrimaryController parentController;
     //private Exam exam;
     private long keyTime;
+    private Counter counter;
 
     @FXML
     public DatePicker examDatePicker;
@@ -50,6 +48,8 @@ public class AddExamController {
 
     public void initialize(PrimaryController parentController) {
         this.parentController = parentController;
+        counter = new Counter(keyTime, this);
+        counter.start();
     }
 
     public void showCourses() {
@@ -99,18 +99,9 @@ public class AddExamController {
     }
 
     public void searchData() {
-            keyTime = System.currentTimeMillis();
-            this.notify();
-        synchronized (this) {
-            System.out.println(keyTime);
-            try {
-                this.wait(200);
-                if (System.currentTimeMillis() - keyTime > 600)
-                    System.out.println("Search");
-            } catch (InterruptedException e) {
-                System.out.println("search override");
-            }
-        }
+        keyTime = System.currentTimeMillis();
+//        System.out.println(keyTime);
+        counter.updateKeyTime(keyTime);
     }
 
     public void getSelectedItem() {
