@@ -291,7 +291,7 @@
                               <Label alignment="CENTER" font="$x11" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x21" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                               <Label layoutX="14.0" layoutY="52.0" text="Student ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                               <Label layoutX="14.0" layoutY="70.0" text="First Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                              <Button layoutX="164.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteStudent" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                              <Button fx:id="deleteStudentButton" layoutX="164.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteStudent" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                               <Button fx:id="editSaveStudent" layoutX="151.0" layoutY="487.0" mnemonicParsing="false" onAction="#studentEdit" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
                               <Label layoutX="10.0" layoutY="78.0" text="Last Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
                               <TextField fx:id="studentIDTextField" editable="false" layoutX="81.0" layoutY="39.0" prefHeight="10.0" prefWidth="171.0" style="-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background; -fx-control-inner-background: f4f4f4; -fx-cursor: none;">

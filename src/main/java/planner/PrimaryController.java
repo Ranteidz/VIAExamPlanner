@@ -55,6 +55,7 @@ public class PrimaryController
   @FXML private TextField studentIDTextField;
   @FXML private TextField firstNameTextField;
   @FXML private TextField lastNameTextField;
+  @FXML private Button deleteStudentButton;
 
 
   @FXML public TableView<Examiner> examinerTable;
@@ -383,7 +384,7 @@ public class PrimaryController
             tableClassroom.getItems().add(classRoom);
             tableClassroom.getSelectionModel().clearSelection();
 
-            deleteClassroomButton.setDisable(false);
+          deleteClassroomButton.setDisable(false);
 
             editSaveClassroom.setText("Edit");
 
@@ -400,6 +401,7 @@ public class PrimaryController
       studentIDTextField.setEditable(true);
       firstNameTextField.setEditable(true);
       lastNameTextField.setEditable(true);
+      deleteStudentButton.setDisable(true);
       editSaveStudent.setText("Save");
     } else {
       studentIDTextField.setEditable(false);
@@ -417,7 +419,12 @@ public class PrimaryController
       deleteStudent();
       studentTable.getItems().add(student);
       studentTable.getSelectionModel().clearSelection();
+
+      deleteStudentButton.setDisable(false);
       editSaveStudent.setText("Edit");
+
+
+
     }
   }
 }
