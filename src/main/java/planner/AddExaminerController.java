@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.time.LocalDate;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -47,6 +48,11 @@ public class AddExaminerController {
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
     DataModel.addExaminer(examiner);
+        ObservableList<Date> date= unavailableDatesTable.getItems();
+        for (Date member: date)
+        {
+            DataModel.addUnavailabilityDateToExaminer(examiner,member);
+        }
         parentController.examinerTable.getItems().add(examiner);
 //        parentController.updateData();
         closeWindow();

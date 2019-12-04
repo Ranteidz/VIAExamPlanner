@@ -2,7 +2,7 @@ package model.dao;
 
 import model.DataModel;
 import model.beans.Examiner;
-
+import model.beans.Date;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -71,5 +71,21 @@ public class ExaminerDao
   catch (Exception e){
     System.out.println(e);
   }
+  }
+
+  public void insertUnavailabilityToExaminer(Examiner newExaminer, Date newDate)
+  {
+    try{
+      Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+      PreparedStatement posted = con.prepareStatement("INSERT INTO ExaminersUnavailabilityDates (ExaminerID, Date)"+ " values(?, ?)");
+      posted.setString(1, newExaminer.examinerIdProperty().get());
+      posted.setString(2, newDate.dateProperty().get());
+
+      posted.execute();
+
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
   }
 }
