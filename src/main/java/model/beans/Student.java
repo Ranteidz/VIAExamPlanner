@@ -46,7 +46,7 @@ public class Student
 
   public StringProperty studentNameProperty() {
     StringProperty name = new SimpleStringProperty();
-    name.set(String.format("%s %s", studentFirstName, studentLastName));
+    name.set(String.format("%s %s", studentFirstName.get(), studentLastName.get()));
     return name;
   }
 

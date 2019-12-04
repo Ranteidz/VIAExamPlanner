@@ -91,8 +91,8 @@ static public void deleteClassRoom(ClassRoom newClassRoom){
   }
   static public Student getStudent(String studentID){
     StudentDao studentDao = new StudentDao();
-    Student newStudent = studentDao.getStudentByID(studentID);
-    return newStudent;
+
+    return studentDao.getStudentByID(studentID);
   }
   static public void deleteStudent(Student newStudent){
     StudentDao studentDao = new StudentDao();
