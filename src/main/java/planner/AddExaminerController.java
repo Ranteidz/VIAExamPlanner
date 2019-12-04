@@ -39,7 +39,7 @@ public class AddExaminerController {
 
     public void initialize(PrimaryController parentController) {
         this.parentController = parentController;
-        datesColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("date"));
+        datesColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("formattedDate"));
     }
 
     public void addExaminer() {

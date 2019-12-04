@@ -78,15 +78,25 @@ public class Date {
                 && otherDate.year == this.year;
     }
 
+    public Date getDate() {
+        return new Date(day, month, year);
+    }
+
     public StringProperty dateProperty() {
         StringProperty date = new SimpleStringProperty();
         date.set(toString());
         return date;
     }
 
+    public StringProperty formattedDateProperty() {
+        StringProperty date = new SimpleStringProperty();
+        date.set(String.format("%d/%02d/%d", day, month, year));
+        return date;
+    }
+
     public String toString()
     {
-        return year+""+((month < 10) ? ("0" + month) : month)+""+day;
+        return year+"-"+((month < 10) ? ("0" + month) : month)+"-"+day;
 
     }
 }

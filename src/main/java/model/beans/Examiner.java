@@ -71,8 +71,8 @@ public class Examiner {
     }
 
     public void addUnavailableDate(Date date) {
-        if (!unavailableDates.contains(date)) ;
-        unavailableDates.add(new Date(date.getDay(), date.getMonth(), date.getYear()));
+        if (!unavailableDates.contains(date))
+            unavailableDates.add(new Date(date.getDay(), date.getMonth(), date.getYear()));
     }
 
 

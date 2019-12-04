@@ -53,6 +53,10 @@ public class Exam {
         this.coexaminerName.set(coexaminerName);
     }
 
+    public Date getDate() {
+        return new Date(examDate.getDay(), examDate.getMonth(), examDate.getYear());
+    }
+
     public StringProperty examDateProperty() {
         return examDate.dateProperty();
     }
