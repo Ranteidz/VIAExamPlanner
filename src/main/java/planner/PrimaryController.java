@@ -51,6 +51,11 @@ public class PrimaryController
   @FXML public TableColumn<Student, Integer> studentId;
   @FXML public TableColumn<Student, String> studentFirstName;
   @FXML public TableColumn<Student, String> studentLastName;
+  @FXML private Button editSaveStudent;
+  @FXML private TextField studentIDTextField;
+  @FXML private TextField firstNameTextField;
+  @FXML private TextField lastNameTextField;
+
 
   @FXML public TableView<Examiner> examinerTable;
   @FXML public TableColumn<Examiner, String> examinerId;
@@ -388,4 +393,34 @@ public class PrimaryController
         }
 
     }
+
+  public void studentEdit() {
+    if (editSaveStudent.getText().equals("Edit")) {
+      selectStudentItem();
+      studentIDTextField.setStyle(null);
+      firstNameTextField.setStyle(null);
+      lastNameTextField.setStyle(null);
+      studentIDTextField.setEditable(true);
+      firstNameTextField.setEditable(true);
+      lastNameTextField.setEditable(true);
+      editSaveStudent.setText("Save");
+    } else {
+      studentIDTextField.setEditable(false);
+      firstNameTextField.setEditable(false);
+      lastNameTextField.setEditable(false);
+
+      String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
+      studentIDTextField.setStyle(styleTextField);
+      firstNameTextField.setStyle(styleTextField);
+      lastNameTextField.setStyle(styleTextField);
+
+
+      Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
+          firstNameTextField.getText(),lastNameTextField.getText());
+      deleteStudent();
+      studentTable.getItems().add(student);
+      studentTable.getSelectionModel().clearSelection();
+      editSaveStudent.setText("Edit");
+    }
+  }
 }
