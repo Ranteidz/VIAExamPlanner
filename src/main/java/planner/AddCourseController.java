@@ -46,8 +46,8 @@ public class AddCourseController {
         ObservableList<Student> students = studentsTable.getItems();
         for (Student member: students)
         {
-           /* DataModel.addStudentToCourse(course,member);*/
-            System.out.println(course +" "+member);
+            DataModel.addStudentToCourse(course,member);
+//            System.out.println(course +" "+member);
         }
 
 
@@ -68,7 +68,7 @@ public class AddCourseController {
         System.out.println(DataModel.getStudent(studentId.getText()));
 
         Student newStudent=  DataModel.getStudent(studentId.getText());
-        DataModel.addStudentToCourse(course,newStudent);
+//        DataModel.addStudentToCourse(course,newStudent);
         System.out.println(newStudent.studentFirstNameProperty());
         Student student = new Student(Integer.parseInt(studentId.getText()),newStudent.studentFirstNameProperty().get(),newStudent.studentLastNameProperty().get()); //TODO get student names from database -- SELECT name, surname FROM TABLE students WHERE studentID = Integer.parseInt(studentId.getText())
 
