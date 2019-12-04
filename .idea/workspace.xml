@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ClassRoomDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ClassRoomDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CourseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ExaminerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ExaminerDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/StudentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/StudentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/dao/ClassRoomDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/dao/ClassRoomDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/dao/CourseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/dao/CourseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/dao/ExaminerDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/dao/ExaminerDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/dao/StudentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/dao/StudentDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
