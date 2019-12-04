@@ -290,7 +290,7 @@
                               <Label layoutX="14.0" layoutY="52.0" text="Student ID:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
                               <Label layoutX="14.0" layoutY="70.0" text="First Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
                               <Button layoutX="164.0" layoutY="495.0" mnemonicParsing="false" onAction="#deleteStudent" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                              <Button layoutX="151.0" layoutY="487.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+                              <Button fx:id="editSaveStudent" layoutX="151.0" layoutY="487.0" mnemonicParsing="false" onAction="#studentEdit" text="Edit" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
                               <Label layoutX="10.0" layoutY="78.0" text="Last Name:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
                               <Label fx:id="studentIdLable" layoutX="73.0" layoutY="40.0" text="Label" />
                               <Label fx:id="studentFirstNameLabel" layoutX="74.0" layoutY="60.0" text="Label" />

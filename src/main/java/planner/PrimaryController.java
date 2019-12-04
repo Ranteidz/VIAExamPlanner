@@ -48,6 +48,8 @@ public class PrimaryController
   @FXML public TableColumn<Student, Integer> studentId;
   @FXML public TableColumn<Student, String> studentFirstName;
   @FXML public TableColumn<Student, String> studentLastName;
+  @FXML private Button editSaveStudent;
+
 
   @FXML public TableView<Examiner> examinerTable;
   @FXML public TableColumn<Examiner, String> examinerId;
@@ -366,4 +368,34 @@ public class PrimaryController
         }
 
     }
+
+  public void studentEdit() {
+    if (editSaveStudent.getText().equals("Edit")) {
+      selectStudentItem();
+      studentIDinput.setStyle(null);
+      studentFirstNameInput.setStyle(null);
+      studentLastNameInput.setStyle(null);
+      studentIDinput.setEditable(true);
+      studentFirstNameInput.setEditable(true);
+      studentLastNameInput.setEditable(true);
+      editSaveStudent.setText("Save");
+    } else {
+      studentIDinput.setEditable(false);
+      studentFirstNameInput.setEditable(false);
+      studentLastNameInput.setEditable(false);
+
+      String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
+      studentIDinput.setStyle(styleTextField);
+      studentFirstNameInput.setStyle(styleTextField);
+      studentLastNameInput.setStyle(styleTextField);
+
+
+      Student student = new Student(Integer.parseInt(studentIDinput.getText()),
+         studentFirstNameInput.getText(),studentLastNameInput.getText());
+      deleteStudent();
+      studentTable.getItems().add(student);
+      studentTable.getSelectionModel().clearSelection();
+      editSaveStudent.setText("Edit");
+    }
+  }
 }
