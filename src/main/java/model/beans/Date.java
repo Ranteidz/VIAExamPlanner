@@ -14,6 +14,11 @@ public class Date {
         set(day, month, year);
     }
 
+    public Date()
+    {
+
+    }
+
     public void set(int day, int month, int year) /*throws InvalidDate*/{
 //        if (year < 0)
 //            throw new InvalidDate();
@@ -78,7 +83,7 @@ public class Date {
                 && otherDate.year == this.year;
     }
 
-    public Date getDate() {
+    public Date getDate(java.sql.Date date) {
         return new Date(day, month, year);
     }
 

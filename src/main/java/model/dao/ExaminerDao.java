@@ -126,7 +126,7 @@ public class ExaminerDao
   {
     ArrayList<Date> dates = new ArrayList<>();
     try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString())) {
-      String SQL = "SELECT * FROM dbo.Students WHERE ID IN (SELECT StudentID FROM dbo.Students_Courses WHERE CourseID = ?) ";
+      String SQL = "SELECT * FROM dbo.ExaminersUnavailabilityDates WHERE ID IN (SELECT Date FROM dbo.ExaminersUnavailabilityDates WHERE ExaminerID = ?) ";
       PreparedStatement preparedStatement
           = con.prepareStatement(SQL);
 
@@ -149,7 +149,7 @@ public class ExaminerDao
   private void processDate(ResultSet rs, Date date) throws SQLException
   {
     // Date
-    date.set(rs.getString("ID"));
-
+    /*date.setExaminerId(rs.getString("ID"));*/
+date.getDate(rs.getDate("Date"));
   }
 }
