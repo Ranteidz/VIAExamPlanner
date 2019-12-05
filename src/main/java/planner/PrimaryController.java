@@ -184,8 +184,9 @@ public class PrimaryController {
 
 
 
-    public void SwitchToDarkMode(ActionEvent darkmode)
+    public void SwitchToDarkMode(ActionEvent event)
     {
+        System.out.println("switch to dark mode");
     }
 
 
