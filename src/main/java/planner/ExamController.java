@@ -2,5 +2,10 @@ package planner;
 
 //do not touch, it is ok for this to be empty
 
-public class ExamController {
+public abstract class ExamController {
+    public abstract void getExaminers();
+
+    public abstract void getCourses();
+
+    public abstract void getClassrooms();
 }

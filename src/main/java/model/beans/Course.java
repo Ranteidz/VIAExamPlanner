@@ -45,7 +45,7 @@ public class Course extends Object{
 
     public StringProperty courseInfoProperty() {
         StringProperty info = new SimpleStringProperty();
-        info.set(String.format("%s, %s, %d students", courseId.get(), courseType.get(), numberOfStudentsProperty().get()));
+        info.set(String.format("%s, %s", courseId.get(), courseType.get()));
         return info;
     }
 

@@ -1,8 +1,11 @@
 model\dao\ClassRoomDao.class
+model\dao\ExaminerDao.class
+planner\AddExamController.class
 model\beans\Student.class
 model\beans\Counter.class
 planner\AddCourseController.class
 planner\AddExaminerController.class
+planner\EditExamController.class
 module-info.class
 planner\PrimaryController.class
 model\beans\ClassRoom.class
@@ -13,6 +16,7 @@ model\DataModel.class
 planner\EditExaminerController.class
 model\dao\StudentDao.class
 model\beans\Course.class
+planner\App.class
 planner\EditCourseController.class
 model\beans\Exam.class
 planner\ExamController.class

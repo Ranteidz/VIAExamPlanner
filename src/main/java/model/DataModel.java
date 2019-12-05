@@ -117,6 +117,10 @@ static public void addCourse(Course newCourse){
   CourseDao courseDao = new CourseDao();
   courseDao.insertCourse(newCourse);
 }
+static public ArrayList<Course> getCoursesBySearchId(String search){
+    CourseDao courseDao = new CourseDao();
+    return courseDao.searchCoursesById(search);
+}
 static public void addStudentToCourse(Course newCourse,Student newStudent){
     CourseDao courseDao = new CourseDao();
     courseDao.insertStudentToCourse(newCourse,newStudent);

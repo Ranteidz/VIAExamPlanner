@@ -4,7 +4,7 @@ import planner.ExamController;
 
 public class Counter extends Thread {
 
-    private String search;
+    private volatile String search;
     private long keyTime;
     private ExamController parentController;
     private volatile boolean allowRunning;
@@ -25,13 +25,13 @@ public class Counter extends Thread {
                     System.out.println("Search students");
                     break;
                 case "Examiners":
-                    System.out.println("Search examiners");
+                    parentController.getExaminers();
                     break;
                 case "Classrooms":
-                    System.out.println("Search classrooms");
+                    parentController.getClassrooms();
                     break;
-                case "Coruses":
-                    System.out.println("search courses");
+                case "Courses":
+                    parentController.getCourses();
                     break;
                 case "Exams":
                     System.out.println("Search exams");

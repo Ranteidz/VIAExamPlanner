@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.DataModel;
 import model.beans.*;
 
 import java.time.LocalDate;
@@ -111,6 +112,20 @@ public class AddExamController extends ExamController{
         counter.keyPressed();
         counter = new Counter(System.currentTimeMillis(), this, infoLabel.getText());
         counter.start();
+    }
+
+    public void getCourses() {
+        System.out.println("search courses");
+        infoTable.getItems().clear();
+        infoTable.getItems().add(DataModel.getCoursesBySearchId(courseIdField.getText()));
+    }
+
+    public void getClassrooms() {
+        System.out.println("Search classrooms");
+    }
+
+    public void getExaminers() {
+        System.out.println("Search examiners");
     }
 
     public void getSelectedItem() {

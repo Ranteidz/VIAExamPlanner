@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Counter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Counter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CourseDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/ExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/ExamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addexam.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/beans/Counter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/beans/Counter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/dao/ExaminerDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/beans/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/beans/Course.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/dao/CourseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/dao/CourseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/ExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/ExamController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/addexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/addexam.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -296,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575465215120</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="start work on search">
+      <created>1575537739051</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1575537739051</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -411,7 +425,8 @@
     <MESSAGE value="insert students to course fix" />
     <MESSAGE value="work on edit exam" />
     <MESSAGE value="fix examiner date" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix examiner date" />
+    <MESSAGE value="start work on search" />
+    <option name="LAST_COMMIT_MESSAGE" value="start work on search" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
