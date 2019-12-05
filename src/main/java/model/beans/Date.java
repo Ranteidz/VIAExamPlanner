@@ -14,10 +14,7 @@ public class Date {
         set(day, month, year);
     }
 
-    public Date()
-    {
 
-    }
 
     public void set(int day, int month, int year) /*throws InvalidDate*/{
 //        if (year < 0)
@@ -40,6 +37,21 @@ public class Date {
 
     public int getMonth() {
         return month;
+    }
+
+    public void setDay(int day)
+    {
+        this.day = day;
+    }
+
+    public void setMonth(int month)
+    {
+        this.month = month;
+    }
+
+    public void setYear(int year)
+    {
+        this.year = year;
     }
 
     public int getYear() {

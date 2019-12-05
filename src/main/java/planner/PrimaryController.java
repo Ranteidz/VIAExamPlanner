@@ -364,7 +364,8 @@ public class PrimaryController {
         examinerFirstNameLabel.setText(examiner.examinerFirstNameProperty().get());
         examinerLastNameLabel.setText(examiner.examinerLastNameProperty().get());
         ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.getUnavailableDates());
-        examinerDateTable.getItems().addAll(dates);
+        examinerDateTable.getItems().addAll(DataModel.getExaminerUnavailabilityDates(examiner.examinerIdProperty().get()));
+       /* examinerDateTable.getItems().addAll(dates);*/
     }
 
     public void deleteExaminer() {

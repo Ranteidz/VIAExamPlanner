@@ -6,6 +6,7 @@ import model.beans.Date;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class ExaminerDao
 {
@@ -126,17 +127,20 @@ public class ExaminerDao
   {
     ArrayList<Date> dates = new ArrayList<>();
     try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString())) {
-      String SQL = "SELECT * FROM dbo.ExaminersUnavailabilityDates WHERE ID IN (SELECT Date FROM dbo.ExaminersUnavailabilityDates WHERE ExaminerID = ?) ";
+      String SQL = "SELECT * FROM dbo.ExaminersUnavailabilityDates WHERE Date IN (SELECT Date FROM dbo.ExaminersUnavailabilityDates WHERE ExaminerID = ?) ";
       PreparedStatement preparedStatement
           = con.prepareStatement(SQL);
 
       preparedStatement.setString(1, examinerID);
       ResultSet rs = preparedStatement.executeQuery();
 
-      while (rs.next()) {
-        Date tmpDate = new Date();
-        processDate(rs, tmpDate);
-        dates.add(tmpDate);
+      while (rs.next())
+      {
+        java.sql.Date date = rs.getDate("Date");
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        dates.add(new Date(cal.get(Calendar.DAY_OF_MONTH),cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR)));
+
       }
 
     }
@@ -146,10 +150,5 @@ public class ExaminerDao
     }
     return dates;
   }
-  private void processDate(ResultSet rs, Date date) throws SQLException
-  {
-    // Date
-    /*date.setExaminerId(rs.getString("ID"));*/
-date.getDate(rs.getDate("Date"));
-  }
+
 }
