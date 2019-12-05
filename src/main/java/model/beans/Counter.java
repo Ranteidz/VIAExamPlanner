@@ -18,7 +18,7 @@ public class Counter extends Thread {
 
     public void run() {
         System.out.println("start");
-        while (System.currentTimeMillis() - keyTime < 1000 && allowRunning) ;
+        while (System.currentTimeMillis() - keyTime < 50 && allowRunning) ;
         if (allowRunning)
             switch (search) {
                 case "Students":
