@@ -22,10 +22,10 @@ public class App extends Application {
         DataModel model = new DataModel();
         PrimaryController controller = loader.getController();
         controller.setModel(model);
-
         primaryStage.setTitle("VIA EXAM PLANNER");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        //primaryStage.getScene().getStylesheets().add("CSS/darkmode.css");
 
     }
 
