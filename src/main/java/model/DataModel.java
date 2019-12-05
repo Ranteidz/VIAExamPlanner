@@ -71,6 +71,10 @@ public static void createCourseTable() throws Exception
     StudentDao studentsDAO = new StudentDao();
     return studentsDAO.getStudentsByCourseID(courseId);
   }
+  static public ArrayList<Date> getExaminerUnavailabilityDates(String examinerID){
+    ExaminerDao examinerDao = new ExaminerDao();
+    return examinerDao.getExaminerDates(examinerID);
+  }
 
   static public void addExaminer(Examiner newExaminer){
     ExaminerDao examinerDao = new ExaminerDao();

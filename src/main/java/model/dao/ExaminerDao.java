@@ -121,4 +121,35 @@ public class ExaminerDao
       System.out.println(e);
     }
   }
+
+  public ArrayList<Date> getExaminerDates(String examinerID)
+  {
+    ArrayList<Date> dates = new ArrayList<>();
+    try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString())) {
+      String SQL = "SELECT * FROM dbo.Students WHERE ID IN (SELECT StudentID FROM dbo.Students_Courses WHERE CourseID = ?) ";
+      PreparedStatement preparedStatement
+          = con.prepareStatement(SQL);
+
+      preparedStatement.setString(1, examinerID);
+      ResultSet rs = preparedStatement.executeQuery();
+
+      while (rs.next()) {
+        Date tmpDate = new Date();
+        processDate(rs, tmpDate);
+        dates.add(tmpDate);
+      }
+
+    }
+
+    catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return dates;
+  }
+  private void processDate(ResultSet rs, Date date) throws SQLException
+  {
+    // Date
+    date.set(rs.getString("ID"));
+
+  }
 }
