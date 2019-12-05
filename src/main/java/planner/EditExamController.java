@@ -63,8 +63,20 @@ public class EditExamController extends ExamController{
             isExternal.setSelected(true);
             coexaminerNameField.setText(exam.coexaminerNameProperty().get());
         }
-        counter = new Counter(System.currentTimeMillis(), this);
+        counter = new Counter(System.currentTimeMillis(), this, "null");
         counter.start();
+    }
+
+    public void getCourses() {
+        System.out.println("search courses");
+    }
+
+    public void getClassrooms() {
+        System.out.println("Search classrooms");
+    }
+
+    public void getExaminers() {
+        System.out.println("Search examiners");
     }
 
     public void showCourses() {
@@ -126,7 +138,7 @@ public class EditExamController extends ExamController{
 
     public void searchData() {
         counter.keyPressed();
-        counter = new Counter(System.currentTimeMillis(), this);
+        counter = new Counter(System.currentTimeMillis(), this, infoLabel.getText());
         counter.start();
     }
 
