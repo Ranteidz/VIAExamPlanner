@@ -182,6 +182,13 @@ public class PrimaryController {
         }
     }
 
+
+
+    public void SwitchToDarkMode(ActionEvent darkmode)
+    {
+    }
+
+
     public void updateData() {
         System.out.println("updating data");
         studentTable.getItems().clear();
@@ -483,6 +490,8 @@ public class PrimaryController {
         }
 
     }
+
+
 
     public void studentEdit() {
         if (editSaveStudent.getText().equals("Edit")) {
