@@ -36,35 +36,6 @@ public class CourseDao
       return courses;
     }
 
-    public ArrayList<Course> searchCoursesById(String search) {
-      ArrayList<Course> courses = new ArrayList<>();
-        try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString())) {
-          String SQL = "SELECT * FROM dbo.Courses WHERE ID LIKE ?";
-          PreparedStatement preparedStatement
-                  = con.prepareStatement(SQL);
-
-        preparedStatement.setString(1, search);
-
-        System.out.println(preparedStatement);
-
-        ResultSet rs = preparedStatement.executeQuery();
-
-        // Iterate through the data in the result set and display it.
-        while (rs.next())
-        {
-          Course tmpCourse = new Course();
-          process(rs, tmpCourse);
-          courses.add(tmpCourse);
-        }
-      }
-      // Handle any errors that may have occurred.
-      catch (SQLException e)
-      {
-        e.printStackTrace();
-      }
-      return courses;
-    }
-
     private void process(ResultSet rs, Course courses) throws SQLException
     {
       // Course

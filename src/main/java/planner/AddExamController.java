@@ -9,8 +9,9 @@ import model.DataModel;
 import model.beans.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
-public class AddExamController extends ExamController{
+public class AddExamController extends ExamController {
 
     public PrimaryController parentController;
     //private Exam exam;
@@ -115,17 +116,48 @@ public class AddExamController extends ExamController{
     }
 
     public void getCourses() {
-        System.out.println("search courses");
-        infoTable.getItems().clear();
-        infoTable.getItems().add(DataModel.getCoursesBySearchId(courseIdField.getText()));
+        if (courseIdField.getText().isEmpty()) {
+            showCourses();
+        } else {
+            ObservableList<Course> courses = parentController.courseTable.getItems();
+            ArrayList<Course> searchItems = new ArrayList<Course>();
+            for (Course course : courses) {
+                if (course.courseIdProperty().get().contains(courseIdField.getText()))
+                    searchItems.add(course);
+            }
+            infoTable.getItems().clear();
+            infoTable.getItems().addAll(searchItems);
+        }
     }
 
     public void getClassrooms() {
-        System.out.println("Search classrooms");
+        if (classroomIdField.getText().isEmpty()) {
+            showClassrooms();
+        } else {
+            ObservableList<ClassRoom> classrooms = parentController.tableClassroom.getItems();
+            ArrayList<ClassRoom> searchItems = new ArrayList<ClassRoom>();
+            for (ClassRoom classRoom : classrooms) {
+                if (classRoom.nameProperty().get().contains(classroomIdField.getText()))
+                    searchItems.add(classRoom);
+            }
+            infoTable.getItems().clear();
+            infoTable.getItems().addAll(searchItems);
+        }
     }
 
     public void getExaminers() {
-        System.out.println("Search examiners");
+        if (examinerIdField.getText().isEmpty()) {
+            showExaminers();
+        } else {
+            ObservableList<Examiner> examiners = parentController.examinerTable.getItems();
+            ArrayList<Examiner> searchItems = new ArrayList<Examiner>();
+            for (Examiner examiner : examiners) {
+                if (examiner.examinerIdProperty().get().contains(examinerIdField.getText()))
+                    searchItems.add(examiner);
+            }
+            infoTable.getItems().clear();
+            infoTable.getItems().addAll(searchItems);
+        }
     }
 
     public void getSelectedItem() {

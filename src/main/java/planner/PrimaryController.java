@@ -183,9 +183,7 @@ public class PrimaryController {
     }
 
 
-
-    public void SwitchToDarkMode(ActionEvent event)
-    {
+    public void SwitchToDarkMode(ActionEvent event) {
         System.out.println("switch to dark mode");
     }
 
@@ -194,6 +192,8 @@ public class PrimaryController {
         System.out.println("updating data");
         studentTable.getItems().clear();
         examinerTable.getItems().clear();
+        courseTable.getItems().clear();
+        tableClassroom.getItems().clear();
         try {
             loadAllData();
         } catch (Exception e) {
@@ -224,7 +224,6 @@ public class PrimaryController {
         }
     }
 
-
     public void openAddExamWindow() throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("addexam.fxml"));
@@ -238,7 +237,7 @@ public class PrimaryController {
         stage.show();
     }
 
-    public void openEditExamWindow() throws Exception{
+    public void openEditExamWindow() throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("editexam.fxml"));
         Parent root = (Parent) loader.load();
@@ -483,16 +482,10 @@ public class PrimaryController {
             deleteClassroom();
             tableClassroom.getItems().add(classRoom);
             tableClassroom.getSelectionModel().clearSelection();
-
             deleteClassroomButton.setDisable(false);
-
             editSaveClassroom.setText("Edit");
-
         }
-
     }
-
-
 
     public void studentEdit() {
         if (editSaveStudent.getText().equals("Edit")) {
@@ -519,12 +512,12 @@ public class PrimaryController {
             Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
                     firstNameTextField.getText(), lastNameTextField.getText());
             DataModel.editStudent(student);
-           /* deleteStudent();*/
+            /* deleteStudent();*/
             studentTable.getItems().add(student);
             studentTable.getSelectionModel().clearSelection();
-
             deleteStudentButton.setDisable(false);
             editSaveStudent.setText("Edit");
+            updateData();
         }
     }
 }
