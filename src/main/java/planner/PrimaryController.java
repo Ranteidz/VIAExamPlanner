@@ -250,7 +250,7 @@ public class PrimaryController {
         stage.show();
     }
 
-    public void selectExamItem() {
+    public void selectExamItem()  {
         Exam exam = examTable.getSelectionModel().getSelectedItem();
         examIdLabel.setText(exam.courseIdProperty().get());
         examTypeLabel.setText("SELECT courseType FROM courses WHERE courseID = ?, exam.getId");

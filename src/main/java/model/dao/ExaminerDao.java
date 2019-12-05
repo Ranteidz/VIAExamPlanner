@@ -127,7 +127,8 @@ public class ExaminerDao
   {
     ArrayList<Date> dates = new ArrayList<>();
     try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString())) {
-      String SQL = "SELECT * FROM dbo.ExaminersUnavailabilityDates WHERE Date IN (SELECT Date FROM dbo.ExaminersUnavailabilityDates WHERE ExaminerID = ?) ";
+//      String SQL = "SELECT * FROM dbo.ExaminersUnavailabilityDates WHERE Date IN (SELECT Date FROM dbo.ExaminersUnavailabilityDates WHERE ExaminerID=?) ";
+      String SQL = "SELECT Date FROM dbo.ExaminersUnavailabilityDates WHERE ExaminerID=? ";
       PreparedStatement preparedStatement
           = con.prepareStatement(SQL);
 

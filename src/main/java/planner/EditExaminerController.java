@@ -42,7 +42,7 @@ public class EditExaminerController {
         examinerIdInput.setText(examiner.examinerIdProperty().get());
         examinerFirstNameInput.setText(examiner.examinerFirstNameProperty().get());
         examinerLastNameInput.setText(examiner.examinerLastNameProperty().get());
-        ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.getUnavailableDates());
+        ObservableList<Date> dates = parentController.examinerDateTable.getItems();
         unavailableDatesTable.getItems().addAll(dates);
     }
 
