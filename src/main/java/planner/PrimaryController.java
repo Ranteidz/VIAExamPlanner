@@ -1,24 +1,20 @@
 package planner;
 
-import java.io.Serializable;
-import java.sql.*;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
-import javafx.beans.property.BooleanProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.beans.*;
-import model.beans.Date;
+import model.classes.*;
+import model.classes.Date;
 import model.dao.StudentDao;
 import model.DataModel;
 
@@ -35,15 +31,15 @@ public class PrimaryController {
     @FXML
     private TextField inputClassroomCapacity;
     @FXML
-    public TableView<ClassRoom> tableClassroom;
+    public TableView<Classroom> tableClassroom;
     @FXML
-    public TableColumn<ClassRoom, String> name;
+    public TableColumn<Classroom, String> name;
     @FXML
-    public TableColumn<ClassRoom, Integer> capacity;
+    public TableColumn<Classroom, Integer> capacity;
     @FXML
-    public TableColumn<ClassRoom, Boolean> hdmi;
+    public TableColumn<Classroom, Boolean> hdmi;
     @FXML
-    public TableColumn<ClassRoom, Boolean> vga;
+    public TableColumn<Classroom, Boolean> vga;
     @FXML
     private TextField classroomIdTextField;
     @FXML
@@ -159,10 +155,10 @@ public class PrimaryController {
         studentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
         studentFirstName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentFirstName"));
         studentLastName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentLastName"));
-        name.setCellValueFactory(new PropertyValueFactory<ClassRoom, String>("name"));
-        capacity.setCellValueFactory(new PropertyValueFactory<ClassRoom, Integer>("capacity"));
-        hdmi.setCellValueFactory(new PropertyValueFactory<ClassRoom, Boolean>("hdmi"));
-        vga.setCellValueFactory(new PropertyValueFactory<ClassRoom, Boolean>("vga"));
+        name.setCellValueFactory(new PropertyValueFactory<Classroom, String>("name"));
+        capacity.setCellValueFactory(new PropertyValueFactory<Classroom, Integer>("capacity"));
+        hdmi.setCellValueFactory(new PropertyValueFactory<Classroom, Boolean>("hdmi"));
+        vga.setCellValueFactory(new PropertyValueFactory<Classroom, Boolean>("vga"));
         examinerId.setCellValueFactory(new PropertyValueFactory<Examiner, String>("examinerId"));
         examinerName.setCellValueFactory(new PropertyValueFactory<Examiner, String>("examinerName"));
         courseIdColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseId"));
@@ -206,11 +202,11 @@ public class PrimaryController {
         ArrayList<Student> students = DataModel.getStudentAll();
         ArrayList<Examiner> examiners = DataModel.getExaminersALL();
         ArrayList<Course> courses = DataModel.getCoursesAll();
-        ArrayList<ClassRoom> classRooms = DataModel.getClassRoomsAll();
+        ArrayList<Classroom> classrooms = DataModel.getClassRoomsAll();
         studentTable.getItems().addAll(students);
         examinerTable.getItems().addAll(examiners);
         courseTable.getItems().addAll(courses);
-        tableClassroom.getItems().addAll(classRooms);
+        tableClassroom.getItems().addAll(classrooms);
     }
 
     public void MethodTesting(ActionEvent actionEvent) throws Exception {
@@ -269,14 +265,14 @@ public class PrimaryController {
     }
 
     public void addClassroom() {
-        ClassRoom classRoom = new ClassRoom(inputClassroomName.getText(),
+        Classroom classRoom = new Classroom(inputClassroomName.getText(),
                 Integer.parseInt(inputClassroomCapacity.getText()), false, false);
         if (inputClassroomHDMI.isSelected())
             classRoom.setHdmi(true);
         if (inputClassroomVGA.isSelected())
             classRoom.setVga(true);
         System.out.println("Classroom added");
-        DataModel.addClassRoom(classRoom);
+        DataModel.addClassroom(classRoom);
         tableClassroom.getItems().add(classRoom);
         inputClassroomName.clear();
         inputClassroomCapacity.clear();
@@ -285,7 +281,7 @@ public class PrimaryController {
     }
 
     public void selectClassroomItem() {
-        ClassRoom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
+        Classroom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
         classroomIdTextField.setText(classRoom.nameProperty().get());
         capacityTextField
                 .setText(Integer.toString(classRoom.capacityProperty().get()));
@@ -294,11 +290,11 @@ public class PrimaryController {
     }
 
     public void deleteClassroom() {
-        ObservableList<ClassRoom> allClassrooms, selectedClassroom;
-        ClassRoom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
+        ObservableList<Classroom> allClassrooms, selectedClassroom;
+        Classroom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
         allClassrooms = tableClassroom.getItems();
         selectedClassroom = tableClassroom.getSelectionModel().getSelectedItems();
-        DataModel.deleteClassRoom(classRoom);
+        DataModel.deleteClassroom(classRoom);
         allClassrooms.removeAll(selectedClassroom);
         classroomIdTextField.setText("");
         capacityTextField.setText("");
@@ -478,7 +474,7 @@ public class PrimaryController {
             hdmiTextField.setStyle(styleTextField);
             vgaTextField.setStyle(styleTextField);
 
-            ClassRoom classRoom = new ClassRoom(classroomIdTextField.getText(),
+            Classroom classRoom = new Classroom(classroomIdTextField.getText(),
                     Integer.parseInt(capacityTextField.getText()), hdmiEditCheckBox.isSelected(), vgaEditCheckBox.isSelected());
             deleteClassroom();
             tableClassroom.getItems().add(classRoom);

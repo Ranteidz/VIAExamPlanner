@@ -1,15 +1,16 @@
-package model.beans;
+package model;
 
 import planner.ExamController;
 
-public class Counter extends Thread {
+public class SearchThread extends Thread {
 
     private volatile String search;
     private long keyTime;
     private ExamController parentController;
     private volatile boolean allowRunning;
+    private final int keyDelta = 50; //ms between keypresses so system does not search
 
-    public Counter(long keyTime, ExamController parentController, String search) {
+    public SearchThread(long keyTime, ExamController parentController, String search) {
         this.keyTime = keyTime;
         this.parentController = parentController;
         this.search = search;
@@ -18,7 +19,7 @@ public class Counter extends Thread {
 
     public void run() {
         System.out.println("start");
-        while (System.currentTimeMillis() - keyTime < 50 && allowRunning) ;
+        while (System.currentTimeMillis() - keyTime < keyDelta && allowRunning) ;
         if (allowRunning)
             switch (search) {
                 case "Students":

@@ -1,8 +1,8 @@
 package model.dao;
 
 import model.DataModel;
-import model.beans.Examiner;
-import model.beans.Date;
+import model.classes.Examiner;
+import model.classes.Date;
 
 import java.sql.*;
 import java.util.ArrayList;

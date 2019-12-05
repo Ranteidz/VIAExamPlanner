@@ -1,14 +1,13 @@
 package planner;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.DataModel;
-import model.beans.Date;
-import model.beans.Examiner;
+import model.classes.Date;
+import model.classes.Examiner;
 
 import java.time.LocalDate;
 

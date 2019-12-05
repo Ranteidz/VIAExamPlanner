@@ -6,10 +6,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.DataModel;
-import model.beans.Course;
-import model.beans.Student;
-
-import java.util.ArrayList;
+import model.classes.Course;
+import model.classes.Student;
 
 public class AddCourseController {
 

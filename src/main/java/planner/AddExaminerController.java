@@ -1,8 +1,5 @@
 package planner;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.time.LocalDate;
 
 import javafx.collections.ObservableList;
@@ -11,8 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.DataModel;
-import model.beans.Date;
-import model.beans.Examiner;
+import model.classes.Date;
+import model.classes.Examiner;
 
 public class AddExaminerController {
 

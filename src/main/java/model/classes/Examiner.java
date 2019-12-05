@@ -1,7 +1,5 @@
-package model.beans;
+package model.classes;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -75,6 +73,10 @@ public class Examiner {
             unavailableDates.add(new Date(date.getDay(), date.getMonth(), date.getYear()));
     }
 
+    public void removeUnavailabilityDate(Date date) {
+        if(unavailableDates.contains(date))
+            unavailableDates.remove(date);
+    }
 
     @Override
     public String toString() {

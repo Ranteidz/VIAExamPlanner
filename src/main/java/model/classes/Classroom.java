@@ -1,4 +1,4 @@
-package model.beans;
+package model.classes;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
@@ -7,16 +7,16 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class ClassRoom {
+public class Classroom {
     private StringProperty name = new SimpleStringProperty();
     private IntegerProperty capacity = new SimpleIntegerProperty();
     private BooleanProperty hdmi = new SimpleBooleanProperty();
     private BooleanProperty vga = new SimpleBooleanProperty();
 
-    public ClassRoom() {
+    public Classroom() {
     }
 
-    public ClassRoom(String name, int capacity, boolean hasHDMI, boolean hasVGA) {
+    public Classroom(String name, int capacity, boolean hasHDMI, boolean hasVGA) {
         this.name.set(name);
         this.capacity.set(capacity);
         this.hdmi.set(hasHDMI);

@@ -1,8 +1,8 @@
 package model.dao;
 
 import model.DataModel;
-import model.beans.Course;
-import model.beans.Student;
+import model.classes.Course;
+import model.classes.Student;
 
 import java.sql.*;
 import java.util.ArrayList;

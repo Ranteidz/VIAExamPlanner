@@ -5,7 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.beans.*;
+import model.SearchThread;
+import model.classes.*;
 
 import java.time.LocalDate;
 
@@ -13,7 +14,7 @@ public class EditExamController extends ExamController{
 
     public PrimaryController parentController;
     //private Exam exam;
-    private Counter counter;
+    private SearchThread searchThread;
     private Exam exam;
     private Date initialDate;
 
@@ -63,8 +64,8 @@ public class EditExamController extends ExamController{
             isExternal.setSelected(true);
             coexaminerNameField.setText(exam.coexaminerNameProperty().get());
         }
-        counter = new Counter(System.currentTimeMillis(), this, "null");
-        counter.start();
+        searchThread = new SearchThread(System.currentTimeMillis(), this, "null");
+        searchThread.start();
     }
 
     public void getCourses() {
@@ -91,7 +92,7 @@ public class EditExamController extends ExamController{
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
-        ObservableList<ClassRoom> data = parentController.tableClassroom.getItems();
+        ObservableList<Classroom> data = parentController.tableClassroom.getItems();
         infoTable.getItems().addAll(data);
     }
 
@@ -111,7 +112,7 @@ public class EditExamController extends ExamController{
                 //update students table
                 break;
             case "Classrooms":
-                ClassRoom classroom = (ClassRoom) infoTable.getSelectionModel().getSelectedItem();
+                Classroom classroom = (Classroom) infoTable.getSelectionModel().getSelectedItem();
                 classroomIdField.setText(classroom.nameProperty().get());
                 break;
             case "Examiners":
@@ -137,9 +138,9 @@ public class EditExamController extends ExamController{
     }
 
     public void searchData() {
-        counter.keyPressed();
-        counter = new Counter(System.currentTimeMillis(), this, infoLabel.getText());
-        counter.start();
+        searchThread.keyPressed();
+        searchThread = new SearchThread(System.currentTimeMillis(), this, infoLabel.getText());
+        searchThread.start();
     }
 
     public void getSelectedItem() {

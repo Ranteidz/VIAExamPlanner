@@ -1,6 +1,6 @@
 package model.dao;
 
-import model.beans.Student;
+import model.classes.Student;
 import model.DataModel;
 
 import java.sql.*;
@@ -73,7 +73,6 @@ return student;
         process(rs, tmpStudent);
         Students.add(tmpStudent);
       }
-
     }
 
     catch (SQLException e) {

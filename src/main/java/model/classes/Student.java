@@ -1,4 +1,4 @@
-package model.beans;
+package model.classes;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -48,6 +48,12 @@ public class Student
     StringProperty name = new SimpleStringProperty();
     name.set(String.format("%s %s", studentFirstName.get(), studentLastName.get()));
     return name;
+  }
+
+  public StringProperty studentInfoProperty () {
+    StringProperty info = new SimpleStringProperty();
+    info.set(String.format("%d: %s %s", studentId.get(), studentFirstName.get(), studentLastName.get()));
+    return info;
   }
 
   @Override public String toString()
