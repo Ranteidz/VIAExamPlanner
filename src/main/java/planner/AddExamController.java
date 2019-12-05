@@ -50,7 +50,7 @@ public class AddExamController extends ExamController{
 
     public void initialize(PrimaryController parentController) {
         this.parentController = parentController;
-        counter = new Counter(System.currentTimeMillis(), this);
+        counter = new Counter(System.currentTimeMillis(), this, "null");
         counter.start();
     }
 
@@ -109,7 +109,7 @@ public class AddExamController extends ExamController{
 
     public void searchData() {
         counter.keyPressed();
-        counter = new Counter(System.currentTimeMillis(), this);
+        counter = new Counter(System.currentTimeMillis(), this, infoLabel.getText());
         counter.start();
     }
 
