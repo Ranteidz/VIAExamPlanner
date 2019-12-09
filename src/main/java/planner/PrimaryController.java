@@ -1,7 +1,5 @@
 package planner;
 
-import java.util.ArrayList;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +13,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.classes.*;
 import model.classes.Date;
-import model.dao.StudentDao;
 import model.DataModel;
 
 public class PrimaryController {
@@ -31,7 +28,7 @@ public class PrimaryController {
     @FXML
     private TextField inputClassroomCapacity;
     @FXML
-    public TableView<Classroom> tableClassroom;
+    public TableView<Classroom> classroomTable;
     @FXML
     public TableColumn<Classroom, String> name;
     @FXML
@@ -189,7 +186,7 @@ public class PrimaryController {
         studentTable.getItems().clear();
         examinerTable.getItems().clear();
         courseTable.getItems().clear();
-        tableClassroom.getItems().clear();
+        classroomTable.getItems().clear();
         try {
             loadAllData();
         } catch (Exception e) {
@@ -197,27 +194,15 @@ public class PrimaryController {
         }
     }
 
-    private void loadAllData() throws Exception {
-        //TODO Load the rest of data
-        ArrayList<Student> students = DataModel.getStudentAll();
-        ArrayList<Examiner> examiners = DataModel.getExaminersALL();
-        ArrayList<Course> courses = DataModel.getCoursesAll();
-        ArrayList<Classroom> classrooms = DataModel.getClassRoomsAll();
-        studentTable.getItems().addAll(students);
-        examinerTable.getItems().addAll(examiners);
-        courseTable.getItems().addAll(courses);
-        tableClassroom.getItems().addAll(classrooms);
+    private void loadAllData() {
+        studentTable.getItems().addAll(model.getStudentAll());
+        examinerTable.getItems().addAll(model.getExaminersALL());
+        courseTable.getItems().addAll(model.getCoursesAll());
+        classroomTable.getItems().addAll(model.getClassRoomsAll());
     }
 
     public void MethodTesting(ActionEvent actionEvent) throws Exception {
-        System.out.println("test");
-        StudentDao dao = new StudentDao();
-        ArrayList<Student> students = DataModel.getStudentAll();
-        DataModel.postStudent();
-        for (Student member : students) {
-            System.out.println(member);
-            studentTable.getItems().add(member);
-        }
+        System.out.println("1..2..3");
     }
 
     public void openAddExamWindow() throws Exception {
@@ -246,7 +231,7 @@ public class PrimaryController {
         stage.show();
     }
 
-    public void selectExamItem()  {
+    public void selectExamItem() {
         Exam exam = examTable.getSelectionModel().getSelectedItem();
         examIdLabel.setText(exam.courseIdProperty().get());
         examTypeLabel.setText("SELECT courseType FROM courses WHERE courseID = ?, exam.getId");
@@ -265,51 +250,47 @@ public class PrimaryController {
     }
 
     public void addClassroom() {
-        Classroom classRoom = new Classroom(inputClassroomName.getText(),
+        Classroom classroom = new Classroom(inputClassroomName.getText(),
                 Integer.parseInt(inputClassroomCapacity.getText()), false, false);
         if (inputClassroomHDMI.isSelected())
-            classRoom.setHdmi(true);
+            classroom.setHdmi(true);
         if (inputClassroomVGA.isSelected())
-            classRoom.setVga(true);
-        System.out.println("Classroom added");
-        DataModel.addClassroom(classRoom);
-        tableClassroom.getItems().add(classRoom);
+            classroom.setVga(true);
+        model.addClassroom(classroom);
         inputClassroomName.clear();
         inputClassroomCapacity.clear();
         inputClassroomHDMI.setSelected(false);
         inputClassroomVGA.setSelected(false);
+        updateData();
     }
 
     public void selectClassroomItem() {
-        Classroom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
-        classroomIdTextField.setText(classRoom.nameProperty().get());
+        Classroom classroom = classroomTable.getSelectionModel().getSelectedItem();
+        classroomIdTextField.setText(classroom.nameProperty().get());
         capacityTextField
-                .setText(Integer.toString(classRoom.capacityProperty().get()));
-        hdmiTextField.setText(Boolean.toString(classRoom.hdmiProperty().get()));
-        vgaTextField.setText(Boolean.toString(classRoom.vgaProperty().get()));
+                .setText(Integer.toString(classroom.capacityProperty().get()));
+        hdmiTextField.setText(Boolean.toString(classroom.hdmiProperty().get()));
+        vgaTextField.setText(Boolean.toString(classroom.vgaProperty().get()));
     }
 
     public void deleteClassroom() {
-        ObservableList<Classroom> allClassrooms, selectedClassroom;
-        Classroom classRoom = tableClassroom.getSelectionModel().getSelectedItem();
-        allClassrooms = tableClassroom.getItems();
-        selectedClassroom = tableClassroom.getSelectionModel().getSelectedItems();
-        DataModel.deleteClassroom(classRoom);
-        allClassrooms.removeAll(selectedClassroom);
+        Classroom classroom = classroomTable.getSelectionModel().getSelectedItem();
+        model.deleteClassroom(classroom);
         classroomIdTextField.setText("");
         capacityTextField.setText("");
         hdmiTextField.setText("");
         vgaTextField.setText("");
+        updateData();
     }
 
     public void addStudent() {
         Student student = new Student(Integer.parseInt(studentIDinput.getText()),
                 studentFirstNameInput.getText(), studentLastNameInput.getText());
-        DataModel.addStudent(student);
-        studentTable.getItems().add(student);
+        model.addStudent(student);
         studentIDinput.clear();
         studentFirstNameInput.clear();
         studentLastNameInput.clear();
+        updateData();
     }
 
     public void selectStudentItem() {
@@ -320,15 +301,12 @@ public class PrimaryController {
     }
 
     public void deleteStudent() {
-        ObservableList<Student> allStudents, selectedStudent;
         Student student = studentTable.getSelectionModel().getSelectedItem();
-        allStudents = studentTable.getItems();
-        selectedStudent = studentTable.getSelectionModel().getSelectedItems();
-        DataModel.deleteStudent(student);
-        allStudents.removeAll(selectedStudent);
+        model.deleteStudent(student);
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
         examinerFirstNameLabel.setText("");
+        updateData();
     }
 
     public void openAddExaminerWindow() throws Exception {
@@ -367,21 +345,16 @@ public class PrimaryController {
         examinerFirstNameLabel.setText(examiner.examinerFirstNameProperty().get());
         examinerLastNameLabel.setText(examiner.examinerLastNameProperty().get());
         ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.getUnavailableDates());
-        examinerDateTable.getItems().addAll(DataModel.getExaminerUnavailabilityDates(examiner.examinerIdProperty().get()));
-       /* examinerDateTable.getItems().addAll(dates);*/
+        examinerDateTable.getItems().addAll(model.getExaminerUnavailabilityDates(examiner.examinerIdProperty().get()));
     }
 
     public void deleteExaminer() {
-        ObservableList<Examiner> allExaminers, selectedExaminer;
         Examiner examiner = examinerTable.getSelectionModel().getSelectedItem();
-        allExaminers = examinerTable.getItems();
-        selectedExaminer = examinerTable.getSelectionModel().getSelectedItems();
-        DataModel.deleteExaminer(examiner);
-        allExaminers.removeAll(selectedExaminer);
+        model.deleteExaminer(examiner);
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
         examinerFirstNameLabel.setText("");
-        examinerDateTable.getItems().clear();
+        updateData();
     }
 
     public void openAddCourseWindow() throws Exception {
@@ -414,107 +387,100 @@ public class PrimaryController {
         courseIdLabel.setText("");
         courseTypeLabel.setText("");
         courseStudentTable.getItems().clear();
-        try {
-            Course course = courseTable.getSelectionModel().getSelectedItem();
-            courseIdLabel.setText(course.courseIdProperty().get());
-            courseTypeLabel.setText(course.courseTypeProperty().get());
-            courseStudentTable.getItems().addAll(DataModel.getStudentsByCourse(course.courseIdProperty().get()));
-        } catch (Exception e) {
-        }
+        Course course = courseTable.getSelectionModel().getSelectedItem();
+        courseIdLabel.setText(course.courseIdProperty().get());
+        courseTypeLabel.setText(course.courseTypeProperty().get());
+        courseStudentTable.getItems().addAll(model.getStudentsByCourse(course.courseIdProperty().get()));
     }
 
     public void deleteCourse() {
-        ObservableList<Course> allCourses, selectedCourse;
         Course course = courseTable.getSelectionModel().getSelectedItem();
-        allCourses = courseTable.getItems();
-        selectedCourse = courseTable.getSelectionModel().getSelectedItems();
-        DataModel.deleteCourse(course);
-        allCourses.removeAll(selectedCourse);
+        model.deleteCourse(course);
         courseIdLabel.setText("");
         courseTypeLabel.setText("");
         courseStudentTable.getItems().clear();
     }
 
-    public void classroomEdit() {
-        if (editSaveClassroom.getText().equals("Edit")) {
-            selectClassroomItem();
-            classroomIdTextField.setStyle(null);
-            capacityTextField.setStyle(null);
-            hdmiTextField.setVisible(false);
-            vgaTextField.setVisible(false);
-            hdmiEditCheckBox.setVisible(true);
-            vgaEditCheckBox.setVisible(true);
-
-            if (hdmiTextField.getText().equals("true")) {
-                hdmiEditCheckBox.setSelected(true);
-            } else hdmiEditCheckBox.setSelected(false);
-            if (vgaTextField.getText().equals("true")) {
-                vgaEditCheckBox.setSelected(true);
-            } else vgaEditCheckBox.setSelected(false);
-
-            classroomIdTextField.setEditable(true);
-            capacityTextField.setEditable(true);
-
-            deleteClassroomButton.setDisable(true);
-
-            editSaveClassroom.setText("Save");
-        } else {
-            hdmiEditCheckBox.setVisible(false);
-            vgaEditCheckBox.setVisible(false);
-            hdmiTextField.setVisible(true);
-            vgaTextField.setVisible(true);
-            classroomIdTextField.setEditable(false);
-            capacityTextField.setEditable(false);
-            hdmiTextField.setEditable(false);
-            vgaTextField.setEditable(false);
-
-            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
-            classroomIdTextField.setStyle(styleTextField);
-            capacityTextField.setStyle(styleTextField);
-            hdmiTextField.setStyle(styleTextField);
-            vgaTextField.setStyle(styleTextField);
-
-            Classroom classRoom = new Classroom(classroomIdTextField.getText(),
-                    Integer.parseInt(capacityTextField.getText()), hdmiEditCheckBox.isSelected(), vgaEditCheckBox.isSelected());
-            deleteClassroom();
-            tableClassroom.getItems().add(classRoom);
-            tableClassroom.getSelectionModel().clearSelection();
-            deleteClassroomButton.setDisable(false);
-            editSaveClassroom.setText("Edit");
-        }
-    }
-
-    public void studentEdit() {
-        if (editSaveStudent.getText().equals("Edit")) {
-            selectStudentItem();
-            studentIDTextField.setStyle(null);
-            firstNameTextField.setStyle(null);
-            lastNameTextField.setStyle(null);
-            studentIDTextField.setEditable(true);
-            firstNameTextField.setEditable(true);
-            lastNameTextField.setEditable(true);
-            deleteStudentButton.setDisable(true);
-            editSaveStudent.setText("Save");
-        } else {
-            studentIDTextField.setEditable(false);
-            firstNameTextField.setEditable(false);
-            lastNameTextField.setEditable(false);
-
-            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
-            studentIDTextField.setStyle(styleTextField);
-            firstNameTextField.setStyle(styleTextField);
-            lastNameTextField.setStyle(styleTextField);
-
-//TODO either fix deleteStudent or load table after save.Edit works.
-            Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
-                    firstNameTextField.getText(), lastNameTextField.getText());
-            DataModel.editStudent(student);
-            /* deleteStudent();*/
-            studentTable.getItems().add(student);
-            studentTable.getSelectionModel().clearSelection();
-            deleteStudentButton.setDisable(false);
-            editSaveStudent.setText("Edit");
-            updateData();
-        }
-    }
+//    public void classroomEdit() {
+//        if (editSaveClassroom.getText().equals("Edit")) {
+//            selectClassroomItem();
+//            classroomIdTextField.setStyle(null);
+//            capacityTextField.setStyle(null);
+//            hdmiTextField.setVisible(false);
+//            vgaTextField.setVisible(false);
+//            hdmiEditCheckBox.setVisible(true);
+//            vgaEditCheckBox.setVisible(true);
+//
+//            if (hdmiTextField.getText().equals("true")) {
+//                hdmiEditCheckBox.setSelected(true);
+//            } else hdmiEditCheckBox.setSelected(false);
+//            if (vgaTextField.getText().equals("true")) {
+//                vgaEditCheckBox.setSelected(true);
+//            } else vgaEditCheckBox.setSelected(false);
+//
+//            classroomIdTextField.setEditable(true);
+//            capacityTextField.setEditable(true);
+//
+//            deleteClassroomButton.setDisable(true);
+//
+//            editSaveClassroom.setText("Save");
+//        } else {
+//            hdmiEditCheckBox.setVisible(false);
+//            vgaEditCheckBox.setVisible(false);
+//            hdmiTextField.setVisible(true);
+//            vgaTextField.setVisible(true);
+//            classroomIdTextField.setEditable(false);
+//            capacityTextField.setEditable(false);
+//            hdmiTextField.setEditable(false);
+//            vgaTextField.setEditable(false);
+//
+//            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
+//            classroomIdTextField.setStyle(styleTextField);
+//            capacityTextField.setStyle(styleTextField);
+//            hdmiTextField.setStyle(styleTextField);
+//            vgaTextField.setStyle(styleTextField);
+//
+//            Classroom classRoom = new Classroom(classroomIdTextField.getText(),
+//                    Integer.parseInt(capacityTextField.getText()), hdmiEditCheckBox.isSelected(), vgaEditCheckBox.isSelected());
+//            deleteClassroom();
+//            classroomTable.getItems().add(classRoom);
+//            classroomTable.getSelectionModel().clearSelection();
+//            deleteClassroomButton.setDisable(false);
+//            editSaveClassroom.setText("Edit");
+//        }
+//    }
+//
+//    public void studentEdit() {
+//        if (editSaveStudent.getText().equals("Edit")) {
+//            selectStudentItem();
+//            studentIDTextField.setStyle(null);
+//            firstNameTextField.setStyle(null);
+//            lastNameTextField.setStyle(null);
+//            studentIDTextField.setEditable(true);
+//            firstNameTextField.setEditable(true);
+//            lastNameTextField.setEditable(true);
+//            deleteStudentButton.setDisable(true);
+//            editSaveStudent.setText("Save");
+//        } else {
+//            studentIDTextField.setEditable(false);
+//            firstNameTextField.setEditable(false);
+//            lastNameTextField.setEditable(false);
+//
+//            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
+//            studentIDTextField.setStyle(styleTextField);
+//            firstNameTextField.setStyle(styleTextField);
+//            lastNameTextField.setStyle(styleTextField);
+//
+////TODO either fix deleteStudent or load table after save.Edit works.
+//            Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
+//                    firstNameTextField.getText(), lastNameTextField.getText());
+//            model.editStudent(student);
+//            /* deleteStudent();*/
+//            studentTable.getItems().add(student);
+//            studentTable.getSelectionModel().clearSelection();
+//            deleteStudentButton.setDisable(false);
+//            editSaveStudent.setText("Edit");
+//            updateData();
+//        }
+//    }
 }

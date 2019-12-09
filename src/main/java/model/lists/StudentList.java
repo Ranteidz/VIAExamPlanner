@@ -1,6 +1,5 @@
 package model.lists;
 
-import javafx.collections.ObservableList;
 import model.DataModel;
 import model.classes.Student;
 
@@ -11,36 +10,33 @@ public class StudentList {
     private ArrayList<Student> students;
 
     public StudentList() {
-        loadStudents();
+        students = new ArrayList<Student>();
     }
 
     public ArrayList<Student> getStudents() {
         return students;
     }
 
-    private void process(ResultSet rs, Student student) throws SQLException {
-        student.setStudentID(rs.getInt("ID"));
-        student.setStudentFirstName(rs.getString("Name"));
-        student.setStudentLastName(rs.getString("Surname"));
+    private void loadStudents(ArrayList<Student> students) {
+        this.students = students;
     }
 
-    private void loadStudents() {
-        ArrayList<Student> students = new ArrayList<>();
-        try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString()); Statement stmt = con.createStatement()) {
-            String SQL = "SELECT * FROM dbo.students";
-            ResultSet rs = stmt.executeQuery(SQL);
-            // Iterate through the data in the result set and display it.
-            while (rs.next()) {
-                Student tmpStudent = new Student();
-                process(rs, tmpStudent);
-                students.add(tmpStudent);
+    public void addAll(ArrayList<Student> students) {
+        for(Student student : students) {
+            this.students.add(student);
+        }
+    }
+
+    public ArrayList<Student> getStudentsBySearch(String search) {
+        if (!search.isEmpty()) {
+            ArrayList<Student> searchItems = new ArrayList<Student>();
+            for (Student student : students) {
+                if (student.studentInfoProperty().get().contains(search))
+                    searchItems.add(student);
             }
+            return searchItems;
         }
-        // Handle any errors that may have occurred.
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        this.students = students;
+        return students;
     }
 
     public Student getStudentByID(int studentID) throws NullPointerException {
@@ -51,32 +47,24 @@ public class StudentList {
         return null;
     }
 
-    public void insertStudent(Student newStudent) {
-        try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-            PreparedStatement posted = con.prepareStatement("INSERT INTO Students (ID, Name, Surname)" + " values(?, ?, ?)");
-            posted.setString(1, Integer.toString(newStudent.studentIdProperty().get()));
-            posted.setString(2, newStudent.studentFirstNameProperty().get());
-            posted.setString(3, newStudent.studentLastNameProperty().get());
-            posted.execute();
-            students.add(newStudent);
-        } catch (Exception e) {
-            System.out.println(e);
+    public boolean addStudent(Student student) {
+        if(!students.contains(student)){
+            students.add(student);
+            return true;
         }
+        return false;
     }
 
-    public void removeStudent(Student newStudent) {
-        try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-            PreparedStatement posted = con.prepareStatement("DELETE FROM Students WHERE ID= ?");
-            posted.setString(1, Integer.toString(newStudent.studentIdProperty().get()));
-            posted.executeUpdate();
-            students.remove(newStudent);
-        } catch (Exception e) {
-            System.out.println(e);
+    public boolean removeStudent(Student student) {
+        if(students.contains(student)){
+            students.remove(student);
+            return true;
         }
+        return false;
     }
 
+
+    //TODO change these
     public ArrayList<Student> getStudentsByCourseID(String courseId) {
         ArrayList<Student> Students = new ArrayList<Student>();
         //TODO get students by course -- SELECT * FROM students where id IN (SELECT studentId FROM student-course-table WHERE courseid = courseid)
@@ -91,7 +79,7 @@ public class StudentList {
 
             while (rs.next()) {
                 Student tmpStudent = new Student();
-                process(rs, tmpStudent);
+//                process(rs, tmpStudent); TODO fix this
                 Students.add(tmpStudent);
             }
         } catch (SQLException e) {

@@ -14,7 +14,7 @@ public class ExaminerDao
   {
     ArrayList<Examiner> Examiners = new ArrayList<>();
     try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-        Statement stmt = con.createStatement())
+         Statement stmt = con.createStatement())
     {
       String SQL = "SELECT * FROM dbo.Examiners";
       ResultSet rs = stmt.executeQuery(SQL);

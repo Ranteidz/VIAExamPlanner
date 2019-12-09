@@ -15,7 +15,7 @@ public class CourseDao
     {
       ArrayList<Course> courses = new ArrayList<>();
       try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-          Statement stmt = con.createStatement())
+           Statement stmt = con.createStatement())
       {
         String SQL = "SELECT * FROM dbo.Courses";
         ResultSet rs = stmt.executeQuery(SQL);

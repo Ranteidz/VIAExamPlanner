@@ -68,7 +68,7 @@ public class AddExamController extends ExamController {
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
-        ObservableList<Classroom> data = parentController.tableClassroom.getItems();
+        ObservableList<Classroom> data = parentController.classroomTable.getItems();
         infoTable.getItems().addAll(data);
     }
 
@@ -134,7 +134,7 @@ public class AddExamController extends ExamController {
         if (classroomIdField.getText().isEmpty()) {
             showClassrooms();
         } else {
-            ObservableList<Classroom> classrooms = parentController.tableClassroom.getItems();
+            ObservableList<Classroom> classrooms = parentController.classroomTable.getItems();
             ArrayList<Classroom> searchItems = new ArrayList<Classroom>();
             for (Classroom classRoom : classrooms) {
                 if (classRoom.nameProperty().get().contains(classroomIdField.getText()))

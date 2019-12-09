@@ -12,7 +12,7 @@ public class ClassRoomDao
   {
     ArrayList<Classroom> classrooms = new ArrayList<>();
     try (Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-        Statement stmt = con.createStatement())
+         Statement stmt = con.createStatement())
     {
       String SQL = "SELECT * FROM dbo.Classrooms";
       ResultSet rs = stmt.executeQuery(SQL);

@@ -92,7 +92,7 @@ public class EditExamController extends ExamController{
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
-        ObservableList<Classroom> data = parentController.tableClassroom.getItems();
+        ObservableList<Classroom> data = parentController.classroomTable.getItems();
         infoTable.getItems().addAll(data);
     }
 
