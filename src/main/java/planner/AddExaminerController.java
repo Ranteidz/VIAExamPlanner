@@ -44,12 +44,11 @@ public class AddExaminerController {
         examiner.setExaminerId(examinerIdInput.getText());
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
-    DataModel.addExaminer(examiner);
-        ObservableList<Date> date= unavailableDatesTable.getItems();
-        for (Date member: date)
-        {
-            DataModel.addUnavailabilityDateToExaminer(examiner,member);
-        }
+        parentController.model.addExaminer(examiner);
+        ObservableList<Date> date = unavailableDatesTable.getItems();
+        /*for (Date member : date) { TODO fix this
+            parentController.model.addUnavailabilityDateToExaminer(examiner, member);
+        }*/
         parentController.examinerTable.getItems().add(examiner);
 //        parentController.updateData();
         closeWindow();

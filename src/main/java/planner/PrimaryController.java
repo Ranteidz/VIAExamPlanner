@@ -21,7 +21,7 @@ public class PrimaryController {
     @FXML
     public CheckBox inputClassroomHDMI;
 
-    private DataModel model;
+    public DataModel model;
     //    private ArrayList<Student> studentsTest = DataModel.getStudentAll();
     @FXML
     private TextField inputClassroomName;
@@ -168,18 +168,12 @@ public class PrimaryController {
         examClassroomColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("classroomId"));
         examExaminerColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("examinerId"));
 
-        try {
-            loadAllData();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        updateData(); //TODO FIX causes null pointer exception, doesn't load naything, works after program starts
     }
-
 
     public void SwitchToDarkMode(ActionEvent event) {
         System.out.println("switch to dark mode");
     }
-
 
     public void updateData() {
         System.out.println("updating data");
@@ -201,8 +195,8 @@ public class PrimaryController {
         classroomTable.getItems().addAll(model.getClassRoomsAll());
     }
 
-    public void MethodTesting(ActionEvent actionEvent) throws Exception {
-        System.out.println("1..2..3");
+    public void MethodTesting(ActionEvent actionEvent) {
+        updateData();
     }
 
     public void openAddExamWindow() throws Exception {
@@ -401,86 +395,84 @@ public class PrimaryController {
         courseStudentTable.getItems().clear();
     }
 
-//    public void classroomEdit() {
-//        if (editSaveClassroom.getText().equals("Edit")) {
-//            selectClassroomItem();
-//            classroomIdTextField.setStyle(null);
-//            capacityTextField.setStyle(null);
-//            hdmiTextField.setVisible(false);
-//            vgaTextField.setVisible(false);
-//            hdmiEditCheckBox.setVisible(true);
-//            vgaEditCheckBox.setVisible(true);
-//
-//            if (hdmiTextField.getText().equals("true")) {
-//                hdmiEditCheckBox.setSelected(true);
-//            } else hdmiEditCheckBox.setSelected(false);
-//            if (vgaTextField.getText().equals("true")) {
-//                vgaEditCheckBox.setSelected(true);
-//            } else vgaEditCheckBox.setSelected(false);
-//
-//            classroomIdTextField.setEditable(true);
-//            capacityTextField.setEditable(true);
-//
-//            deleteClassroomButton.setDisable(true);
-//
-//            editSaveClassroom.setText("Save");
-//        } else {
-//            hdmiEditCheckBox.setVisible(false);
-//            vgaEditCheckBox.setVisible(false);
-//            hdmiTextField.setVisible(true);
-//            vgaTextField.setVisible(true);
-//            classroomIdTextField.setEditable(false);
-//            capacityTextField.setEditable(false);
-//            hdmiTextField.setEditable(false);
-//            vgaTextField.setEditable(false);
-//
-//            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
-//            classroomIdTextField.setStyle(styleTextField);
-//            capacityTextField.setStyle(styleTextField);
-//            hdmiTextField.setStyle(styleTextField);
-//            vgaTextField.setStyle(styleTextField);
-//
-//            Classroom classRoom = new Classroom(classroomIdTextField.getText(),
-//                    Integer.parseInt(capacityTextField.getText()), hdmiEditCheckBox.isSelected(), vgaEditCheckBox.isSelected());
-//            deleteClassroom();
-//            classroomTable.getItems().add(classRoom);
-//            classroomTable.getSelectionModel().clearSelection();
-//            deleteClassroomButton.setDisable(false);
-//            editSaveClassroom.setText("Edit");
-//        }
-//    }
-//
-//    public void studentEdit() {
-//        if (editSaveStudent.getText().equals("Edit")) {
-//            selectStudentItem();
-//            studentIDTextField.setStyle(null);
-//            firstNameTextField.setStyle(null);
-//            lastNameTextField.setStyle(null);
-//            studentIDTextField.setEditable(true);
-//            firstNameTextField.setEditable(true);
-//            lastNameTextField.setEditable(true);
-//            deleteStudentButton.setDisable(true);
-//            editSaveStudent.setText("Save");
-//        } else {
-//            studentIDTextField.setEditable(false);
-//            firstNameTextField.setEditable(false);
-//            lastNameTextField.setEditable(false);
-//
-//            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
-//            studentIDTextField.setStyle(styleTextField);
-//            firstNameTextField.setStyle(styleTextField);
-//            lastNameTextField.setStyle(styleTextField);
-//
-////TODO either fix deleteStudent or load table after save.Edit works.
-//            Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
-//                    firstNameTextField.getText(), lastNameTextField.getText());
-//            model.editStudent(student);
-//            /* deleteStudent();*/
-//            studentTable.getItems().add(student);
-//            studentTable.getSelectionModel().clearSelection();
-//            deleteStudentButton.setDisable(false);
-//            editSaveStudent.setText("Edit");
-//            updateData();
-//        }
-//    }
+    public void classroomEdit() {
+        if (editSaveClassroom.getText().equals("Edit")) {
+            selectClassroomItem();
+            classroomIdTextField.setStyle(null);
+            capacityTextField.setStyle(null);
+            hdmiTextField.setVisible(false);
+            vgaTextField.setVisible(false);
+            hdmiEditCheckBox.setVisible(true);
+            vgaEditCheckBox.setVisible(true);
+
+            if (hdmiTextField.getText().equals("true")) {
+                hdmiEditCheckBox.setSelected(true);
+            } else hdmiEditCheckBox.setSelected(false);
+            if (vgaTextField.getText().equals("true")) {
+                vgaEditCheckBox.setSelected(true);
+            } else vgaEditCheckBox.setSelected(false);
+
+            classroomIdTextField.setEditable(true);
+            capacityTextField.setEditable(true);
+
+            deleteClassroomButton.setDisable(true);
+
+            editSaveClassroom.setText("Save");
+        } else {
+            hdmiEditCheckBox.setVisible(false);
+            vgaEditCheckBox.setVisible(false);
+            hdmiTextField.setVisible(true);
+            vgaTextField.setVisible(true);
+            classroomIdTextField.setEditable(false);
+            capacityTextField.setEditable(false);
+            hdmiTextField.setEditable(false);
+            vgaTextField.setEditable(false);
+
+            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
+            classroomIdTextField.setStyle(styleTextField);
+            capacityTextField.setStyle(styleTextField);
+            hdmiTextField.setStyle(styleTextField);
+            vgaTextField.setStyle(styleTextField);
+//TODO classroom edit doesn't work
+            Classroom classroom = new Classroom(classroomIdTextField.getText(),
+                    Integer.parseInt(capacityTextField.getText()), hdmiEditCheckBox.isSelected(), vgaEditCheckBox.isSelected());
+            model.editClassroom(classroom);
+            classroomTable.getSelectionModel().clearSelection();
+            deleteClassroomButton.setDisable(false);
+            editSaveClassroom.setText("Edit");
+            updateData();
+        }
+    }
+
+    public void studentEdit() {
+        if (editSaveStudent.getText().equals("Edit")) {
+            selectStudentItem();
+            studentIDTextField.setStyle(null);
+            firstNameTextField.setStyle(null);
+            lastNameTextField.setStyle(null);
+            studentIDTextField.setEditable(true);
+            firstNameTextField.setEditable(true);
+            lastNameTextField.setEditable(true);
+            deleteStudentButton.setDisable(true);
+            editSaveStudent.setText("Save");
+        } else {
+            studentIDTextField.setEditable(false);
+            firstNameTextField.setEditable(false);
+            lastNameTextField.setEditable(false);
+
+            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
+            studentIDTextField.setStyle(styleTextField);
+            firstNameTextField.setStyle(styleTextField);
+            lastNameTextField.setStyle(styleTextField);
+
+//TODO either fix deleteStudent or load table after save.Edit works.
+            Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
+                    firstNameTextField.getText(), lastNameTextField.getText());
+            model.editStudent(student);
+            studentTable.getSelectionModel().clearSelection();
+            deleteStudentButton.setDisable(false);
+            editSaveStudent.setText("Edit");
+            updateData();
+        }
+    }
 }

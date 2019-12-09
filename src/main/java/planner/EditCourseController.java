@@ -9,9 +9,12 @@ import javafx.stage.Stage;
 import model.classes.Course;
 import model.classes.Student;
 
+import java.util.ArrayList;
+
 public class EditCourseController {
 
     private Course course = new Course();
+    private ArrayList<Student> deletedStudents;
     private PrimaryController parentController;
     @FXML
     public TextField courseIdInput;
@@ -50,16 +53,19 @@ public class EditCourseController {
         //TODO add examiner to database
         course.setCourseId(courseIdInput.getText());
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
-        parentController.deleteCourse();
-        parentController.courseTable.getItems().add(course);
+        parentController.model.editCourse(course);
+        for(Student student : deletedStudents)
+            parentController.model.removeStudentFromCourse(course, student);
+        for(Student student : course.studentsProperty())
+            parentController.model.addStudentToCourse(course, student);
         parentController.updateData();
-        System.out.println("add");
         closeWindow();
     }
 
     public void addStudent() {
         Student student = new Student(Integer.parseInt(studentId.getText()), "", ""); //TODO get student names from database -- SELECT name, surname FROM TABLE students WHERE studentID = Integer.parseInt(studentId.getText())
         course.addStudent(student);
+//        parentController.model.addStudentToCourse(course, student);
         studentsTable.getItems().add(student);
         studentId.clear();
     }
@@ -70,6 +76,7 @@ public class EditCourseController {
         selectedStudent = studentsTable.getSelectionModel().getSelectedItems();
         course.studentsProperty().remove(selectedStudent.get(0));
         allStudents.removeAll(selectedStudent);
+        deletedStudents.add(selectedStudent.get(0));
     }
 
 

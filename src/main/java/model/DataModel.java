@@ -17,8 +17,9 @@ public class DataModel {
     private ClassroomList classroomList;
     private ExaminerList examinerList;
     private StudentList studentList;
-    private ExamList examList; //TODO impelemtn exam-related stuff
+    private ExamList examList; //TODO implement exam-related stuff
     private Database db;
+    public volatile boolean loading;
 
     public DataModel() {
         courseList = new CourseList();
@@ -28,11 +29,18 @@ public class DataModel {
         db = new Database();
     }
 
+    //TODO remove this after getting done with separation of database
+    public static String getDatabaseConnectionString() {
+        return "jdbc:sqlserver://planner.database.windows.net:1433;database=ExaminationPlanner;user=databaseadmin@planner;password=Pass-2019;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
+    }
+
     public void loadAll() {
-        courseList.addAll((ArrayList<Course>) db.load("Courses"));
-        examinerList.addAll((ArrayList<Examiner>) db.load("Examiners"));
-        classroomList.addAll((ArrayList<Classroom>) db.load("Classrooms"));
-        studentList.addAll((ArrayList<Student>) db.load("Students"));
+        loading = true;
+        courseList.loadCourses(db.loadCourses());
+        examinerList.loadExaminers(db.loadExaminers());
+        classroomList.loadClassrooms(db.loadClassrooms());
+        studentList.loadStudents(db.loadStudents());
+        loading = false;
     }
 
     public ArrayList<Student> getStudentAll() {
@@ -56,7 +64,7 @@ public class DataModel {
     }
 
     public ArrayList<Student> getStudentsByCourse(String courseId) {
-        return studentList.getStudentsByCourseID(courseId);
+        return db.getStudentsByCourseID(courseId);
     }
 
     public ArrayList<Date> getExaminerUnavailabilityDates(String examinerID) {
@@ -67,6 +75,7 @@ public class DataModel {
         if (examinerList.addExam(examiner))
             db.save(examiner);
     }
+
 
     public void deleteExaminer(Examiner examiner) {
         if(examinerList.removeExaminer(examiner))
@@ -107,21 +116,40 @@ public class DataModel {
         return studentList.getStudentByID(Integer.parseInt(studentID));
     }
 
-
-    //TODO change edit
-/*    public void editExaminer(Examiner newExaminer) {
-        examinerList.editExaminer(newExaminer);
+    public void editExaminer(Examiner examiner) {
+        if(examinerList.editExaminer(examiner))
+            db.editExaminer(examiner);
     }
 
-    public void editStudent(Student newStudent) {
-        studentList.editStudent(newStudent);
+    public void editStudent(Student student) {
+        if(studentList.editStudent(student))
+            db.editStudent(student);
     }
 
-    public void addStudentToCourse(Course newCourse, Student newStudent) {
-        courseList.insertStudentToCourse(newCourse, newStudent);
+    public void addStudentToCourse(Course course, Student student) {
+        if(courseList.insertStudentToCourse(course, student)){
+            db.insertStudentToCourse(course, student);
+        }
     }
 
+    public void removeStudentFromCourse(Course course, Student student) {
+        if(courseList.removeStudentFromCourse(course, student)){
+            db.removeStudentFromCourse(course, student);
+        }
+    }
 
+    public void editClassroom(Classroom classroom){
+        if(classroomList.editClassroom(classroom))
+            db.editClassroom(classroom);
+    }
+
+    public void editCourse(Course course) {
+        if(courseList.editCourse(course))
+            db.editCourse(course);
+    }
+
+    //TODO
+/*
     public void addUnavailabilityDateToExaminer(Examiner newExaminer, Date newDate) {
         examinerList.insertUnavailabilityToExaminer(newExaminer, newDate);
     }

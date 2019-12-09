@@ -98,7 +98,7 @@ public class Database implements Persistence {
         }
     }
 
-    public Object load() throws NullPointerException {
+    public Object load(){
         //loads from file in case of use local files
         return null;
     }
@@ -120,7 +120,7 @@ public class Database implements Persistence {
         }
     }
 
-    private ArrayList<Course> loadCourses() {
+    public ArrayList<Course> loadCourses() {
         ArrayList<Course> courses = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString());
              Statement stmt = con.createStatement()) {
@@ -144,7 +144,7 @@ public class Database implements Persistence {
         return null; //implement select from exams
     }
 
-    private ArrayList<Examiner> loadExaminers() {
+    public ArrayList<Examiner> loadExaminers() {
         ArrayList<Examiner> examiners = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString());
              Statement stmt = con.createStatement()) {
@@ -185,7 +185,7 @@ public class Database implements Persistence {
         return dates;
     }
 
-    private ArrayList<Student> loadStudents() {
+    public ArrayList<Student> loadStudents() {
         ArrayList<Student> students = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString()); Statement stmt = con.createStatement()) {
             String SQL = "SELECT * FROM dbo.students";
@@ -204,7 +204,7 @@ public class Database implements Persistence {
         return students;
     }
 
-    private ArrayList<Classroom> loadClassrooms() {
+    public ArrayList<Classroom> loadClassrooms() {
         ArrayList<Classroom> classrooms = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString());
              Statement stmt = con.createStatement()) {
@@ -269,10 +269,60 @@ public class Database implements Persistence {
         }
     }
 
-    public ArrayList<Student> getStudentsByCourseID(String courseId) {
-        ArrayList<Student> Students = new ArrayList<Student>();
-        //TODO get students by course -- SELECT * FROM students where id IN (SELECT studentId FROM student-course-table WHERE courseid = courseid)
+    public void editExaminer(Examiner examiner) {
+        try {
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("UPDATE Examiners SET Name = ?, Surname = ? WHERE id = ?");
+            posted.setString(1, (examiner.examinerFirstNameProperty().get()));
+            posted.setString(2, examiner.examinerLastNameProperty().get());
+            posted.setString(3, (examiner.examinerIdProperty().get()));
+            posted.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
+    public void editStudent(Student student) {
+        try {
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("UPDATE Students SET Name = ?, Surname = ? WHERE id = ?");
+            posted.setString(1, student.studentFirstNameProperty().get());
+            posted.setString(2, student.studentLastNameProperty().get());
+            posted.setString(3, String.valueOf(student.studentIdProperty().get()));
+            posted.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void editClassroom(Classroom classroom) {
+        removeClassroom(classroom);
+        save(classroom);
+        //TODO change this to UPDATE query
+    }
+
+    public void editCourse(Course course) {
+        //TODO meeds implementation
+    }
+
+    public void insertStudentToCourse(Course course, Student student) {
+        try {
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("INSERT INTO Students_Courses (StudentID, CourseID)" + " values(?, ?)");
+            posted.setString(1, String.valueOf(student.studentIdProperty().get()));
+            posted.setString(2, course.courseIdProperty().get());
+            posted.execute();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void removeStudentFromCourse(Course course, Student student){
+        //TODO implement this
+    }
+
+    public ArrayList<Student> getStudentsByCourseID(String courseId) {
+        ArrayList<Student> students = new ArrayList<Student>();
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString())) {
             String SQL = "SELECT * FROM dbo.Students WHERE ID IN (SELECT StudentID FROM dbo.Students_Courses WHERE CourseID = ?) ";
             PreparedStatement preparedStatement
@@ -284,13 +334,11 @@ public class Database implements Persistence {
             while (rs.next()) {
                 Student tmpStudent = new Student();
                 process(rs, tmpStudent);
-                Students.add(tmpStudent);
+                students.add(tmpStudent); //TODO maybe make this work locally, needs connection to model
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return Students;
+        return students;
     }
-
-
 }

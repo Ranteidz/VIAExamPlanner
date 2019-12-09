@@ -39,13 +39,11 @@ public class AddCourseController {
     public void addCourse() {
         course.setCourseId(courseIdInput.getText());
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
-        DataModel.addCourse(course);
+        parentController.model.addCourse(course);
         ObservableList<Student> students = studentsTable.getItems();
-        for (Student member: students)
-            DataModel.addStudentToCourse(course,member);
-        parentController.courseTable.getItems().add(course);
+        for (Student student : students)
+            parentController.model.addStudentToCourse(course, student);
         parentController.updateData();
-        System.out.println("add");
         closeWindow();
     }
 
@@ -57,10 +55,10 @@ public class AddCourseController {
         //TODO under construction
         System.out.println("test");
         System.out.println(studentId.getText());
-        System.out.println(DataModel.getStudent(studentId.getText()));
+        System.out.println(parentController.model.getStudent(studentId.getText()));
 
-        Student newStudent=  DataModel.getStudent(studentId.getText());
-//        DataModel.addStudentToCourse(course,newStudent);
+        Student newStudent=  parentController.model.getStudent(studentId.getText());
+        parentController.model.addStudentToCourse(course,newStudent);
         System.out.println(newStudent.studentFirstNameProperty());
         Student student = new Student(Integer.parseInt(studentId.getText()),newStudent.studentFirstNameProperty().get(),newStudent.studentLastNameProperty().get()); //TODO get student names from database -- SELECT name, surname FROM TABLE students WHERE studentID = Integer.parseInt(studentId.getText())
 

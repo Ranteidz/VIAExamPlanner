@@ -54,4 +54,9 @@ public class Course extends Object{
             students.add(student);
         }
     }
+
+    public void removeStudent(Student student) {
+        if(students.contains(student))
+            students.remove(student);
+    }
 }

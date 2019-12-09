@@ -49,7 +49,7 @@ public class EditExaminerController {
         examiner.setExaminerId(examinerIdInput.getText());
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
-        DataModel.editExaminer(examiner);
+        parentController.model.editExaminer(examiner);
         parentController.examinerTable.getItems().add(examiner);
         parentController.updateData();
         closeWindow();
@@ -68,7 +68,7 @@ public class EditExaminerController {
         allDates = unavailableDatesTable.getItems();
         selectedDate = unavailableDatesTable.getSelectionModel().getSelectedItems();
         Date date= unavailableDatesTable.getSelectionModel().getSelectedItem();
-        DataModel.deleteUnavailabilityDateFromExaminer(examiner,date);
+//        parentController.model.deleteUnavailabilityDateFromExaminer(examiner,date); TODO fix this
         examiner.unavailableDatesProperty().remove(selectedDate.get(0));
         allDates.removeAll(selectedDate);
     }

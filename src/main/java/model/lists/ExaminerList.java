@@ -15,7 +15,7 @@ public class ExaminerList {
         return examiners;
     }
 
-    private void loadExaminers(ArrayList<Examiner> examiners) {
+    public void loadExaminers(ArrayList<Examiner> examiners) {
         this.examiners = examiners;
     }
 
@@ -28,26 +28,31 @@ public class ExaminerList {
     }
 
     public boolean addExam(Examiner examiner) {
-        if(!examiners.contains(examiner)) {
+        if (!examiners.contains(examiner)) {
             examiners.add(examiner);
             return true;
         }
         return false;
     }
 
-    public void addAll(ArrayList<Examiner> examiners) {
-        for(Examiner examiner : examiners) {
-            this.examiners.add(examiner);
-        }
-    }
-
     public boolean removeExaminer(Examiner examiner) {
-        if(examiners.contains(examiner)) {
+        if (examiners.contains(examiner)) {
             examiners.remove(examiner);
             return true;
         }
         return false;
     }
+
+    public boolean editExaminer(Examiner examiner) {
+        if (examiners.contains(getExaminerByID(examiner.examinerIdProperty().get()))) {
+            getExaminerByID(examiner.examinerIdProperty().get()).setExaminerFirstName(examiner.examinerFirstNameProperty().get());
+            getExaminerByID(examiner.examinerIdProperty().get()).setExaminerLastName(examiner.examinerLastNameProperty().get());
+            getExaminerByID(examiner.examinerIdProperty().get()).setUnavailableDates(examiner.unavailableDatesProperty());
+            return true;
+        }
+        return false;
+    }
+}
 
     //TODO fix this
     /*public void insertUnavailabilityToExaminer(Examiner newExaminer, model.classes.Date newDate) {
@@ -93,21 +98,6 @@ public class ExaminerList {
             e.printStackTrace();
         }
         return dates;
-    }
-
-    public void editExaminer(Examiner newExaminer) {
-        try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-            PreparedStatement posted = con.prepareStatement("UPDATE Examiners SET Name = ?, Surname = ? WHERE id = ?");
-            posted.setString(1, (newExaminer.examinerFirstNameProperty().get()));
-            posted.setString(2, newExaminer.examinerLastNameProperty().get());
-            posted.setString(3, (newExaminer.examinerIdProperty().get()));
-            examiners.remove(getExaminerByID(newExaminer.examinerIdProperty().get()));
-            examiners.add(newExaminer);
-            posted.executeUpdate();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
     }*/
-}
+
 
