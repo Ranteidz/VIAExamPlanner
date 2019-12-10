@@ -44,16 +44,13 @@ public class AddCourseController {
         course.setCourseId(courseIdInput.getText());
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
         parentController.model.addCourse(course);
-        for(Student student : addedStudents) {
-            parentController.model.addStudentToCourse(course, student);
-        }
+        parentController.model.addStudentsToCourse(course, addedStudents);
         parentController.updateData();
         closeWindow();
     }
 
     public void addStudent() {
-        Student student = new Student(Integer.parseInt(studentId.getText()), "", "");
-        student = parentController.model.getStudent(String.valueOf(student.studentIdProperty().get()));
+        Student student = parentController.model.getStudent(studentId.getText());
         addedStudents.add(student);
         studentsTable.getItems().add(student);
         studentId.clear();

@@ -49,6 +49,14 @@ public class CourseList {
         return false;
     }
 
+    public void removeStudent(Student student) {
+        for(Course course : courses){
+            if(course.studentsProperty().contains(student)){
+                course.studentsProperty().remove(student);
+            }
+        }
+    }
+
     public boolean removeStudentFromCourse(Course course, Student student) {
         System.out.println(student);
         Course localCourse = getCourseById(course.courseIdProperty().get());

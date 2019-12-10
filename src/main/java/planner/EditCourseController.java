@@ -56,20 +56,17 @@ public class EditCourseController {
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
         parentController.model.editCourse(course);
         //TODO bug here, replicate by removing then adding same students
-        for(Student student : deletedStudents) {
-            parentController.model.removeStudentFromCourse(course, student);
-        }
-        for(Student student : addedStudents) {
-            parentController.model.addStudentToCourse(course, student);
-        }
+        parentController.model.removeStudentsFromCourse(course, deletedStudents);
+        parentController.model.addStudentsToCourse(course, addedStudents);
         parentController.updateData();
         closeWindow();
     }
 
     public void addStudent() {
-        Student student = new Student(Integer.parseInt(studentId.getText()), "", ""); //TODO get student names from database -- SELECT name, surname FROM TABLE students WHERE studentID = Integer.parseInt(studentId.getText())
-        course.addStudent(student);
+        Student student = parentController.model.getStudent(studentId.getText());
         addedStudents.add(student);
+        if(deletedStudents.contains(student))
+            deletedStudents.remove(student);
         studentsTable.getItems().add(student);
         studentId.clear();
     }

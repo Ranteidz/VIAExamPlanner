@@ -18,7 +18,7 @@ public class DataModel {
     private ExaminerList examinerList;
     private StudentList studentList;
     private ExamList examList; //TODO implement exam-related stuff
-    private Database db;
+    private Persistence db;
     public volatile boolean loading;
 
     public DataModel() {
@@ -148,6 +148,18 @@ public class DataModel {
         if (!course.courseIdProperty().get().isEmpty())
             if (courseList.editCourse(course))
                 db.editCourse(course);
+    }
+
+    public void addStudentsToCourse(Course course, ArrayList<Student> addedStudents) {
+        for(Student student : addedStudents) {
+            addStudentToCourse(course, student);
+        }
+    }
+
+    public void removeStudentsFromCourse(Course course, ArrayList<Student> deletedStudents){
+        for(Student student : deletedStudents) {
+            removeStudentsFromCourse(course, deletedStudents);
+        }
     }
 
     //TODO

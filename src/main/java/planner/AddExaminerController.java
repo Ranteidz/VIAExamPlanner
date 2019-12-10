@@ -1,6 +1,7 @@
 package planner;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import model.classes.Examiner;
 
 public class AddExaminerController {
 
+    private ArrayList<Date> examinerDates;
     private PrimaryController parentController;
     @FXML
     public TextField examinerIdInput;
@@ -32,6 +34,7 @@ public class AddExaminerController {
     private Examiner examiner = new Examiner();
 
     public AddExaminerController() {
+        examinerDates = new ArrayList<Date>();
     }
 
     public void initialize(PrimaryController parentController) {
@@ -45,19 +48,18 @@ public class AddExaminerController {
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
         parentController.model.addExaminer(examiner);
-        ObservableList<Date> date = unavailableDatesTable.getItems();
         /*for (Date member : date) { TODO fix this
             parentController.model.addUnavailabilityDateToExaminer(examiner, member);
         }*/
-        parentController.examinerTable.getItems().add(examiner);
-//        parentController.updateData();
+//        parentController.model.addUnavailabilityDatesToExaminer(examiner, examinerDates);
+        parentController.updateData();
         closeWindow();
     }
 
     public void addUnavailableDate() {
         LocalDate localDate = datePicker.getValue();
         Date date = new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
-        examiner.addUnavailableDate(date);
+        examinerDates.add(date);
         unavailableDatesTable.getItems().add(date);
         datePicker.setValue(null);
     }
