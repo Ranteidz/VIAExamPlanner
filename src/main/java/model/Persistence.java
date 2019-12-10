@@ -46,4 +46,6 @@ public interface Persistence {
     void editCourse(Course course);
 
     void insertUnavailabilityToExaminer(Examiner examiner, Date date);
+
+    void removeUnavailabilityFromExaminer(Examiner examiner, Date date);
 }

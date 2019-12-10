@@ -127,7 +127,7 @@ public class DataModel {
             for (Date date : addedDates)
                 db.insertUnavailabilityToExaminer(examiner, date);
             for (Date date : deletedDates)
-//            db.removeUnavailabilityFromExaminer(examiner, date);
+                db.removeUnavailabilityFromExaminer(examiner, date);
         }
     }
 
