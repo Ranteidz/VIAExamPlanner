@@ -1,6 +1,7 @@
 package model;
 
 import model.classes.*;
+import model.classes.Date;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -356,7 +357,21 @@ public class Database implements Persistence {
             System.out.println(e);
         }
     }
+    public void insertUnavailabilityToExaminer(Examiner newExaminer, Date newDate)
+    {
+        try{
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("INSERT INTO ExaminersUnavailabilityDates (ExaminerID, Date)"+ " values(?, ?)");
+            posted.setString(1, newExaminer.examinerIdProperty().get());
+            posted.setString(2, newDate.dateProperty().get());
 
+            posted.execute();
+
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
     public ArrayList<Student> getStudentsByCourseID(String courseId) {
         ArrayList<Student> students = new ArrayList<Student>();
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString())) {
