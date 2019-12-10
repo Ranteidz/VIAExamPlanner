@@ -44,4 +44,6 @@ public interface Persistence {
     void editClassroom(Classroom classroom);
 
     void editCourse(Course course);
+
+    void insertUnavailabilityToExaminer(Examiner examiner, Date date);
 }
