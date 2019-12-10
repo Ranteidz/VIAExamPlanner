@@ -257,12 +257,28 @@ public class Database implements Persistence {
         } catch (Exception e) {
             System.out.println(e);
         }
+        try {
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("DELETE  FROM Students_Courses WHERE StudentID= ?");
+            posted.setString(1, Integer.toString(student.studentIdProperty().get()));
+            posted.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void removeCourse(Course course) {
         try {
             Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("DELETE FROM Courses WHERE ID= ?");
+            posted.setString(1, course.courseIdProperty().get());
+            posted.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        try {
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("DELETE  FROM Students_Courses WHERE CourseID= ?");
             posted.setString(1, course.courseIdProperty().get());
             posted.executeUpdate();
         } catch (Exception e) {
