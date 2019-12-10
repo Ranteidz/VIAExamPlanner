@@ -303,7 +303,15 @@ public class Database implements Persistence {
     }
 
     public void editCourse(Course course) {
-        //TODO meeds implementation
+        try {
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("UPDATE Courses SET Type= ?");
+            posted.setString(1, course.courseTypeProperty().get());
+
+            posted.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void insertStudentToCourse(Course course, Student student) {
