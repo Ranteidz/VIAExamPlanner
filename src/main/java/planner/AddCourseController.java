@@ -9,10 +9,13 @@ import model.DataModel;
 import model.classes.Course;
 import model.classes.Student;
 
+import java.util.ArrayList;
+
 public class AddCourseController {
 
     private Course course = new Course();
     private PrimaryController parentController;
+    private ArrayList<Student> addedStudents;
     @FXML
     public TextField courseIdInput;
     @FXML
@@ -29,6 +32,7 @@ public class AddCourseController {
     public Button cancelButton;
 
     public AddCourseController() {
+        addedStudents = new ArrayList<Student>();
     }
 
     public void initialize(PrimaryController parentController) {
@@ -40,30 +44,27 @@ public class AddCourseController {
         course.setCourseId(courseIdInput.getText());
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
         parentController.model.addCourse(course);
-        for (Student student : course.studentsProperty())
+        for(Student student : addedStudents) {
             parentController.model.addStudentToCourse(course, student);
+        }
         parentController.updateData();
         closeWindow();
     }
 
     public void addStudent() {
-     /*   Student student = new Student(Integer.parseInt(studentId.getText()), "", ""); //TODO get student names from database -- SELECT name, surname FROM TABLE students WHERE studentID = Integer.parseInt(studentId.getText())
-        course.addStudent(student);
+        Student student = new Student(Integer.parseInt(studentId.getText()), "", "");
+        student = parentController.model.getStudent(String.valueOf(student.studentIdProperty().get()));
+        addedStudents.add(student);
         studentsTable.getItems().add(student);
-        studentId.clear();*/
-        //TODO under construction
-        System.out.println("test");
-        System.out.println(studentId.getText());
-        System.out.println(parentController.model.getStudent(studentId.getText()));
-        Student newStudent = parentController.model.getStudent(studentId.getText());
-        course.studentsProperty().add(newStudent);
-        parentController.model.addStudentToCourse(course,newStudent);
-        System.out.println(newStudent.studentFirstNameProperty());
-        Student student = new Student(Integer.parseInt(studentId.getText()),newStudent.studentFirstNameProperty().get(),newStudent.studentLastNameProperty().get()); //TODO get student names from database -- SELECT name, surname FROM TABLE students WHERE studentID = Integer.parseInt(studentId.getText())
-
-        course.addStudent(newStudent);
-        studentsTable.getItems().add(newStudent);
         studentId.clear();
+    }
+
+    public void deleteStudent() {
+        ObservableList<Student> allStudents, selectedStudent;
+        allStudents = studentsTable.getItems();
+        selectedStudent = studentsTable.getSelectionModel().getSelectedItems();
+        addedStudents.remove(selectedStudent.get(0));
+        allStudents.removeAll(selectedStudent);
     }
 
     public void closeWindow() {

@@ -64,7 +64,7 @@ public class DataModel {
     }
 
     public ArrayList<Student> getStudentsByCourse(String courseId) {
-        return db.getStudentsByCourseID(courseId);
+        return courseList.getStudentsByCourse(courseId);
     }
 
     public ArrayList<Date> getExaminerUnavailabilityDates(String examinerID) {
@@ -75,7 +75,6 @@ public class DataModel {
         if (examinerList.addExam(examiner))
             db.save(examiner);
     }
-
 
     public void deleteExaminer(Examiner examiner) {
         if(examinerList.removeExaminer(examiner))
@@ -127,16 +126,15 @@ public class DataModel {
     }
 
     public void addStudentToCourse(Course course, Student student) {
-        System.out.println(courseList.insertStudentToCourse(course, student));
-        if(courseList.insertStudentToCourse(course, student)){
-            db.insertStudentToCourse(course, student);
+        Student localStudent = getStudent(String.valueOf(student.studentIdProperty().get()));
+        if(courseList.insertStudentToCourse(course, localStudent)){
+            db.insertStudentToCourse(course, localStudent);
         }
     }
 
     public void removeStudentFromCourse(Course course, Student student) {
-        System.out.println(courseList.removeStudentFromCourse(course, student));
-        if(courseList.removeStudentFromCourse(course, student)){
-            db.removeStudentFromCourse(course, student);
+        if(courseList.removeStudentFromCourse(course, getStudent(String.valueOf(student.studentIdProperty().get())))){
+            db.removeStudentFromCourse(course, getStudent(String.valueOf(student.studentIdProperty().get())));
         }
     }
 

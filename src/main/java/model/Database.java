@@ -130,6 +130,7 @@ public class Database implements Persistence {
             while (rs.next()) {
                 Course tmpCourse = new Course();
                 process(rs, tmpCourse);
+                tmpCourse.studentsProperty().addAll(getStudentsByCourseID(tmpCourse.courseIdProperty().get()));
                 courses.add(tmpCourse);
             }
         }

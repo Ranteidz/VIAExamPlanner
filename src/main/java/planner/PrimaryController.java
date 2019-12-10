@@ -385,6 +385,7 @@ public class PrimaryController {
         courseIdLabel.setText(course.courseIdProperty().get());
         courseTypeLabel.setText(course.courseTypeProperty().get());
         courseStudentTable.getItems().addAll(model.getStudentsByCourse(course.courseIdProperty().get()));
+        System.out.println(model.getStudentsByCourse(course.courseIdProperty().get()));
     }
 
     public void deleteCourse() {
@@ -393,6 +394,7 @@ public class PrimaryController {
         courseIdLabel.setText("");
         courseTypeLabel.setText("");
         courseStudentTable.getItems().clear();
+        updateData();
     }
 
     public void classroomEdit() {

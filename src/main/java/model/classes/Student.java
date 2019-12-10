@@ -56,6 +56,13 @@ public class Student
     return info;
   }
 
+  public boolean equals(Object obj) {
+    if (!(obj instanceof Student))
+      return false;
+    Student otherStudent = (Student) obj;
+    return this.studentInfoProperty().get().equals(otherStudent.studentInfoProperty().get());
+  }
+
   @Override public String toString()
   {
     return studentId + " " + studentFirstName +" "+ studentLastName ;

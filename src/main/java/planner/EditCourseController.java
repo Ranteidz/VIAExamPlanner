@@ -48,7 +48,6 @@ public class EditCourseController {
         } else {
             isWritten.setSelected(true);
         }
-//        ObservableList<Student> students = FXCollections.<Student>observableArrayList(course.studentsProperty());
         studentsTable.getItems().addAll(parentController.model.getStudentsByCourse(course.courseIdProperty().get()));
     }
 
@@ -56,11 +55,13 @@ public class EditCourseController {
         //TODO add examiner to database
         course.setCourseId(courseIdInput.getText());
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
-        parentController.model.editCourse(course);
-        for(Student student : deletedStudents)
-            parentController.model.removeStudentFromCourse(course, parentController.model.getStudent(String.valueOf(student.studentIdProperty().get())));
-        for(Student student : addedStudents)
-            parentController.model.addStudentToCourse(course, parentController.model.getStudent(String.valueOf(student.studentIdProperty().get())));
+        parentController.model.editCourse(course); //TODO
+        for(Student student : deletedStudents) {
+            parentController.model.removeStudentFromCourse(course, student); //TODO
+        }
+        for(Student student : addedStudents) {
+            parentController.model.addStudentToCourse(course, student);
+        }
         parentController.updateData();
         closeWindow();
     }
@@ -77,10 +78,10 @@ public class EditCourseController {
         ObservableList<Student> allStudents, selectedStudent;
         allStudents = studentsTable.getItems();
         selectedStudent = studentsTable.getSelectionModel().getSelectedItems();
-        course.studentsProperty().remove(selectedStudent.get(0));
         deletedStudents.add(selectedStudent.get(0));
+        if(addedStudents.contains(selectedStudent.get(0)))
+            addedStudents.remove(selectedStudent.get(0));
         allStudents.removeAll(selectedStudent);
-        deletedStudents.add(selectedStudent.get(0));
     }
 
 

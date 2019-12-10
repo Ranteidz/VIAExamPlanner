@@ -30,22 +30,33 @@ public class CourseList {
 
     public Course getCourseById(String courseId) {
         for (Course course : courses)
-            if (courseId.equalsIgnoreCase(course.courseIdProperty().get()))
+            if (courseId.equalsIgnoreCase(course.courseIdProperty().get())) {
                 return course;
+            }
         return null;
     }
 
+    public ArrayList<Student> getStudentsByCourse(String courseId) {
+        return getCourseById(courseId).studentsProperty();
+    }
+
     public boolean insertStudentToCourse(Course course, Student student) {
-        if(!getCourseById(course.courseIdProperty().get()).studentsProperty().contains(student)) {
-            getCourseById(course.courseIdProperty().get()).addStudent(student); //TODO revert changes if edit cancelled
+        Course localCourse = getCourseById(course.courseIdProperty().get());
+        if(!localCourse.studentsProperty().contains(student)) {
+            localCourse.addStudent(student);
             return true;
         }
         return false;
     }
 
     public boolean removeStudentFromCourse(Course course, Student student) {
-        if(getCourseById(course.courseIdProperty().get()).studentsProperty().contains(student)) {
-            getCourseById(course.courseIdProperty().get()).removeStudent(student);
+        System.out.println(student);
+        Course localCourse = getCourseById(course.courseIdProperty().get());
+        System.out.println(localCourse.studentsProperty());
+        System.out.println(localCourse.studentsProperty().contains(student));
+        if(localCourse.studentsProperty().contains(student)) {
+            localCourse.removeStudent(student);
+            System.out.println(localCourse.studentsProperty());
             return true;
         }
         return false;
