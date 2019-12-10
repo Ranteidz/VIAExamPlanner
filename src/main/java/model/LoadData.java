@@ -24,7 +24,6 @@ public class LoadData extends Thread {
                 startTime = System.currentTimeMillis();
             }
         }
-        System.out.println("thread stopped");
     }
 }
 
