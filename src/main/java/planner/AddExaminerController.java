@@ -14,7 +14,6 @@ import model.classes.Examiner;
 
 public class AddExaminerController {
 
-    private ArrayList<Date> examinerDates;
     private PrimaryController parentController;
     @FXML
     public TextField examinerIdInput;
@@ -34,7 +33,6 @@ public class AddExaminerController {
     private Examiner examiner = new Examiner();
 
     public AddExaminerController() {
-        examinerDates = new ArrayList<Date>();
     }
 
     public void initialize(PrimaryController parentController) {
@@ -48,10 +46,6 @@ public class AddExaminerController {
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
         parentController.model.addExaminer(examiner);
-        /*for (Date member : date) { TODO fix this
-            parentController.model.addUnavailabilityDateToExaminer(examiner, member);
-        }*/
-//        parentController.model.addUnavailabilityDatesToExaminer(examiner, examinerDates);
         parentController.updateData();
         closeWindow();
     }
@@ -59,7 +53,7 @@ public class AddExaminerController {
     public void addUnavailableDate() {
         LocalDate localDate = datePicker.getValue();
         Date date = new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
-        examinerDates.add(date);
+        examiner.addUnavailableDate(date);
         unavailableDatesTable.getItems().add(date);
         datePicker.setValue(null);
     }

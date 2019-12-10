@@ -72,8 +72,11 @@ public class DataModel {
     }
 
     public void addExaminer(Examiner examiner) {
-        if (examinerList.addExam(examiner))
+        if (examinerList.addExam(examiner)) {
             db.save(examiner);
+            for (Date date : examiner.unavailableDatesProperty())
+                db.insertUnavailabilityToExaminer(examiner, date);
+        }
     }
 
     public void deleteExaminer(Examiner examiner) {
@@ -97,8 +100,10 @@ public class DataModel {
     }
 
     public void deleteStudent(Student student) {
-        if (studentList.removeStudent(student))
+        if (studentList.removeStudent(student)) {
             db.removeStudent(student);
+            courseList.removeStudent(student);
+        }
     }
 
     public void addCourse(Course course) {
@@ -162,12 +167,18 @@ public class DataModel {
         }
     }
 
-    //TODO
-/*
-    public void addUnavailabilityDateToExaminer(Examiner newExaminer, Date newDate) {
-        examinerList.insertUnavailabilityToExaminer(newExaminer, newDate);
+    public void addUnavailabilityDatesToExaminer(Examiner examiner, ArrayList<Date> examinerDates) {
+        for(Date date : examinerDates) {
+            addUnavailabilityDateToExaminer(examiner, date);
+        }
     }
 
+    //TODO
+
+    public void addUnavailabilityDateToExaminer(Examiner newExaminer, Date newDate) {
+//        db.insertUnavailabilityToExaminer(newExaminer, newDate);
+    }
+/*
 
     public void deleteUnavailabilityDateFromExaminer(Examiner newExaminer, Date newDate) {
         examinerList.removeUnavailabilityFromExaminer(newExaminer, newDate);

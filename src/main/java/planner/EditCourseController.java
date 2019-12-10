@@ -63,6 +63,7 @@ public class EditCourseController {
     }
 
     public void addStudent() {
+        //TODO check if student exists
         Student student = parentController.model.getStudent(studentId.getText());
         addedStudents.add(student);
         if(deletedStudents.contains(student))

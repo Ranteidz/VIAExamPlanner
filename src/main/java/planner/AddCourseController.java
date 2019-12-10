@@ -50,6 +50,7 @@ public class AddCourseController {
     }
 
     public void addStudent() {
+        //TODO check if student exists
         Student student = parentController.model.getStudent(studentId.getText());
         addedStudents.add(student);
         studentsTable.getItems().add(student);
