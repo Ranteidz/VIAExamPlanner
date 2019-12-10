@@ -25,7 +25,7 @@ public class StudentList {
         if (!search.isEmpty()) {
             ArrayList<Student> searchItems = new ArrayList<Student>();
             for (Student student : students) {
-                if (student.studentInfoProperty().get().contains(search))
+                if (student.studentInfoProperty().get().toLowerCase().contains(search.toLowerCase()))
                     searchItems.add(student);
             }
             return searchItems;

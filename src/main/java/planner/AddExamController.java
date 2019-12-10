@@ -1,6 +1,5 @@
 package planner;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -9,9 +8,8 @@ import model.SearchThread;
 import model.classes.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-public class AddExamController extends ExamController {
+public class AddExamController extends Controller {
 
     public PrimaryController parentController;
     //private Exam exam;
@@ -51,6 +49,7 @@ public class AddExamController extends ExamController {
     }
 
     public void initialize(PrimaryController parentController) {
+        examStudentsColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("studentInfo"));
         this.parentController = parentController;
         searchThread = new SearchThread(System.currentTimeMillis(), this, "null");
         searchThread.start();
@@ -60,24 +59,21 @@ public class AddExamController extends ExamController {
         infoTable.getItems().clear();
         infoLabel.setText("Courses");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("courseInfo"));
-        ObservableList<Course> data = parentController.courseTable.getItems();
-        infoTable.getItems().addAll(data);
+        infoTable.getItems().addAll(parentController.model.getCoursesAll());
     }
 
     public void showClassrooms() {
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
-        ObservableList<Classroom> data = parentController.classroomTable.getItems();
-        infoTable.getItems().addAll(data);
+        infoTable.getItems().addAll(parentController.model.getClassRoomsAll());
     }
 
     public void showExaminers() {
         infoTable.getItems().clear();
         infoLabel.setText("Examiners");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("examinerInfo"));
-        ObservableList<Examiner> data = parentController.examinerTable.getItems();
-        infoTable.getItems().addAll(data);
+        infoTable.getItems().addAll(parentController.model.getExaminersALL());
     }
 
     public void selectTableItem() {
@@ -85,7 +81,7 @@ public class AddExamController extends ExamController {
             case "Courses":
                 Course course = (Course) infoTable.getSelectionModel().getSelectedItem();
                 courseIdField.setText(course.courseIdProperty().get());
-                //update students table
+                fillStudents(courseIdField.getText());
                 break;
             case "Classrooms":
                 Classroom classroom = (Classroom) infoTable.getSelectionModel().getSelectedItem();
@@ -119,29 +115,32 @@ public class AddExamController extends ExamController {
         if (courseIdField.getText().isEmpty()) {
             showCourses();
         } else {
-            ObservableList<Course> courses = parentController.courseTable.getItems();
-            ArrayList<Course> searchItems = new ArrayList<Course>();
-            for (Course course : courses) {
-                if (course.courseIdProperty().get().contains(courseIdField.getText()))
-                    searchItems.add(course);
-            }
             infoTable.getItems().clear();
-            infoTable.getItems().addAll(searchItems);
+            infoTable.getItems().addAll(parentController.model.getCoursesBySearch(courseIdField.getText()));
+            if(infoTable.getItems().size() == 1) {
+                try {
+                    fillStudents(courseIdField.getText());
+                }
+                catch (NullPointerException e) {
+                    System.out.println("No course found");
+                }
+            } else {
+                examStudentsTable.getItems().clear();
+            }
         }
+    }
+
+    private void fillStudents(String courseId) {
+        examStudentsTable.getItems().clear();
+        examStudentsTable.getItems().addAll(parentController.model.getStudentsByCourse(courseIdField.getText()));
     }
 
     public void getClassrooms() {
         if (classroomIdField.getText().isEmpty()) {
             showClassrooms();
         } else {
-            ObservableList<Classroom> classrooms = parentController.classroomTable.getItems();
-            ArrayList<Classroom> searchItems = new ArrayList<Classroom>();
-            for (Classroom classRoom : classrooms) {
-                if (classRoom.nameProperty().get().contains(classroomIdField.getText()))
-                    searchItems.add(classRoom);
-            }
             infoTable.getItems().clear();
-            infoTable.getItems().addAll(searchItems);
+            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText()));
         }
     }
 
@@ -149,14 +148,8 @@ public class AddExamController extends ExamController {
         if (examinerIdField.getText().isEmpty()) {
             showExaminers();
         } else {
-            ObservableList<Examiner> examiners = parentController.examinerTable.getItems();
-            ArrayList<Examiner> searchItems = new ArrayList<Examiner>();
-            for (Examiner examiner : examiners) {
-                if (examiner.examinerIdProperty().get().contains(examinerIdField.getText()))
-                    searchItems.add(examiner);
-            }
             infoTable.getItems().clear();
-            infoTable.getItems().addAll(searchItems);
+            infoTable.getItems().addAll(parentController.model.getExaminersBySearch(examinerIdField.getText()));
         }
     }
 

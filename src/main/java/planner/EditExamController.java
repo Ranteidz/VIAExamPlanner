@@ -1,6 +1,5 @@
 package planner;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -10,7 +9,7 @@ import model.classes.*;
 
 import java.time.LocalDate;
 
-public class EditExamController extends ExamController{
+public class EditExamController extends Controller {
 
     public PrimaryController parentController;
     //private Exam exam;
@@ -68,40 +67,25 @@ public class EditExamController extends ExamController{
         searchThread.start();
     }
 
-    public void getCourses() {
-        System.out.println("search courses");
-    }
-
-    public void getClassrooms() {
-        System.out.println("Search classrooms");
-    }
-
-    public void getExaminers() {
-        System.out.println("Search examiners");
-    }
-
     public void showCourses() {
         infoTable.getItems().clear();
         infoLabel.setText("Courses");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("courseInfo"));
-        ObservableList<Course> data = parentController.courseTable.getItems();
-        infoTable.getItems().addAll(data);
+        infoTable.getItems().addAll(parentController.model.getCoursesAll());
     }
 
     public void showClassrooms() {
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
-        ObservableList<Classroom> data = parentController.classroomTable.getItems();
-        infoTable.getItems().addAll(data);
+        infoTable.getItems().addAll(parentController.model.getClassRoomsAll());
     }
 
     public void showExaminers() {
         infoTable.getItems().clear();
         infoLabel.setText("Examiners");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("examinerInfo"));
-        ObservableList<Examiner> data = parentController.examinerTable.getItems();
-        infoTable.getItems().addAll(data);
+        infoTable.getItems().addAll(parentController.model.getExaminersALL());
     }
 
     public void selectTableItem() {
@@ -143,6 +127,32 @@ public class EditExamController extends ExamController{
         searchThread.start();
     }
 
+    public void getCourses() {
+        if (courseIdField.getText().isEmpty()) {
+            showCourses();
+        } else {
+            infoTable.getItems().clear();
+            infoTable.getItems().addAll(parentController.model.getCoursesBySearch(courseIdField.getText()));
+        }
+    }
+
+    public void getClassrooms() {
+        if (classroomIdField.getText().isEmpty()) {
+            showClassrooms();
+        } else {
+            infoTable.getItems().clear();
+            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText()));
+        }
+    }
+
+    public void getExaminers() {
+        if (examinerIdField.getText().isEmpty()) {
+            showExaminers();
+        } else {
+            infoTable.getItems().clear();
+            infoTable.getItems().addAll(parentController.model.getExaminersBySearch(examinerIdField.getText()));
+        }
+    }
     public void getSelectedItem() {
     }
 

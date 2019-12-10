@@ -1,6 +1,5 @@
 package model;
 
-import planner.ExamController;
 import planner.PrimaryController;
 
 public class LoadData extends Thread {

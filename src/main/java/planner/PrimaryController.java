@@ -12,15 +12,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.LoadData;
+import model.SearchThread;
 import model.classes.*;
 import model.classes.Date;
 import model.DataModel;
 
-public class PrimaryController {
+public class PrimaryController extends Controller {
     @FXML
     public CheckBox inputClassroomVGA;
     @FXML
     public CheckBox inputClassroomHDMI;
+
+    private SearchThread searchThread;
 
     public DataModel model;
     //    private ArrayList<Student> studentsTest = DataModel.getStudentAll();
@@ -120,6 +123,8 @@ public class PrimaryController {
     public TableColumn<Student, Integer> courseStudentId;
     @FXML
     public TableColumn<Student, String> courseStudentName;
+    @FXML
+    public TableColumn<Student, Integer> courseStudentNumber;
 
     @FXML
     public TableView<Exam> examTable;
@@ -141,6 +146,16 @@ public class PrimaryController {
     public Label coexaminerLabel;
     @FXML
     public Label examClassroomIdLabel;
+    @FXML
+    public TextField studentSearch;
+    @FXML
+    public TextField classroomSearch;
+    @FXML
+    public TextField examinerSearch;
+    @FXML
+    public TextField courseSearch;
+    @FXML
+    private TabPane tabPane;
 
     public PrimaryController() {
     }
@@ -164,6 +179,7 @@ public class PrimaryController {
         examinerDateColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("formattedDate"));
         courseStudentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
         courseStudentName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
+        courseStudentNumber.setCellValueFactory(new PropertyValueFactory<Student, Integer>("numberOfStudents"));
         examIdColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("courseId"));
         examDateColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("examDate"));
         examClassroomColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("classroomId"));
@@ -172,6 +188,9 @@ public class PrimaryController {
 //        loadAllData(); //TODO FIX causes null pointer exception, doesn't load naything, works after program starts
         LoadData waiter = new LoadData(this);
         waiter.start();
+
+        searchThread = new SearchThread(System.currentTimeMillis(), this, "null");
+        searchThread.start();
     }
 
     public void SwitchToDarkMode(ActionEvent event) {
@@ -194,8 +213,10 @@ public class PrimaryController {
         classroomTable.getItems().addAll(model.getClassRoomsAll());
     }
 
-    public void MethodTesting() {
-        updateData();
+    public void searchData() {
+        searchThread.keyPressed();
+        searchThread = new SearchThread(System.currentTimeMillis(), this, tabPane.getSelectionModel().getSelectedItem().getText());
+        searchThread.start();
     }
 
     public void openAddExamWindow() throws Exception {
@@ -474,6 +495,46 @@ public class PrimaryController {
             deleteStudentButton.setDisable(false);
             editSaveStudent.setText("Edit");
             updateData();
+        }
+    }
+
+    public void getCourses() {
+        if (courseSearch.getText().isEmpty()) {
+            courseTable.getItems().clear();
+            courseTable.getItems().addAll(model.getCoursesAll());
+        } else {
+            courseTable.getItems().clear();
+            courseTable.getItems().addAll(model.getCoursesBySearch(courseSearch.getText()));
+        }
+    }
+
+    public void getClassrooms() {
+        if (classroomSearch.getText().isEmpty()) {
+            classroomTable.getItems().clear();
+            classroomTable.getItems().addAll(model.getClassRoomsAll());
+        } else {
+            classroomTable.getItems().clear();
+            classroomTable.getItems().addAll(model.getClassroomsBySearch(classroomSearch.getText()));
+        }
+    }
+
+    public void getExaminers() {
+        if (examinerSearch.getText().isEmpty()) {
+            examinerTable.getItems().clear();
+            examinerTable.getItems().addAll(model.getExaminersALL());
+        } else {
+            examinerTable.getItems().clear();
+            examinerTable.getItems().addAll(model.getExaminersBySearch(examinerSearch.getText()));
+        }
+    }
+
+    public void getStudents() {
+        if (studentSearch.getText().isEmpty()) {
+            studentTable.getItems().clear();
+            studentTable.getItems().addAll(model.getStudentAll());
+        } else {
+            studentTable.getItems().clear();
+            studentTable.getItems().addAll(model.getStudentsBySearch(studentSearch.getText()));
         }
     }
 }

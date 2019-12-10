@@ -1,12 +1,9 @@
 package model;
 
-import model.classes.Classroom;
-import model.classes.Course;
-import model.classes.Examiner;
-import model.classes.Student;
+import model.classes.*;
+import model.classes.Date;
 import model.dao.ExaminerDao;
 import model.dao.StudentDao;
-import model.classes.Date;
 import model.lists.*;
 
 import java.sql.*;
@@ -37,6 +34,35 @@ public class DataModel {
         return "jdbc:sqlserver://planner.database.windows.net:1433;database=ExaminationPlanner;user=databaseadmin@planner;password=Pass-2019;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
     }
 
+    public ArrayList<Course> getCoursesBySearch(String search) {
+        ArrayList<Course> searchItems = new ArrayList<Course>();
+        for (Course course : courseList.getCourses())
+            if (course.courseInfoProperty().get().toLowerCase().contains(search.toLowerCase()))
+                searchItems.add(course);
+        return searchItems;
+    }
+
+    public ArrayList<Classroom> getClassroomsBySearch(String search) {
+        ArrayList<Classroom> searchItems = new ArrayList<Classroom>();
+        for (Classroom classroom : classroomList.getClassrooms())
+            if (classroom.classroomInfoProperty().get().toLowerCase().contains(search.toLowerCase()))
+                searchItems.add(classroom);
+        return searchItems;
+    }
+
+    public ArrayList<Examiner> getExaminersBySearch(String search) {
+        ArrayList<Examiner> searchItems = new ArrayList<Examiner>();
+        for (Examiner examiner : examinerList.getExaminers())
+            if (examiner.examinerIdProperty().get().toLowerCase().contains(search.toLowerCase()))
+                searchItems.add(examiner);
+        return searchItems;
+    }
+
+    public ArrayList<Student> getStudentsBySearch(String search) {
+        return studentList.getStudentsBySearch(search);
+    }
+
+
     public void loadAll() {
         courseList.loadCourses(db.loadCourses());
         examinerList.loadExaminers(db.loadExaminers());
@@ -58,10 +84,6 @@ public class DataModel {
 
     public ArrayList<Course> getCoursesAll() {
         return courseList.getCourses();
-    }
-
-    public ArrayList<Student> getStudentsBySearch(String search) {
-        return studentList.getStudentsBySearch(search);
     }
 
     public ArrayList<Student> getStudentsByCourse(String courseId) {

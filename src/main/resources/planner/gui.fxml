@@ -75,7 +75,7 @@
         </Menu>
       </menus>
     </MenuBar>
-      <TabPane VBox.vgrow="ALWAYS">
+      <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
          <tabs>
             <Tab closable="false" text="Schedule">
                <content>
@@ -103,7 +103,6 @@
                                     <DatePicker layoutX="259.0" layoutY="46.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="36.0" />
                                     <Button layoutX="555.0" layoutY="493.0" mnemonicParsing="false" onAction="#openAddExamWindow" text="Add" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                     <Button layoutX="441.0" layoutY="46.0" mnemonicParsing="false" text="Set date" AnchorPane.leftAnchor="435.0" AnchorPane.topAnchor="36.0" />
-                                    <Button fx:id="ButtonTest" layoutX="251.0" layoutY="493.0" mnemonicParsing="false" onAction="#MethodTesting" text="METHOD TESTING BUTTON" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
                                     <TableView fx:id="examTable" layoutX="18.0" layoutY="70.0" onMouseClicked="#selectExamItem" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                       <columns>
                                         <TableColumn fx:id="examIdColumn" prefWidth="75.0" text="Exam" />
@@ -164,8 +163,7 @@
                                                  </textFill>
                                              </Label>
                                              <Label layoutX="14.0" layoutY="52.0" text="Search: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                             <TextField layoutX="63.0" layoutY="48.0" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
-                                             <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
+                                             <TextField fx:id="classroomSearch" layoutX="63.0" layoutY="48.0" onKeyPressed="#searchData" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
                                              <TableView fx:id="classroomTable" layoutX="14.0" layoutY="86.0" onMouseClicked="#selectClassroomItem" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                                  <columns>
                                                      <TableColumn fx:id="name" prefWidth="104.00003242492676" text="Classroom" />
@@ -265,8 +263,7 @@
                                        </textFill>
                                     </Label>
                                     <Label layoutX="14.0" layoutY="52.0" text="Search: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                    <TextField layoutX="63.0" layoutY="48.0" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
-                                    <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
+                                    <TextField fx:id="studentSearch" layoutX="63.0" layoutY="48.0" onKeyPressed="#searchData" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
                                     <TableView fx:id="studentTable" layoutX="14.0" layoutY="86.0" onMouseClicked="#selectStudentItem" prefHeight="407.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                       <columns>
                                         <TableColumn fx:id="studentId" prefWidth="104.00003242492676" text="ID" />
@@ -343,8 +340,7 @@
                                        </textFill>
                                     </Label>
                                     <Label layoutX="14.0" layoutY="52.0" text="Search: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                    <TextField layoutX="63.0" layoutY="48.0" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
-                                    <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
+                                    <TextField fx:id="examinerSearch" layoutX="63.0" layoutY="48.0" onKeyPressed="#searchData" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
                                     <TableView fx:id="examinerTable" layoutX="14.0" layoutY="86.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#selectExaminerItem" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                        <columns>
                                           <TableColumn fx:id="examinerId" prefWidth="104.00003242492676" text="ID" />
@@ -399,12 +395,12 @@
                                                  </textFill>
                                              </Label>
                                              <Label layoutX="14.0" layoutY="52.0" text="Search: " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
-                                             <TextField layoutX="63.0" layoutY="48.0" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
-                                             <Button layoutX="288.0" layoutY="48.0" mnemonicParsing="false" text="Go" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="36.0" />
+                                             <TextField fx:id="courseSearch" layoutX="63.0" layoutY="48.0" onKeyPressed="#searchData" prefHeight="26.0" prefWidth="216.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="36.0" />
                                              <TableView fx:id="courseTable" layoutX="14.0" layoutY="86.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#selectCourseItem" prefHeight="400.0" prefWidth="582.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
                                                  <columns>
                                                      <TableColumn fx:id="courseIdColumn" prefWidth="104.00003242492676" text="ID" />
                                           <TableColumn fx:id="courseTypeColumn" prefWidth="75.0" text="Type" />
+                                          <TableColumn fx:id="courseStudentNumber" prefWidth="75.0" text="Number of students" />
                                                  </columns>
                                                  <columnResizePolicy>
                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
