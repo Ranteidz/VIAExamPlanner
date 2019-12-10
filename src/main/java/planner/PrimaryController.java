@@ -188,14 +188,14 @@ public class PrimaryController {
         }
     }
 
-    private void loadAllData() {
+    private void loadAllData() throws NullPointerException {
         studentTable.getItems().addAll(model.getStudentAll());
         examinerTable.getItems().addAll(model.getExaminersALL());
         courseTable.getItems().addAll(model.getCoursesAll());
         classroomTable.getItems().addAll(model.getClassRoomsAll());
     }
 
-    public void MethodTesting(ActionEvent actionEvent) {
+    public void MethodTesting() {
         updateData();
     }
 

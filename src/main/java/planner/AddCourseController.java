@@ -40,8 +40,7 @@ public class AddCourseController {
         course.setCourseId(courseIdInput.getText());
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
         parentController.model.addCourse(course);
-        ObservableList<Student> students = studentsTable.getItems();
-        for (Student student : students)
+        for (Student student : course.studentsProperty())
             parentController.model.addStudentToCourse(course, student);
         parentController.updateData();
         closeWindow();
@@ -56,8 +55,8 @@ public class AddCourseController {
         System.out.println("test");
         System.out.println(studentId.getText());
         System.out.println(parentController.model.getStudent(studentId.getText()));
-
-        Student newStudent=  parentController.model.getStudent(studentId.getText());
+        Student newStudent = parentController.model.getStudent(studentId.getText());
+        course.studentsProperty().add(newStudent);
         parentController.model.addStudentToCourse(course,newStudent);
         System.out.println(newStudent.studentFirstNameProperty());
         Student student = new Student(Integer.parseInt(studentId.getText()),newStudent.studentFirstNameProperty().get(),newStudent.studentLastNameProperty().get()); //TODO get student names from database -- SELECT name, surname FROM TABLE students WHERE studentID = Integer.parseInt(studentId.getText())

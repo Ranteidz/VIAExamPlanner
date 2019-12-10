@@ -127,12 +127,14 @@ public class DataModel {
     }
 
     public void addStudentToCourse(Course course, Student student) {
+        System.out.println(courseList.insertStudentToCourse(course, student));
         if(courseList.insertStudentToCourse(course, student)){
             db.insertStudentToCourse(course, student);
         }
     }
 
     public void removeStudentFromCourse(Course course, Student student) {
+        System.out.println(courseList.removeStudentFromCourse(course, student));
         if(courseList.removeStudentFromCourse(course, student)){
             db.removeStudentFromCourse(course, student);
         }
