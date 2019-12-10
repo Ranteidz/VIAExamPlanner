@@ -77,37 +77,38 @@ public class DataModel {
     }
 
     public void deleteExaminer(Examiner examiner) {
-        if(examinerList.removeExaminer(examiner))
+        if (examinerList.removeExaminer(examiner))
             db.removeExaminer(examiner);
     }
 
     public void addClassroom(Classroom classroom) {
-        if(classroomList.addClassroom(classroom))
+        if (classroomList.addClassroom(classroom))
             db.save(classroom);
     }
 
     public void deleteClassroom(Classroom classroom) {
-        if(classroomList.removeClassroom(classroom))
+        if (classroomList.removeClassroom(classroom))
             db.removeClassroom(classroom);
     }
 
     public void addStudent(Student student) {
-        if(studentList.addStudent(student))
+        if (studentList.addStudent(student))
             db.save(student);
     }
 
     public void deleteStudent(Student student) {
-        if(studentList.removeStudent(student))
+        if (studentList.removeStudent(student))
             db.removeStudent(student);
     }
 
     public void addCourse(Course course) {
-        if(courseList.addCourse(course))
-            db.save(course);
+        if (!course.courseIdProperty().get().isEmpty())
+            if (courseList.addCourse(course))
+                db.save(course);
     }
 
     public void deleteCourse(Course course) {
-        if(courseList.removeCourse(course))
+        if (courseList.removeCourse(course))
             db.removeCourse(course);
     }
 
@@ -116,36 +117,37 @@ public class DataModel {
     }
 
     public void editExaminer(Examiner examiner) {
-        if(examinerList.editExaminer(examiner))
+        if (examinerList.editExaminer(examiner))
             db.editExaminer(examiner);
     }
 
     public void editStudent(Student student) {
-        if(studentList.editStudent(student))
+        if (studentList.editStudent(student))
             db.editStudent(student);
     }
 
     public void addStudentToCourse(Course course, Student student) {
         Student localStudent = getStudent(String.valueOf(student.studentIdProperty().get()));
-        if(courseList.insertStudentToCourse(course, localStudent)){
+        if (courseList.insertStudentToCourse(course, localStudent)) {
             db.insertStudentToCourse(course, localStudent);
         }
     }
 
     public void removeStudentFromCourse(Course course, Student student) {
-        if(courseList.removeStudentFromCourse(course, getStudent(String.valueOf(student.studentIdProperty().get())))){
+        if (courseList.removeStudentFromCourse(course, getStudent(String.valueOf(student.studentIdProperty().get())))) {
             db.removeStudentFromCourse(course, getStudent(String.valueOf(student.studentIdProperty().get())));
         }
     }
 
-    public void editClassroom(Classroom classroom){
-        if(classroomList.editClassroom(classroom))
+    public void editClassroom(Classroom classroom) {
+        if (classroomList.editClassroom(classroom))
             db.editClassroom(classroom);
     }
 
     public void editCourse(Course course) {
-        if(courseList.editCourse(course))
-            db.editCourse(course);
+        if (!course.courseIdProperty().get().isEmpty())
+            if (courseList.editCourse(course))
+                db.editCourse(course);
     }
 
     //TODO

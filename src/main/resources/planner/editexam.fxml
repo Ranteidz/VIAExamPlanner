@@ -19,7 +19,7 @@
    <items>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="300.0">
          <children>
-            <Label layoutX="44.0" layoutY="14.0" text="Add Exam" textFill="#9f9f9f" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <Label layoutX="44.0" layoutY="14.0" text="Edit Exam" textFill="#9f9f9f" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -39,7 +39,7 @@
               </rowConstraints>
                <children>
                   <DatePicker fx:id="examDatePicker" GridPane.columnIndex="1" />
-                  <TextField fx:id="courseIdField" onKeyPressed="#searchData" onMouseClicked="#showCourses" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="courseIdField" editable="false" onKeyPressed="#searchData" onMouseClicked="#showCourses" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="classroomIdField" onMouseClicked="#showClassrooms" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="examinerIdField" onMouseClicked="#showExaminers" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">

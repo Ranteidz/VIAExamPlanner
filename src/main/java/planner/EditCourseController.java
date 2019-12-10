@@ -52,12 +52,12 @@ public class EditCourseController {
     }
 
     public void saveCourse() {
-        //TODO add examiner to database
         course.setCourseId(courseIdInput.getText());
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
-        parentController.model.editCourse(course); //TODO
+        parentController.model.editCourse(course);
+        //TODO bug here, replicate by removing then adding same students
         for(Student student : deletedStudents) {
-            parentController.model.removeStudentFromCourse(course, student); //TODO
+            parentController.model.removeStudentFromCourse(course, student);
         }
         for(Student student : addedStudents) {
             parentController.model.addStudentToCourse(course, student);
