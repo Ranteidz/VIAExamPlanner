@@ -10,6 +10,7 @@ import model.classes.Date;
 import model.classes.Examiner;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class EditExaminerController {
 
@@ -29,9 +30,14 @@ public class EditExaminerController {
     @FXML
     private TableColumn<Date, String> datesColumn;
 
+    private ArrayList<Date> addedDates;
+    private ArrayList<Date> deletedDates;
+
     private Examiner examiner = new Examiner();
 
     public EditExaminerController() {
+        addedDates = new ArrayList<Date>();
+        deletedDates = new ArrayList<Date>();
     }
 
     public void initialize(PrimaryController parentController) {
@@ -49,8 +55,7 @@ public class EditExaminerController {
         examiner.setExaminerId(examinerIdInput.getText());
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
-        parentController.model.editExaminer(examiner);
-        parentController.examinerTable.getItems().add(examiner);
+        parentController.model.editExaminer(examiner, deletedDates, addedDates);
         parentController.updateData();
         closeWindow();
     }
@@ -59,6 +64,9 @@ public class EditExaminerController {
         LocalDate localDate = datePicker.getValue();
         Date date = new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
         examiner.addUnavailableDate(date);
+        if(deletedDates.contains(date))
+            deletedDates.remove(date);
+        addedDates.add(date);
         unavailableDatesTable.getItems().add(date);
         datePicker.setValue(null);
     }
@@ -67,8 +75,10 @@ public class EditExaminerController {
         ObservableList<Date> allDates, selectedDate;
         allDates = unavailableDatesTable.getItems();
         selectedDate = unavailableDatesTable.getSelectionModel().getSelectedItems();
-        Date date= unavailableDatesTable.getSelectionModel().getSelectedItem();
-//        parentController.model.deleteUnavailabilityDateFromExaminer(examiner,date); TODO fix this
+        Date date = unavailableDatesTable.getSelectionModel().getSelectedItem();
+        if(addedDates.contains(date))
+            addedDates.remove(date);
+        deletedDates.add(date);
         examiner.unavailableDatesProperty().remove(selectedDate.get(0));
         allDates.removeAll(selectedDate);
     }

@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Persistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Persistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Persistence.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Persistence.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExaminerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExaminerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/EditCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/EditCourseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -357,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575981097540</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="merge">
+      <created>1575981279388</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1575981279388</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -475,10 +477,10 @@
     <MESSAGE value="show students in edit course window" />
     <MESSAGE value="edit and add course works locally, bug when editing course (add - remove same student)" />
     <MESSAGE value="change gui to not allow change of id" />
-    <MESSAGE value="merge" />
     <MESSAGE value="delete student from course when deleting from student list, slight change to add/edit course" />
     <MESSAGE value="connect examiners to db" />
-    <option name="LAST_COMMIT_MESSAGE" value="connect examiners to db" />
+    <MESSAGE value="merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">

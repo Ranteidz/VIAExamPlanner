@@ -121,9 +121,14 @@ public class DataModel {
         return studentList.getStudentByID(Integer.parseInt(studentID));
     }
 
-    public void editExaminer(Examiner examiner) {
-        if (examinerList.editExaminer(examiner))
+    public void editExaminer(Examiner examiner, ArrayList<Date> deletedDates, ArrayList<Date> addedDates) {
+        if (examinerList.editExaminer(examiner)) {
             db.editExaminer(examiner);
+            for (Date date : addedDates)
+                db.insertUnavailabilityToExaminer(examiner, date);
+            for (Date date : deletedDates)
+//            db.removeUnavailabilityFromExaminer(examiner, date);
+        }
     }
 
     public void editStudent(Student student) {
@@ -156,19 +161,19 @@ public class DataModel {
     }
 
     public void addStudentsToCourse(Course course, ArrayList<Student> addedStudents) {
-        for(Student student : addedStudents) {
+        for (Student student : addedStudents) {
             addStudentToCourse(course, student);
         }
     }
 
-    public void removeStudentsFromCourse(Course course, ArrayList<Student> deletedStudents){
-        for(Student student : deletedStudents) {
+    public void removeStudentsFromCourse(Course course, ArrayList<Student> deletedStudents) {
+        for (Student student : deletedStudents) {
             removeStudentsFromCourse(course, deletedStudents);
         }
     }
 
     public void addUnavailabilityDatesToExaminer(Examiner examiner, ArrayList<Date> examinerDates) {
-        for(Date date : examinerDates) {
+        for (Date date : examinerDates) {
             addUnavailabilityDateToExaminer(examiner, date);
         }
     }
