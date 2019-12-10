@@ -236,6 +236,29 @@ public class Database implements Persistence {
         } catch (Exception e) {
             System.out.println(e);
         }
+        try {
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("DELETE FROM ExaminersUnavailabilityDates WHERE ExaminerID= ?");
+            posted.setString(1, (examiner.examinerIdProperty().get()));
+            posted.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    public void removeUnavailabilityFromExaminer(Examiner newExaminer, Date newDate)
+    {
+        try{
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("DELETE FROM ExaminersUnavailabilityDates WHERE ExaminerID=? AND Date=?");
+            posted.setString(1, newExaminer.examinerIdProperty().get());
+            posted.setString(2, newDate.dateProperty().get());
+
+            posted.execute();
+
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     public void removeClassroom(Classroom classroom) {
