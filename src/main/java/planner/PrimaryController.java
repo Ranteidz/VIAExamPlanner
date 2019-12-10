@@ -393,6 +393,7 @@ public class PrimaryController {
         courseIdLabel.setText("");
         courseTypeLabel.setText("");
         courseStudentTable.getItems().clear();
+        updateData();
     }
 
     public void classroomEdit() {
