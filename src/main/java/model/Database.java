@@ -319,7 +319,18 @@ public class Database implements Persistence {
     }
 
     public void removeStudentFromCourse(Course course, Student student){
-        //TODO implement this
+        try{
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("DELETE FROM Students_Courses WHERE StudentID=? AND CourseID=?");
+            posted.setString(1, course.courseIdProperty().get());
+            posted.setString(2,String.valueOf(student.studentIdProperty().get()));
+
+            posted.execute();
+
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     public ArrayList<Student> getStudentsByCourseID(String courseId) {
