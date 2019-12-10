@@ -24,6 +24,7 @@ model\lists\ExamList.class
 model\classes\Course.class
 model\Database.class
 model\classes\Student.class
+model\LoadData.class
 model\classes\Classroom.class
 planner\ExamController.class
 model\lists\CourseList.class

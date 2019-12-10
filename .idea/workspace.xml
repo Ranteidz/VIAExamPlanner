@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/LoadData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +62,7 @@
       <recent name="src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="model" />
       <recent name="planner" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -359,7 +368,21 @@
       <option name="project" value="LOCAL" />
       <updated>1575981279388</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="examiner done">
+      <created>1575982123451</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1575982123451</updated>
+    </task>
+    <task id="LOCAL-00037" summary="examiner done">
+      <created>1575982324089</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1575982324089</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -455,7 +478,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="j" />
     <MESSAGE value="Change Folder Name" />
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="GUI" />
@@ -480,7 +502,8 @@
     <MESSAGE value="delete student from course when deleting from student list, slight change to add/edit course" />
     <MESSAGE value="connect examiners to db" />
     <MESSAGE value="merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge" />
+    <MESSAGE value="examiner done" />
+    <option name="LAST_COMMIT_MESSAGE" value="examiner done" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">

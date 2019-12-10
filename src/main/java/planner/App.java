@@ -15,7 +15,7 @@ public class App extends Application {
         loader.setLocation(getClass().getResource("gui.fxml"));
         Parent root = loader.load();
         DataModel model = new DataModel();
-        model.loadAll();
+//        model.loadAll();
         PrimaryController controller = loader.getController();
         controller.setModel(model);
         primaryStage.setTitle("VIA EXAM PLANNER");

@@ -19,7 +19,6 @@ public class DataModel {
     private StudentList studentList;
     private ExamList examList; //TODO implement exam-related stuff
     private Persistence db;
-    public volatile boolean loading;
 
     public DataModel() {
         courseList = new CourseList();
@@ -27,6 +26,10 @@ public class DataModel {
         classroomList = new ClassroomList();
         studentList = new StudentList();
         db = new Database();
+        classroomList.loadClassrooms(db.loadClassrooms());
+        studentList.loadStudents(db.loadStudents());
+        examinerList.loadExaminers(db.loadExaminers());
+        courseList.loadCourses(db.loadCourses());
     }
 
     //TODO remove this after getting done with separation of database
@@ -35,12 +38,10 @@ public class DataModel {
     }
 
     public void loadAll() {
-        loading = true;
         courseList.loadCourses(db.loadCourses());
         examinerList.loadExaminers(db.loadExaminers());
         classroomList.loadClassrooms(db.loadClassrooms());
         studentList.loadStudents(db.loadStudents());
-        loading = false;
     }
 
     public ArrayList<Student> getStudentAll() {
