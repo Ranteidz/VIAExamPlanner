@@ -64,10 +64,6 @@ public class ClassroomList {
     }
 
     public ArrayList<Classroom> getValidClassrooms(String search, Course course) {
-        if (course != null)
-            System.out.println(course.courseInfoProperty().get());
-        else
-            System.out.println("null");
         ArrayList<Classroom> validClassrooms = new ArrayList<Classroom>();
         for (Classroom classroom : getClassroomsBySearch(search))
             if (classroom.capacityProperty().get() > (course != null ? course.numberOfStudentsProperty().get() : 0))

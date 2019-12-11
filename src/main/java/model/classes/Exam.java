@@ -82,5 +82,7 @@ public class Exam {
         return coexaminerName;
     }
 
-
+    public String toString() {
+        return String.format("%s %s %s", examDate, courseId.get(), classroomId.get());
+    }
 }
