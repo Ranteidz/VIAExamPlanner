@@ -485,6 +485,20 @@ public class Database implements Persistence {
             System.out.println(e);
         }
     }
+    public void editExam(Exam exam){
+        try{
+            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            PreparedStatement posted = con.prepareStatement("UPDATE Exams SET ClassroomID = ?, CoExaminer = ?, Date =? WHERE id = ?");
+            posted.setString(1,(exam.classroomIdProperty().get()));
+            posted.setString(2,exam.coexaminerNameProperty().get());
+            posted.setString(3,exam.getDate().toString());
+            posted.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
 
     public void removeExam(Exam exam) {
         try {
