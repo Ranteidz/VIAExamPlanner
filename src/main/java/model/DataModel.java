@@ -35,27 +35,19 @@ public class DataModel {
     }
 
     public ArrayList<Course> getCoursesBySearch(String search) {
-        ArrayList<Course> searchItems = new ArrayList<Course>();
-        for (Course course : courseList.getCourses())
-            if (course.courseInfoProperty().get().toLowerCase().contains(search.toLowerCase()))
-                searchItems.add(course);
-        return searchItems;
+        return courseList.getCoursesBySearch(search);
     }
 
     public ArrayList<Classroom> getClassroomsBySearch(String search) {
-        ArrayList<Classroom> searchItems = new ArrayList<Classroom>();
-        for (Classroom classroom : classroomList.getClassrooms())
-            if (classroom.classroomInfoProperty().get().toLowerCase().contains(search.toLowerCase()))
-                searchItems.add(classroom);
-        return searchItems;
+        return classroomList.getClassroomsBySearch(search);
+    }
+
+    public ArrayList<Classroom> getClassroomsBySearch(String search, String courseId) {
+        return classroomList.getValidClassrooms(search, getCourseById(courseId));
     }
 
     public ArrayList<Examiner> getExaminersBySearch(String search) {
-        ArrayList<Examiner> searchItems = new ArrayList<Examiner>();
-        for (Examiner examiner : examinerList.getExaminers())
-            if (examiner.examinerIdProperty().get().toLowerCase().contains(search.toLowerCase()))
-                searchItems.add(examiner);
-        return searchItems;
+        return examinerList.getExaminersBySearch(search);
     }
 
     public ArrayList<Student> getStudentsBySearch(String search) {
@@ -100,6 +92,15 @@ public class DataModel {
             for (Date date : examiner.unavailableDatesProperty())
                 db.insertUnavailabilityToExaminer(examiner, date);
         }
+    }
+
+    public Classroom getClassroomById(String classroomId) {
+        return classroomList.getClassroomById(classroomId);
+    }
+
+
+    public Course getCourseById(String courseId) {
+        return courseList.getCourseById(courseId);
     }
 
     public void deleteExaminer(Examiner examiner) {
@@ -206,6 +207,7 @@ public class DataModel {
     public void addUnavailabilityDateToExaminer(Examiner newExaminer, Date newDate) {
 //        db.insertUnavailabilityToExaminer(newExaminer, newDate);
     }
+
 /*
 
     public void deleteUnavailabilityDateFromExaminer(Examiner newExaminer, Date newDate) {

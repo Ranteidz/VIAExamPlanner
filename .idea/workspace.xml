@@ -4,24 +4,15 @@
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/LoadData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SearchThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SearchThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/StudentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/StudentList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ClassroomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ClassroomList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/CourseList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/CourseList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/ExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SearchThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SearchThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/StudentList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/StudentList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ClassroomList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ClassroomList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/CourseList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/CourseList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ExaminerList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ExaminerList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/ExamController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -399,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575983705189</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="search functionality done">
+      <created>1576011923313</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1576011923313</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -495,7 +493,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="workspace.xml" />
     <MESSAGE value="GUI" />
     <MESSAGE value="small edit" />
     <MESSAGE value="Examiner class changes" />
@@ -520,7 +517,8 @@
     <MESSAGE value="merge" />
     <MESSAGE value="examiner done" />
     <MESSAGE value="load data at startup" />
-    <option name="LAST_COMMIT_MESSAGE" value="load data at startup" />
+    <MESSAGE value="search functionality done" />
+    <option name="LAST_COMMIT_MESSAGE" value="search functionality done" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">

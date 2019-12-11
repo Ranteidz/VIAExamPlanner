@@ -112,6 +112,7 @@ public class AddExamController extends Controller {
     }
 
     public void getCourses() {
+        classroomIdField.clear();
         if (courseIdField.getText().isEmpty()) {
             showCourses();
         } else {
@@ -140,7 +141,7 @@ public class AddExamController extends Controller {
             showClassrooms();
         } else {
             infoTable.getItems().clear();
-            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText()));
+            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText(), courseIdField.getText()));
         }
     }
 

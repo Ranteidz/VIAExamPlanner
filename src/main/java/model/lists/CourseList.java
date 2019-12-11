@@ -57,6 +57,14 @@ public class CourseList {
         }
     }
 
+    public ArrayList<Course> getCoursesBySearch(String search) {
+        ArrayList<Course> searchItems = new ArrayList<Course>();
+        for (Course course : courses)
+            if (course.courseInfoProperty().get().toLowerCase().contains(search.toLowerCase()))
+                searchItems.add(course);
+        return searchItems;
+    }
+
     public boolean removeStudentFromCourse(Course course, Student student) {
         System.out.println(student);
         Course localCourse = getCourseById(course.courseIdProperty().get());
@@ -78,7 +86,6 @@ public class CourseList {
         return false;
     }
 
-    //TODO edit course
     public boolean editCourse(Course course){
         if(courses.contains(getCourseById(course.courseIdProperty().get()))){
             getCourseById(course.courseIdProperty().get()).setCourseType(course.courseTypeProperty().get());

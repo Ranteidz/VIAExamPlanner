@@ -43,6 +43,14 @@ public class ExaminerList {
         return false;
     }
 
+    public ArrayList<Examiner> getExaminersBySearch(String search) {
+        ArrayList<Examiner> searchItems = new ArrayList<Examiner>();
+        for (Examiner examiner : examiners)
+            if (examiner.examinerIdProperty().get().toLowerCase().contains(search.toLowerCase()))
+                searchItems.add(examiner);
+        return searchItems;
+    }
+
     public boolean editExaminer(Examiner examiner) {
         if (examiners.contains(getExaminerByID(examiner.examinerIdProperty().get()))) {
             getExaminerByID(examiner.examinerIdProperty().get()).setExaminerFirstName(examiner.examinerFirstNameProperty().get());
