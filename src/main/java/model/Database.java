@@ -531,6 +531,27 @@ public class Database implements Persistence {
             System.out.println(e);
         }
     }
+    public String getExaminerOfExam (String courseID){
+String result= null;
+        try (Connection con = DriverManager.getConnection(getDatabaseConnectionString());
+            Statement stmt = con.createStatement()) {
+            String SQL = "SELECT ExaminerID FROM dbo.Exams_Examiners WHERE ExamID=?)";
+            PreparedStatement preparedStatement
+                = con.prepareStatement(SQL);
+
+            preparedStatement.setString(1, courseID);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            // Iterate through the data in the result set and display it.
+            if (rs.next()) {
+             result= rs.getString("ExaminerID");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 
     public ArrayList<Student> getStudentsByCourseID(String courseId) {
         ArrayList<Student> students = new ArrayList<Student>();
