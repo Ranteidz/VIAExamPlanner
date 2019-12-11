@@ -10,6 +10,9 @@ public class ExamList {
     public ExamList() {
         exams=new ArrayList<Exam>();
     }
+    public ArrayList<Exam> getExams(){
+        return exams;
+    }
 
     public void loadExams(ArrayList<Exam> exams) {
         this.exams = exams;

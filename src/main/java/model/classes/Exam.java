@@ -28,6 +28,7 @@ public class Exam {
         this.coexaminerType.set(coexaminerType);
         this.coexaminerName.set(null);
     }
+    public Exam(){}
 
     public void setExamDate(Date examDate) {
         this.examDate = examDate;
@@ -80,4 +81,6 @@ public class Exam {
     public StringProperty coexaminerNameProperty() {
         return coexaminerName;
     }
+
+
 }
