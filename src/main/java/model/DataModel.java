@@ -22,11 +22,13 @@ public class DataModel {
         examinerList = new ExaminerList();
         classroomList = new ClassroomList();
         studentList = new StudentList();
+        examList = new ExamList();
         db = new Database();
         classroomList.loadClassrooms(db.loadClassrooms());
         studentList.loadStudents(db.loadStudents());
         examinerList.loadExaminers(db.loadExaminers());
         courseList.loadCourses(db.loadCourses());
+        examList.loadExams(db.loadExams());
     }
 
     //TODO remove this after getting done with separation of database
@@ -43,15 +45,7 @@ public class DataModel {
     }
 
     public ArrayList<Classroom> getClassroomsBySearch(String search, String courseId, Date date) {
-        ArrayList<Classroom> searchItems = classroomList.getValidClassrooms(search, getCourseById(courseId));
-        ArrayList<Classroom> availableItems = db.getAvailableClassrooms(date);
-        System.out.println(availableItems);
-        ArrayList<Classroom> result = new ArrayList<Classroom>();
-        for (Classroom classroom : searchItems) {
-            if (availableItems.contains(classroom) && searchItems.contains(classroom))
-                result.add(classroom);
-        }
-        return result;
+        return classroomList.getClassroomsById(examList.getReservedClassroomsIDs(examList.getExamsByDate(date)));
     }
 
     public ArrayList<Examiner> getExaminersBySearch(String search) {

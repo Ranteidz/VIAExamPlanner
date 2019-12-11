@@ -67,4 +67,11 @@ public class Classroom {
     public String toString() {
         return name.get() + ", " + capacity.get() + " seats, " + ((hdmi.get() && vga.get())?(hdmi.get()?"HDMI, ":""):"HDMI") + (vga.get()?"VGA":"");
     }
+
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Classroom))
+            return false;
+        Classroom otherCl = (Classroom) obj;
+        return otherCl.toString().equals(toString());
+    }
 }

@@ -212,7 +212,7 @@ public class PrimaryController extends Controller {
         examinerTable.getItems().addAll(model.getExaminersALL());
         courseTable.getItems().addAll(model.getCoursesAll());
         classroomTable.getItems().addAll(model.getClassRoomsAll());
-//        examTable.getItems().addAll(model.getExamAll()); TODO causes problem
+        examTable.getItems().addAll(model.getExamAll()); //TODO causes problem
     }
 
     public void searchData() {

@@ -52,4 +52,6 @@ public interface Persistence {
     ArrayList<Classroom> getAvailableClassrooms(Date date);
 
     void insertExam(Exam exam, Course course, Classroom classroom, Date date);
+
+    ArrayList<Exam> loadExams();
 }

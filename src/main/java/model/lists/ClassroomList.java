@@ -70,4 +70,13 @@ public class ClassroomList {
                 validClassrooms.add(classroom);
         return validClassrooms;
     }
+
+    public ArrayList<Classroom> getClassroomsById(ArrayList<String> unavailableClasses) {
+        ArrayList<Classroom> items = new ArrayList<Classroom>();
+        for(Classroom classroom : classrooms) {
+            if(!unavailableClasses.contains(classroom.nameProperty().get()))
+                items.add(classroom);
+        }
+        return items;
+    }
 }
