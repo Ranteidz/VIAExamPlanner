@@ -169,6 +169,11 @@ public class DataModel {
         }
     }
 
+    public void editExam(Exam exam) {
+        examList.editExam(exam);
+        db.editExam(exam);
+    }
+
     public void editStudent(Student student) {
         if (studentList.editStudent(student))
             db.editStudent(student);

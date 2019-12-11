@@ -57,4 +57,21 @@ public class ExamList {
             classrooms.add(exam.classroomIdProperty().get());
         return classrooms;
     }
+
+    public Exam getExamById(String examId) {
+        for(Exam exam : exams)
+            if(exam.courseIdProperty().get().toLowerCase().equals(examId.toLowerCase()))
+                return exam;
+            return null;
+    }
+
+    public void editExam(Exam exam) {
+        Exam localExam = getExamById(exam.courseIdProperty().get());
+        if(exams.contains(localExam)) {
+            localExam.setExaminerId(exam.examinerIdProperty().get());
+            localExam.setClassroomId(exam.classroomIdProperty().get());
+            localExam.setCoexaminerType(exam.coexaminerTypeProperty().get());
+            localExam.setCoexaminerName(exam.coexaminerNameProperty().get());
+        }
+    }
 }

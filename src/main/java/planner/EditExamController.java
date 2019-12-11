@@ -113,11 +113,12 @@ public class EditExamController extends Controller {
             exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
         else
             exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
-        if(date.equals(initialDate))
+        /*if(date.equals(initialDate))
             parentController.cancelExam();
         else
-            parentController.cancelExam("cancel");
-        parentController.examTable.getItems().add(exam);
+            parentController.cancelExam("cancel");*/
+        parentController.model.editExam(exam);
+        parentController.updateData();
         closeWindow();
     }
 
