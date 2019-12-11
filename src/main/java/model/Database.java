@@ -151,6 +151,7 @@ public class Database implements Persistence {
     private void process(ResultSet rs, Exam exam) throws SQLException {
         exam.setCourseId(rs.getString("ID"));
         exam.setClassroomId(rs.getString("ClassroomID"));
+//        exam.setExaminerId(getExaminerOfExam(exam.courseIdProperty().get()));
         String type = rs.getString("CoExaminer");
         exam.setCoexaminerType(type == null ? "Internal" : "External");
         exam.setCoexaminerName(type);
@@ -160,6 +161,8 @@ public class Database implements Persistence {
         cal.setTime(date);
         exam.setExamDate(new Date(cal.get(Calendar.DAY_OF_MONTH), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.YEAR)));
     }
+
+
 
     public ArrayList<Exam> loadExams() {
 
