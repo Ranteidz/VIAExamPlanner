@@ -48,4 +48,6 @@ public interface Persistence {
     void insertUnavailabilityToExaminer(Examiner examiner, Date date);
 
     void removeUnavailabilityFromExaminer(Examiner examiner, Date date);
+
+    ArrayList<Classroom> getAvailableClassrooms(Date date);
 }

@@ -43,7 +43,14 @@ public class DataModel {
     }
 
     public ArrayList<Classroom> getClassroomsBySearch(String search, String courseId, Date date) {
-        return classroomList.getValidClassrooms(search, getCourseById(courseId));
+        ArrayList<Classroom> searchItems = classroomList.getValidClassrooms(search, getCourseById(courseId));
+        ArrayList<Classroom> availableItems = db.getAvailableClassrooms(date);
+        ArrayList<Classroom> result = new ArrayList<Classroom>();
+        for(Classroom classroom : searchItems) {
+            if(availableItems.contains(classroom) && searchItems.contains(classroom))
+                result.add(classroom);
+        }
+        return result;
     }
 
     public ArrayList<Examiner> getExaminersBySearch(String search) {

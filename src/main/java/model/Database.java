@@ -503,6 +503,7 @@ public class Database implements Persistence {
             System.out.println(e);
         }
     }
+
     public ArrayList<Student> getStudentsByCourseID(String courseId) {
         ArrayList<Student> students = new ArrayList<Student>();
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString())) {
