@@ -16,6 +16,7 @@ public class EditExamController extends Controller {
     private SearchThread searchThread;
     private Exam exam;
     private Date initialDate;
+    private String oldExaminerId;
 
     @FXML
     public DatePicker examDatePicker;
@@ -57,6 +58,7 @@ public class EditExamController extends Controller {
         courseIdField.setText(exam.courseIdProperty().get());
         classroomIdField.setText(exam.classroomIdProperty().get());
         examinerIdField.setText(exam.examinerIdProperty().get());
+        oldExaminerId = examinerIdField.getText();
         if(exam.coexaminerTypeProperty().get().equalsIgnoreCase("internal"))
             isInternal.setSelected(true);
         else {
@@ -117,7 +119,7 @@ public class EditExamController extends Controller {
             parentController.cancelExam();
         else
             parentController.cancelExam("cancel");*/
-        parentController.model.editExam(exam);
+        parentController.model.editExam(exam, oldExaminerId);
         parentController.updateData();
         closeWindow();
     }

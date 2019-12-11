@@ -123,6 +123,7 @@ public class AddExamController extends Controller {
         searchThread.start();
     }
 
+    //TODO only show valid courses
     public void getCourses() {
         classroomIdField.clear();
         if (courseIdField.getText().isEmpty()) {
@@ -161,6 +162,7 @@ public class AddExamController extends Controller {
         }
     }
 
+    //TODO only show valid examiners
     public void getExaminers() {
         if (examinerIdField.getText().isEmpty()) {
             showExaminers();

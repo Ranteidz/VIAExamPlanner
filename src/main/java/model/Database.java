@@ -267,7 +267,6 @@ public class Database implements Persistence {
         return classrooms;
     }
 
-    //TODO this
     public ArrayList<Classroom> getAvailableClassrooms(Date date) {
         ArrayList<Classroom> classrooms = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString());
@@ -403,7 +402,6 @@ public class Database implements Persistence {
     public void editClassroom(Classroom classroom) {
         removeClassroom(classroom);
         save(classroom);
-        //TODO change this to UPDATE query
     }
 
     public void editCourse(Course course) {
@@ -583,7 +581,7 @@ String result= null;
             while (rs.next()) {
                 Student tmpStudent = new Student();
                 process(rs, tmpStudent);
-                students.add(tmpStudent); //TODO maybe make this work locally, needs connection to model
+                students.add(tmpStudent);
             }
         } catch (SQLException e) {
             e.printStackTrace();

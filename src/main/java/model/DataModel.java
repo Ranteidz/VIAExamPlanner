@@ -14,7 +14,7 @@ public class DataModel {
     private ClassroomList classroomList;
     private ExaminerList examinerList;
     private StudentList studentList;
-    private ExamList examList; //TODO implement exam-related stuff
+    private ExamList examList;
     private Persistence db;
 
     public DataModel() {
@@ -169,9 +169,11 @@ public class DataModel {
         }
     }
 
-    public void editExam(Exam exam) {
+    public void editExam(Exam exam, String oldExaminerId) {
         examList.editExam(exam);
         db.editExam(exam);
+        db.removeExaminerFomExamsExaminers(exam, examinerList.getExaminerByID(oldExaminerId));
+        db.insertExaminerToExamExaminers(exam, examinerList.getExaminerByID(exam.examinerIdProperty().get()));
     }
 
     public void editStudent(Student student) {

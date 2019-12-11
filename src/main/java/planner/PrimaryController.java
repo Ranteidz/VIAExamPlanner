@@ -250,8 +250,8 @@ public class PrimaryController extends Controller {
     public void selectExamItem() {
         Exam exam = examTable.getSelectionModel().getSelectedItem();
         examIdLabel.setText(exam.courseIdProperty().get());
-        examTypeLabel.setText("SELECT courseType FROM courses WHERE courseID = ?, exam.getId");
-        examinerIdLabel.setText(exam.examinerIdProperty().get());
+        examTypeLabel.setText(model.getCourseById(exam.courseIdProperty().get()).courseTypeProperty().get());
+        examExaminerIdLabel.setText(exam.examinerIdProperty().get());
         coexaminerLabel.setText(exam.coexaminerTypeProperty().get().equalsIgnoreCase("internal") ? "Internal" : String.format("External: %s", exam.coexaminerNameProperty().get()));
         examClassroomIdLabel.setText(exam.classroomIdProperty().get());
     }

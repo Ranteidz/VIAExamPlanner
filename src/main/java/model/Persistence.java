@@ -58,4 +58,6 @@ public interface Persistence {
     void insertExaminerToExamExaminers(Exam exam, Examiner examiner);
 
     void editExam(Exam exam);
+
+    void removeExaminerFomExamsExaminers(Exam exam, Examiner examiner);
 }
