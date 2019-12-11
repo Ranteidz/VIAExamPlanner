@@ -113,6 +113,7 @@ public class AddExamController extends Controller {
         else
             exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
         parentController.model.addExam(exam);
+        parentController.updateData();
         closeWindow();
     }
 

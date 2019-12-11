@@ -101,8 +101,10 @@ public class DataModel {
     }
 
     public void addExam(Exam exam) {
-        if (examList.addExam(exam))
+        if (examList.addExam(exam)) {
             db.insertExam(exam, getCourseById(exam.courseIdProperty().get()), getClassroomById(exam.classroomIdProperty().get()), exam.getDate());
+            db.insertExaminerToExamExaminers(exam, examinerList.getExaminerByID(exam.examinerIdProperty().get()));
+        }
     }
 
 

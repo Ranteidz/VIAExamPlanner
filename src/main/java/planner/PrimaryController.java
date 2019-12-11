@@ -203,6 +203,7 @@ public class PrimaryController extends Controller {
         examinerTable.getItems().clear();
         courseTable.getItems().clear();
         classroomTable.getItems().clear();
+        examTable.getItems().clear();
         loadAllData();
 
     }

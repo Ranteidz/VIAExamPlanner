@@ -151,12 +151,12 @@ public class Database implements Persistence {
     private void process(ResultSet rs, Exam exam) throws SQLException {
         exam.setCourseId(rs.getString("ID"));
         exam.setClassroomId(rs.getString("ClassroomID"));
-//        exam.setExaminerId(getExaminerOfExam(exam.courseIdProperty().get()));
+        exam.setExaminerId(getExaminerOfExam(exam.courseIdProperty().get()));
+        System.out.println(exam.examinerIdProperty().get());
         String type = rs.getString("CoExaminer");
         exam.setCoexaminerType(type == null ? "Internal" : "External");
         exam.setCoexaminerName(type);
         java.sql.Date date = rs.getDate("Date");
-        System.out.println(date);
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         exam.setExamDate(new Date(cal.get(Calendar.DAY_OF_MONTH), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.YEAR)));
@@ -183,6 +183,8 @@ public class Database implements Persistence {
         }
         return exams;
     }
+
+
 
     public ArrayList<Examiner> loadExaminers() {
         ArrayList<Examiner> examiners = new ArrayList<>();
@@ -440,7 +442,7 @@ public class Database implements Persistence {
         }
     }
 
-    public void insertExaminerToExamsExaminers(Exam exam, Examiner examiner) {
+    public void insertExaminerToExamExaminers(Exam exam, Examiner examiner) {
         try {
             Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement(
@@ -535,7 +537,7 @@ public class Database implements Persistence {
 String result= null;
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             Statement stmt = con.createStatement()) {
-            String SQL = "SELECT ExaminerID FROM dbo.Exams_Examiners WHERE ExamID=?)";
+            String SQL = "SELECT ExaminerID FROM dbo.Exams_Examiners WHERE ExamID=?";
             PreparedStatement preparedStatement
                 = con.prepareStatement(SQL);
 

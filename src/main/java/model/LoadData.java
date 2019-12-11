@@ -16,7 +16,6 @@ public class LoadData extends Thread {
         boolean stop = false;
         while(!stop) {
             while (System.currentTimeMillis() - startTime < timeDelta) ;
-            System.out.println("getting data");
             try {
                 parentController.updateData();
                 stop = true;
@@ -24,6 +23,7 @@ public class LoadData extends Thread {
                 startTime = System.currentTimeMillis();
             }
         }
+        System.out.println("Data retrieved from database");
     }
 }
 

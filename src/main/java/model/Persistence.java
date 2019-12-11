@@ -54,4 +54,6 @@ public interface Persistence {
     void insertExam(Exam exam, Course course, Classroom classroom, Date date);
 
     ArrayList<Exam> loadExams();
+
+    void insertExaminerToExamExaminers(Exam exam, Examiner examiner);
 }
