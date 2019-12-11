@@ -44,13 +44,10 @@ public class ExamList {
                     if (exam.getDate().equals(date))
                         exams.add(exam);
                 }
-                System.out.println("A few exams");
                 return exams;
             }
-            System.out.println("All exams");
             return this.exams;
         }
-        System.out.println("null");
         return null;
     }
 

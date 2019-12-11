@@ -205,7 +205,6 @@ public class PrimaryController extends Controller {
         classroomTable.getItems().clear();
         examTable.getItems().clear();
         loadAllData();
-
     }
 
     private void loadAllData() throws NullPointerException {
