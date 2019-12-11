@@ -42,7 +42,7 @@ public class DataModel {
         return classroomList.getClassroomsBySearch(search);
     }
 
-    public ArrayList<Classroom> getClassroomsBySearch(String search, String courseId) {
+    public ArrayList<Classroom> getClassroomsBySearch(String search, String courseId, Date date) {
         return classroomList.getValidClassrooms(search, getCourseById(courseId));
     }
 

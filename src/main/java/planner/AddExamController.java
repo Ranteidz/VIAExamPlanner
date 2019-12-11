@@ -53,6 +53,12 @@ public class AddExamController extends Controller {
         this.parentController = parentController;
         searchThread = new SearchThread(System.currentTimeMillis(), this, "null");
         searchThread.start();
+        examDatePicker.setValue(LocalDate.now());
+    }
+
+    private Date getDate() {
+        LocalDate localDate = examDatePicker.getValue();
+        return new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
     }
 
     public void showCourses() {
@@ -66,7 +72,12 @@ public class AddExamController extends Controller {
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
-        infoTable.getItems().addAll(parentController.model.getClassroomsBySearch("", courseIdField.getText()));
+        try {
+            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch("", courseIdField.getText(), getDate()));
+        }
+        catch (NullPointerException e) {
+            infoTable.getItems().addAll(parentController.model.getClassRoomsAll());
+        }
     }
 
     public void showExaminers() {
@@ -141,7 +152,11 @@ public class AddExamController extends Controller {
             showClassrooms();
         } else {
             infoTable.getItems().clear();
-            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText(), courseIdField.getText()));
+            try {
+                infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText(), courseIdField.getText(), getDate()));
+            } catch (NullPointerException e) {
+                infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText()));
+            }
         }
     }
 
