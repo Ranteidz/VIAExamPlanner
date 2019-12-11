@@ -492,6 +492,7 @@ public class Database implements Persistence {
             posted.setString(1,(exam.classroomIdProperty().get()));
             posted.setString(2,exam.coexaminerNameProperty().get());
             posted.setString(3,exam.getDate().toString());
+            posted.setString(4, exam.courseIdProperty().get());
             posted.executeUpdate();
         }
         catch (Exception e){
