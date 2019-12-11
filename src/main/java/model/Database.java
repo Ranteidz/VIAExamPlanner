@@ -38,6 +38,12 @@ public class Database implements Persistence {
         courses.setCourseId(rs.getString("ID"));
         courses.setCourseType(rs.getString("Type"));
     }
+    /*private void process(ResultSet rs,Exam exam,Course course, Classroom classroom,Date date) throws SQLException {
+        exam.setCourseId(rs.getString("ID"));
+        course.setCourseId(rs.getString("CourseID"));
+        classroom.setName(rs.getString("ClassroomID"));
+
+    }*/
 
     public void save() {
         //this can be used to save to files when using local files
@@ -141,9 +147,41 @@ public class Database implements Persistence {
         }
         return courses;
     }
+    private void process(ResultSet rs,Exam exam) throws SQLException {
+          exam.setCourseId(rs.getString("ID"));
+          exam.setClassroomId(rs.getString("ClassroomID"));
+          String type = rs.getString("CoExaminer");
+          exam.setCoexaminerType(type==null? "Internal" : "External");
+          exam.setCoexaminerName(type);
+        java.sql.Date date = rs.getDate("Date");
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        exam.setExamDate(new Date(cal.get(Calendar.DAY_OF_MONTH),cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR)));
+      }
 
-    private ArrayList<Exam> loadExams() {
-        return null; //implement select from exams
+    public ArrayList<Exam> loadExams()
+    {
+
+        ArrayList<Exam> exams = new ArrayList<>();
+        try (Connection con = DriverManager
+            .getConnection(getDatabaseConnectionString());
+            Statement stmt = con.createStatement())
+        {
+            String SQL = "SELECT * FROM dbo.Exams";
+            ResultSet rs = stmt.executeQuery(SQL);
+
+            while (rs.next())
+            {
+                Exam tmpExam = new Exam();
+                process(rs, tmpExam);
+                exams.add(tmpExam);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return exams;
     }
 
     public ArrayList<Examiner> loadExaminers() {
@@ -433,7 +471,6 @@ public class Database implements Persistence {
             } catch (Exception e) {
                 System.out.println(e);
             }
-
         }
 
 

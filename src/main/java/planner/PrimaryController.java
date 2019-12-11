@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Database;
 import model.LoadData;
 import model.SearchThread;
 import model.classes.*;
@@ -26,6 +27,7 @@ public class PrimaryController extends Controller {
     private SearchThread searchThread;
 
     public DataModel model;
+    public Database dbmodel;
     //    private ArrayList<Student> studentsTest = DataModel.getStudentAll();
     @FXML
     private TextField inputClassroomName;
@@ -204,6 +206,7 @@ public class PrimaryController extends Controller {
         courseTable.getItems().clear();
         classroomTable.getItems().clear();
         loadAllData();
+
     }
 
     private void loadAllData() throws NullPointerException {
@@ -211,6 +214,7 @@ public class PrimaryController extends Controller {
         examinerTable.getItems().addAll(model.getExaminersALL());
         courseTable.getItems().addAll(model.getCoursesAll());
         classroomTable.getItems().addAll(model.getClassRoomsAll());
+        examTable.getItems().addAll(model.getExamAll());
     }
 
     public void searchData() {
@@ -276,6 +280,7 @@ public class PrimaryController extends Controller {
         inputClassroomHDMI.setSelected(false);
         inputClassroomVGA.setSelected(false);
         updateData();
+
     }
 
     public void selectClassroomItem() {

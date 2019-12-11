@@ -65,6 +65,9 @@ public class DataModel {
     public ArrayList<Student> getStudentAll() {
         return studentList.getStudents();
     }
+    public ArrayList<Exam> getExamAll(){
+        return examList.getExams();
+    }
 
     public ArrayList<Classroom> getClassRoomsAll() {
         return classroomList.getClassrooms();
