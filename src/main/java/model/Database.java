@@ -264,6 +264,29 @@ public class Database implements Persistence {
         }
         return classrooms;
     }
+    //TODO this
+    public ArrayList<Classroom> getAvailableClassrooms(Classroom classroom,Date date)
+    {
+      ArrayList<Classroom> classrooms = new ArrayList<>();
+      try (Connection con = DriverManager.getConnection(getDatabaseConnectionString());
+          Statement stmt = con.createStatement())
+      {
+        String SQL = "SELECT * FROM dbo.Classrooms WHERE ID NOT IN (Select ClassroomsID FROM ClassroomsUnavailabilityDates WHERE date=?)";
+        ResultSet rs = stmt.executeQuery(SQL);
+
+        // Iterate through the data in the result set and display it.
+        while (rs.next())
+        {
+          Classroom tmpClassroom = new Classroom();
+          process(rs, tmpClassroom);
+          classrooms.add(tmpClassroom);
+        }
+      }
+      catch (SQLException e){
+        e.printStackTrace();
+      }
+      return classrooms;
+    }
 
     public void removeExaminer(Examiner examiner) {
         try {
@@ -402,6 +425,17 @@ public class Database implements Persistence {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+    public void insertUnavailabilityDateToClassroom(Classroom classroom,Date date){
+      try {
+        Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+        PreparedStatement posted = con.prepareStatement("INSERT INTO ClassroomsUnavailabilityDates (ClassroomsID, Date)" + " values(?, ?)");
+        posted.setString(1, classroom.nameProperty().get());
+        posted.setString(2, date.dateProperty().get());
+        posted.execute();
+      } catch (Exception e) {
+        System.out.println(e);
+      }
     }
     public void insertExaminerToExamsExaminers(Exam exam, Examiner examiner)
     {
