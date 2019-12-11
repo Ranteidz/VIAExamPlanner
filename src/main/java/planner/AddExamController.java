@@ -66,7 +66,7 @@ public class AddExamController extends Controller {
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
-        infoTable.getItems().addAll(parentController.model.getClassRoomsAll());
+        infoTable.getItems().addAll(parentController.model.getClassroomsBySearch("", courseIdField.getText()));
     }
 
     public void showExaminers() {
