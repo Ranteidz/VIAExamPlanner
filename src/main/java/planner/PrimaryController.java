@@ -27,7 +27,6 @@ public class PrimaryController extends Controller {
     private SearchThread searchThread;
 
     public DataModel model;
-    public Database dbmodel;
     //    private ArrayList<Student> studentsTest = DataModel.getStudentAll();
     @FXML
     private TextField inputClassroomName;
@@ -200,7 +199,6 @@ public class PrimaryController extends Controller {
     }
 
     public void updateData() throws NullPointerException {
-        System.out.println("updating data");
         studentTable.getItems().clear();
         examinerTable.getItems().clear();
         courseTable.getItems().clear();
@@ -214,7 +212,7 @@ public class PrimaryController extends Controller {
         examinerTable.getItems().addAll(model.getExaminersALL());
         courseTable.getItems().addAll(model.getCoursesAll());
         classroomTable.getItems().addAll(model.getClassRoomsAll());
-        examTable.getItems().addAll(model.getExamAll());
+//        examTable.getItems().addAll(model.getExamAll()); TODO causes problem
     }
 
     public void searchData() {

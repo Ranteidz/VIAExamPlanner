@@ -50,4 +50,6 @@ public interface Persistence {
     void removeUnavailabilityFromExaminer(Examiner examiner, Date date);
 
     ArrayList<Classroom> getAvailableClassrooms(Date date);
+
+    void insertExam(Exam exam, Course course, Classroom classroom, Date date);
 }

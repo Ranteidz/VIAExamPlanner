@@ -45,9 +45,10 @@ public class DataModel {
     public ArrayList<Classroom> getClassroomsBySearch(String search, String courseId, Date date) {
         ArrayList<Classroom> searchItems = classroomList.getValidClassrooms(search, getCourseById(courseId));
         ArrayList<Classroom> availableItems = db.getAvailableClassrooms(date);
+        System.out.println(availableItems);
         ArrayList<Classroom> result = new ArrayList<Classroom>();
-        for(Classroom classroom : searchItems) {
-            if(availableItems.contains(classroom) && searchItems.contains(classroom))
+        for (Classroom classroom : searchItems) {
+            if (availableItems.contains(classroom) && searchItems.contains(classroom))
                 result.add(classroom);
         }
         return result;
@@ -72,7 +73,8 @@ public class DataModel {
     public ArrayList<Student> getStudentAll() {
         return studentList.getStudents();
     }
-    public ArrayList<Exam> getExamAll(){
+
+    public ArrayList<Exam> getExamAll() {
         return examList.getExams();
     }
 
@@ -103,6 +105,12 @@ public class DataModel {
                 db.insertUnavailabilityToExaminer(examiner, date);
         }
     }
+
+    public void addExam(Exam exam) {
+        if (examList.addExam(exam))
+            db.insertExam(exam, getCourseById(exam.courseIdProperty().get()), getClassroomById(exam.classroomIdProperty().get()), exam.getDate());
+    }
+
 
     public Classroom getClassroomById(String classroomId) {
         return classroomList.getClassroomById(classroomId);

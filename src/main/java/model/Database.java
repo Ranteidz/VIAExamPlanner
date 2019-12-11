@@ -265,14 +265,18 @@ public class Database implements Persistence {
         return classrooms;
     }
     //TODO this
-    public ArrayList<Classroom> getAvailableClassrooms(Classroom classroom,Date date)
+    public ArrayList<Classroom> getAvailableClassrooms(Date date)
     {
       ArrayList<Classroom> classrooms = new ArrayList<>();
       try (Connection con = DriverManager.getConnection(getDatabaseConnectionString());
           Statement stmt = con.createStatement())
       {
-        String SQL = "SELECT * FROM dbo.Classrooms WHERE ID NOT IN (Select ClassroomsID FROM ClassroomsUnavailabilityDates WHERE date=?)";
-        ResultSet rs = stmt.executeQuery(SQL);
+        String SQL = "SELECT * FROM dbo.Classrooms WHERE ID NOT IN (Select ClassroomsID FROM ClassroomsUnavailabilityDates WHERE date = ?)";
+          PreparedStatement preparedStatement
+                  = con.prepareStatement(SQL);
+
+          preparedStatement.setString(1, date.toString());
+          ResultSet rs = preparedStatement.executeQuery();
 
         // Iterate through the data in the result set and display it.
         while (rs.next())
@@ -321,6 +325,8 @@ public class Database implements Persistence {
             System.out.println(e);
         }
     }
+
+
 
     public void removeClassroom(Classroom classroom) {
         try {

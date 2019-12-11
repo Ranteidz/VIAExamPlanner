@@ -2,9 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/LoadData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Persistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Persistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/LoadData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/LoadData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Persistence.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Persistence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/classes/Exam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/classes/Exam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ClassroomList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ClassroomList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ExamList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ExamList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -410,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576065011727</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="filtering classes by size in add exam">
+      <created>1576065997894</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1576065997894</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
