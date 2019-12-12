@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ExaminerList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ExaminerList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" afterDir="false" />
-    </list>
+    <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,13 +111,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574706360880</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Change Folder Name">
-      <created>1574809144751</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1574809144751</updated>
     </task>
     <task id="LOCAL-00003" summary="Change Folder Name">
       <created>1574809541921</created>
@@ -466,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576143872991</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="select exam shows students in table">
+      <created>1576145319589</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1576145319589</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -562,7 +551,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="select and remove examiner item" />
     <MESSAGE value="merge fix" />
     <MESSAGE value="Add Student method created in DataModel Object" />
     <MESSAGE value="work on add exam window" />
@@ -587,7 +575,8 @@
     <MESSAGE value="small changes" />
     <MESSAGE value="merge prepare" />
     <MESSAGE value="only show unbooked courses" />
-    <option name="LAST_COMMIT_MESSAGE" value="only show unbooked courses" />
+    <MESSAGE value="select exam shows students in table" />
+    <option name="LAST_COMMIT_MESSAGE" value="select exam shows students in table" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
