@@ -200,7 +200,8 @@ public class DataModel {
 
     }
     public void removeExam(Exam exam){
-        examList.removeExam(exam);
+        if(examList.removeExam(exam))
+            db.removeExam(exam);
     }
 
     public void editStudent(Student student) {

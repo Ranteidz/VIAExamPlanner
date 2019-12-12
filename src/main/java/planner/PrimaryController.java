@@ -269,12 +269,14 @@ public class PrimaryController extends Controller {
     }
 
     public void cancelExam() {
-        System.out.println("Exam cancelled");
-    }
-
-    public void cancelExam(String argument) {
-        cancelExam();
-        System.out.println("classroom not available tommorow");
+        examStudentsTable.getItems().clear();
+        examIdLabel.setText("");
+        examTypeLabel.setText("");
+        examExaminerIdLabel.setText("");
+        coexaminerLabel.setText("");
+        examClassroomIdLabel.setText("");
+        model.removeExam(examTable.getSelectionModel().getSelectedItem());
+        updateData();
     }
 
     public void addClassroom() {
