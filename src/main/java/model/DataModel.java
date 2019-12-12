@@ -119,7 +119,7 @@ public class DataModel {
     public void addExam(Exam exam) {
         if (examList.addExam(exam)) {
             db.insertExam(exam, getCourseById(exam.courseIdProperty().get()), getClassroomById(exam.classroomIdProperty().get()), exam.getDate());
-            db.insertExaminerToExamExaminers(exam, examinerList.getExaminerByID(exam.examinerIdProperty().get()));
+
         }
     }
 
@@ -192,8 +192,8 @@ public class DataModel {
     public void editExam(Exam exam, String oldExaminerId) {
         examList.editExam(exam);
         db.editExam(exam);
-        db.removeExaminerFomExamsExaminers(exam, examinerList.getExaminerByID(oldExaminerId));
-        db.insertExaminerToExamExaminers(exam, examinerList.getExaminerByID(exam.examinerIdProperty().get()));
+
+
     }
 
     public void editStudent(Student student) {

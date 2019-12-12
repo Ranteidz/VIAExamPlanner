@@ -151,7 +151,7 @@ public class Database implements Persistence {
     private void process(ResultSet rs, Exam exam) throws SQLException {
         exam.setCourseId(rs.getString("ID"));
         exam.setClassroomId(rs.getString("ClassroomID"));
-        exam.setExaminerId(getExaminerOfExam(exam.courseIdProperty().get()));
+        exam.setExaminerId(rs.getString("ExaminerID"));
         System.out.println(exam.examinerIdProperty().get());
         String type = rs.getString("CoExaminer");
         exam.setCoexaminerType(type == null ? "Internal" : "External");
@@ -438,60 +438,37 @@ public class Database implements Persistence {
         }
     }
 
-    public void insertExaminerToExamExaminers(Exam exam, Examiner examiner) {
-        try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-            PreparedStatement posted = con.prepareStatement(
-                    "INSERT INTO Exams_Examiners (ExamID, ExaminerID)" + " values(?, ?)");
-            posted.setString(1, (exam.courseIdProperty().get()));
-            posted.setString(2, examiner.examinerIdProperty().get());
-            posted.execute();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public void removeExaminerFomExamsExaminers(Exam exam, Examiner examiner) {
-        try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-            PreparedStatement posted = con.prepareStatement("DELETE FROM Exams_Examiners WHERE ExamID=? AND ExaminerID=?");
-            posted.setString(1, exam.courseIdProperty().get());
-            posted.setString(2, examiner.examinerIdProperty().get());
-
-            posted.execute();
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
+//TODO reworking
     public void insertExam(Exam exam, Course course, Classroom classroom, Date date) {
         try {
             Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement(
-                    "INSERT INTO Exams (ID, CourseID, ClassroomID, CoExaminer, Date)"
-                            + " values(?, ?, ?, ?, ?)");
+                    "INSERT INTO Exams (ID, CourseID, ClassroomID, CoExaminer, Date,ExaminerID)"
+                            + " values(?, ?, ?, ?, ?,?)");
             posted.setString(1, (exam.courseIdProperty().get()));
             posted.setString(2, course.courseIdProperty().get());
             posted.setString(3, classroom.nameProperty().get());
             posted.setString(4, exam.coexaminerNameProperty().get());
             posted.setString(5, date.dateProperty().get());
+            posted.setString(6,exam.examinerIdProperty().get());
             posted.execute();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-
-    public void editExam(Exam exam) {
-        try {
+    //TODO reworking..
+    public void editExam(Exam exam){
+        try{
             Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
-            PreparedStatement posted = con.prepareStatement("UPDATE Exams SET ClassroomID = ?, CoExaminer = ?, Date =? WHERE id = ?");
-            posted.setString(1, (exam.classroomIdProperty().get()));
-            posted.setString(2, exam.coexaminerNameProperty().get());
-            posted.setString(3, exam.getDate().toString());
-            posted.setString(4, exam.courseIdProperty().get());
+            PreparedStatement posted = con.prepareStatement("UPDATE Exams SET ClassroomID = ?, CoExaminer = ?, Date =?,ExaminerID=? WHERE id = ?");
+            posted.setString(1,(exam.classroomIdProperty().get()));
+            posted.setString(2,exam.coexaminerNameProperty().get());
+            posted.setString(3,exam.getDate().toString());
+            posted.setString(4, exam.examinerIdProperty().get());
+            posted.setString(5, exam.courseIdProperty().get());
             posted.executeUpdate();
-        } catch (Exception e) {
+        }
+        catch (Exception e){
             System.out.println(e);
         }
     }
@@ -506,14 +483,7 @@ public class Database implements Persistence {
         } catch (Exception e) {
             System.out.println(e);
         }
-        try {
-            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
-            PreparedStatement posted = con.prepareStatement("DELETE FROM Exams_Examiners WHERE ExamID= ?");
-            posted.setString(1, exam.courseIdProperty().get());
-            posted.executeUpdate();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+
     }
 
 
@@ -543,24 +513,6 @@ public class Database implements Persistence {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }
-
-    public String getExaminerOfExam(String courseID) {
-        String result = null;
-        try (Connection con = DriverManager.getConnection(getDatabaseConnectionString());
-             Statement stmt = con.createStatement()) {
-            String SQL = "SELECT ExaminerID FROM dbo.Exams_Examiners WHERE ExamID=?";
-            PreparedStatement preparedStatement = con.prepareStatement(SQL);
-            preparedStatement.setString(1, courseID);
-            ResultSet rs = preparedStatement.executeQuery();
-            // Iterate through the data in the result set and display it.
-            if (rs.next()) {
-                result = rs.getString("ExaminerID");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
     }
 
 
