@@ -199,6 +199,9 @@ public class DataModel {
 
 
     }
+    public void removeExam(Exam exam){
+        examList.removeExam(exam);
+    }
 
     public void editStudent(Student student) {
         if (studentList.editStudent(student))
