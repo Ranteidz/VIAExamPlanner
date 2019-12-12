@@ -309,7 +309,7 @@ public class Database implements Persistence {
 
     public void removeUnavailabilityFromExaminer(Examiner newExaminer, Date newDate) {
         try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("DELETE FROM ExaminersUnavailabilityDates WHERE ExaminerID=? AND Date=?");
             posted.setString(1, newExaminer.examinerIdProperty().get());
             posted.setString(2, newDate.dateProperty().get());
@@ -373,7 +373,7 @@ public class Database implements Persistence {
 
     public void editExaminer(Examiner examiner) {
         try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("UPDATE Examiners SET Name = ?, Surname = ? WHERE id = ?");
             posted.setString(1, (examiner.examinerFirstNameProperty().get()));
             posted.setString(2, examiner.examinerLastNameProperty().get());
@@ -386,7 +386,7 @@ public class Database implements Persistence {
 
     public void editStudent(Student student) {
         try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("UPDATE Students SET Name = ?, Surname = ? WHERE id = ?");
             posted.setString(1, student.studentFirstNameProperty().get());
             posted.setString(2, student.studentLastNameProperty().get());
@@ -404,7 +404,7 @@ public class Database implements Persistence {
 
     public void editCourse(Course course) {
         try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("UPDATE Courses SET Type= ?");
             posted.setString(1, course.courseTypeProperty().get());
 
@@ -416,7 +416,7 @@ public class Database implements Persistence {
 
     public void insertStudentToCourse(Course course, Student student) {
         try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("INSERT INTO Students_Courses (StudentID, CourseID)" + " values(?, ?)");
             posted.setString(1, String.valueOf(student.studentIdProperty().get()));
             posted.setString(2, course.courseIdProperty().get());
@@ -428,7 +428,7 @@ public class Database implements Persistence {
 
     public void insertUnavailabilityDateToClassroom(Classroom classroom, Date date) {
         try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("INSERT INTO ClassroomsUnavailabilityDates (ClassroomsID, Date)" + " values(?, ?)");
             posted.setString(1, classroom.nameProperty().get());
             posted.setString(2, date.dateProperty().get());
@@ -441,7 +441,7 @@ public class Database implements Persistence {
 //TODO reworking
     public void insertExam(Exam exam, Course course, Classroom classroom, Date date) {
         try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement(
                     "INSERT INTO Exams (ID, CourseID, ClassroomID, CoExaminer, Date,ExaminerID)"
                             + " values(?, ?, ?, ?, ?,?)");
@@ -459,7 +459,7 @@ public class Database implements Persistence {
     //TODO reworking..
     public void editExam(Exam exam){
         try{
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("UPDATE Exams SET ClassroomID = ?, CoExaminer = ?, Date =?,ExaminerID=? WHERE id = ?");
             posted.setString(1,(exam.classroomIdProperty().get()));
             posted.setString(2,exam.coexaminerNameProperty().get());
@@ -487,7 +487,7 @@ public class Database implements Persistence {
 
     public void removeStudentFromCourse(Course course, Student student) {
         try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("DELETE FROM Students_Courses WHERE StudentID=? AND CourseID=?");
             posted.setString(1, course.courseIdProperty().get());
             posted.setString(2, String.valueOf(student.studentIdProperty().get()));
@@ -501,7 +501,7 @@ public class Database implements Persistence {
 
     public void insertUnavailabilityToExaminer(Examiner newExaminer, Date newDate) {
         try {
-            Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());
+            Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("INSERT INTO ExaminersUnavailabilityDates (ExaminerID, Date)" + " values(?, ?)");
             posted.setString(1, newExaminer.examinerIdProperty().get());
             posted.setString(2, newDate.dateProperty().get());

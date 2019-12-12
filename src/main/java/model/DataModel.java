@@ -2,8 +2,6 @@ package model;
 
 import model.classes.*;
 import model.classes.Date;
-import model.dao.ExaminerDao;
-import model.dao.StudentDao;
 import model.lists.*;
 
 import java.sql.*;
@@ -29,11 +27,6 @@ public class DataModel {
         examinerList.loadExaminers(db.loadExaminers());
         courseList.loadCourses(db.loadCourses());
         examList.loadExams(db.loadExams());
-    }
-
-    //TODO remove this after getting done with separation of database
-    public static String getDatabaseConnectionString() {
-        return "jdbc:sqlserver://planner.database.windows.net:1433;database=ExaminationPlanner;user=databaseadmin@planner;password=Pass-2019;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
     }
 
     public ArrayList<Course> getCoursesBySearch(String search) {

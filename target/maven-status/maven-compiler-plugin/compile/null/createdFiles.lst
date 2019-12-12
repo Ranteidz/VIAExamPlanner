@@ -1,6 +1,4 @@
 model\Persistence.class
-model\dao\ClassRoomDao.class
-model\dao\ExaminerDao.class
 model\classes\Exam.class
 model\lists\ClassroomList.class
 planner\AddExamController.class
@@ -11,10 +9,8 @@ planner\EditExamController.class
 module-info.class
 planner\PrimaryController.class
 model\SearchThread.class
-model\dao\CourseDao.class
 model\DataModel.class
 planner\EditExaminerController.class
-model\dao\StudentDao.class
 model\lists\ExaminerList.class
 model\lists\StudentList.class
 model\classes\Examiner.class
