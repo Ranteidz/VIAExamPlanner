@@ -49,13 +49,24 @@ public class DataModel {
         return classroomList.getClassroomsBySearch(search);
     }
 
-    public ArrayList<Classroom> getClassroomsBySearch(String search, String courseId, Date date) {
-        return classroomList.getClassroomsById(examList.getReservedClassroomsIDs(examList.getExamsByDate(date)));
+    public ArrayList<Classroom> getClassroomsBySearch(String search, Date date) { //TODO only return available classrooms, not filtering search
+        ArrayList<Classroom> availableClassrooms = classroomList.getClassroomsById(examList.getReservedClassroomsIDs(examList.getExamsByDate(date)));
+        return ClassroomList.getClassroomsBySearch(search, availableClassrooms);
     }
 
     public boolean classroomDeletable(Classroom classroom) {
         return (classroomList.getClassroomsById(examList.getReservedClassroomsIDs())).contains(classroom);
     }
+
+
+    public boolean courseDeletable(Course course) {
+        return !examList.getExams().contains(getExamById(course.courseIdProperty().get()));
+    }
+
+    public boolean examinerDeletable(Examiner examiner) {
+        return !examinerList.getExaminersById(examList.getExaminerIds()).contains(examiner);
+    }
+
 
     public ArrayList<Examiner> getExaminersBySearch(String search) {
         return examinerList.getExaminersBySearch(search);

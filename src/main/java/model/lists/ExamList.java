@@ -5,6 +5,7 @@ import model.classes.Date;
 import model.classes.Exam;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class ExamList {
     private ArrayList<Exam> exams;
@@ -80,5 +81,13 @@ public class ExamList {
             localExam.setCoexaminerType(exam.coexaminerTypeProperty().get());
             localExam.setCoexaminerName(exam.coexaminerNameProperty().get());
         }
+    }
+
+    public ArrayList<String> getExaminerIds() {
+        ArrayList<String> result = new ArrayList<String>();
+        for(Exam exam : exams) {
+            result.add(exam.examinerIdProperty().get());
+        }
+        return result;
     }
 }

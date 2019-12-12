@@ -4,6 +4,7 @@ import model.classes.Date;
 import model.classes.Examiner;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class ExaminerList {
     private ArrayList<Examiner> examiners;
@@ -69,6 +70,14 @@ public class ExaminerList {
         ArrayList<Examiner> result = new ArrayList<Examiner>();
         for (Examiner examiner : getExaminersBySearch(search))
             if (!examiner.unavailableDatesProperty().contains(date))
+                result.add(examiner);
+        return result;
+    }
+
+    public ArrayList<Examiner> getExaminersById(ArrayList<String> examinerIds) {
+        ArrayList<Examiner> result = new ArrayList<Examiner>();
+        for (Examiner examiner : examiners)
+            if (examinerIds.contains(examiner.examinerIdProperty().get()))
                 result.add(examiner);
         return result;
     }

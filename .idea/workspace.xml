@@ -4,10 +4,23 @@
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ClassroomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ClassroomList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ExamList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ExamList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/editexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/editexam.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ClassroomList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ClassroomList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ExamList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ExamList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ExaminerList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ExaminerList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/editexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/editexam.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,20 +131,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574706360880</updated>
-    </task>
-    <task id="LOCAL-00007" summary="workspace.xml">
-      <created>1574857462986</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1574857462986</updated>
-    </task>
-    <task id="LOCAL-00008" summary="GUI">
-      <created>1574859009632</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1574859009632</updated>
     </task>
     <task id="LOCAL-00009" summary="small edit">
       <created>1574939018462</created>
@@ -462,7 +461,21 @@
       <option name="project" value="LOCAL" />
       <updated>1576150934060</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="prevent classroom from deletion if it is booked">
+      <created>1576151965873</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1576151965873</updated>
+    </task>
+    <task id="LOCAL-00057" summary="deleted DAOs">
+      <created>1576152065523</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1576152065523</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -558,8 +571,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="work on add exam window" />
-    <MESSAGE value="insert students to course fix" />
     <MESSAGE value="work on edit exam" />
     <MESSAGE value="fix examiner date" />
     <MESSAGE value="search in add exam" />
@@ -583,7 +594,9 @@
     <MESSAGE value="merge" />
     <MESSAGE value="cancelexamworking" />
     <MESSAGE value="work on prevent deleting existing classroom" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on prevent deleting existing classroom" />
+    <MESSAGE value="prevent classroom from deletion if it is booked" />
+    <MESSAGE value="deleted DAOs" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted DAOs" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">

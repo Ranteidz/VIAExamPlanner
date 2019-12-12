@@ -18,11 +18,10 @@ public class App extends Application {
 //        model.loadAll();
         PrimaryController controller = loader.getController();
         controller.setModel(model);
-        primaryStage.setTitle("VIA EXAM PLANNER");
+        primaryStage.setTitle("VIA Exam Planner");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         //primaryStage.getScene().getStylesheets().add("CSS/darkmode.css");
-
     }
 
     public static void main(String[] args) {

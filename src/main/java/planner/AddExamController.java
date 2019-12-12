@@ -71,7 +71,7 @@ public class AddExamController extends Controller {
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
         try {
-            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch("", courseIdField.getText(), getDate()));
+            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch("", getDate()));
         } catch (NullPointerException e) {
             infoTable.getItems().addAll(parentController.model.getClassRoomsAll());
         }
@@ -144,7 +144,7 @@ public class AddExamController extends Controller {
     public void getClassrooms() {
         infoTable.getItems().clear();
         try {
-            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText(), courseIdField.getText(), getDate()));
+            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText(), getDate()));
         } catch (NullPointerException e) {
             infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText()));
         }

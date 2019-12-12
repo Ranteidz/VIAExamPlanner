@@ -39,8 +39,8 @@
               </rowConstraints>
                <children>
                   <DatePicker fx:id="examDatePicker" GridPane.columnIndex="1" />
-                  <TextField fx:id="classroomIdField" onMouseClicked="#showClassrooms" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="examinerIdField" onMouseClicked="#showExaminers" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="classroomIdField" onKeyPressed="#searchData" onMouseClicked="#showClassrooms" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="examinerIdField" onKeyPressed="#searchData" onMouseClicked="#showExaminers" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

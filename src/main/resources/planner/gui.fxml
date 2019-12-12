@@ -239,7 +239,7 @@
                                  </padding></TextField>
                               <CheckBox fx:id="hdmiEditCheckBox" layoutX="92.0" layoutY="80.0" mnemonicParsing="false" visible="false" />
                               <CheckBox fx:id="vgaEditCheckBox" layoutX="92.0" layoutY="100.0" mnemonicParsing="false" visible="false" />
-                              <Label fx:id="classroomErrorLabel" layoutX="13.0" layoutY="491.0" text="Classroom reserved!" textFill="RED" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                              <Label fx:id="classroomErrorLabel" layoutX="13.0" layoutY="491.0" textFill="RED" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -376,7 +376,7 @@
                               <Label fx:id="examinerIdLabel" layoutX="79.0" layoutY="40.0" />
                               <Label fx:id="examinerFirstNameLabel" layoutX="73.0" layoutY="60.0" />
                               <Label fx:id="examinerLastNameLabel" layoutX="73.0" layoutY="80.0" />
-                              <Label fx:id="examinerErrorLabel" layoutX="10.0" layoutY="491.0" text="Examiner reserved!" textFill="RED" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                              <Label fx:id="examinerErrorLabel" layoutX="10.0" layoutY="491.0" textFill="RED" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -439,7 +439,7 @@
                               </TableView>
                               <Label fx:id="courseIdLabel" layoutX="68.0" layoutY="40.0" />
                               <Label fx:id="courseTypeLabel" layoutX="71.0" layoutY="60.0" />
-                              <Label fx:id="courseErrorLabel" layoutX="14.0" layoutY="491.0" text="Course reserved!" textFill="RED" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                              <Label fx:id="courseErrorLabel" layoutX="14.0" layoutY="491.0" textFill="RED" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

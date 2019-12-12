@@ -52,6 +52,13 @@ public class ClassroomList {
         return searchItems;
     }
 
+    public static ArrayList<Classroom> getClassroomsBySearch(String search, ArrayList<Classroom> classrooms) {
+        ArrayList<Classroom> searchItems = new ArrayList<Classroom>();
+        for (Classroom classroom : classrooms)
+            if (classroom.classroomInfoProperty().get().toLowerCase().contains(search.toLowerCase()))
+                searchItems.add(classroom);
+        return searchItems;
+    }
 
     public boolean editClassroom(Classroom classroom) {
         if (classrooms.contains(getClassroomById(classroom.nameProperty().get()))) {

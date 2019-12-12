@@ -408,6 +408,7 @@ public class PrimaryController extends Controller {
     }
 
     public void selectExaminerItem() {
+        examinerErrorLabel.setText("");
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
         examinerFirstNameLabel.setText("");
@@ -422,11 +423,15 @@ public class PrimaryController extends Controller {
 
     public void deleteExaminer() {
         Examiner examiner = examinerTable.getSelectionModel().getSelectedItem();
-        model.deleteExaminer(examiner);
-        examinerIdLabel.setText("");
-        examinerLastNameLabel.setText("");
-        examinerFirstNameLabel.setText("");
-        updateData();
+        if(model.examinerDeletable(examiner)) {
+            model.deleteExaminer(examiner);
+            examinerIdLabel.setText("");
+            examinerLastNameLabel.setText("");
+            examinerFirstNameLabel.setText("");
+            updateData();
+        } else {
+            examinerErrorLabel.setText("Examiner booked");
+        }
     }
 
     public void openAddCourseWindow() throws Exception {
@@ -456,6 +461,7 @@ public class PrimaryController extends Controller {
     }
 
     public void selectCourseItem() {
+        courseErrorLabel.setText("");
         courseIdLabel.setText("");
         courseTypeLabel.setText("");
         courseStudentTable.getItems().clear();
@@ -468,11 +474,15 @@ public class PrimaryController extends Controller {
 
     public void deleteCourse() {
         Course course = courseTable.getSelectionModel().getSelectedItem();
-        model.deleteCourse(course);
-        courseIdLabel.setText("");
-        courseTypeLabel.setText("");
-        courseStudentTable.getItems().clear();
-        updateData();
+        if(model.courseDeletable(course)) {
+            model.deleteCourse(course);
+            courseIdLabel.setText("");
+            courseTypeLabel.setText("");
+            courseStudentTable.getItems().clear();
+            updateData();
+        } else {
+            courseErrorLabel.setText("Course booked!");
+        }
     }
 
     public void classroomEdit() {
