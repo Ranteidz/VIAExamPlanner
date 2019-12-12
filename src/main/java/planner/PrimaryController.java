@@ -158,6 +158,14 @@ public class PrimaryController extends Controller {
     @FXML
     private TabPane tabPane;
 
+    @FXML
+    public TableView<Student> examStudentsTable;
+    @FXML
+    public TableColumn<Student, Integer> examStudentId;
+    @FXML
+    public TableColumn<Student, String> examStudentName;
+
+
     public PrimaryController() {
     }
 
@@ -185,6 +193,8 @@ public class PrimaryController extends Controller {
         examDateColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("examDate"));
         examClassroomColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("classroomId"));
         examExaminerColumn.setCellValueFactory(new PropertyValueFactory<Exam, String>("examinerId"));
+        examStudentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
+        examStudentName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
 
 //        loadAllData(); //TODO FIX causes null pointer exception, doesn't load naything, works after program starts
         LoadData waiter = new LoadData(this);
@@ -249,6 +259,8 @@ public class PrimaryController extends Controller {
 
     public void selectExamItem() {
         Exam exam = examTable.getSelectionModel().getSelectedItem();
+        examStudentsTable.getItems().clear();
+        examStudentsTable.getItems().addAll(model.getStudentsByCourse(exam.courseIdProperty().get()));
         examIdLabel.setText(exam.courseIdProperty().get());
         examTypeLabel.setText(model.getCourseById(exam.courseIdProperty().get()).courseTypeProperty().get());
         examExaminerIdLabel.setText(exam.examinerIdProperty().get());

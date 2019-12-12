@@ -1,5 +1,6 @@
 package model.lists;
 
+import model.classes.Date;
 import model.classes.Examiner;
 
 import java.util.ArrayList;
@@ -44,11 +45,14 @@ public class ExaminerList {
     }
 
     public ArrayList<Examiner> getExaminersBySearch(String search) {
-        ArrayList<Examiner> searchItems = new ArrayList<Examiner>();
-        for (Examiner examiner : examiners)
-            if (examiner.examinerIdProperty().get().toLowerCase().contains(search.toLowerCase()))
-                searchItems.add(examiner);
-        return searchItems;
+        if (!search.isEmpty()) {
+            ArrayList<Examiner> searchItems = new ArrayList<Examiner>();
+            for (Examiner examiner : examiners)
+                if (examiner.examinerIdProperty().get().toLowerCase().contains(search.toLowerCase()))
+                    searchItems.add(examiner);
+            return searchItems;
+        }
+        return examiners;
     }
 
     public boolean editExaminer(Examiner examiner) {
@@ -60,9 +64,17 @@ public class ExaminerList {
         }
         return false;
     }
+
+    public ArrayList<Examiner> getAvailableExaminers(String search, Date date) {
+        ArrayList<Examiner> result = new ArrayList<Examiner>();
+        for (Examiner examiner : getExaminersBySearch(search))
+            if (!examiner.unavailableDatesProperty().contains(date))
+                result.add(examiner);
+        return result;
+    }
 }
 
-    //TODO fix this
+//TODO fix this
     /*public void insertUnavailabilityToExaminer(Examiner newExaminer, model.classes.Date newDate) {
         try {
             Connection con = DriverManager.getConnection(DataModel.getDatabaseConnectionString());

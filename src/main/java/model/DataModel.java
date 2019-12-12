@@ -64,6 +64,10 @@ public class DataModel {
         return examinerList.getExaminersBySearch(search);
     }
 
+    public ArrayList<Examiner> getAvailableExaminers(String search, Date date) {
+        return examinerList.getAvailableExaminers(search, date); //TODO also check exam dates
+    }
+
     public ArrayList<Student> getStudentsBySearch(String search) {
         return studentList.getStudentsBySearch(search);
     }
@@ -117,6 +121,10 @@ public class DataModel {
             db.insertExam(exam, getCourseById(exam.courseIdProperty().get()), getClassroomById(exam.classroomIdProperty().get()), exam.getDate());
             db.insertExaminerToExamExaminers(exam, examinerList.getExaminerByID(exam.examinerIdProperty().get()));
         }
+    }
+
+    private Examiner getExaminerById(String examinerId) {
+        return examinerList.getExaminerByID(examinerId);
     }
 
 

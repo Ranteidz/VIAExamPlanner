@@ -83,7 +83,7 @@ public class AddExamController extends Controller {
         infoTable.getItems().clear();
         infoLabel.setText("Examiners");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("examinerInfo"));
-        infoTable.getItems().addAll(parentController.model.getExaminersALL());
+        infoTable.getItems().addAll(parentController.model.getAvailableExaminers("", getDate()));
     }
 
     public void selectTableItem() {
@@ -143,26 +143,18 @@ public class AddExamController extends Controller {
     }
 
     public void getClassrooms() {
-        if (classroomIdField.getText().isEmpty()) {
-            showClassrooms();
-        } else {
-            infoTable.getItems().clear();
-            try {
-                infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText(), courseIdField.getText(), getDate()));
-            } catch (NullPointerException e) {
-                infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText()));
-            }
+        infoTable.getItems().clear();
+        try {
+            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText(), courseIdField.getText(), getDate()));
+        } catch (NullPointerException e) {
+            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText()));
         }
     }
 
     //TODO only show valid examiners
     public void getExaminers() {
-        if (examinerIdField.getText().isEmpty()) {
-            showExaminers();
-        } else {
-            infoTable.getItems().clear();
-            infoTable.getItems().addAll(parentController.model.getExaminersBySearch(examinerIdField.getText()));
-        }
+        infoTable.getItems().clear();
+        infoTable.getItems().addAll(parentController.model.getAvailableExaminers(examinerIdField.getText(), getDate()));
     }
 
     public void getSelectedItem() {
