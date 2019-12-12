@@ -342,6 +342,7 @@ public class PrimaryController extends Controller {
 
     public void deleteClassroom() {
         Classroom classroom = classroomTable.getSelectionModel().getSelectedItem();
+        System.out.println(model.classroomDeletable(classroom));
         if(model.classroomDeletable(classroom)) {
             model.deleteClassroom(classroom);
             classroomIdTextField.setText("");

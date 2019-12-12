@@ -61,7 +61,7 @@ public class DataModel {
     }
 
     public boolean classroomDeletable(Classroom classroom) {
-        return !(classroomList.getClassroomsById(examList.getReservedClassroomsIDs())).contains(classroom);
+        return (classroomList.getClassroomsById(examList.getReservedClassroomsIDs())).contains(classroom);
     }
 
     public ArrayList<Examiner> getExaminersBySearch(String search) {
