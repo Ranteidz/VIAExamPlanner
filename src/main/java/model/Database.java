@@ -483,9 +483,7 @@ public class Database implements Persistence {
         } catch (Exception e) {
             System.out.println(e);
         }
-
     }
-
 
     public void removeStudentFromCourse(Course course, Student student) {
         try {

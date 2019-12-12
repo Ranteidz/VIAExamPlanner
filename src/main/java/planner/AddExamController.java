@@ -150,17 +150,12 @@ public class AddExamController extends Controller {
         }
     }
 
-    //TODO only show valid examiners
     public void getExaminers() {
         infoTable.getItems().clear();
         infoTable.getItems().addAll(parentController.model.getAvailableExaminers(examinerIdField.getText(), getDate()));
     }
 
-    public void getSelectedItem() {
-    }
-
     public void closeWindow() {
-        // exam = null;
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }

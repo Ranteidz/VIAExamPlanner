@@ -51,6 +51,13 @@ public class ExamList {
         return null;
     }
 
+    public ArrayList<String> getReservedClassroomsIDs() {
+        ArrayList<String> classrooms = new ArrayList<String>();
+        for(Exam exam : exams)
+            classrooms.add(exam.classroomIdProperty().get());
+        return classrooms;
+    }
+
     public ArrayList<String> getReservedClassroomsIDs(ArrayList<Exam> exams) {
         ArrayList<String> classrooms = new ArrayList<String>();
         for(Exam exam : exams)

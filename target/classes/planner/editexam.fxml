@@ -39,7 +39,6 @@
               </rowConstraints>
                <children>
                   <DatePicker fx:id="examDatePicker" GridPane.columnIndex="1" />
-                  <TextField fx:id="courseIdField" editable="false" onKeyPressed="#searchData" onMouseClicked="#showCourses" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="classroomIdField" onMouseClicked="#showClassrooms" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="examinerIdField" onMouseClicked="#showExaminers" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -66,6 +65,7 @@
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Date:" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Co-examiner:" GridPane.rowIndex="4" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Co-examiner name:" GridPane.rowIndex="5" />
+                  <Label fx:id="courseIdField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Button layoutX="234.0" layoutY="131.0" mnemonicParsing="false" onAction="#addExam" text="Save" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
@@ -89,7 +89,7 @@
                 <TableColumn fx:id="infoColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="180.0" text="Information" />
               </columns>
             </TableView>
-            <Button layoutX="138.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectTableItem" onMouseClicked="#getSelectedItem" text="Select" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <Button layoutX="138.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectTableItem" text="Select" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
          </children>
       </AnchorPane>
    </items>

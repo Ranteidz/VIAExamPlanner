@@ -18,7 +18,7 @@ public class EditCourseController {
     private ArrayList<Student> deletedStudents;
     private PrimaryController parentController;
     @FXML
-    public TextField courseIdInput;
+    public Label courseIdInput;
     @FXML
     public RadioButton isOral;
     @FXML

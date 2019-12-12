@@ -32,7 +32,6 @@
         </rowConstraints>
          <children>
             <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Course ID:" />
-            <TextField fx:id="courseIdInput" editable="false" GridPane.columnIndex="1" />
             <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Exam type:" GridPane.rowIndex="1" />
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columnConstraints>
@@ -65,6 +64,7 @@
                   <Button mnemonicParsing="false" onAction="#addStudent" text="+" GridPane.columnIndex="1" />
                </children>
             </GridPane>
+            <Label fx:id="courseIdInput" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <Button layoutX="234.0" layoutY="131.0" mnemonicParsing="false" onAction="#saveCourse" text="Save" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />

@@ -16,7 +16,7 @@ public class EditExaminerController {
 
     private PrimaryController parentController;
     @FXML
-    public TextField examinerIdInput;
+    public Label examinerIdInput;
     @FXML
     public TextField examinerFirstNameInput;
     @FXML

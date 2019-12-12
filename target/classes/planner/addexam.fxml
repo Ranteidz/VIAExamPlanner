@@ -89,7 +89,7 @@
                 <TableColumn fx:id="infoColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="180.0" text="Information" />
               </columns>
             </TableView>
-            <Button layoutX="138.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectTableItem" onMouseClicked="#getSelectedItem" text="Select" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <Button layoutX="138.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectTableItem" text="Select" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
          </children>
       </AnchorPane>
    </items>

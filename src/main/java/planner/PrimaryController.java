@@ -18,6 +18,8 @@ import model.classes.*;
 import model.classes.Date;
 import model.DataModel;
 
+import java.time.LocalDate;
+
 public class PrimaryController extends Controller {
     @FXML
     public CheckBox inputClassroomVGA;
@@ -164,7 +166,19 @@ public class PrimaryController extends Controller {
     public TableColumn<Student, Integer> examStudentId;
     @FXML
     public TableColumn<Student, String> examStudentName;
+    @FXML
+    public RadioButton showAllExamsRadio;
+    @FXML
+    public RadioButton showExamsByDateRadio;
+    @FXML
+    public DatePicker examDatePicker;
 
+    @FXML
+    public Label classroomErrorLabel;
+    @FXML
+    public Label examinerErrorLabel;
+    @FXML
+    public Label courseErrorLabel;
 
     public PrimaryController() {
     }
@@ -174,6 +188,7 @@ public class PrimaryController extends Controller {
     }
 
     public void initialize() {
+        showAllExamsRadio.setSelected(true);
         studentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
         studentFirstName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentFirstName"));
         studentLastName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentLastName"));
@@ -202,6 +217,26 @@ public class PrimaryController extends Controller {
 
         searchThread = new SearchThread(System.currentTimeMillis(), this, "null");
         searchThread.start();
+    }
+
+    public void examDatePicked() {
+        showExamsByDateRadio.setSelected(true);
+        showExamsByDate();
+    }
+
+    public void showAllExams() {
+        examTable.getItems().clear();
+        examTable.getItems().addAll(model.getExamAll());
+    }
+
+    public void showExamsByDate() {
+        examTable.getItems().clear();
+        LocalDate localDate = examDatePicker.getValue();
+        try {
+            examTable.getItems().addAll(model.getExamsByDate(new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear())));
+        } catch (NullPointerException e) {
+            showAllExams();
+        }
     }
 
     public void SwitchToDarkMode(ActionEvent event) {
@@ -239,7 +274,7 @@ public class PrimaryController extends Controller {
         controller.initialize(this);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Add Course");
+        stage.setTitle("Add Exam");
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -252,7 +287,7 @@ public class PrimaryController extends Controller {
         controller.initialize(this);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Add Course");
+        stage.setTitle("Edit Exam");
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -296,6 +331,7 @@ public class PrimaryController extends Controller {
     }
 
     public void selectClassroomItem() {
+        classroomErrorLabel.setText("");
         Classroom classroom = classroomTable.getSelectionModel().getSelectedItem();
         classroomIdTextField.setText(classroom.nameProperty().get());
         capacityTextField
@@ -306,12 +342,16 @@ public class PrimaryController extends Controller {
 
     public void deleteClassroom() {
         Classroom classroom = classroomTable.getSelectionModel().getSelectedItem();
-        model.deleteClassroom(classroom);
-        classroomIdTextField.setText("");
-        capacityTextField.setText("");
-        hdmiTextField.setText("");
-        vgaTextField.setText("");
-        updateData();
+        if(model.classroomDeletable(classroom)) {
+            model.deleteClassroom(classroom);
+            classroomIdTextField.setText("");
+            capacityTextField.setText("");
+            hdmiTextField.setText("");
+            vgaTextField.setText("");
+            updateData();
+        } else {
+            classroomErrorLabel.setText("Classroom reserved!");
+        }
     }
 
     public void addStudent() {
@@ -409,7 +449,7 @@ public class PrimaryController extends Controller {
         controller.initialize(this);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Add Course");
+        stage.setTitle("Edit Course");
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -435,9 +475,10 @@ public class PrimaryController extends Controller {
     }
 
     public void classroomEdit() {
+        String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
         if (editSaveClassroom.getText().equals("Edit")) {
             selectClassroomItem();
-            classroomIdTextField.setStyle(null);
+            classroomIdTextField.setStyle(styleTextField);
             capacityTextField.setStyle(null);
             hdmiTextField.setVisible(false);
             vgaTextField.setVisible(false);
@@ -451,7 +492,7 @@ public class PrimaryController extends Controller {
                 vgaEditCheckBox.setSelected(true);
             } else vgaEditCheckBox.setSelected(false);
 
-            classroomIdTextField.setEditable(true);
+            classroomIdTextField.setEditable(false);
             capacityTextField.setEditable(true);
 
             deleteClassroomButton.setDisable(true);
@@ -467,7 +508,7 @@ public class PrimaryController extends Controller {
             hdmiTextField.setEditable(false);
             vgaTextField.setEditable(false);
 
-            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
+
             classroomIdTextField.setStyle(styleTextField);
             capacityTextField.setStyle(styleTextField);
             hdmiTextField.setStyle(styleTextField);
@@ -484,12 +525,13 @@ public class PrimaryController extends Controller {
     }
 
     public void studentEdit() {
+        String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
         if (editSaveStudent.getText().equals("Edit")) {
             selectStudentItem();
-            studentIDTextField.setStyle(null);
+            studentIDTextField.setStyle(styleTextField);
             firstNameTextField.setStyle(null);
             lastNameTextField.setStyle(null);
-            studentIDTextField.setEditable(true);
+            studentIDTextField.setEditable(false);
             firstNameTextField.setEditable(true);
             lastNameTextField.setEditable(true);
             deleteStudentButton.setDisable(true);
@@ -499,7 +541,6 @@ public class PrimaryController extends Controller {
             firstNameTextField.setEditable(false);
             lastNameTextField.setEditable(false);
 
-            String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
             studentIDTextField.setStyle(styleTextField);
             firstNameTextField.setStyle(styleTextField);
             lastNameTextField.setStyle(styleTextField);

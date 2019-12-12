@@ -21,7 +21,7 @@ public class EditExamController extends Controller {
     @FXML
     public DatePicker examDatePicker;
     @FXML
-    public TextField courseIdField;
+    public Label courseIdField;
     @FXML
     public TextField classroomIdField;
     @FXML
@@ -69,25 +69,34 @@ public class EditExamController extends Controller {
         searchThread.start();
     }
 
+    private Date getDate() {
+        LocalDate localDate = examDatePicker.getValue();
+        return new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
+    }
+
     public void showCourses() {
         infoTable.getItems().clear();
         infoLabel.setText("Courses");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("courseInfo"));
-        infoTable.getItems().addAll(parentController.model.getCoursesAll());
+        infoTable.getItems().addAll(parentController.model.getAvailableCourses(""));
     }
 
     public void showClassrooms() {
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
-        infoTable.getItems().addAll(parentController.model.getClassRoomsAll());
+        try {
+            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch("", courseIdField.getText(), getDate()));
+        } catch (NullPointerException e) {
+            infoTable.getItems().addAll(parentController.model.getClassRoomsAll());
+        }
     }
 
     public void showExaminers() {
         infoTable.getItems().clear();
         infoLabel.setText("Examiners");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("examinerInfo"));
-        infoTable.getItems().addAll(parentController.model.getExaminersALL());
+        infoTable.getItems().addAll(parentController.model.getAvailableExaminers("", getDate()));
     }
 
     public void selectTableItem() {
@@ -131,36 +140,40 @@ public class EditExamController extends Controller {
     }
 
     public void getCourses() {
-        if (courseIdField.getText().isEmpty()) {
-            showCourses();
+        classroomIdField.clear();
+        infoTable.getItems().clear();
+        infoTable.getItems().addAll(parentController.model.getAvailableCourses(courseIdField.getText()));
+        if (infoTable.getItems().size() == 1) {
+            try {
+                fillStudents();
+            } catch (NullPointerException e) {
+                System.out.println("No course found");
+            }
         } else {
-            infoTable.getItems().clear();
-            infoTable.getItems().addAll(parentController.model.getCoursesBySearch(courseIdField.getText()));
+            examStudentsTable.getItems().clear();
         }
     }
 
+    private void fillStudents() {
+        examStudentsTable.getItems().clear();
+        examStudentsTable.getItems().addAll(parentController.model.getStudentsByCourse(courseIdField.getText()));
+    }
+
     public void getClassrooms() {
-        if (classroomIdField.getText().isEmpty()) {
-            showClassrooms();
-        } else {
-            infoTable.getItems().clear();
+        infoTable.getItems().clear();
+        try {
+            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText(), courseIdField.getText(), getDate()));
+        } catch (NullPointerException e) {
             infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText()));
         }
     }
 
     public void getExaminers() {
-        if (examinerIdField.getText().isEmpty()) {
-            showExaminers();
-        } else {
-            infoTable.getItems().clear();
-            infoTable.getItems().addAll(parentController.model.getExaminersBySearch(examinerIdField.getText()));
-        }
-    }
-    public void getSelectedItem() {
+        infoTable.getItems().clear();
+        infoTable.getItems().addAll(parentController.model.getAvailableExaminers(examinerIdField.getText(), getDate()));
     }
 
     public void closeWindow() {
-        // exam = null;
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }

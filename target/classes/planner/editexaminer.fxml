@@ -34,7 +34,6 @@
             <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Examiner ID:" />
             <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="First Name:" GridPane.rowIndex="1" />
             <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Last Name:" GridPane.rowIndex="2" />
-            <TextField fx:id="examinerIdInput" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="examinerFirstNameInput" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="examinerLastNameInput" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -51,6 +50,7 @@
                </children>
             </GridPane>
             <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Unavailable on:" GridPane.rowIndex="3" />
+            <Label fx:id="examinerIdInput" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <Button layoutX="234.0" layoutY="131.0" mnemonicParsing="false" onAction="#saveExaminer" text="Save" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />

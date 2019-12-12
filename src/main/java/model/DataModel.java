@@ -60,6 +60,10 @@ public class DataModel {
         return classroomList.getClassroomsById(examList.getReservedClassroomsIDs(examList.getExamsByDate(date)));
     }
 
+    public boolean classroomDeletable(Classroom classroom) {
+        return !(classroomList.getClassroomsById(examList.getReservedClassroomsIDs())).contains(classroom);
+    }
+
     public ArrayList<Examiner> getExaminersBySearch(String search) {
         return examinerList.getExaminersBySearch(search);
     }
@@ -123,7 +127,6 @@ public class DataModel {
     public void addExam(Exam exam) {
         if (examList.addExam(exam)) {
             db.insertExam(exam, getCourseById(exam.courseIdProperty().get()), getClassroomById(exam.classroomIdProperty().get()), exam.getDate());
-
         }
     }
 
@@ -204,6 +207,10 @@ public class DataModel {
             db.removeExam(exam);
     }
 
+    public ArrayList<Exam> getExamsByDate(Date date) {
+        return examList.getExamsByDate(date);
+    }
+
     public void editStudent(Student student) {
         if (studentList.editStudent(student))
             db.editStudent(student);
@@ -256,6 +263,7 @@ public class DataModel {
     public void addUnavailabilityDateToExaminer(Examiner newExaminer, Date newDate) {
 //        db.insertUnavailabilityToExaminer(newExaminer, newDate);
     }
+
 
 /*
 
