@@ -40,6 +40,18 @@ public class DataModel {
         return courseList.getCoursesBySearch(search);
     }
 
+    public ArrayList<Course> getAvailableCourses(String search) {
+        ArrayList<Course> availableCourses = new ArrayList<Course>();
+        for (Course course : getCoursesBySearch(search))
+            if (!examList.getExams().contains(getExamById(course.courseIdProperty().get())))
+                availableCourses.add(course);
+        return availableCourses;
+    }
+
+    public Exam getExamById(String examId) {
+        return examList.getExamById(examId);
+    }
+
     public ArrayList<Classroom> getClassroomsBySearch(String search) {
         return classroomList.getClassroomsBySearch(search);
     }

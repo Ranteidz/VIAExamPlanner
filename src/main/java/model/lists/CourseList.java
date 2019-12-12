@@ -58,11 +58,14 @@ public class CourseList {
     }
 
     public ArrayList<Course> getCoursesBySearch(String search) {
-        ArrayList<Course> searchItems = new ArrayList<Course>();
-        for (Course course : courses)
-            if (course.courseInfoProperty().get().toLowerCase().contains(search.toLowerCase()))
-                searchItems.add(course);
-        return searchItems;
+        if(!search.isEmpty()) {
+            ArrayList<Course> searchItems = new ArrayList<Course>();
+            for (Course course : courses)
+                if (course.courseInfoProperty().get().toLowerCase().contains(search.toLowerCase()))
+                    searchItems.add(course);
+            return searchItems;
+        }
+        return courses;
     }
 
     public boolean removeStudentFromCourse(Course course, Student student) {

@@ -65,7 +65,7 @@ public class AddExamController extends Controller {
         infoTable.getItems().clear();
         infoLabel.setText("Courses");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("courseInfo"));
-        infoTable.getItems().addAll(parentController.model.getCoursesAll());
+        infoTable.getItems().addAll(parentController.model.getAvailableCourses(""));
     }
 
     public void showClassrooms() {
@@ -74,8 +74,7 @@ public class AddExamController extends Controller {
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
         try {
             infoTable.getItems().addAll(parentController.model.getClassroomsBySearch("", courseIdField.getText(), getDate()));
-        }
-        catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             infoTable.getItems().addAll(parentController.model.getClassRoomsAll());
         }
     }
@@ -123,24 +122,18 @@ public class AddExamController extends Controller {
         searchThread.start();
     }
 
-    //TODO only show valid courses
     public void getCourses() {
         classroomIdField.clear();
-        if (courseIdField.getText().isEmpty()) {
-            showCourses();
-        } else {
-            infoTable.getItems().clear();
-            infoTable.getItems().addAll(parentController.model.getCoursesBySearch(courseIdField.getText()));
-            if(infoTable.getItems().size() == 1) {
-                try {
-                    fillStudents(courseIdField.getText());
-                }
-                catch (NullPointerException e) {
-                    System.out.println("No course found");
-                }
-            } else {
-                examStudentsTable.getItems().clear();
+        infoTable.getItems().clear();
+        infoTable.getItems().addAll(parentController.model.getAvailableCourses(courseIdField.getText()));
+        if (infoTable.getItems().size() == 1) {
+            try {
+                fillStudents(courseIdField.getText());
+            } catch (NullPointerException e) {
+                System.out.println("No course found");
             }
+        } else {
+            examStudentsTable.getItems().clear();
         }
     }
 
