@@ -65,7 +65,10 @@ public class DataModel {
     }
 
     public ArrayList<Examiner> getAvailableExaminers(String search, Date date) {
-        return examinerList.getAvailableExaminers(search, date); //TODO also check exam dates
+        ArrayList<Examiner> availableExaminers = examinerList.getAvailableExaminers(search, date);
+        for (Exam exam : examList.getExamsByDate(date))
+            availableExaminers.remove(getExaminerById(exam.examinerIdProperty().get()));
+        return availableExaminers;
     }
 
     public ArrayList<Student> getStudentsBySearch(String search) {
@@ -78,6 +81,7 @@ public class DataModel {
         examinerList.loadExaminers(db.loadExaminers());
         classroomList.loadClassrooms(db.loadClassrooms());
         studentList.loadStudents(db.loadStudents());
+        examList.loadExams(db.loadExams());
     }
 
     public ArrayList<Student> getStudentAll() {

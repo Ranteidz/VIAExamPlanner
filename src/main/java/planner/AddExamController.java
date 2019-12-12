@@ -12,9 +12,7 @@ import java.time.LocalDate;
 public class AddExamController extends Controller {
 
     public PrimaryController parentController;
-    //private Exam exam;
     private SearchThread searchThread;
-    private Exam exam;
 
     @FXML
     public DatePicker examDatePicker;
@@ -91,7 +89,7 @@ public class AddExamController extends Controller {
             case "Courses":
                 Course course = (Course) infoTable.getSelectionModel().getSelectedItem();
                 courseIdField.setText(course.courseIdProperty().get());
-                fillStudents(courseIdField.getText());
+                fillStudents();
                 break;
             case "Classrooms":
                 Classroom classroom = (Classroom) infoTable.getSelectionModel().getSelectedItem();
@@ -107,6 +105,7 @@ public class AddExamController extends Controller {
     public void addExam() {
         LocalDate selectedDate = examDatePicker.getValue();
         Date date = new Date(selectedDate.getDayOfMonth(), selectedDate.getMonthValue(), selectedDate.getYear());
+        Exam exam;
         if (isInternal.isSelected())
             exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
         else
@@ -128,7 +127,7 @@ public class AddExamController extends Controller {
         infoTable.getItems().addAll(parentController.model.getAvailableCourses(courseIdField.getText()));
         if (infoTable.getItems().size() == 1) {
             try {
-                fillStudents(courseIdField.getText());
+                fillStudents();
             } catch (NullPointerException e) {
                 System.out.println("No course found");
             }
@@ -137,7 +136,7 @@ public class AddExamController extends Controller {
         }
     }
 
-    private void fillStudents(String courseId) {
+    private void fillStudents() {
         examStudentsTable.getItems().clear();
         examStudentsTable.getItems().addAll(parentController.model.getStudentsByCourse(courseIdField.getText()));
     }

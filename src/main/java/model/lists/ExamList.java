@@ -28,7 +28,7 @@ public class ExamList {
         return false;
     }
 
-    public boolean removeCourse(Exam exam) {
+    public boolean removeExam(Exam exam) {
         if (exams.contains(exam)) {
             exams.remove(exam);
             return true;
