@@ -57,5 +57,5 @@ public interface Persistence {
 
     void editExam(Exam exam);
 
-
+    void removeExam(Exam exam);
 }
