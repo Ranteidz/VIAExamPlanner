@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.SearchThread;
 import model.classes.*;
 
 import java.time.LocalDate;
@@ -12,10 +11,8 @@ import java.time.LocalDate;
 public class EditExamController extends Controller {
 
     public PrimaryController parentController;
-    //private Exam exam;
     private SearchThread searchThread;
     private Exam exam;
-    private Date initialDate;
 
     @FXML
     public DatePicker examDatePicker;
@@ -53,7 +50,6 @@ public class EditExamController extends Controller {
         this.parentController = parentController;
         exam = parentController.examTable.getSelectionModel().getSelectedItem();
         examDatePicker.setValue(LocalDate.of(exam.getDate().getYear(), exam.getDate().getMonth(), exam.getDate().getDay()));
-        initialDate = exam.getDate();
         courseIdField.setText(exam.courseIdProperty().get());
         classroomIdField.setText(exam.classroomIdProperty().get());
         examinerIdField.setText(exam.examinerIdProperty().get());
@@ -70,13 +66,6 @@ public class EditExamController extends Controller {
     private Date getDate() {
         LocalDate localDate = examDatePicker.getValue();
         return new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
-    }
-
-    public void showCourses() {
-        infoTable.getItems().clear();
-        infoLabel.setText("Courses");
-        infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("courseInfo"));
-        infoTable.getItems().addAll(parentController.model.getAvailableCourses(""));
     }
 
     public void showClassrooms() {
@@ -138,23 +127,7 @@ public class EditExamController extends Controller {
     }
 
     public void getCourses() {
-        classroomIdField.clear();
-        infoTable.getItems().clear();
-        infoTable.getItems().addAll(parentController.model.getAvailableCourses(courseIdField.getText()));
-        if (infoTable.getItems().size() == 1) {
-            try {
-                fillStudents();
-            } catch (NullPointerException e) {
-                System.out.println("No course found");
-            }
-        } else {
-            examStudentsTable.getItems().clear();
-        }
-    }
-
-    private void fillStudents() {
-        examStudentsTable.getItems().clear();
-        examStudentsTable.getItems().addAll(parentController.model.getStudentsByCourse(courseIdField.getText()));
+        //not in use, here in order to satisfy SearchThread
     }
 
     public void getClassrooms() {

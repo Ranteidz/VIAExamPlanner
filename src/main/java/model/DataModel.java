@@ -203,9 +203,8 @@ public class DataModel {
     public void editExam(Exam exam) {
         examList.editExam(exam);
         db.editExam(exam);
-
-
     }
+
     public void removeExam(Exam exam){
         if(examList.removeExam(exam))
             db.removeExam(exam);
@@ -220,14 +219,14 @@ public class DataModel {
             db.editStudent(student);
     }
 
-    public void addStudentToCourse(Course course, Student student) {
+    private void addStudentToCourse(Course course, Student student) {
         Student localStudent = getStudent(String.valueOf(student.studentIdProperty().get()));
         if (courseList.insertStudentToCourse(course, localStudent)) {
             db.insertStudentToCourse(course, localStudent);
         }
     }
 
-    public void removeStudentFromCourse(Course course, Student student) {
+    private void removeStudentFromCourse(Course course, Student student) {
         if (courseList.removeStudentFromCourse(course, getStudent(String.valueOf(student.studentIdProperty().get())))) {
             db.removeStudentFromCourse(course, getStudent(String.valueOf(student.studentIdProperty().get())));
         }
@@ -238,7 +237,6 @@ public class DataModel {
             db.editClassroom(classroom);
     }
 
-    //TODO removing students causes error, cannot save course
     public void editCourse(Course course) {
         if (!course.courseIdProperty().get().isEmpty())
             if (courseList.editCourse(course))
@@ -256,23 +254,4 @@ public class DataModel {
             removeStudentFromCourse(course, student);
         }
     }
-
-    public void addUnavailabilityDatesToExaminer(Examiner examiner, ArrayList<Date> examinerDates) {
-        for (Date date : examinerDates) {
-            addUnavailabilityDateToExaminer(examiner, date);
-        }
-    }
-
-    //TODO
-
-    public void addUnavailabilityDateToExaminer(Examiner newExaminer, Date newDate) {
-//        db.insertUnavailabilityToExaminer(newExaminer, newDate);
-    }
-
-
-/*
-
-    public void deleteUnavailabilityDateFromExaminer(Examiner newExaminer, Date newDate) {
-        examinerList.removeUnavailabilityFromExaminer(newExaminer, newDate);
-    }*/
 }

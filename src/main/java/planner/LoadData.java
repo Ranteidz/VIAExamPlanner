@@ -1,4 +1,4 @@
-package model;
+package planner;
 
 import planner.PrimaryController;
 

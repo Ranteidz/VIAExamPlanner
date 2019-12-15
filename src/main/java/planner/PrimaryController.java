@@ -11,9 +11,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.Database;
-import model.LoadData;
-import model.SearchThread;
 import model.classes.*;
 import model.classes.Date;
 import model.DataModel;
@@ -211,7 +208,6 @@ public class PrimaryController extends Controller {
         examStudentId.setCellValueFactory(new PropertyValueFactory<Student, Integer>("studentId"));
         examStudentName.setCellValueFactory(new PropertyValueFactory<Student, String>("studentName"));
 
-//        loadAllData(); //TODO FIX causes null pointer exception, doesn't load naything, works after program starts
         LoadData waiter = new LoadData(this);
         waiter.start();
 
@@ -237,10 +233,6 @@ public class PrimaryController extends Controller {
         } catch (NullPointerException e) {
             showAllExams();
         }
-    }
-
-    public void SwitchToDarkMode(ActionEvent event) {
-        System.out.println("switch to dark mode");
     }
 
     public void updateData() throws NullPointerException {

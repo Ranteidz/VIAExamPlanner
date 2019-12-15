@@ -4,8 +4,12 @@
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/LoadData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SearchThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/SearchThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +57,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="planner" />
       <recent name="src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -116,13 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574706360880</updated>
-    </task>
-    <task id="LOCAL-00011" summary="examiner class and controller">
-      <created>1574941739551</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1574941739551</updated>
     </task>
     <task id="LOCAL-00012" summary="examiner class and controller">
       <created>1574942089385</created>
@@ -460,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576411731836</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="cleanup">
+      <created>1576413934963</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1576413934963</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -556,7 +561,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="search in add exam" />
     <MESSAGE value="show students in edit course window" />
     <MESSAGE value="edit and add course works locally, bug when editing course (add - remove same student)" />
     <MESSAGE value="change gui to not allow change of id" />
@@ -581,7 +585,8 @@
     <MESSAGE value="deleted DAOs" />
     <MESSAGE value="examiner search fix, remove unnecessary code from Date" />
     <MESSAGE value="add course defaults to written" />
-    <option name="LAST_COMMIT_MESSAGE" value="add course defaults to written" />
+    <MESSAGE value="cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
