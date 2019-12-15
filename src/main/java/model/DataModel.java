@@ -252,7 +252,7 @@ public class DataModel {
 
     public void removeStudentsFromCourse(Course course, ArrayList<Student> deletedStudents) {
         for (Student student : deletedStudents) {
-            removeStudentsFromCourse(course, deletedStudents);
+            removeStudentFromCourse(course, student);
         }
     }
 
