@@ -38,6 +38,7 @@ public class AddCourseController {
     public void initialize(PrimaryController parentController) {
         this.parentController = parentController;
         studentsColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("studentId"));
+        isWritten.setSelected(true);
     }
 
     public void addCourse() {

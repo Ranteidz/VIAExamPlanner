@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/classes/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/classes/Date.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Persistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Persistence.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,13 +115,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574706360880</updated>
-    </task>
-    <task id="LOCAL-00009" summary="small edit">
-      <created>1574939018462</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1574939018462</updated>
     </task>
     <task id="LOCAL-00010" summary="Examiner class changes">
       <created>1574940339405</created>
@@ -459,7 +452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576152065523</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="examiner search fix, remove unnecessary code from Date">
+      <created>1576408842065</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1576408842066</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -555,7 +555,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="work on edit exam" />
     <MESSAGE value="fix examiner date" />
     <MESSAGE value="search in add exam" />
     <MESSAGE value="show students in edit course window" />
@@ -580,7 +579,8 @@
     <MESSAGE value="work on prevent deleting existing classroom" />
     <MESSAGE value="prevent classroom from deletion if it is booked" />
     <MESSAGE value="deleted DAOs" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted DAOs" />
+    <MESSAGE value="examiner search fix, remove unnecessary code from Date" />
+    <option name="LAST_COMMIT_MESSAGE" value="examiner search fix, remove unnecessary code from Date" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
