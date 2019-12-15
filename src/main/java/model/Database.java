@@ -61,10 +61,6 @@ public class Database implements Persistence {
         }
     }
 
-    public void save(Exam exam) {
-        //implement insert exam
-    }
-
     public void save(Examiner examiner) {
         try {
             Connection con = DriverManager.getConnection(getDatabaseConnectionString());
@@ -108,23 +104,6 @@ public class Database implements Persistence {
     public Object load() {
         //loads from file in case of use local files
         return null;
-    }
-
-    public Object load(String argument) {
-        switch (argument) {
-            case "Courses":
-                return loadCourses();
-            case "Exams":
-                return loadExams();
-            case "Examiners":
-                return loadExaminers();
-            case "Students":
-                return loadStudents();
-            case "Classrooms":
-                return loadClassrooms();
-            default:
-                throw new IllegalArgumentException();
-        }
     }
 
     public ArrayList<Course> loadCourses() {
@@ -513,8 +492,7 @@ public class Database implements Persistence {
         }
     }
 
-
-    public ArrayList<Student> getStudentsByCourseID(String courseId) {
+    private ArrayList<Student> getStudentsByCourseID(String courseId) {
         ArrayList<Student> students = new ArrayList<Student>();
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString())) {
             String SQL = "SELECT * FROM dbo.Students WHERE ID IN (SELECT StudentID FROM dbo.Students_Courses WHERE CourseID = ?) ";

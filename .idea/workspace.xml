@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Persistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Persistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,13 +116,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574706360880</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Examiner class changes">
-      <created>1574940339405</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1574940339405</updated>
     </task>
     <task id="LOCAL-00011" summary="examiner class and controller">
       <created>1574941739551</created>
@@ -459,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576408842066</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="add course defaults to written">
+      <created>1576411731836</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1576411731836</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -555,7 +556,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix examiner date" />
     <MESSAGE value="search in add exam" />
     <MESSAGE value="show students in edit course window" />
     <MESSAGE value="edit and add course works locally, bug when editing course (add - remove same student)" />
@@ -580,7 +580,8 @@
     <MESSAGE value="prevent classroom from deletion if it is booked" />
     <MESSAGE value="deleted DAOs" />
     <MESSAGE value="examiner search fix, remove unnecessary code from Date" />
-    <option name="LAST_COMMIT_MESSAGE" value="examiner search fix, remove unnecessary code from Date" />
+    <MESSAGE value="add course defaults to written" />
+    <option name="LAST_COMMIT_MESSAGE" value="add course defaults to written" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">

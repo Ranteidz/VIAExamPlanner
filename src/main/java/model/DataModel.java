@@ -41,7 +41,7 @@ public class DataModel {
         return availableCourses;
     }
 
-    public Exam getExamById(String examId) {
+    private Exam getExamById(String examId) {
         return examList.getExamById(examId);
     }
 
@@ -200,7 +200,7 @@ public class DataModel {
         }
     }
 
-    public void editExam(Exam exam, String oldExaminerId) {
+    public void editExam(Exam exam) {
         examList.editExam(exam);
         db.editExam(exam);
 
@@ -238,6 +238,7 @@ public class DataModel {
             db.editClassroom(classroom);
     }
 
+    //TODO removing students causes error, cannot save course
     public void editCourse(Course course) {
         if (!course.courseIdProperty().get().isEmpty())
             if (courseList.editCourse(course))
