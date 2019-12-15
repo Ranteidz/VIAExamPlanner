@@ -49,7 +49,7 @@ public class ExaminerList {
         if (!search.isEmpty()) {
             ArrayList<Examiner> searchItems = new ArrayList<Examiner>();
             for (Examiner examiner : examiners)
-                if (examiner.examinerIdProperty().get().toLowerCase().contains(search.toLowerCase()))
+                if (examiner.examinerInfoProperty().get().toLowerCase().contains(search.toLowerCase()))
                     searchItems.add(examiner);
             return searchItems;
         }
