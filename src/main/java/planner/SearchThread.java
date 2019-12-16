@@ -18,7 +18,6 @@ public class SearchThread extends Thread {
     }
 
     public void run() {
-        System.out.println("start");
         while (System.currentTimeMillis() - keyTime < keyDelta && allowRunning) ;
         if (allowRunning)
             switch (search) {
@@ -34,11 +33,7 @@ public class SearchThread extends Thread {
                 case "Courses":
                     parentController.getCourses();
                     break;
-                case "Exams":
-                    System.out.println("Search exams");
-                    break;
                 default:
-                    System.out.println("do nothing");
                     break;
             }
     }

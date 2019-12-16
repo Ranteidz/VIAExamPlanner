@@ -1,5 +1,6 @@
 package model;
 
+import javafx.scene.control.Alert;
 import model.classes.*;
 import model.classes.Date;
 import model.lists.*;
@@ -22,11 +23,7 @@ public class DataModel {
         studentList = new StudentList();
         examList = new ExamList();
         db = new Database();
-        classroomList.loadClassrooms(db.loadClassrooms());
-        studentList.loadStudents(db.loadStudents());
-        examinerList.loadExaminers(db.loadExaminers());
-        courseList.loadCourses(db.loadCourses());
-        examList.loadExams(db.loadExams());
+        loadAll();
     }
 
     public ArrayList<Course> getCoursesBySearch(String search) {
@@ -85,10 +82,10 @@ public class DataModel {
 
 
     public void loadAll() {
-        courseList.loadCourses(db.loadCourses());
-        examinerList.loadExaminers(db.loadExaminers());
         classroomList.loadClassrooms(db.loadClassrooms());
         studentList.loadStudents(db.loadStudents());
+        examinerList.loadExaminers(db.loadExaminers());
+        courseList.loadCourses(db.loadCourses());
         examList.loadExams(db.loadExams());
     }
 
@@ -205,8 +202,8 @@ public class DataModel {
         db.editExam(exam);
     }
 
-    public void removeExam(Exam exam){
-        if(examList.removeExam(exam))
+    public void removeExam(Exam exam) {
+        if (examList.removeExam(exam))
             db.removeExam(exam);
     }
 

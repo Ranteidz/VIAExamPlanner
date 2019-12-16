@@ -4,12 +4,27 @@
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/LoadData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SearchThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/SearchThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/LoadData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/SearchThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/SearchThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addcourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addcourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/LoadData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Persistence.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Persistence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SearchThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/classes/Date.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/classes/Date.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ExaminerList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ExaminerList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/addcourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/addcourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,13 +136,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574706360880</updated>
-    </task>
-    <task id="LOCAL-00012" summary="examiner class and controller">
-      <created>1574942089385</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1574942089385</updated>
     </task>
     <task id="LOCAL-00013" summary="open add-examiner-window now working">
       <created>1574942686988</created>
@@ -465,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576413934963</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="cleanup">
+      <created>1576421900103</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1576421900103</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

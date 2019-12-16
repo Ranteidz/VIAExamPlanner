@@ -51,7 +51,7 @@
           <Menu mnemonicParsing="false" text="Theme">
               <items>
                   <MenuItem mnemonicParsing="false" text="Light Mode" />
-                  <MenuItem fx:id="darkMode" mnemonicParsing="false" onAction="#SwitchToDarkMode" text="Dark Mode" />
+                  <MenuItem mnemonicParsing="false"  text="Dark Mode" />
               </items>
           </Menu>
         <Menu mnemonicParsing="false" text="Edit">

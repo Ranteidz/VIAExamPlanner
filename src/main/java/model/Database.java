@@ -1,5 +1,6 @@
 package model;
 
+import javafx.scene.control.Alert;
 import model.classes.*;
 import model.classes.Date;
 
@@ -122,7 +123,8 @@ public class Database implements Persistence {
         }
         // Handle any errors that may have occurred.
         catch (SQLException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            alertConFailed();
         }
         return courses;
     }
@@ -157,11 +159,20 @@ public class Database implements Persistence {
                 exams.add(tmpExam);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            alertConFailed();
         }
         return exams;
     }
 
+    private void alertConFailed() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Connection failed");
+        alert.setHeaderText("An error has occurred!");
+        alert.setContentText("Could not retrieve data from database, please check if the computer is connected to the internet, otherwise, contact system administrator.");
+        alert.showAndWait();
+        System.exit(1);
+    }
 
     public ArrayList<Examiner> loadExaminers() {
         ArrayList<Examiner> examiners = new ArrayList<>();
@@ -180,7 +191,8 @@ public class Database implements Persistence {
         }
         // Handle any errors that may have occurred.
         catch (SQLException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            alertConFailed();
         }
         return examiners;
     }
@@ -218,7 +230,8 @@ public class Database implements Persistence {
         }
         // Handle any errors that may have occurred.
         catch (SQLException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            alertConFailed();
         }
         return students;
     }
@@ -239,7 +252,8 @@ public class Database implements Persistence {
         }
         // Handle any errors that may have occurred.
         catch (SQLException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            alertConFailed();
         }
         return classrooms;
     }
@@ -417,7 +431,7 @@ public class Database implements Persistence {
         }
     }
 
-//TODO reworking
+    //TODO reworking
     public void insertExam(Exam exam, Course course, Classroom classroom, Date date) {
         try {
             Connection con = DriverManager.getConnection(getDatabaseConnectionString());
@@ -429,25 +443,25 @@ public class Database implements Persistence {
             posted.setString(3, classroom.nameProperty().get());
             posted.setString(4, exam.coexaminerNameProperty().get());
             posted.setString(5, date.dateProperty().get());
-            posted.setString(6,exam.examinerIdProperty().get());
+            posted.setString(6, exam.examinerIdProperty().get());
             posted.execute();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
+
     //TODO reworking..
-    public void editExam(Exam exam){
-        try{
+    public void editExam(Exam exam) {
+        try {
             Connection con = DriverManager.getConnection(getDatabaseConnectionString());
             PreparedStatement posted = con.prepareStatement("UPDATE Exams SET ClassroomID = ?, CoExaminer = ?, Date =?,ExaminerID=? WHERE id = ?");
-            posted.setString(1,(exam.classroomIdProperty().get()));
-            posted.setString(2,exam.coexaminerNameProperty().get());
-            posted.setString(3,exam.getDate().toString());
+            posted.setString(1, (exam.classroomIdProperty().get()));
+            posted.setString(2, exam.coexaminerNameProperty().get());
+            posted.setString(3, exam.getDate().toString());
             posted.setString(4, exam.examinerIdProperty().get());
             posted.setString(5, exam.courseIdProperty().get());
             posted.executeUpdate();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }

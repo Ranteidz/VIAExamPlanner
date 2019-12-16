@@ -53,9 +53,12 @@ public class AddCourseController {
     public void addStudent() {
         //TODO check if student exists
         Student student = parentController.model.getStudent(studentId.getText());
-        addedStudents.add(student);
-        studentsTable.getItems().add(student);
+        if(student != null) {
+            addedStudents.add(student);
+            studentsTable.getItems().add(student);
+        }
         studentId.clear();
+        System.out.println("ERROR: Student does not exist!");
     }
 
     public void deleteStudent() {

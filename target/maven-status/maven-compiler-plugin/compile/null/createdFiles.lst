@@ -2,13 +2,14 @@ model\Persistence.class
 model\classes\Exam.class
 model\lists\ClassroomList.class
 planner\AddExamController.class
+planner\SearchThread.class
 planner\AddCourseController.class
 planner\AddExaminerController.class
 model\classes\Date.class
 planner\EditExamController.class
 module-info.class
 planner\PrimaryController.class
-model\SearchThread.class
+planner\LoadData.class
 model\DataModel.class
 planner\EditExaminerController.class
 model\lists\ExaminerList.class
@@ -21,6 +22,5 @@ model\lists\ExamList.class
 model\classes\Course.class
 model\Database.class
 model\classes\Student.class
-model\LoadData.class
 model\classes\Classroom.class
 model\lists\CourseList.class
