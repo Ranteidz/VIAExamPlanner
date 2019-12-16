@@ -176,6 +176,8 @@ public class PrimaryController extends Controller {
     public Label examinerErrorLabel;
     @FXML
     public Label courseErrorLabel;
+    @FXML
+    public Label studentErrorLabel;
 
     public PrimaryController() {
     }
@@ -307,19 +309,24 @@ public class PrimaryController extends Controller {
     }
 
     public void addClassroom() {
+        classroomErrorLabel.setText("");
         Classroom classroom = new Classroom(inputClassroomName.getText(),
                 Integer.parseInt(inputClassroomCapacity.getText()), false, false);
         if (inputClassroomHDMI.isSelected())
             classroom.setHdmi(true);
         if (inputClassroomVGA.isSelected())
             classroom.setVga(true);
-        model.addClassroom(classroom);
+        if (model.getClassroomById(classroom.nameProperty().get()) == null) {
+            model.addClassroom(classroom);
+        } else {
+            System.out.println("ERROR: Classroom already exists!");
+            classroomErrorLabel.setText("Invalid input");
+        }
         inputClassroomName.clear();
         inputClassroomCapacity.clear();
         inputClassroomHDMI.setSelected(false);
         inputClassroomVGA.setSelected(false);
         updateData();
-
     }
 
     public void selectClassroomItem() {
@@ -335,7 +342,7 @@ public class PrimaryController extends Controller {
     public void deleteClassroom() {
         Classroom classroom = classroomTable.getSelectionModel().getSelectedItem();
         System.out.println(model.classroomDeletable(classroom));
-        if(model.classroomDeletable(classroom)) {
+        if (model.classroomDeletable(classroom)) {
             model.deleteClassroom(classroom);
             classroomIdTextField.setText("");
             capacityTextField.setText("");
@@ -348,9 +355,15 @@ public class PrimaryController extends Controller {
     }
 
     public void addStudent() {
+        studentErrorLabel.setText("");
         Student student = new Student(Integer.parseInt(studentIDinput.getText()),
                 studentFirstNameInput.getText(), studentLastNameInput.getText());
-        model.addStudent(student);
+        if (student.studentIdProperty().get() >= 0 && model.getStudentById(student.studentIdProperty().get()) == null) {
+            model.addStudent(student);
+        } else {
+            System.out.println("ERROR: Student already exists or input is incorrect!");
+            studentErrorLabel.setText("Invalid student input");
+        }
         studentIDinput.clear();
         studentFirstNameInput.clear();
         studentLastNameInput.clear();
@@ -415,7 +428,7 @@ public class PrimaryController extends Controller {
 
     public void deleteExaminer() {
         Examiner examiner = examinerTable.getSelectionModel().getSelectedItem();
-        if(model.examinerDeletable(examiner)) {
+        if (model.examinerDeletable(examiner)) {
             model.deleteExaminer(examiner);
             examinerIdLabel.setText("");
             examinerLastNameLabel.setText("");
@@ -466,7 +479,7 @@ public class PrimaryController extends Controller {
 
     public void deleteCourse() {
         Course course = courseTable.getSelectionModel().getSelectedItem();
-        if(model.courseDeletable(course)) {
+        if (model.courseDeletable(course)) {
             model.deleteCourse(course);
             courseIdLabel.setText("");
             courseTypeLabel.setText("");

@@ -53,7 +53,7 @@ public class EditExamController extends Controller {
         courseIdField.setText(exam.courseIdProperty().get());
         classroomIdField.setText(exam.classroomIdProperty().get());
         examinerIdField.setText(exam.examinerIdProperty().get());
-        if(exam.coexaminerTypeProperty().get().equalsIgnoreCase("internal"))
+        if (exam.coexaminerTypeProperty().get().equalsIgnoreCase("internal"))
             isInternal.setSelected(true);
         else {
             isExternal.setSelected(true);
@@ -104,20 +104,30 @@ public class EditExamController extends Controller {
         }
     }
 
+    public void dateSelected() {
+        classroomIdField.clear();
+        examinerIdField.clear();
+    }
+
     public void addExam() {
         LocalDate selectedDate = examDatePicker.getValue();
         Date date = new Date(selectedDate.getDayOfMonth(), selectedDate.getMonthValue(), selectedDate.getYear());
-        if (isInternal.isSelected())
-            exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
-        else
-            exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
-        /*if(date.equals(initialDate))
-            parentController.cancelExam();
-        else
-            parentController.cancelExam("cancel");*/
-        parentController.model.editExam(exam);
-        parentController.updateData();
-        closeWindow();
+        if (parentController.model.getClassroomById(classroomIdField.getText()) != null && parentController.model.getCourseById(courseIdField.getText()) != null && parentController.model.getExaminerById(examinerIdField.getText()) != null) {
+            if (isInternal.isSelected())
+                exam = new Exam(date.copy(), exam.courseIdProperty().get(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
+            else
+                exam = new Exam(date.copy(), exam.courseIdProperty().get(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
+            parentController.model.editExam(exam);
+            parentController.updateData();
+            closeWindow();
+        } else {
+            System.out.println("Input data does not exist!");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning: Invalid input");
+            alert.setHeaderText(null);
+            alert.setContentText("Some of the information you entered does not exist!");
+            alert.showAndWait();
+        }
     }
 
     public void searchData() {

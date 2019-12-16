@@ -63,11 +63,14 @@ public class EditExaminerController {
     public void addUnavailableDate() {
         LocalDate localDate = datePicker.getValue();
         Date date = new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
-        examiner.addUnavailableDate(date);
-        if(deletedDates.contains(date))
-            deletedDates.remove(date);
-        addedDates.add(date);
-        unavailableDatesTable.getItems().add(date);
+        if (!examiner.getUnavailableDates().contains(date)) {
+            examiner.addUnavailableDate(date);
+            unavailableDatesTable.getItems().add(date);
+            if (deletedDates.contains(date))
+                deletedDates.remove(date);
+            addedDates.add(date);
+            unavailableDatesTable.getItems().add(date);
+        } else System.out.println("Date already exists!");
         datePicker.setValue(null);
     }
 
@@ -76,7 +79,7 @@ public class EditExaminerController {
         allDates = unavailableDatesTable.getItems();
         selectedDate = unavailableDatesTable.getSelectionModel().getSelectedItems();
         Date date = unavailableDatesTable.getSelectionModel().getSelectedItem();
-        if(addedDates.contains(date))
+        if (addedDates.contains(date))
             addedDates.remove(date);
         deletedDates.add(date);
         examiner.unavailableDatesProperty().remove(selectedDate.get(0));

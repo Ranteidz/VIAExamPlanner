@@ -58,7 +58,13 @@ public class AddExamController extends Controller {
         return new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
     }
 
+    public void dateSelected() {
+        classroomIdField.clear();
+        examinerIdField.clear();
+    }
+
     public void showCourses() {
+        classroomIdField.clear();
         infoTable.getItems().clear();
         infoLabel.setText("Courses");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("courseInfo"));
@@ -105,13 +111,23 @@ public class AddExamController extends Controller {
         LocalDate selectedDate = examDatePicker.getValue();
         Date date = new Date(selectedDate.getDayOfMonth(), selectedDate.getMonthValue(), selectedDate.getYear());
         Exam exam;
-        if (isInternal.isSelected())
-            exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
-        else
-            exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
-        parentController.model.addExam(exam);
-        parentController.updateData();
-        closeWindow();
+        if (parentController.model.getClassroomById(classroomIdField.getText()) != null && parentController.model.getCourseById(courseIdField.getText()) != null && parentController.model.getExaminerById(examinerIdField.getText()) != null) {
+            //TODO more checks if there is time
+            if (isInternal.isSelected())
+                exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
+            else
+                exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
+            parentController.model.addExam(exam);
+            parentController.updateData();
+            closeWindow();
+        } else {
+            System.out.println("Input data does not exist!");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning: Invalid input");
+            alert.setHeaderText(null);
+            alert.setContentText("Some of the information you entered does not exist!");
+            alert.showAndWait();
+        }
     }
 
     public void searchData() {
@@ -121,7 +137,6 @@ public class AddExamController extends Controller {
     }
 
     public void getCourses() {
-        classroomIdField.clear();
         infoTable.getItems().clear();
         infoTable.getItems().addAll(parentController.model.getAvailableCourses(courseIdField.getText()));
         if (infoTable.getItems().size() == 1) {

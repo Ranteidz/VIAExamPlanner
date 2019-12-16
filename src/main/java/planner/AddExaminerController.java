@@ -45,16 +45,21 @@ public class AddExaminerController {
         examiner.setExaminerId(examinerIdInput.getText());
         examiner.setExaminerFirstName(examinerFirstNameInput.getText());
         examiner.setExaminerLastName(examinerLastNameInput.getText());
-        parentController.model.addExaminer(examiner);
-        parentController.updateData();
+        if(parentController.model.getExaminerById(examiner.examinerIdProperty().get()) == null) {
+            parentController.model.addExaminer(examiner);
+            parentController.updateData();
+        } else
+            System.out.println("ERROR: Examiner already exists!");
         closeWindow();
     }
 
     public void addUnavailableDate() {
         LocalDate localDate = datePicker.getValue();
         Date date = new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
-        examiner.addUnavailableDate(date);
-        unavailableDatesTable.getItems().add(date);
+        if(!examiner.getUnavailableDates().contains(date)) {
+            examiner.addUnavailableDate(date);
+            unavailableDatesTable.getItems().add(date);
+        } else System.out.println("Date already exists!");
         datePicker.setValue(null);
     }
 

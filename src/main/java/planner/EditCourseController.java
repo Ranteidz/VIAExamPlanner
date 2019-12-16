@@ -43,7 +43,7 @@ public class EditCourseController {
         course = parentController.courseTable.getSelectionModel().getSelectedItem();
         courseIdInput.setText(course.courseIdProperty().get());
         String courseType = course.courseTypeProperty().get();
-        if(courseType.equals("Oral")) {
+        if (courseType.equals("Oral")) {
             isOral.setSelected(true);
         } else {
             isWritten.setSelected(true);
@@ -65,9 +65,13 @@ public class EditCourseController {
     public void addStudent() {
         //TODO check if student exists
         Student student = parentController.model.getStudent(studentId.getText());
-        addedStudents.add(student);
-        if(deletedStudents.contains(student))
-            deletedStudents.remove(student);
+        if (student != null) {
+            addedStudents.add(student);
+            studentsTable.getItems().add(student);
+            if (deletedStudents.contains(student))
+                deletedStudents.remove(student);
+        } else
+            System.out.println("ERROR: Student does not exist!");
         studentsTable.getItems().add(student);
         studentId.clear();
     }
@@ -77,7 +81,7 @@ public class EditCourseController {
         allStudents = studentsTable.getItems();
         selectedStudent = studentsTable.getSelectionModel().getSelectedItems();
         deletedStudents.add(selectedStudent.get(0));
-        if(addedStudents.contains(selectedStudent.get(0)))
+        if (addedStudents.contains(selectedStudent.get(0)))
             addedStudents.remove(selectedStudent.get(0));
         allStudents.removeAll(selectedStudent);
     }

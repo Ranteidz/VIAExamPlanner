@@ -42,7 +42,7 @@ public class StudentList {
     }
 
     public boolean addStudent(Student student) {
-        if(!students.contains(student)){
+        if(!students.contains(getStudentByID(student.studentIdProperty().get()))){
             students.add(student);
             return true;
         }

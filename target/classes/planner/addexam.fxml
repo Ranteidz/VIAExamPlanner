@@ -38,7 +38,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <DatePicker fx:id="examDatePicker" GridPane.columnIndex="1" />
+                  <DatePicker fx:id="examDatePicker" onAction="#dateSelected" GridPane.columnIndex="1" />
                   <TextField fx:id="courseIdField" onKeyPressed="#searchData" onMouseClicked="#showCourses" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="classroomIdField" onKeyPressed="#searchData" onMouseClicked="#showClassrooms" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="examinerIdField" onKeyPressed="#searchData" onMouseClicked="#showExaminers" GridPane.columnIndex="1" GridPane.rowIndex="3" />

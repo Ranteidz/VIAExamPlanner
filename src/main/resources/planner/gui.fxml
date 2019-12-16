@@ -51,7 +51,7 @@
           <Menu mnemonicParsing="false" text="Theme">
               <items>
                   <MenuItem mnemonicParsing="false" text="Light Mode" />
-                  <MenuItem mnemonicParsing="false"  text="Dark Mode" />
+                  <MenuItem mnemonicParsing="false" text="Dark Mode" />
               </items>
           </Menu>
         <Menu mnemonicParsing="false" text="Edit">
@@ -321,6 +321,11 @@
                                     <Insets bottom="1.0" left="7.0" top="1.0" />
                                  </padding>
                               </TextField>
+                              <Label fx:id="studentErrorLabel" layoutX="10.0" layoutY="491.0" text="l" textFill="RED" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                      </items>

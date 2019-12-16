@@ -22,7 +22,7 @@ public class ClassroomList {
     }
 
     public boolean addClassroom(Classroom classroom) {
-        if (!classrooms.contains(classroom)) {
+        if (!classrooms.contains(getClassroomById(classroom.nameProperty().get()))) {
             classrooms.add(classroom);
             return true;
         }

@@ -44,8 +44,11 @@ public class AddCourseController {
     public void addCourse() {
         course.setCourseId(courseIdInput.getText());
         course.setCourseType(isOral.isSelected() ? "Oral" : "Written");
-        parentController.model.addCourse(course);
-        parentController.model.addStudentsToCourse(course, addedStudents);
+        if(parentController.model.getCourseById(course.courseIdProperty().get()) == null) {
+            parentController.model.addCourse(course);
+            parentController.model.addStudentsToCourse(course, addedStudents);
+        } else
+            System.out.println("ERROR: Course already exists!");
         parentController.updateData();
         closeWindow();
     }
@@ -56,9 +59,9 @@ public class AddCourseController {
         if(student != null) {
             addedStudents.add(student);
             studentsTable.getItems().add(student);
-        }
+        } else
+            System.out.println("ERROR: Student does not exist!");
         studentId.clear();
-        System.out.println("ERROR: Student does not exist!");
     }
 
     public void deleteStudent() {

@@ -4,27 +4,30 @@
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ClassroomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ClassroomList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/StudentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/StudentList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/LoadData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/SearchThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/SearchThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addcourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addcourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addexam.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/editexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/editexam.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/LoadData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Persistence.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Persistence.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SearchThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/classes/Date.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/classes/Date.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ExaminerList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ExaminerList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ClassroomList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ClassroomList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/StudentList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/StudentList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExaminerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExaminerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/EditCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/EditCourseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/addcourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/addcourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/addexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/addexam.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/planner/editexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/editexam.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,13 +139,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574706360880</updated>
-    </task>
-    <task id="LOCAL-00013" summary="open add-examiner-window now working">
-      <created>1574942686988</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1574942686988</updated>
     </task>
     <task id="LOCAL-00014" summary="add examiner to table">
       <created>1575041432171</created>
@@ -480,7 +476,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576421900103</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="app prevents from starting if no connection">
+      <created>1576490613730</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1576490613730</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -576,7 +579,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="show students in edit course window" />
     <MESSAGE value="edit and add course works locally, bug when editing course (add - remove same student)" />
     <MESSAGE value="change gui to not allow change of id" />
     <MESSAGE value="delete student from course when deleting from student list, slight change to add/edit course" />
@@ -601,7 +603,8 @@
     <MESSAGE value="examiner search fix, remove unnecessary code from Date" />
     <MESSAGE value="add course defaults to written" />
     <MESSAGE value="cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
+    <MESSAGE value="app prevents from starting if no connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="app prevents from starting if no connection" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">

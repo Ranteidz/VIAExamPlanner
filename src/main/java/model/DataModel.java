@@ -131,7 +131,7 @@ public class DataModel {
         }
     }
 
-    private Examiner getExaminerById(String examinerId) {
+    public Examiner getExaminerById(String examinerId) {
         return examinerList.getExaminerByID(examinerId);
     }
 
@@ -250,5 +250,9 @@ public class DataModel {
         for (Student student : deletedStudents) {
             removeStudentFromCourse(course, student);
         }
+    }
+
+    public Student getStudentById(int studentId) {
+        return studentList.getStudentByID(studentId);
     }
 }
