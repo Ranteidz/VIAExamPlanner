@@ -1,34 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ClassroomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ClassroomList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/StudentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/StudentList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/addexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/addexam.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/editexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/editexam.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DataModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/ClassroomList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/ClassroomList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/lists/StudentList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/lists/StudentList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddCourseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/AddExaminerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/AddExaminerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/EditCourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/EditCourseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/EditExamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/PrimaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/addexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/addexam.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/editexam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/editexam.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/planner/gui.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,20 +112,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574706360880</updated>
-    </task>
-    <task id="LOCAL-00014" summary="add examiner to table">
-      <created>1575041432171</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1575041432171</updated>
-    </task>
-    <task id="LOCAL-00015" summary="target">
-      <created>1575041486405</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1575041486405</updated>
     </task>
     <task id="LOCAL-00016" summary="work on add course functionality">
       <created>1575044994810</created>
@@ -483,7 +442,21 @@
       <option name="project" value="LOCAL" />
       <updated>1576490613730</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="added check for input">
+      <created>1576495156408</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1576495156409</updated>
+    </task>
+    <task id="LOCAL-00064" summary="merge prepare">
+      <created>1576495181570</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1576495181570</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -579,7 +552,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="edit and add course works locally, bug when editing course (add - remove same student)" />
     <MESSAGE value="change gui to not allow change of id" />
     <MESSAGE value="delete student from course when deleting from student list, slight change to add/edit course" />
     <MESSAGE value="connect examiners to db" />
@@ -592,7 +564,6 @@
     <MESSAGE value="only show valid classrooms complete" />
     <MESSAGE value="correclty read exams from database" />
     <MESSAGE value="small changes" />
-    <MESSAGE value="merge prepare" />
     <MESSAGE value="only show unbooked courses" />
     <MESSAGE value="select exam shows students in table" />
     <MESSAGE value="merge" />
@@ -604,7 +575,9 @@
     <MESSAGE value="add course defaults to written" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="app prevents from starting if no connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="app prevents from starting if no connection" />
+    <MESSAGE value="added check for input" />
+    <MESSAGE value="merge prepare" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge prepare" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
