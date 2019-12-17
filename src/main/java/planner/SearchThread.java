@@ -40,6 +40,5 @@ public class SearchThread extends Thread {
 
     public void keyPressed() {
         allowRunning = false;
-        System.out.println("stop");
     }
 }

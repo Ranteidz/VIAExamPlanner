@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/classes/Classroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/classes/Classroom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/classes/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/classes/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/planner/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/planner/SearchThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/SearchThread.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,13 +126,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574706360880</updated>
-    </task>
-    <task id="LOCAL-00017" summary="select and remove examiner item">
-      <created>1575210280098</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1575210280098</updated>
     </task>
     <task id="LOCAL-00018" summary="merge fix">
       <created>1575218752001</created>
@@ -465,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576495483953</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="bigger gui window">
+      <created>1576507265020</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1576507265021</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -561,7 +566,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="delete student from course when deleting from student list, slight change to add/edit course" />
     <MESSAGE value="connect examiners to db" />
     <MESSAGE value="examiner done" />
     <MESSAGE value="load data at startup" />
@@ -586,7 +590,8 @@
     <MESSAGE value="added check for input" />
     <MESSAGE value="merge prepare" />
     <MESSAGE value="removed unnecessary code" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed unnecessary code" />
+    <MESSAGE value="bigger gui window" />
+    <option name="LAST_COMMIT_MESSAGE" value="bigger gui window" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">

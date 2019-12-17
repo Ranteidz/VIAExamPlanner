@@ -133,7 +133,6 @@ public class Database implements Persistence {
         exam.setCourseId(rs.getString("ID"));
         exam.setClassroomId(rs.getString("ClassroomID"));
         exam.setExaminerId(rs.getString("ExaminerID"));
-        System.out.println(exam.examinerIdProperty().get());
         String type = rs.getString("CoExaminer");
         exam.setCoexaminerType(type == null ? "Internal" : "External");
         exam.setCoexaminerName(type);

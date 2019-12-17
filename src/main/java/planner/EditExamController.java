@@ -42,6 +42,7 @@ public class EditExamController extends Controller {
     public TableColumn<Object, String> infoColumn;
     @FXML
     public Button cancelButton;
+    private String originalClassroom;
 
     public EditExamController() {
     }
@@ -51,7 +52,8 @@ public class EditExamController extends Controller {
         exam = parentController.examTable.getSelectionModel().getSelectedItem();
         examDatePicker.setValue(LocalDate.of(exam.getDate().getYear(), exam.getDate().getMonth(), exam.getDate().getDay()));
         courseIdField.setText(exam.courseIdProperty().get());
-        classroomIdField.setText(exam.classroomIdProperty().get());
+        originalClassroom = exam.classroomIdProperty().get();
+        classroomIdField.setText(originalClassroom);
         examinerIdField.setText(exam.examinerIdProperty().get());
         if (exam.coexaminerTypeProperty().get().equalsIgnoreCase("internal"))
             isInternal.setSelected(true);
@@ -112,7 +114,7 @@ public class EditExamController extends Controller {
     public void addExam() {
         LocalDate selectedDate = examDatePicker.getValue();
         Date date = new Date(selectedDate.getDayOfMonth(), selectedDate.getMonthValue(), selectedDate.getYear());
-        if (parentController.model.getClassroomById(classroomIdField.getText()) != null && parentController.model.getCourseById(courseIdField.getText()) != null && parentController.model.getExaminerById(examinerIdField.getText()) != null) {
+        if ((parentController.model.getClassroomsBySearch(classroomIdField.getText(), date).size() == 1 || classroomIdField.getText().equals(originalClassroom)) && parentController.model.getAvailableCourses(courseIdField.getText()).size() == 1 && parentController.model.getAvailableExaminers(examinerIdField.getText(), date).size() == 1) {
             if (isInternal.isSelected())
                 exam = new Exam(date.copy(), exam.courseIdProperty().get(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
             else
@@ -125,7 +127,14 @@ public class EditExamController extends Controller {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning: Invalid input");
             alert.setHeaderText(null);
-            alert.setContentText("Some of the information you entered does not exist!");
+            if (parentController.model.getClassroomsBySearch(classroomIdField.getText(), date).size() != 1)
+                alert.setContentText("The classroom you entered is booked on this date or does not exist!");
+            else if(parentController.model.getAvailableCourses(courseIdField.getText()).size() != 1)
+                alert.setContentText("The course you entered is booked on or does not exist!");
+            else if(parentController.model.getAvailableExaminers(examinerIdField.getText(), date).size() != 1)
+                alert.setContentText("The examiner you entered is booked on this date, not available or does not exist!");
+            else
+                alert.setContentText("An error has occurred!");
             alert.showAndWait();
         }
     }

@@ -342,7 +342,6 @@ public class PrimaryController extends Controller {
 
     public void deleteClassroom() {
         Classroom classroom = classroomTable.getSelectionModel().getSelectedItem();
-        System.out.println(model.classroomDeletable(classroom));
         if (model.classroomDeletable(classroom)) {
             model.deleteClassroom(classroom);
             classroomIdTextField.setText("");
@@ -401,16 +400,20 @@ public class PrimaryController extends Controller {
     }
 
     public void openEditExaminerWindow() throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("editexaminer.fxml"));
-        Parent root = (Parent) loader.load();
-        EditExaminerController controller = loader.getController();
-        controller.initialize(this);
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Edit Examiner");
-        stage.setScene(new Scene(root));
-        stage.show();
+        if (model.examinerDeletable(examinerTable.getSelectionModel().getSelectedItem())) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("editexaminer.fxml"));
+            Parent root = (Parent) loader.load();
+            EditExaminerController controller = loader.getController();
+            controller.initialize(this);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Edit Examiner");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } else {
+            examinerErrorLabel.setText("Examiner booked!");
+        }
     }
 
     public void selectExaminerItem() {
@@ -436,7 +439,7 @@ public class PrimaryController extends Controller {
             examinerFirstNameLabel.setText("");
             updateData();
         } else {
-            examinerErrorLabel.setText("Examiner booked");
+            examinerErrorLabel.setText("Examiner booked!");
         }
     }
 
@@ -454,16 +457,20 @@ public class PrimaryController extends Controller {
     }
 
     public void openEditCourseWindow() throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("editcourse.fxml"));
-        Parent root = (Parent) loader.load();
-        EditCourseController controller = loader.getController();
-        controller.initialize(this);
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Edit Course");
-        stage.setScene(new Scene(root));
-        stage.show();
+        if (model.courseDeletable(courseTable.getSelectionModel().getSelectedItem())) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("editcourse.fxml"));
+            Parent root = (Parent) loader.load();
+            EditCourseController controller = loader.getController();
+            controller.initialize(this);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Edit Course");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } else {
+            courseErrorLabel.setText("Course booked!");
+        }
     }
 
     public void selectCourseItem() {
@@ -475,7 +482,6 @@ public class PrimaryController extends Controller {
         courseIdLabel.setText(course.courseIdProperty().get());
         courseTypeLabel.setText(course.courseTypeProperty().get());
         courseStudentTable.getItems().addAll(model.getStudentsByCourse(course.courseIdProperty().get()));
-        System.out.println(model.getStudentsByCourse(course.courseIdProperty().get()));
     }
 
     public void deleteCourse() {
@@ -493,52 +499,57 @@ public class PrimaryController extends Controller {
 
     public void classroomEdit() {
         String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
-        if (editSaveClassroom.getText().equals("Edit")) {
-            selectClassroomItem();
-            classroomIdTextField.setStyle(styleTextField);
-            capacityTextField.setStyle(null);
-            hdmiTextField.setVisible(false);
-            vgaTextField.setVisible(false);
-            hdmiEditCheckBox.setVisible(true);
-            vgaEditCheckBox.setVisible(true);
+        if (model.classroomDeletable(classroomTable.getSelectionModel().getSelectedItem())) {
+            if (editSaveClassroom.getText().equals("Edit")) {
+                selectClassroomItem();
+                classroomIdTextField.setStyle(styleTextField);
+                capacityTextField.setStyle(null);
+                hdmiTextField.setVisible(false);
+                vgaTextField.setVisible(false);
+                hdmiEditCheckBox.setVisible(true);
+                vgaEditCheckBox.setVisible(true);
 
-            if (hdmiTextField.getText().equals("true")) {
-                hdmiEditCheckBox.setSelected(true);
-            } else hdmiEditCheckBox.setSelected(false);
-            if (vgaTextField.getText().equals("true")) {
-                vgaEditCheckBox.setSelected(true);
-            } else vgaEditCheckBox.setSelected(false);
+                if (hdmiTextField.getText().equals("true")) {
+                    hdmiEditCheckBox.setSelected(true);
+                } else hdmiEditCheckBox.setSelected(false);
+                if (vgaTextField.getText().equals("true")) {
+                    vgaEditCheckBox.setSelected(true);
+                } else vgaEditCheckBox.setSelected(false);
 
-            classroomIdTextField.setEditable(false);
-            capacityTextField.setEditable(true);
+                classroomIdTextField.setEditable(false);
+                capacityTextField.setEditable(true);
 
-            deleteClassroomButton.setDisable(true);
+                deleteClassroomButton.setDisable(true);
 
-            editSaveClassroom.setText("Save");
-        } else {
-            hdmiEditCheckBox.setVisible(false);
-            vgaEditCheckBox.setVisible(false);
-            hdmiTextField.setVisible(true);
-            vgaTextField.setVisible(true);
-            classroomIdTextField.setEditable(false);
-            capacityTextField.setEditable(false);
-            hdmiTextField.setEditable(false);
-            vgaTextField.setEditable(false);
+                editSaveClassroom.setText("Save");
+            } else {
+                hdmiEditCheckBox.setVisible(false);
+                vgaEditCheckBox.setVisible(false);
+                hdmiTextField.setVisible(true);
+                vgaTextField.setVisible(true);
+                classroomIdTextField.setEditable(false);
+                capacityTextField.setEditable(false);
+                hdmiTextField.setEditable(false);
+                vgaTextField.setEditable(false);
 
 
-            classroomIdTextField.setStyle(styleTextField);
-            capacityTextField.setStyle(styleTextField);
-            hdmiTextField.setStyle(styleTextField);
-            vgaTextField.setStyle(styleTextField);
+                classroomIdTextField.setStyle(styleTextField);
+                capacityTextField.setStyle(styleTextField);
+                hdmiTextField.setStyle(styleTextField);
+                vgaTextField.setStyle(styleTextField);
 //TODO classroom edit doesn't work
-            Classroom classroom = new Classroom(classroomIdTextField.getText(),
-                    Integer.parseInt(capacityTextField.getText()), hdmiEditCheckBox.isSelected(), vgaEditCheckBox.isSelected());
-            model.editClassroom(classroom);
-            classroomTable.getSelectionModel().clearSelection();
-            deleteClassroomButton.setDisable(false);
-            editSaveClassroom.setText("Edit");
-            updateData();
+                Classroom classroom = new Classroom(classroomIdTextField.getText(),
+                        Integer.parseInt(capacityTextField.getText()), hdmiEditCheckBox.isSelected(), vgaEditCheckBox.isSelected());
+                model.editClassroom(classroom);
+                classroomTable.getSelectionModel().clearSelection();
+                deleteClassroomButton.setDisable(false);
+                editSaveClassroom.setText("Edit");
+                updateData();
+            }
+        } else {
+            classroomErrorLabel.setText("Classroom reserved!");
         }
+
     }
 
     public void studentEdit() {
