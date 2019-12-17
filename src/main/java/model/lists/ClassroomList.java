@@ -87,10 +87,10 @@ public class ClassroomList {
     }
 
     /**
-     * Returns all classroom which containt search information from ArrayList of classrooms sent as parameter
+     * Returns all classroom which contains search information from ArrayList of classrooms sent as parameter
      * @param search search information
      * @param classrooms ArrayList to select information from
-     * @return classrooms which fullfill search
+     * @return classrooms which fulfill search
      */
     public static ArrayList<Classroom> getClassroomsBySearch(String search, ArrayList<Classroom> classrooms) {
         ArrayList<Classroom> searchItems = new ArrayList<Classroom>();

@@ -170,7 +170,7 @@ public class Database implements Persistence {
         alert.setHeaderText("An error has occurred!");
         alert.setContentText("Could not retrieve data from database, please check if the computer is connected to the internet, otherwise, contact system administrator.");
         alert.showAndWait();
-        System.exit(1);
+        System.exit(0);
     }
 
     public ArrayList<Examiner> loadExaminers() {
@@ -220,16 +220,13 @@ public class Database implements Persistence {
         try (Connection con = DriverManager.getConnection(getDatabaseConnectionString()); Statement stmt = con.createStatement()) {
             String SQL = "SELECT * FROM dbo.students";
             ResultSet rs = stmt.executeQuery(SQL);
-            // Iterate through the data in the result set and display it.
             while (rs.next()) {
                 Student tmpStudent = new Student();
                 process(rs, tmpStudent);
                 students.add(tmpStudent);
             }
         }
-        // Handle any errors that may have occurred.
         catch (SQLException e) {
-//            e.printStackTrace();
             alertConFailed();
         }
         return students;

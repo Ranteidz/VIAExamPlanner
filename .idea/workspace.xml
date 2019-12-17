@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0636f0b0-3089-4958-a306-a6f5c1cdad26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Persistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Persistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/classes/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/classes/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/classes/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/classes/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/classes/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/classes/Exam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/classes/Examiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/classes/Examiner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/classes/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/classes/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ClassroomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ClassroomList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/CourseList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/CourseList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ExamList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ExamList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/ExaminerList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/lists/StudentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lists/StudentList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/AddExaminerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/EditExaminerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/LoadData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/PrimaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/planner/SearchThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/planner/SearchThread.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -141,13 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574706360880</updated>
-    </task>
-    <task id="LOCAL-00019" summary="merge fix">
-      <created>1575219049161</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1575219049161</updated>
     </task>
     <task id="LOCAL-00020" summary="Add Student method created in DataModel Object">
       <created>1575323779955</created>
@@ -485,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576575879002</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="JavaDoc comments">
+      <created>1576586613667</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1576586613668</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -581,7 +561,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="examiner done" />
     <MESSAGE value="load data at startup" />
     <MESSAGE value="search functionality done" />
     <MESSAGE value="adding checks to add exam" />
@@ -606,7 +585,8 @@
     <MESSAGE value="removed unnecessary code" />
     <MESSAGE value="bigger gui window" />
     <MESSAGE value="checking for input to be valid and not allow editing/remove of booked objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="checking for input to be valid and not allow editing/remove of booked objects" />
+    <MESSAGE value="JavaDoc comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc comments" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
