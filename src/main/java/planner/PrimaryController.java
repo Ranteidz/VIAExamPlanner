@@ -370,6 +370,7 @@ public class PrimaryController extends Controller {
 
     public void selectStudentItem() {
         Student student = studentTable.getSelectionModel().getSelectedItem();
+        studentErrorLabel.setText("");
         studentIDTextField.setText(Integer.toString(student.studentIdProperty().get()));
         firstNameTextField.setText(student.studentFirstNameProperty().get());
         lastNameTextField.setText(student.studentLastNameProperty().get());
@@ -377,6 +378,7 @@ public class PrimaryController extends Controller {
 
     public void deleteStudent() {
         Student student = studentTable.getSelectionModel().getSelectedItem();
+        studentErrorLabel.setText("");
         model.deleteStudent(student);
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
