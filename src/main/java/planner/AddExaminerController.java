@@ -1,14 +1,11 @@
 package planner;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.DataModel;
 import model.classes.Date;
 import model.classes.Examiner;
 
@@ -56,7 +53,7 @@ public class AddExaminerController {
     public void addUnavailableDate() {
         LocalDate localDate = datePicker.getValue();
         Date date = new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
-        if(!examiner.getUnavailableDates().contains(date)) {
+        if(!examiner.unavailableDatesProperty().contains(date)) {
             examiner.addUnavailableDate(date);
             unavailableDatesTable.getItems().add(date);
         } else System.out.println("Date already exists!");

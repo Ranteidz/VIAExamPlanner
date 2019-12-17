@@ -2,14 +2,12 @@ package planner;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.classes.*;
@@ -426,7 +424,7 @@ public class PrimaryController extends Controller {
         examinerIdLabel.setText(examiner.examinerIdProperty().get());
         examinerFirstNameLabel.setText(examiner.examinerFirstNameProperty().get());
         examinerLastNameLabel.setText(examiner.examinerLastNameProperty().get());
-        ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.getUnavailableDates());
+        ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.unavailableDatesProperty());
         examinerDateTable.getItems().addAll(model.getExaminerUnavailabilityDates(examiner.examinerIdProperty().get()));
     }
 

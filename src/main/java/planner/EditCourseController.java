@@ -1,6 +1,5 @@
 package planner;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -64,7 +63,7 @@ public class EditCourseController {
 
     public void addStudent() {
         //TODO check if student exists
-        Student student = parentController.model.getStudent(studentId.getText());
+        Student student = parentController.model.getStudentById(studentId.getText());
         if (student != null) {
             addedStudents.add(student);
             studentsTable.getItems().add(student);

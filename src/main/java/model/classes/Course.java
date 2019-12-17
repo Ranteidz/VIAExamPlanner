@@ -7,6 +7,10 @@ import javafx.beans.property.StringProperty;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a course.
+ * A course can be assigned to an exam.
+ */
 public class Course extends Object{
     private StringProperty courseId = new SimpleStringProperty();
     private StringProperty courseType = new SimpleStringProperty();

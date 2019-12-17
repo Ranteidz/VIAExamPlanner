@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.DataModel;
 import model.classes.Course;
 import model.classes.Student;
 
@@ -55,7 +54,7 @@ public class AddCourseController {
 
     public void addStudent() {
         //TODO check if student exists
-        Student student = parentController.model.getStudent(studentId.getText());
+        Student student = parentController.model.getStudentById(studentId.getText());
         if(student != null) {
             addedStudents.add(student);
             studentsTable.getItems().add(student);
