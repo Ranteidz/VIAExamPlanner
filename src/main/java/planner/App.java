@@ -15,13 +15,11 @@ public class App extends Application {
         loader.setLocation(getClass().getResource("gui.fxml"));
         Parent root = loader.load();
         DataModel model = new DataModel();
-//        model.loadAll();
         PrimaryController controller = loader.getController();
         controller.setModel(model);
         primaryStage.setTitle("VIA Exam Planner");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-        //primaryStage.getScene().getStylesheets().add("CSS/darkmode.css");
     }
 
     public static void main(String[] args) {
