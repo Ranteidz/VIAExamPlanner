@@ -71,7 +71,6 @@ public class EditCourseController {
                 deletedStudents.remove(student);
         } else
             System.out.println("ERROR: Student does not exist!");
-        studentsTable.getItems().add(student);
         studentId.clear();
     }
 

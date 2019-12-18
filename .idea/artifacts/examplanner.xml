@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="examplanner">
+    <output-path>$PROJECT_DIR$</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="planner.App" />
+        <option name="description" value="" />
+        <option name="height" value="720" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="VIA Exam Planner" />
+        <option name="vendor" value="" />
+        <option name="version" value="1.0" />
+        <option name="width" value="1280" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="examplanner.jar">
+        <element id="module-output" name="examplanner" />
+      </element>
+    </root>
+  </artifact>
+</component>

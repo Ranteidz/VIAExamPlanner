@@ -48,7 +48,6 @@ public class EditExaminerController {
         examinerLastNameInput.setText(examiner.examinerLastNameProperty().get());
         ObservableList<Date> dates = parentController.examinerDateTable.getItems();
         unavailableDatesTable.getItems().addAll(dates);
-        closeWindow();
     }
 
     public void saveExaminer() {
@@ -69,7 +68,6 @@ public class EditExaminerController {
             if (deletedDates.contains(date))
                 deletedDates.remove(date);
             addedDates.add(date);
-            unavailableDatesTable.getItems().add(date);
         } else System.out.println("Date already exists!");
         datePicker.setValue(null);
     }

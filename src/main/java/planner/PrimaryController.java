@@ -442,6 +442,7 @@ public class PrimaryController extends Controller {
                 stage.show();
             } catch (NullPointerException e) {
                 examinerErrorLabel.setText("No examiner selected!");
+                e.printStackTrace();
             }
         } else {
             examinerErrorLabel.setText("Examiner booked!");
