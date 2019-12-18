@@ -39,7 +39,7 @@ public class EditExaminerController {
         deletedDates = new ArrayList<Date>();
     }
 
-    public void initialize(PrimaryController parentController) {
+    public void initialize(PrimaryController parentController) throws NullPointerException{
         this.parentController = parentController;
         datesColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("formattedDate"));
         examiner = parentController.examinerTable.getSelectionModel().getSelectedItem();
@@ -48,6 +48,7 @@ public class EditExaminerController {
         examinerLastNameInput.setText(examiner.examinerLastNameProperty().get());
         ObservableList<Date> dates = parentController.examinerDateTable.getItems();
         unavailableDatesTable.getItems().addAll(dates);
+        closeWindow();
     }
 
     public void saveExaminer() {
@@ -78,8 +79,7 @@ public class EditExaminerController {
         allDates = unavailableDatesTable.getItems();
         selectedDate = unavailableDatesTable.getSelectionModel().getSelectedItems();
         Date date = unavailableDatesTable.getSelectionModel().getSelectedItem();
-        if (addedDates.contains(date))
-            addedDates.remove(date);
+        addedDates.remove(date);
         deletedDates.add(date);
         examiner.unavailableDatesProperty().remove(selectedDate.get(0));
         allDates.removeAll(selectedDate);

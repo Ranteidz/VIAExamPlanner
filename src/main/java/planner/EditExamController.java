@@ -47,7 +47,7 @@ public class EditExamController extends Controller {
     public EditExamController() {
     }
 
-    public void initialize(PrimaryController parentController) {
+    public void initialize(PrimaryController parentController) throws NullPointerException{
         this.parentController = parentController;
         exam = parentController.examTable.getSelectionModel().getSelectedItem();
         examDatePicker.setValue(LocalDate.of(exam.getDate().getYear(), exam.getDate().getMonth(), exam.getDate().getDay()));
