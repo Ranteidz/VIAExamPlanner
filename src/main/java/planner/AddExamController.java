@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import model.classes.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class AddExamController extends Controller {
 
@@ -68,25 +69,21 @@ public class AddExamController extends Controller {
         infoTable.getItems().clear();
         infoLabel.setText("Courses");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("courseInfo"));
-        infoTable.getItems().addAll(parentController.model.getAvailableCourses(""));
+        getCourses();
     }
 
     public void showClassrooms() {
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
-        try {
-            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch("", getDate()));
-        } catch (NullPointerException e) {
-            infoTable.getItems().addAll(parentController.model.getClassRoomsAll());
-        }
+        getClassrooms();
     }
 
     public void showExaminers() {
         infoTable.getItems().clear();
         infoLabel.setText("Examiners");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("examinerInfo"));
-        infoTable.getItems().addAll(parentController.model.getAvailableExaminers("", getDate()));
+        getExaminers();
     }
 
     public void selectTableItem() {
@@ -112,13 +109,21 @@ public class AddExamController extends Controller {
         Date date = new Date(selectedDate.getDayOfMonth(), selectedDate.getMonthValue(), selectedDate.getYear());
         Exam exam;
         if (parentController.model.getClassroomsBySearch(classroomIdField.getText(), date).size() == 1 && parentController.model.getAvailableCourses(courseIdField.getText()).size() == 1 && parentController.model.getAvailableExaminers(examinerIdField.getText(), date).size() == 1) {
-            if (isInternal.isSelected())
-                exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
-            else
-                exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
-            parentController.model.addExam(exam);
-            parentController.updateData();
-            closeWindow();
+            if(parentController.model.getClassroomsBySearch(classroomIdField.getText(), date).get(0).capacityProperty().get() >= parentController.model.getCourseById(courseIdField.getText()).numberOfStudentsProperty().get()) {
+                if (isInternal.isSelected())
+                    exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
+                else
+                    exam = new Exam(date.copy(), courseIdField.getText(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
+                parentController.model.addExam(exam);
+                parentController.updateData();
+                closeWindow();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning: Invalid input");
+                alert.setHeaderText(null);
+                alert.setContentText("Classroom is not big enough!");
+                alert.showAndWait();
+            }
         } else {
             System.out.println("Invalid input data!");
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -163,10 +168,19 @@ public class AddExamController extends Controller {
 
     public void getClassrooms() {
         infoTable.getItems().clear();
+        ArrayList<Classroom> classrooms = null;
+        Course course = parentController.model.getCourseById(courseIdField.getText());
         try {
-            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText(), getDate()));
+            classrooms = parentController.model.getClassroomsBySearch(classroomIdField.getText(), getDate());
         } catch (NullPointerException e) {
-            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText()));
+            classrooms = parentController.model.getClassroomsBySearch(classroomIdField.getText());
+        }
+        if(course != null) {
+            for (Classroom classroom : classrooms)
+                if (classroom.capacityProperty().get() > course.numberOfStudentsProperty().get())
+                    infoTable.getItems().add(classroom);
+        } else {
+            infoTable.getItems().addAll(classrooms);
         }
     }
 

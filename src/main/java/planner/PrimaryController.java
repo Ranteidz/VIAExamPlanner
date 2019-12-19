@@ -14,6 +14,7 @@ import model.classes.*;
 import model.classes.Date;
 import model.DataModel;
 
+import java.text.ParseException;
 import java.time.LocalDate;
 
 public class PrimaryController extends Controller {
@@ -321,17 +322,21 @@ public class PrimaryController extends Controller {
 
     public void addClassroom() {
         classroomErrorLabel.setText("");
-        Classroom classroom = new Classroom(inputClassroomName.getText(),
-                Integer.parseInt(inputClassroomCapacity.getText()), false, false);
-        if (inputClassroomHDMI.isSelected())
-            classroom.setHdmi(true);
-        if (inputClassroomVGA.isSelected())
-            classroom.setVga(true);
-        if (model.getClassroomById(classroom.nameProperty().get()) == null) {
-            model.addClassroom(classroom);
-        } else {
-            System.out.println("ERROR: Classroom already exists!");
-            classroomErrorLabel.setText("Invalid input");
+        try {
+            Classroom classroom = new Classroom(inputClassroomName.getText(),
+                    Integer.parseInt(inputClassroomCapacity.getText()), false, false);
+            if (inputClassroomHDMI.isSelected())
+                classroom.setHdmi(true);
+            if (inputClassroomVGA.isSelected())
+                classroom.setVga(true);
+            if (model.getClassroomById(classroom.nameProperty().get()) == null && !classroomIdTextField.getText().isEmpty()) {
+                model.addClassroom(classroom);
+            } else {
+                System.out.println("ERROR: Classroom already exists!");
+                classroomErrorLabel.setText("Invalid input");
+            }
+        } catch (NumberFormatException e) {
+            classroomErrorLabel.setText("Invalid capacity!");
         }
         inputClassroomName.clear();
         inputClassroomCapacity.clear();
@@ -374,13 +379,17 @@ public class PrimaryController extends Controller {
 
     public void addStudent() {
         studentErrorLabel.setText("");
-        Student student = new Student(Integer.parseInt(studentIDinput.getText()),
-                studentFirstNameInput.getText(), studentLastNameInput.getText());
-        if (student.studentIdProperty().get() >= 0 && model.getStudentById(student.studentIdProperty().get()) == null) {
-            model.addStudent(student);
-        } else {
-            System.out.println("ERROR: Student already exists or input is incorrect!");
-            studentErrorLabel.setText("Invalid student input");
+        try {
+            Student student = new Student(Integer.parseInt(studentIDinput.getText()),
+                    studentFirstNameInput.getText(), studentLastNameInput.getText());
+            if (student.studentIdProperty().get() >= 0 && model.getStudentById(student.studentIdProperty().get()) == null && !studentFirstNameInput.getText().isEmpty() && !studentLastNameInput.getText().isEmpty()) {
+                model.addStudent(student);
+            } else {
+                System.out.println("ERROR: Student already exists or input is incorrect!");
+                studentErrorLabel.setText("Invalid student input");
+            }
+        } catch (NumberFormatException e) {
+            studentErrorLabel.setText("Invalid ID");
         }
         studentIDinput.clear();
         studentFirstNameInput.clear();
