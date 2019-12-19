@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: planner.App
+Class-Path: com.planner.App
+
