@@ -16,3 +16,4 @@ Upon starting, the system loads all the data from the database into memory and a
 processing is done locally. The database is updated every time there is a change in the data.
 After testing, the system proved to be faultless, there are not any unhandled exceptions,
 therefore no unforeseen errors which might occur.
+
