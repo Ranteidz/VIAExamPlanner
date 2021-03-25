@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import model.classes.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class EditExamController extends Controller {
 
@@ -47,7 +48,7 @@ public class EditExamController extends Controller {
     public EditExamController() {
     }
 
-    public void initialize(PrimaryController parentController) {
+    public void initialize(PrimaryController parentController) throws NullPointerException {
         this.parentController = parentController;
         exam = parentController.examTable.getSelectionModel().getSelectedItem();
         examDatePicker.setValue(LocalDate.of(exam.getDate().getYear(), exam.getDate().getMonth(), exam.getDate().getDay()));
@@ -74,11 +75,7 @@ public class EditExamController extends Controller {
         infoTable.getItems().clear();
         infoLabel.setText("Classrooms");
         infoColumn.setCellValueFactory(new PropertyValueFactory<Object, String>("classroomInfo"));
-        try {
-            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch("", getDate()));
-        } catch (NullPointerException e) {
-            infoTable.getItems().addAll(parentController.model.getClassRoomsAll());
-        }
+        getClassrooms();
     }
 
     public void showExaminers() {
@@ -115,13 +112,21 @@ public class EditExamController extends Controller {
         LocalDate selectedDate = examDatePicker.getValue();
         Date date = new Date(selectedDate.getDayOfMonth(), selectedDate.getMonthValue(), selectedDate.getYear());
         if ((parentController.model.getClassroomsBySearch(classroomIdField.getText(), date).size() == 1 || classroomIdField.getText().equals(originalClassroom)) && parentController.model.getAvailableCourses(courseIdField.getText()).size() == 1 && parentController.model.getAvailableExaminers(examinerIdField.getText(), date).size() == 1) {
-            if (isInternal.isSelected())
-                exam = new Exam(date.copy(), exam.courseIdProperty().get(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
-            else
-                exam = new Exam(date.copy(), exam.courseIdProperty().get(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
-            parentController.model.editExam(exam);
-            parentController.updateData();
-            closeWindow();
+            if (parentController.model.getClassroomsBySearch(classroomIdField.getText(), date).get(0).capacityProperty().get() >= parentController.model.getCourseById(courseIdField.getText()).numberOfStudentsProperty().get()) {
+                if (isInternal.isSelected())
+                    exam = new Exam(date.copy(), exam.courseIdProperty().get(), classroomIdField.getText(), examinerIdField.getText(), "Internal");
+                else
+                    exam = new Exam(date.copy(), exam.courseIdProperty().get(), classroomIdField.getText(), examinerIdField.getText(), "External", coexaminerNameField.getText());
+                parentController.model.editExam(exam);
+                parentController.updateData();
+                closeWindow();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning: Invalid input");
+                alert.setHeaderText(null);
+                alert.setContentText("Classroom is not big enough!");
+                alert.showAndWait();
+            }
         } else {
             System.out.println("Input data does not exist!");
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -129,9 +134,9 @@ public class EditExamController extends Controller {
             alert.setHeaderText(null);
             if (parentController.model.getClassroomsBySearch(classroomIdField.getText(), date).size() != 1)
                 alert.setContentText("The classroom you entered is booked on this date or does not exist!");
-            else if(parentController.model.getAvailableCourses(courseIdField.getText()).size() != 1)
+            else if (parentController.model.getAvailableCourses(courseIdField.getText()).size() != 1)
                 alert.setContentText("The course you entered is booked on or does not exist!");
-            else if(parentController.model.getAvailableExaminers(examinerIdField.getText(), date).size() != 1)
+            else if (parentController.model.getAvailableExaminers(examinerIdField.getText(), date).size() != 1)
                 alert.setContentText("The examiner you entered is booked on this date, not available or does not exist!");
             else
                 alert.setContentText("An error has occurred!");
@@ -151,10 +156,19 @@ public class EditExamController extends Controller {
 
     public void getClassrooms() {
         infoTable.getItems().clear();
+        ArrayList<Classroom> classrooms = null;
+        Course course = parentController.model.getCourseById(courseIdField.getText());
         try {
-            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText(), getDate()));
+            classrooms = parentController.model.getClassroomsBySearch(classroomIdField.getText(), getDate());
         } catch (NullPointerException e) {
-            infoTable.getItems().addAll(parentController.model.getClassroomsBySearch(classroomIdField.getText()));
+            classrooms = parentController.model.getClassroomsBySearch(classroomIdField.getText());
+        }
+        if(course != null) {
+            for (Classroom classroom : classrooms)
+                if (classroom.capacityProperty().get() > course.numberOfStudentsProperty().get())
+                    infoTable.getItems().add(classroom);
+        } else {
+            infoTable.getItems().addAll(classrooms);
         }
     }
 

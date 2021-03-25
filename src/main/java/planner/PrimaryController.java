@@ -14,6 +14,7 @@ import model.classes.*;
 import model.classes.Date;
 import model.DataModel;
 
+import java.text.ParseException;
 import java.time.LocalDate;
 
 public class PrimaryController extends Controller {
@@ -250,7 +251,7 @@ public class PrimaryController extends Controller {
         examinerTable.getItems().addAll(model.getExaminersALL());
         courseTable.getItems().addAll(model.getCoursesAll());
         classroomTable.getItems().addAll(model.getClassRoomsAll());
-        examTable.getItems().addAll(model.getExamAll()); //TODO causes problem
+        examTable.getItems().addAll(model.getExamAll());
     }
 
     public void searchData() {
@@ -277,23 +278,31 @@ public class PrimaryController extends Controller {
         loader.setLocation(getClass().getResource("editexam.fxml"));
         Parent root = (Parent) loader.load();
         EditExamController controller = loader.getController();
-        controller.initialize(this);
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Edit Exam");
-        stage.setScene(new Scene(root));
-        stage.show();
+        try {
+            controller.initialize(this);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Edit Exam");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (NullPointerException e) {
+            System.out.println("No exam selected!");
+        }
     }
 
     public void selectExamItem() {
         Exam exam = examTable.getSelectionModel().getSelectedItem();
         examStudentsTable.getItems().clear();
-        examStudentsTable.getItems().addAll(model.getStudentsByCourse(exam.courseIdProperty().get()));
-        examIdLabel.setText(exam.courseIdProperty().get());
-        examTypeLabel.setText(model.getCourseById(exam.courseIdProperty().get()).courseTypeProperty().get());
-        examExaminerIdLabel.setText(exam.examinerIdProperty().get());
-        coexaminerLabel.setText(exam.coexaminerTypeProperty().get().equalsIgnoreCase("internal") ? "Internal" : String.format("External: %s", exam.coexaminerNameProperty().get()));
-        examClassroomIdLabel.setText(exam.classroomIdProperty().get());
+        try {
+            examStudentsTable.getItems().addAll(model.getStudentsByCourse(exam.courseIdProperty().get()));
+            examIdLabel.setText(exam.courseIdProperty().get());
+            examTypeLabel.setText(model.getCourseById(exam.courseIdProperty().get()).courseTypeProperty().get());
+            examExaminerIdLabel.setText(exam.examinerIdProperty().get());
+            coexaminerLabel.setText(exam.coexaminerTypeProperty().get().equalsIgnoreCase("internal") ? "Internal" : String.format("External: %s", exam.coexaminerNameProperty().get()));
+            examClassroomIdLabel.setText(exam.classroomIdProperty().get());
+        } catch (NullPointerException e) {
+            System.out.println("No exam object selected.");
+        }
     }
 
     public void cancelExam() {
@@ -303,23 +312,31 @@ public class PrimaryController extends Controller {
         examExaminerIdLabel.setText("");
         coexaminerLabel.setText("");
         examClassroomIdLabel.setText("");
-        model.removeExam(examTable.getSelectionModel().getSelectedItem());
+        try {
+            model.removeExam(examTable.getSelectionModel().getSelectedItem());
+        } catch (NullPointerException e) {
+            System.out.println("No exam object selected.");
+        }
         updateData();
     }
 
     public void addClassroom() {
         classroomErrorLabel.setText("");
-        Classroom classroom = new Classroom(inputClassroomName.getText(),
-                Integer.parseInt(inputClassroomCapacity.getText()), false, false);
-        if (inputClassroomHDMI.isSelected())
-            classroom.setHdmi(true);
-        if (inputClassroomVGA.isSelected())
-            classroom.setVga(true);
-        if (model.getClassroomById(classroom.nameProperty().get()) == null) {
-            model.addClassroom(classroom);
-        } else {
-            System.out.println("ERROR: Classroom already exists!");
-            classroomErrorLabel.setText("Invalid input");
+        try {
+            Classroom classroom = new Classroom(inputClassroomName.getText(),
+                    Integer.parseInt(inputClassroomCapacity.getText()), false, false);
+            if (inputClassroomHDMI.isSelected())
+                classroom.setHdmi(true);
+            if (inputClassroomVGA.isSelected())
+                classroom.setVga(true);
+            if (model.getClassroomById(classroom.nameProperty().get()) == null && !classroomIdTextField.getText().isEmpty()) {
+                model.addClassroom(classroom);
+            } else {
+                System.out.println("ERROR: Classroom already exists!");
+                classroomErrorLabel.setText("Invalid input");
+            }
+        } catch (NumberFormatException e) {
+            classroomErrorLabel.setText("Invalid capacity!");
         }
         inputClassroomName.clear();
         inputClassroomCapacity.clear();
@@ -331,36 +348,48 @@ public class PrimaryController extends Controller {
     public void selectClassroomItem() {
         classroomErrorLabel.setText("");
         Classroom classroom = classroomTable.getSelectionModel().getSelectedItem();
-        classroomIdTextField.setText(classroom.nameProperty().get());
-        capacityTextField
-                .setText(Integer.toString(classroom.capacityProperty().get()));
-        hdmiTextField.setText(Boolean.toString(classroom.hdmiProperty().get()));
-        vgaTextField.setText(Boolean.toString(classroom.vgaProperty().get()));
+        try {
+            classroomIdTextField.setText(classroom.nameProperty().get());
+            capacityTextField
+                    .setText(Integer.toString(classroom.capacityProperty().get()));
+            hdmiTextField.setText(Boolean.toString(classroom.hdmiProperty().get()));
+            vgaTextField.setText(Boolean.toString(classroom.vgaProperty().get()));
+        } catch (NullPointerException e) {
+            System.out.println("No classroom object selected.");
+        }
     }
 
     public void deleteClassroom() {
         Classroom classroom = classroomTable.getSelectionModel().getSelectedItem();
-        if (model.classroomDeletable(classroom)) {
-            model.deleteClassroom(classroom);
-            classroomIdTextField.setText("");
-            capacityTextField.setText("");
-            hdmiTextField.setText("");
-            vgaTextField.setText("");
-            updateData();
-        } else {
-            classroomErrorLabel.setText("Classroom reserved!");
+        try {
+            if (model.classroomDeletable(classroom)) {
+                model.deleteClassroom(classroom);
+                classroomIdTextField.setText("");
+                capacityTextField.setText("");
+                hdmiTextField.setText("");
+                vgaTextField.setText("");
+                updateData();
+            } else {
+                classroomErrorLabel.setText("Classroom reserved!");
+            }
+        } catch (NullPointerException e) {
+            System.out.println("No classroom object selected.");
         }
     }
 
     public void addStudent() {
         studentErrorLabel.setText("");
-        Student student = new Student(Integer.parseInt(studentIDinput.getText()),
-                studentFirstNameInput.getText(), studentLastNameInput.getText());
-        if (student.studentIdProperty().get() >= 0 && model.getStudentById(student.studentIdProperty().get()) == null) {
-            model.addStudent(student);
-        } else {
-            System.out.println("ERROR: Student already exists or input is incorrect!");
-            studentErrorLabel.setText("Invalid student input");
+        try {
+            Student student = new Student(Integer.parseInt(studentIDinput.getText()),
+                    studentFirstNameInput.getText(), studentLastNameInput.getText());
+            if (student.studentIdProperty().get() >= 0 && model.getStudentById(student.studentIdProperty().get()) == null && !studentFirstNameInput.getText().isEmpty() && !studentLastNameInput.getText().isEmpty()) {
+                model.addStudent(student);
+            } else {
+                System.out.println("ERROR: Student already exists or input is incorrect!");
+                studentErrorLabel.setText("Invalid student input");
+            }
+        } catch (NumberFormatException e) {
+            studentErrorLabel.setText("Invalid ID");
         }
         studentIDinput.clear();
         studentFirstNameInput.clear();
@@ -370,14 +399,24 @@ public class PrimaryController extends Controller {
 
     public void selectStudentItem() {
         Student student = studentTable.getSelectionModel().getSelectedItem();
-        studentIDTextField.setText(Integer.toString(student.studentIdProperty().get()));
-        firstNameTextField.setText(student.studentFirstNameProperty().get());
-        lastNameTextField.setText(student.studentLastNameProperty().get());
+        studentErrorLabel.setText("");
+        try {
+            studentIDTextField.setText(Integer.toString(student.studentIdProperty().get()));
+            firstNameTextField.setText(student.studentFirstNameProperty().get());
+            lastNameTextField.setText(student.studentLastNameProperty().get());
+        } catch (NullPointerException e) {
+            System.out.println("No studen object selected.");
+        }
     }
 
     public void deleteStudent() {
         Student student = studentTable.getSelectionModel().getSelectedItem();
-        model.deleteStudent(student);
+        studentErrorLabel.setText("");
+        try {
+            model.deleteStudent(student);
+        } catch (NullPointerException e) {
+            System.out.println("No student object selected.");
+        }
         examinerIdLabel.setText("");
         examinerLastNameLabel.setText("");
         examinerFirstNameLabel.setText("");
@@ -403,12 +442,17 @@ public class PrimaryController extends Controller {
             loader.setLocation(getClass().getResource("editexaminer.fxml"));
             Parent root = (Parent) loader.load();
             EditExaminerController controller = loader.getController();
-            controller.initialize(this);
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Edit Examiner");
-            stage.setScene(new Scene(root));
-            stage.show();
+            try {
+                controller.initialize(this);
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setTitle("Edit Examiner");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (NullPointerException e) {
+                examinerErrorLabel.setText("No examiner selected!");
+                e.printStackTrace();
+            }
         } else {
             examinerErrorLabel.setText("Examiner booked!");
         }
@@ -421,23 +465,31 @@ public class PrimaryController extends Controller {
         examinerFirstNameLabel.setText("");
         examinerDateTable.getItems().clear();
         Examiner examiner = examinerTable.getSelectionModel().getSelectedItem();
-        examinerIdLabel.setText(examiner.examinerIdProperty().get());
-        examinerFirstNameLabel.setText(examiner.examinerFirstNameProperty().get());
-        examinerLastNameLabel.setText(examiner.examinerLastNameProperty().get());
-        ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.unavailableDatesProperty());
-        examinerDateTable.getItems().addAll(model.getExaminerUnavailabilityDates(examiner.examinerIdProperty().get()));
+        try {
+            examinerIdLabel.setText(examiner.examinerIdProperty().get());
+            examinerFirstNameLabel.setText(examiner.examinerFirstNameProperty().get());
+            examinerLastNameLabel.setText(examiner.examinerLastNameProperty().get());
+            ObservableList<Date> dates = FXCollections.<Date>observableArrayList(examiner.unavailableDatesProperty());
+            examinerDateTable.getItems().addAll(model.getExaminerUnavailabilityDates(examiner.examinerIdProperty().get()));
+        } catch (NullPointerException e) {
+            System.out.println("No examiner object selected!");
+        }
     }
 
     public void deleteExaminer() {
         Examiner examiner = examinerTable.getSelectionModel().getSelectedItem();
-        if (model.examinerDeletable(examiner)) {
-            model.deleteExaminer(examiner);
-            examinerIdLabel.setText("");
-            examinerLastNameLabel.setText("");
-            examinerFirstNameLabel.setText("");
-            updateData();
-        } else {
-            examinerErrorLabel.setText("Examiner booked!");
+        try {
+            if (model.examinerDeletable(examiner)) {
+                model.deleteExaminer(examiner); //this and the line above causes the exception
+                examinerIdLabel.setText("");
+                examinerLastNameLabel.setText("");
+                examinerFirstNameLabel.setText("");
+                updateData();
+            } else {
+                examinerErrorLabel.setText("Examiner booked!");
+            }
+        } catch (NullPointerException e) {
+            System.out.println("No examiner object selected.");
         }
     }
 
@@ -455,19 +507,23 @@ public class PrimaryController extends Controller {
     }
 
     public void openEditCourseWindow() throws Exception {
-        if (model.courseDeletable(courseTable.getSelectionModel().getSelectedItem())) {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("editcourse.fxml"));
-            Parent root = (Parent) loader.load();
-            EditCourseController controller = loader.getController();
-            controller.initialize(this);
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Edit Course");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } else {
-            courseErrorLabel.setText("Course booked!");
+        try {
+            if (model.courseDeletable(courseTable.getSelectionModel().getSelectedItem())) {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("editcourse.fxml"));
+                Parent root = (Parent) loader.load();
+                EditCourseController controller = loader.getController();
+                controller.initialize(this);
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setTitle("Edit Course");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } else {
+                courseErrorLabel.setText("Course booked!");
+            }
+        } catch (NullPointerException e) {
+            courseErrorLabel.setText("No course selected!");
         }
     }
 
@@ -477,21 +533,29 @@ public class PrimaryController extends Controller {
         courseTypeLabel.setText("");
         courseStudentTable.getItems().clear();
         Course course = courseTable.getSelectionModel().getSelectedItem();
-        courseIdLabel.setText(course.courseIdProperty().get());
-        courseTypeLabel.setText(course.courseTypeProperty().get());
-        courseStudentTable.getItems().addAll(model.getStudentsByCourse(course.courseIdProperty().get()));
+        try {
+            courseIdLabel.setText(course.courseIdProperty().get());
+            courseTypeLabel.setText(course.courseTypeProperty().get());
+            courseStudentTable.getItems().addAll(model.getStudentsByCourse(course.courseIdProperty().get()));
+        } catch (NullPointerException e) {
+            System.out.println("No course object selected.");
+        }
     }
 
     public void deleteCourse() {
         Course course = courseTable.getSelectionModel().getSelectedItem();
-        if (model.courseDeletable(course)) {
-            model.deleteCourse(course);
-            courseIdLabel.setText("");
-            courseTypeLabel.setText("");
-            courseStudentTable.getItems().clear();
-            updateData();
-        } else {
-            courseErrorLabel.setText("Course booked!");
+        try {
+            if (model.courseDeletable(course)) {
+                model.deleteCourse(course);
+                courseIdLabel.setText("");
+                courseTypeLabel.setText("");
+                courseStudentTable.getItems().clear();
+                updateData();
+            } else {
+                courseErrorLabel.setText("Course booked!");
+            }
+        } catch (NullPointerException e) {
+            System.out.println("No course object selected.");
         }
     }
 
@@ -552,33 +616,35 @@ public class PrimaryController extends Controller {
 
     public void studentEdit() {
         String styleTextField = "-fx-text-box-border: transparent; -fx-background-color:  -fx-control-inner-background; -fx-control-inner-background:  f4f4f4; -fx-cursor: none";
-        if (editSaveStudent.getText().equals("Edit")) {
-            selectStudentItem();
-            studentIDTextField.setStyle(styleTextField);
-            firstNameTextField.setStyle(null);
-            lastNameTextField.setStyle(null);
-            studentIDTextField.setEditable(false);
-            firstNameTextField.setEditable(true);
-            lastNameTextField.setEditable(true);
-            deleteStudentButton.setDisable(true);
-            editSaveStudent.setText("Save");
-        } else {
-            studentIDTextField.setEditable(false);
-            firstNameTextField.setEditable(false);
-            lastNameTextField.setEditable(false);
+        if(!studentTable.getSelectionModel().isEmpty()) {
+            if (editSaveStudent.getText().equals("Edit")) {
+                selectStudentItem();
+                studentIDTextField.setStyle(styleTextField);
+                firstNameTextField.setStyle(null);
+                lastNameTextField.setStyle(null);
+                studentIDTextField.setEditable(false);
+                firstNameTextField.setEditable(true);
+                lastNameTextField.setEditable(true);
+                deleteStudentButton.setDisable(true);
+                editSaveStudent.setText("Save");
+            } else {
+                studentIDTextField.setEditable(false);
+                firstNameTextField.setEditable(false);
+                lastNameTextField.setEditable(false);
 
-            studentIDTextField.setStyle(styleTextField);
-            firstNameTextField.setStyle(styleTextField);
-            lastNameTextField.setStyle(styleTextField);
+                studentIDTextField.setStyle(styleTextField);
+                firstNameTextField.setStyle(styleTextField);
+                lastNameTextField.setStyle(styleTextField);
 
-//TODO either fix deleteStudent or load table after save.Edit works.
-            Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
-                    firstNameTextField.getText(), lastNameTextField.getText());
-            model.editStudent(student);
-            studentTable.getSelectionModel().clearSelection();
-            deleteStudentButton.setDisable(false);
-            editSaveStudent.setText("Edit");
-            updateData();
+//TODO either fix deleteStudent or load table after save.Edit works. causes error number format exception when saving empty
+                Student student = new Student(Integer.parseInt(studentIDTextField.getText()),
+                        firstNameTextField.getText(), lastNameTextField.getText());
+                model.editStudent(student);
+                studentTable.getSelectionModel().clearSelection();
+                deleteStudentButton.setDisable(false);
+                editSaveStudent.setText("Edit");
+                updateData();
+            }
         }
     }
 

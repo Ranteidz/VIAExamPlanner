@@ -39,7 +39,7 @@ public class EditExaminerController {
         deletedDates = new ArrayList<Date>();
     }
 
-    public void initialize(PrimaryController parentController) {
+    public void initialize(PrimaryController parentController) throws NullPointerException{
         this.parentController = parentController;
         datesColumn.setCellValueFactory(new PropertyValueFactory<Date, String>("formattedDate"));
         examiner = parentController.examinerTable.getSelectionModel().getSelectedItem();
@@ -68,7 +68,6 @@ public class EditExaminerController {
             if (deletedDates.contains(date))
                 deletedDates.remove(date);
             addedDates.add(date);
-            unavailableDatesTable.getItems().add(date);
         } else System.out.println("Date already exists!");
         datePicker.setValue(null);
     }
@@ -78,8 +77,7 @@ public class EditExaminerController {
         allDates = unavailableDatesTable.getItems();
         selectedDate = unavailableDatesTable.getSelectionModel().getSelectedItems();
         Date date = unavailableDatesTable.getSelectionModel().getSelectedItem();
-        if (addedDates.contains(date))
-            addedDates.remove(date);
+        addedDates.remove(date);
         deletedDates.add(date);
         examiner.unavailableDatesProperty().remove(selectedDate.get(0));
         allDates.removeAll(selectedDate);

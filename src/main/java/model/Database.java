@@ -39,12 +39,6 @@ public class Database implements Persistence {
         courses.setCourseId(rs.getString("ID"));
         courses.setCourseType(rs.getString("Type"));
     }
-    /*private void process(ResultSet rs,Exam exam,Course course, Classroom classroom,Date date) throws SQLException {
-        exam.setCourseId(rs.getString("ID"));
-        course.setCourseId(rs.getString("CourseID"));
-        classroom.setName(rs.getString("ClassroomID"));
-
-    }*/
 
     public void save() {
         //this can be used to save to files when using local files
@@ -427,7 +421,7 @@ public class Database implements Persistence {
         }
     }
 
-    //TODO reworking
+
     public void insertExam(Exam exam, Course course, Classroom classroom, Date date) {
         try {
             Connection con = DriverManager.getConnection(getDatabaseConnectionString());
@@ -446,7 +440,7 @@ public class Database implements Persistence {
         }
     }
 
-    //TODO reworking..
+
     public void editExam(Exam exam) {
         try {
             Connection con = DriverManager.getConnection(getDatabaseConnectionString());

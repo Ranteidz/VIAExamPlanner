@@ -36,7 +36,7 @@ public class EditCourseController {
         deletedStudents = new ArrayList<Student>();
     }
 
-    public void initialize(PrimaryController parentController) {
+    public void initialize(PrimaryController parentController) throws NullPointerException {
         this.parentController = parentController;
         studentsColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("studentId"));
         course = parentController.courseTable.getSelectionModel().getSelectedItem();
@@ -71,7 +71,6 @@ public class EditCourseController {
                 deletedStudents.remove(student);
         } else
             System.out.println("ERROR: Student does not exist!");
-        studentsTable.getItems().add(student);
         studentId.clear();
     }
 
